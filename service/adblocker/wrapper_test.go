@@ -5,8 +5,8 @@ import (
 )
 
 const (
-	Ak = "AKLTMWRiNDFiYWVmZjkyNGI1ZmE3YmIxNTQxOTdjODU1ZTE"              // write your access key
-	Sk = "TUdFeU0ySmtZek0zWWpZek5EYzJNVGxrWlRkbU56TmhaV1JoTjJFeU1EQQ==" // write your secret key
+	Ak = "ak" // write your access key
+	Sk = "sk" // write your secret key
 )
 
 func init() {
@@ -17,7 +17,7 @@ func init() {
 
 func AdBlock(appId int64, service string, parameters string) {
 	res, err := DefaultInstance.AdBlock(&AdBlockRequest{
-		AppID:      appId,      // write your app id
+		AppId:      appId,      // write your app id
 		Service:    service,    // write adblocker service
 		Parameters: parameters, // write your parameters
 	})
