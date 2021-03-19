@@ -6,8 +6,8 @@ import (
 )
 
 const (
-	Ak = "AKLTMWRiNDFiYWVmZjkyNGI1ZmE3YmIxNTQxOTdjODU1ZTE"              // write your access key
-	Sk = "TUdFeU0ySmtZek0zWWpZek5EYzJNVGxrWlRkbU56TmhaV1JoTjJFeU1EQQ==" // write your secret key
+	Ak = "ak" // write your access key
+	Sk = "sk" // write your secret key
 )
 
 func init() {
@@ -17,7 +17,7 @@ func init() {
 
 func RiskDetection(appId int64, service string, parameters string) {
 	res, err := DefaultInstance.RiskDetection(&RiskDetectionRequest{
-		AppID:      appId,      // write your app id
+		AppId:      appId,      // write your app id
 		Service:    service,    // write business security service
 		Parameters: parameters, // write your parameters
 	})
@@ -29,7 +29,7 @@ func RiskDetection(appId int64, service string, parameters string) {
 
 func AsyncRiskDetection(appId int64, service string, parameters string) {
 	res, err := DefaultInstance.AsyncRiskDetection(&AsyncRiskDetectionRequest{
-		AppID:      appId,      // write your app id
+		AppId:      appId,      // write your app id
 		Service:    service,    // write business security service
 		Parameters: parameters, // write your parameters
 	})
