@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	DefaultRegion          = "cn-north-1"
+	DefaultRegion          = base.RegionApSingapore
 	ServiceVersion20180101 = "2018-01-01"
 	ServiceName            = "sts"
 )
@@ -17,7 +17,7 @@ const (
 var (
 	ServiceInfo = &base.ServiceInfo{
 		Timeout: 5 * time.Second,
-		Host:    "open.volcengineapi.com",
+		Host:    "open.byteplusapi.com",
 		Header: http.Header{
 			"Accept": []string{"application/json"},
 		},

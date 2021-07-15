@@ -12,7 +12,7 @@ import (
 var (
 	serviceInfo = &ServiceInfo{
 		Timeout: 5 * time.Second,
-		Host:    "open.volcengineapi.com",
+		Host:    "open.byteplusapi.com",
 		Header: http.Header{
 			"Accept": []string{"application/json"},
 		},
@@ -33,7 +33,7 @@ var (
 
 func TestClient_GetSignUrl(t *testing.T) {
 	client := NewClient(serviceInfo, apiList)
-	// set aksk or read from ~/.volc/config
+	// set aksk or read from ~/.byteplus/config
 	client.SetAccessKey("ak")
 	client.SetSecretKey("sk")
 	urlStr, _ := client.GetSignUrl("ListUsers", nil)
@@ -49,7 +49,7 @@ func TestClient_GetSignUrl(t *testing.T) {
 
 func TestClient_Query(t *testing.T) {
 	client := NewClient(serviceInfo, apiList)
-	// set aksk or read from ~/.volc/config
+	// set aksk or read from ~/.byteplus/config
 	// client.SetAccessKey("your-ak")
 	// client.SetSecretKey("your-sk")
 

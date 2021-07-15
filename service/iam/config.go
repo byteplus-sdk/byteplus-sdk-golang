@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	DefaultRegion          = "cn-north-1"
+	DefaultRegion          = base.RegionApSingapore
 	ServiceVersion20180101 = "2018-01-01"
 	ServiceName            = "iam"
 )

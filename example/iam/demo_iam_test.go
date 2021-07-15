@@ -10,13 +10,13 @@ import (
 
 const (
 	region = "ap-singapore-1"
-	testAk = "AKAPMjI2NzdhZDRmMDYxNDEyOWEzMzlhMDllMWFlYjQyOTQ"
-	testSk = "Tm1GaVlXUXlZMkl5WldGa05ETTJabUZoTlRGa1pEQTBaR1E1WlRsbU9HWQ=="
+	testAk = "ak"
+	testSk = "sk"
 )
 
 func TestIAM(t *testing.T) {
-	iam.DefaultInstance.Client.SetAccessKey(testAk)
-	iam.DefaultInstance.Client.SetSecretKey(testSk)
+	//iam.DefaultInstance.Client.SetAccessKey(testAk)
+	//iam.DefaultInstance.Client.SetSecretKey(testSk)
 	iam.DefaultInstance.SetRegion(region)
 
 	list, status, err := iam.DefaultInstance.ListUsers(nil)
