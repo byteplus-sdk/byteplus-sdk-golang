@@ -15,8 +15,8 @@ import (
 )
 
 const (
-	accessKey = "VOLC_ACCESSKEY"
-	secretKey = "VOLC_SECRETKEY"
+	accessKey = "BYTEPLUS_ACCESSKEY"
+	secretKey = "BYTEPLUS_SECRETKEY"
 
 	defaultScheme = "http"
 )
@@ -47,8 +47,8 @@ func NewClient(info *ServiceInfo, apiInfoList map[string]*ApiInfo) *Client {
 	if os.Getenv(accessKey) != "" && os.Getenv(secretKey) != "" {
 		client.ServiceInfo.Credentials.AccessKeyID = os.Getenv(accessKey)
 		client.ServiceInfo.Credentials.SecretAccessKey = os.Getenv(secretKey)
-	} else if _, err := os.Stat(os.Getenv("HOME") + "/.volc/config"); err == nil {
-		if content, err := ioutil.ReadFile(os.Getenv("HOME") + "/.volc/config"); err == nil {
+	} else if _, err := os.Stat(os.Getenv("HOME") + "/.byteplus/config"); err == nil {
+		if content, err := ioutil.ReadFile(os.Getenv("HOME") + "/.byteplus/config"); err == nil {
 			m := make(map[string]string)
 			json.Unmarshal(content, &m)
 			if accessKey, ok := m["ak"]; ok {
@@ -63,7 +63,7 @@ func NewClient(info *ServiceInfo, apiInfoList map[string]*ApiInfo) *Client {
 	content, err := ioutil.ReadFile("VERSION")
 	if err == nil {
 		client.SdkVersion = strings.TrimSpace(string(content))
-		client.ServiceInfo.Header.Set("User-Agent", strings.Join([]string{"volc-sdk-golang", client.SdkVersion}, "/"))
+		client.ServiceInfo.Header.Set("User-Agent", strings.Join([]string{"byteplus-sdk-golang", client.SdkVersion}, "/"))
 	}
 
 	return client

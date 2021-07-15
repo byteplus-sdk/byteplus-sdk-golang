@@ -1,54 +1,30 @@
-# 火山引擎开发者Go SDK
+# BytePlus developer SDK for Go
 
-## 安装sdk(推荐)
+## Installing SDK
 
-建议使用go >= 1.13.1
+Suggest to use go version >= 1.13.1
 
-```go get -u github.com/volcengine/volc-sdk-golang```
+```go get -u github.com/byteplus-sdk/byteplus-sdk-golang```
 
-### AK/SK 注册申请流程
+### AK/SK registration procedure
+Main account and privileged sub-account may create AK/SK pair:
 
-主账户和有权限的子用户可以新建AK密钥，操作如下：
+1. Log in to byteplus console
+2. Choose "IAM" -> "Key Management"
+3. You can find AK/SK pair details in the page, each account can have maximum of 2 pairs.
+4. Create new token or click to view key detail.
 
-1.使用帐号/密码登录控制台；
+### AK/SK Setting
+- Explicitly call SetAccessKey/SetSecretKey method in Client
 
-2.选择一级菜单“访问控制”->选择二级菜单“密钥管理”；
+- Set env variable BYTEPLUS_ACCESSKEY="your ak"  BYTEPLUS_SECRETKEY = "your sk"
 
-3.页面中展示主账号的访问密钥列表，每个IAM用户最多可同时拥有2个访问密钥，如果当前IAM用户的访问密钥数量未达到上限，则可以点击新建密钥按钮；
-
-4.点击新建密钥按钮，弹出新建密钥弹窗，点击查看AccessKey详情，可直接查看访问密钥信息。
-
-### 通过API申请AK/SK
- 
-[生成访问密匙](https://www.volcengine.cn/docs/6291/65578)
-
-## 显示的在client中设置AKSK (推荐)
-
-```go
-iam.DefaultInstance.Client.SetAccessKey(testAk)
-iam.DefaultInstance.Client.SetSecretKey(testSk)	
-```
-
-## 从环境变量加载AKSK
-
-环境变量信息
-
-```bash
-VOLC_ACCESSKEY="ak"
-VOLC_SECRETKEY="sk"
-```
-
-## 从HOME文件加载AKSK
-
-在本地的`~/.volc/config`中添加如下内容：
-
+- json config at ～/.byteplus/config，format：
 ```json
 {
 	"ak":"Your-AK",
 	"sk":"Your-SK"
 }
 ```
+Above options will take precedence in sequence, Suggest use option 1 for better trouble shooting
 
-## SDK服务目录及实例
-
--【视觉智能】请点击[这里](service/visual/README.md)

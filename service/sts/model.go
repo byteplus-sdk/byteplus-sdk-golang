@@ -1,6 +1,6 @@
 package sts
 
-import "github.com/volcengine/volc-sdk-golang/base"
+import "github.com/byteplus-sdk/byteplus-sdk-golang/base"
 
 // AssumeRole
 type AssumeRoleResp struct {

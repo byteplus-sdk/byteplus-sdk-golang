@@ -1,6 +1,6 @@
 package iam
 
-import "github.com/volcengine/volc-sdk-golang/base"
+import "github.com/byteplus-sdk/byteplus-sdk-golang/base"
 
 // user
 type UserStructure struct {

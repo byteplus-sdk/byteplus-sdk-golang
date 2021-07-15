@@ -5,13 +5,13 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/volcengine/volc-sdk-golang/service/iam"
+	"github.com/byteplus-sdk/byteplus-sdk-golang/service/iam"
 )
 
 const (
-	region = "region"
-	testAk = "ak"
-	testSk = "sk"
+	region = "ap-singapore-1"
+	testAk = "AKAPMjI2NzdhZDRmMDYxNDEyOWEzMzlhMDllMWFlYjQyOTQ"
+	testSk = "Tm1GaVlXUXlZMkl5WldGa05ETTJabUZoTlRGa1pEQTBaR1E1WlRsbU9HWQ=="
 )
 
 func TestIAM(t *testing.T) {

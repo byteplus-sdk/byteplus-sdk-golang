@@ -5,7 +5,7 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/volcengine/volc-sdk-golang/base"
+	"github.com/byteplus-sdk/byteplus-sdk-golang/base"
 )
 
 const (
@@ -17,7 +17,7 @@ const (
 var (
 	ServiceInfo = &base.ServiceInfo{
 		Timeout: 5 * time.Second,
-		Host:    "iam.volcengineapi.com",
+		Host:    "open.byteplusapi.com",
 		Header: http.Header{
 			"Accept": []string{"application/json"},
 		},

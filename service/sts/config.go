@@ -5,7 +5,7 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/volcengine/volc-sdk-golang/base"
+	"github.com/byteplus-sdk/byteplus-sdk-golang/base"
 )
 
 const (
