@@ -10,7 +10,7 @@ type SmsRequest struct {
 	PhoneNumbers  string
 	Tag           string
 	UserExtCode   string
-	SrcId         string
+	From          string
 }
 
 // AssumeRole

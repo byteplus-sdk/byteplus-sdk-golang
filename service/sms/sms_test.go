@@ -42,7 +42,7 @@ func TestSMS_sendI18n(t *testing.T) {
 	cj, _ := json.Marshal(c)
 	req := &SmsRequest{
 		SmsAccount:    "smsAccount",
-		Sign:          "sign",
+		From:          "BytePlus",
 		TemplateID:    "ST_xxx",
 		TemplateParam: string(cj),
 		PhoneNumbers:  "+65xxxxxxxx",
