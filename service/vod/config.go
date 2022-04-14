@@ -39,7 +39,7 @@ func NewInstanceWithRegion(region string) *Vod {
 
 var (
 	ServiceInfoMap = map[string]*base.ServiceInfo{
-		base.RegionCnNorth1: {
+		base.RegionApSingapore: {
 			Timeout: 5 * time.Second,
 			Host:    "vod.byteplusapi.com",
 			Header: http.Header{
