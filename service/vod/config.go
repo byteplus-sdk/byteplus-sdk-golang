@@ -61,14 +61,6 @@ var (
 				"Version": []string{"2020-08-01"},
 			},
 		},
-		"GetPrivateDrmPlayAuth": {
-			Method: http.MethodGet,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"GetPrivateDrmPlayAuth"},
-				"Version": []string{"2020-08-01"},
-			},
-		},
 		"GetHlsDecryptionKey": {
 			Method: http.MethodGet,
 			Path:   "/",
@@ -142,14 +134,6 @@ var (
 				"Version": []string{"2020-08-01"},
 			},
 		},
-		"GetRecommendedPoster": {
-			Method: http.MethodGet,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"GetRecommendedPoster"},
-				"Version": []string{"2020-08-01"},
-			},
-		},
 		"DeleteMedia": {
 			Method: http.MethodGet,
 			Path:   "/",
@@ -171,30 +155,6 @@ var (
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"GetMediaList"},
-				"Version": []string{"2020-08-01"},
-			},
-		},
-		"GetSubtitleInfoList": {
-			Method: http.MethodGet,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"GetSubtitleInfoList"},
-				"Version": []string{"2020-08-01"},
-			},
-		},
-		"UpdateSubtitleStatus": {
-			Method: http.MethodGet,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateSubtitleStatus"},
-				"Version": []string{"2020-08-01"},
-			},
-		},
-		"UpdateSubtitleInfo": {
-			Method: http.MethodGet,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateSubtitleInfo"},
 				"Version": []string{"2020-08-01"},
 			},
 		},
