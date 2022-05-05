@@ -36,3 +36,16 @@ func TestSMS_sendI18n(t *testing.T) {
 	t.Logf("statusCode = %+v\n", statusCode)
 	t.Logf("err = %+v\n", err)
 }
+
+func TestSMS_conversion(t *testing.T) {
+	client := sms.NewInstanceI18n("ap-singapore-1")
+	client.Client.SetAccessKey(testAk)
+	client.Client.SetSecretKey(testSk)
+	req := &sms.ConversionRequest{
+		MessageIDs: []string{"test_msg_id"},
+	}
+	result, statusCode, err := client.Conversion(req)
+	t.Logf("result = %+v\n", result)
+	t.Logf("statusCode = %+v\n", statusCode)
+	t.Logf("err = %+v\n", err)
+}
