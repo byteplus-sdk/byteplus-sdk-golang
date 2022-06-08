@@ -40,6 +40,7 @@ type SmsResult struct {
 
 type SmsVerifyCodeRequest struct {
 	SmsAccount  string
+	From        string
 	Sign        string
 	TemplateID  string
 	PhoneNumber string
