@@ -70,13 +70,13 @@ func TestSmsBatchSendI18n(t *testing.T) {
 }
 
 func TestSmsConversion(t *testing.T) {
-	client := sms.NewInstanceI18n("ap-singapore-1")
-	client.Client.SetAccessKey(testAk)
-	client.Client.SetSecretKey(testSk)
+	i18nInstance := sms.NewInstanceI18n("ap-singapore-1")
+	i18nInstance.Client.SetAccessKey(testAk)
+	i18nInstance.Client.SetSecretKey(testSk)
 	req := &sms.ConversionRequest{
 		MessageIDs: []string{"MessageID"},
 	}
-	result, statusCode, err := client.Conversion(req)
+	result, statusCode, err := i18nInstance.Conversion(req)
 	t.Logf("result = %+v\n", result)
 	t.Logf("statusCode = %+v\n", statusCode)
 	t.Logf("err = %+v\n", err)
