@@ -13,6 +13,21 @@ type SmsRequest struct {
 	From          string
 }
 
+type SmsBatchRequest struct {
+	SmsAccount string
+	Sign       string
+	TemplateID string
+
+	Tag      string
+	From     string
+	Messages []*SmsBatchMessages
+}
+
+type SmsBatchMessages struct {
+	TemplateParam string
+	PhoneNumber   string
+}
+
 // AssumeRole
 type SmsResponse struct {
 	ResponseMetadata base.ResponseMetadata
@@ -25,6 +40,7 @@ type SmsResult struct {
 
 type SmsVerifyCodeRequest struct {
 	SmsAccount  string
+	From        string
 	Sign        string
 	TemplateID  string
 	PhoneNumber string
