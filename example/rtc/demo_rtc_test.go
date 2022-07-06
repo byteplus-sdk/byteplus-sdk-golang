@@ -1,3 +1,10 @@
+// Description: Demonstrates how to use the OpenAPI authentication SDK
+// When using, please refer to the package github.com/byteplus-sdk/byteplus-sdk-golang/service/rtc or copy it to your own project to append the required API
+//
+// The service/rtc directory contains three files:
+// 1. config.go defines API properties, introduces signature packages and initializes services
+// 2. model.go stores the definition of API request parameters and return parameters
+// 3. The method body of the wrappper.go API is mainly divided into two categories: GET and POST
 package main
 
 import (
@@ -27,11 +34,13 @@ func TestMain(t *testing.M) {
 	t.Run()
 }
 
-func TestListRooms(t *testing.T) {
+func TestListRoomInformation(t *testing.T) {
 	query := url.Values{}
 	query.Set("AppId", appId)
-	//query.Set("RoomId", "zdl_room_20210818")
-	res, _, err := rtc.ListRooms(rtcClient, query)
+	query.Set("StartTime", "2022-04-22T12:00:00+08:00")
+	query.Set("EndTime", "2022-05-22T12:59:00+08:00")
+
+	res, _, err := rtc.ListRoomInformation(rtcClient, query)
 	if err != nil {
 		fmt.Printf("err:%v\n", err)
 		return
@@ -47,8 +56,8 @@ func TestListRooms(t *testing.T) {
 func TestListIndicators(t *testing.T) {
 	req := rtc.ListIndicatorsRequest{
 		AppId:     appId,
-		StartTime: "2021-08-17T00:00:00+08:00",
-		EndTime:   "2021-08-18T00:00:00+08:00",
+		StartTime: "2022-05-17T00:00:00+08:00",
+		EndTime:   "2022-06-18T00:00:00+08:00",
 		Indicator: "NetworkTransDelay",
 	}
 	//req.OS = "android"

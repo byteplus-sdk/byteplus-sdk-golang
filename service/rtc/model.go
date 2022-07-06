@@ -12,62 +12,62 @@ type CommonResponse struct {
 	Result           json.RawMessage `json:"Result,omitempty"`
 }
 
-// ListRoomsResponse ...
-type ListRoomsResponse struct {
-	ResponseMetadata *base.ResponseMetadata
-	Result           *ListRoomsResult `json:"Result,omitempty"`
-}
+type (
+	// ListRoomInformationResponse ...
+	ListRoomInformationResponse struct {
+		ResponseMetadata *base.ResponseMetadata
+		Result           *ListRoomInformationResult `json:"Result,omitempty"`
+	}
 
-// ListRoomsResult ...
-type ListRoomsResult struct {
-	Total       int    `json:"Total"`
-	ActiveNum   int    `json:"ActiveNum"`
-	InactiveNum int    `json:"InactiveNum"`
-	Offset      int    `json:"Offset"`
-	Limit       int    `json:"Limit"`
-	Rooms       []Room `json:"Rooms"`
-}
+	// ListRoomInformationResult ...
+	ListRoomInformationResult struct {
+		Total    int    `json:"Total"`
+		PageNum  int    `json:"PageNum"`
+		PageSize int    `json:"PageSize"`
+		HasMore  bool   `json:"HasMore"`
+		RoomList []Room `json:"RoomList"`
+	}
 
-// Room ...
-type Room struct {
-	RoomId    string `json:"RoomId"`
-	AppId     string `json:"AppId"`
-	UserNum   int    `json:"UserNum"`
-	StreamNum int    `json:"StreamNum"`
-	State     int    `json:"State"`
-	CreatedAt string `json:"CreatedAt"`
-	UpdatedAt string `json:"UpdatedAt"`
-}
+	// Room ...
+	Room struct {
+		RoomId      string `json:"RoomId"`
+		CreatedTime string `json:"CreatedTime"`
+		DestroyTime string `json:"DestroyTime"`
+		IsFinished  bool   `json:"IsFinished"`
+	}
+)
 
-// ListIndicatorsRequest...
-type ListIndicatorsRequest struct {
-	AppId     string `json:"AppId"`
-	StartTime string `json:"StartTime"`
-	EndTime   string `json:"EndTime"`
-	Indicator string `json:"Indicator"`
-	OS        string `json:"OS,omitempty"`
-	Network   string `json:"Network,omitempty"`
-}
+type (
+	// ListIndicatorsRequest...
+	ListIndicatorsRequest struct {
+		AppId     string `json:"AppId"`
+		StartTime string `json:"StartTime"`
+		EndTime   string `json:"EndTime"`
+		Indicator string `json:"Indicator"`
+		OS        string `json:"OS,omitempty"`
+		Network   string `json:"Network,omitempty"`
+	}
 
-// ListIndicatorsResponse ...
-type ListIndicatorsResponse struct {
-	ResponseMetadata *base.ResponseMetadata
-	Result           *ListIndicatorsResult `json:"Result,omitempty"`
-}
+	// ListIndicatorsResponse ...
+	ListIndicatorsResponse struct {
+		ResponseMetadata *base.ResponseMetadata
+		Result           *ListIndicatorsResult `json:"Result,omitempty"`
+	}
 
-type ListIndicatorsResult struct {
-	Indicators []Indicator `json:"Indicators"`
-}
+	ListIndicatorsResult struct {
+		Indicators []Indicator `json:"Indicators"`
+	}
 
-// Indicator ...
-type Indicator struct {
-	Name  string `json:"Name"`
-	Unit  string `json:"Unit"`
-	Datas []Data `json:"Data"`
-}
+	// Indicator ...
+	Indicator struct {
+		Name  string `json:"Name"`
+		Unit  string `json:"Unit"`
+		Datas []Data `json:"Data"`
+	}
 
-//Data ...
-type Data struct {
-	TimeStamp string  `json:"TimeStamp"`
-	Value     float64 `json:"Value"`
-}
+	// Data ...
+	Data struct {
+		TimeStamp string  `json:"TimeStamp"`
+		Value     float64 `json:"Value"`
+	}
+)
