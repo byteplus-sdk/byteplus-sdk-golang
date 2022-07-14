@@ -63,6 +63,7 @@ type CheckSmsVerifyCodeResponse struct {
 	ResponseMetadata base.ResponseMetadata
 	Result           string
 }
+
 type ConversionRequest struct {
 	MessageIDs []string
 	Type       int
