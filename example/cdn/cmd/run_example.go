@@ -31,7 +31,6 @@ func main() {
 		return
 	}
 
-	//DefaultInstance.Client.ServiceInfo.Host = "volcengineapi-dev.byted.org"
 	fmt.Printf("API Endpoint: %s \n", DefaultInstance.Client.ServiceInfo.Host)
 
 	for idx, item := range examples {
