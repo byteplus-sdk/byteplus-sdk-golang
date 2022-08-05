@@ -87,6 +87,7 @@ type PolicyList struct {
 	Offset         int
 	Total          int
 }
+
 type PolicyListResp struct {
 	ResponseMetadata *base.ResponseMetadata
 	Result           *PolicyList `json:",omitempty"`
