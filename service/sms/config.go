@@ -12,6 +12,7 @@ const (
 	DefaultRegion          = "cn-north-1"
 	ServiceVersion20200101 = "2020-01-01"
 	ServiceVersion20210101 = "2021-01-01"
+	ServiceVersion20210111 = "2021-01-11"
 	ServiceName            = "volcSMS"
 )
 
@@ -72,6 +73,46 @@ var (
 			Query: url.Values{
 				"Action":  []string{"Conversion"},
 				"Version": []string{ServiceVersion20200101},
+			},
+		},
+		"GetSmsTemplateAndOrderList": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"GetSmsTemplateAndOrderList"},
+				"Version": []string{ServiceVersion20210111},
+			},
+		},
+		"ApplySmsTemplate": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"ApplySmsTemplate"},
+				"Version": []string{ServiceVersion20210111},
+			},
+		},
+		"DeleteSmsTemplate": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DeleteSmsTemplate"},
+				"Version": []string{ServiceVersion20210111},
+			},
+		},
+		"GetSubAccountList": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"GetSubAccountList"},
+				"Version": []string{ServiceVersion20210111},
+			},
+		},
+		"GetSubAccountDetail": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"GetSubAccountDetail"},
+				"Version": []string{ServiceVersion20210111},
 			},
 		},
 	}

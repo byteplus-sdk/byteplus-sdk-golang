@@ -3,6 +3,7 @@ package demo_sms
 import (
 	"testing"
 
+	"github.com/byteplus-sdk/byteplus-sdk-golang/base"
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/sms"
 )
 
@@ -10,10 +11,7 @@ import (
 return message_ids(the message_ids are the ones in Send/BatchSend response body) which have converted
 */
 func TestSmsConversion(t *testing.T) {
-	testAk := "testAK"
-	testSk := "testSk"
-
-	i18nInstance := sms.NewInstanceI18n("ap-singapore-1")
+	i18nInstance := sms.NewInstanceI18n(base.RegionApSingapore)
 	i18nInstance.Client.SetAccessKey(testAk)
 	i18nInstance.Client.SetSecretKey(testSk)
 	req := &sms.ConversionRequest{
