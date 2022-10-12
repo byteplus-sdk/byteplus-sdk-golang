@@ -11,9 +11,6 @@ import (
 SendVerifyCode cooperates with CheckVerifyCode, to provide verify capability.
 */
 func TestSmsSendVerifyCode(t *testing.T) {
-	testAk := "testAK"
-	testSk := "testSk"
-
 	i18nInstance := sms.NewInstanceI18n(base.RegionApSingapore)
 	i18nInstance.Client.SetAccessKey(testAk)
 	i18nInstance.Client.SetSecretKey(testSk)
@@ -48,9 +45,6 @@ func TestSmsSendVerifyCode(t *testing.T) {
 }
 
 func TestSmsCheckVerifyCode(t *testing.T) {
-	testAk := "testAK"
-	testSk := "testSk"
-
 	i18nInstance := sms.NewInstanceI18n(base.RegionApSingapore)
 	i18nInstance.Client.SetAccessKey(testAk)
 	i18nInstance.Client.SetSecretKey(testSk)

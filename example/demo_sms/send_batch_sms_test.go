@@ -16,9 +16,6 @@ type sendBatchSmsTemplateParam struct {
 send content with different parameters to one/multiple phoneNumbers
 */
 func TestSmsBatchSendI18n(t *testing.T) {
-	testAk := "testAK"
-	testSk := "testSk"
-
 	i18nInstance := sms.NewInstanceI18n(base.RegionApSingapore)
 	i18nInstance.Client.SetAccessKey(testAk)
 	i18nInstance.Client.SetSecretKey(testSk)
