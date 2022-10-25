@@ -341,9 +341,119 @@ func (s *CDN) DescribeIPInfo(dto *DescribeIPInfoRequest) (responseBody *Describe
 	return
 }
 
+func (s *CDN) DescribeIPListInfo(dto *DescribeIPListInfoRequest) (responseBody *DescribeIPListInfoResponse, err error) {
+	responseBody = new(DescribeIPListInfoResponse)
+	if err = s.post("DescribeIPListInfo", &dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
 func (s *CDN) DescribeCdnUpperIp(dto *DescribeCdnUpperIpRequest) (responseBody *DescribeCdnUpperIpResponse, err error) {
 	responseBody = new(DescribeCdnUpperIpResponse)
 	if err = s.post("DescribeCdnUpperIp", &dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) AddResourceTags(dto *AddResourceTagsRequest) (responseBody *AddResourceTagsResponse, err error) {
+	responseBody = new(AddResourceTagsResponse)
+	if err = s.post("AddResourceTags", &dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) UpdateResourceTags(dto *UpdateResourceTagsRequest) (responseBody *UpdateResourceTagsResponse, err error) {
+	responseBody = new(UpdateResourceTagsResponse)
+	if err = s.post("UpdateResourceTags", &dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) ListResourceTags() (responseBody *ListResourceTagsResponse, err error) {
+	responseBody = new(ListResourceTagsResponse)
+	if err = s.post("ListResourceTags", nil, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) DeleteResourceTags(dto *DeleteResourceTagsRequest) (responseBody *DeleteResourceTagsResponse, err error) {
+	responseBody = new(DeleteResourceTagsResponse)
+	if err = s.post("DeleteResourceTags", &dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) AddCdnCertificate(dto *AddCdnCertificateRequest) (responseBody *AddCdnCertificateResponse, err error) {
+	responseBody = new(AddCdnCertificateResponse)
+	if err = s.post("AddCdnCertificate", &dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) ListCertInfo(dto *ListCertInfoRequest) (responseBody *ListCertInfoResponse, err error) {
+	responseBody = new(ListCertInfoResponse)
+	if err = s.post("ListCertInfo", &dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) ListCdnCertInfo(dto *ListCdnCertInfoRequest) (responseBody *ListCdnCertInfoResponse, err error) {
+	responseBody = new(ListCdnCertInfoResponse)
+	if err = s.post("ListCdnCertInfo", &dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) DescribeCertConfig(dto *DescribeCertConfigRequest) (responseBody *DescribeCertConfigResponse, err error) {
+	responseBody = new(DescribeCertConfigResponse)
+	if err = s.post("DescribeCertConfig", &dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) BatchDeployCert(dto *BatchDeployCertRequest) (responseBody *BatchDeployCertResponse, err error) {
+	responseBody = new(BatchDeployCertResponse)
+	if err = s.post("BatchDeployCert", &dto, responseBody); err != nil {
 		return
 	}
 	if err = validateResponse(responseBody.ResponseMetadata); err != nil {

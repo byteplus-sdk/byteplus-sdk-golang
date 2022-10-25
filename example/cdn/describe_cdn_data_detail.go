@@ -1,9 +1,10 @@
 package cdn
 
 import (
+	"testing"
+
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/cdn"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func DescribeCdnDataDetail(t *testing.T) {
@@ -15,6 +16,6 @@ func DescribeCdnDataDetail(t *testing.T) {
 	})
 	assert.NoError(t, err)
 	assert.NotNil(t, resp)
-	assert.NotEmpty(t, resp.Result.Domain)
+	assert.NotEmpty(t, resp.Result.Name)
 	assert.NotEmpty(t, resp.Result.DataDetails)
 }

@@ -1,9 +1,10 @@
 package cdn
 
 import (
+	"testing"
+
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/cdn"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func DescribeCdnAccessLog(t *testing.T) {
@@ -14,8 +15,8 @@ func DescribeCdnAccessLog(t *testing.T) {
 	})
 	assert.NoError(t, err)
 	assert.NotNil(t, resp)
-	if resp.Result.TotalCount > 0 {
+	if *resp.Result.TotalCount > 0 {
 		assert.NotEmpty(t, resp.Result.DomainLogDetails)
 	}
-	assert.Greater(t, int(resp.Result.PageNum), 0)
+	assert.Greater(t, int(*resp.Result.PageNum), 0)
 }

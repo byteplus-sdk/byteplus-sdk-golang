@@ -3,15 +3,16 @@ package cdn
 import (
 	"encoding/json"
 	"fmt"
+	"testing"
+
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/cdn"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func AddCdnDomain(t *testing.T) {
 	resp, err := DefaultInstance.AddCdnDomain(&cdn.AddCdnDomainRequest{
 		Domain:      operateDomain,
-		ServiceType: "web",
+		ServiceType: cdn.GetStrPtr("web"),
 		Origin: []cdn.OriginRule{
 			{OriginAction: cdn.OriginAction{
 				OriginLines: []cdn.OriginLine{
