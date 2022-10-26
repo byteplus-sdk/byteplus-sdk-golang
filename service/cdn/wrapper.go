@@ -363,50 +363,6 @@ func (s *CDN) DescribeCdnUpperIp(dto *DescribeCdnUpperIpRequest) (responseBody *
 	return
 }
 
-func (s *CDN) AddResourceTags(dto *AddResourceTagsRequest) (responseBody *AddResourceTagsResponse, err error) {
-	responseBody = new(AddResourceTagsResponse)
-	if err = s.post("AddResourceTags", &dto, responseBody); err != nil {
-		return
-	}
-	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
-		return
-	}
-	return
-}
-
-func (s *CDN) UpdateResourceTags(dto *UpdateResourceTagsRequest) (responseBody *UpdateResourceTagsResponse, err error) {
-	responseBody = new(UpdateResourceTagsResponse)
-	if err = s.post("UpdateResourceTags", &dto, responseBody); err != nil {
-		return
-	}
-	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
-		return
-	}
-	return
-}
-
-func (s *CDN) ListResourceTags() (responseBody *ListResourceTagsResponse, err error) {
-	responseBody = new(ListResourceTagsResponse)
-	if err = s.post("ListResourceTags", nil, responseBody); err != nil {
-		return
-	}
-	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
-		return
-	}
-	return
-}
-
-func (s *CDN) DeleteResourceTags(dto *DeleteResourceTagsRequest) (responseBody *DeleteResourceTagsResponse, err error) {
-	responseBody = new(DeleteResourceTagsResponse)
-	if err = s.post("DeleteResourceTags", &dto, responseBody); err != nil {
-		return
-	}
-	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
-		return
-	}
-	return
-}
-
 func (s *CDN) AddCdnCertificate(dto *AddCdnCertificateRequest) (responseBody *AddCdnCertificateResponse, err error) {
 	responseBody = new(AddCdnCertificateResponse)
 	if err = s.post("AddCdnCertificate", &dto, responseBody); err != nil {

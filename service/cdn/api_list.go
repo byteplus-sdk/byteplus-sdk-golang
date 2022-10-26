@@ -271,38 +271,6 @@ var ApiInfoList = map[string]*base.ApiInfo{
 			"Version": []string{ServiceVersion},
 		},
 	},
-	"AddResourceTags": {
-		Method: http.MethodPost,
-		Path:   "/",
-		Query: url.Values{
-			"Action":  []string{"AddResourceTags"},
-			"Version": []string{ServiceVersion},
-		},
-	},
-	"UpdateResourceTags": {
-		Method: http.MethodPost,
-		Path:   "/",
-		Query: url.Values{
-			"Action":  []string{"UpdateResourceTags"},
-			"Version": []string{ServiceVersion},
-		},
-	},
-	"ListResourceTags": {
-		Method: http.MethodPost,
-		Path:   "/",
-		Query: url.Values{
-			"Action":  []string{"ListResourceTags"},
-			"Version": []string{ServiceVersion},
-		},
-	},
-	"DeleteResourceTags": {
-		Method: http.MethodPost,
-		Path:   "/",
-		Query: url.Values{
-			"Action":  []string{"DeleteResourceTags"},
-			"Version": []string{ServiceVersion},
-		},
-	},
 	"AddCdnCertificate": {
 		Method: http.MethodPost,
 		Path:   "/",

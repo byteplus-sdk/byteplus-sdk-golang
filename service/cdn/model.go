@@ -1,9 +1,9 @@
 package cdn
 
 type AccountingDataDetail struct {
-	BillingRegion *string `json:",omitempty"`
+	BillingRegion string
 	Metrics       []MetricTimeStampValue
-	Name          *string `json:",omitempty"`
+	Name          string
 }
 
 type AddCdnCertInfo struct {
@@ -22,7 +22,7 @@ type AddCdnCertificateResponse struct {
 }
 
 type AddCdnCertificateResult struct {
-	AddCdnCertificateResult *string `json:",omitempty"`
+	AddCdnCertificateResult string
 }
 
 type AddCdnDomainRequest struct {
@@ -336,13 +336,13 @@ type ConditionUpdate struct {
 }
 
 type ContentTask struct {
-	CreateTime *int64  `json:",omitempty"`
-	Process    *string `json:",omitempty"`
-	Remark     *string `json:",omitempty"`
-	Status     *string `json:",omitempty"`
-	TaskID     *string `json:",omitempty"`
-	TaskType   *string `json:",omitempty"`
-	Url        *string `json:",omitempty"`
+	CreateTime int64
+	Process    string
+	Remark     string
+	Status     string
+	TaskID     string
+	TaskType   string
+	Url        string
 }
 
 type CustomErrorPage struct {
@@ -409,11 +409,11 @@ type DescribeCdnAccessLogResponse struct {
 }
 
 type DescribeCdnAccessLogResult struct {
-	Domain           *string `json:",omitempty"`
+	Domain           string
 	DomainLogDetails []DomainLogDetail
-	PageNum          *int64 `json:",omitempty"`
-	PageSize         *int64 `json:",omitempty"`
-	TotalCount       *int64 `json:",omitempty"`
+	PageNum          int64
+	PageSize         int64
+	TotalCount       int64
 }
 
 type DescribeCdnConfigRequest struct {
@@ -426,8 +426,8 @@ type DescribeCdnConfigResponse struct {
 }
 
 type DescribeCdnConfigResult struct {
-	DomainConfig     *DomainVolcanoDetail `json:",omitempty"`
-	ModuleLockConfig *ModuleLockConfig    `json:",omitempty"`
+	DomainConfig     DomainVolcanoDetail
+	ModuleLockConfig ModuleLockConfig
 }
 
 type DescribeCdnDataDetailRequest struct {
@@ -447,7 +447,7 @@ type DescribeCdnDataDetailResponse struct {
 
 type DescribeCdnDataDetailResult struct {
 	DataDetails []NrtDataDetails
-	Name        *string `json:",omitempty"`
+	Name        string
 }
 
 type DescribeCdnDataRequest struct {
@@ -491,7 +491,7 @@ type DescribeCdnDomainTopDataResponse struct {
 }
 
 type DescribeCdnDomainTopDataResult struct {
-	Domain         *string `json:",omitempty"`
+	Domain         string
 	TopDataDetails []TopDataDetail
 }
 
@@ -588,17 +588,17 @@ type DescribeContentBlockTasksResponse struct {
 
 type DescribeContentBlockTasksResult struct {
 	Data     []DescribeContentBlockTasksTaskInfo
-	PageNum  *int64 `json:",omitempty"`
-	PageSize *int64 `json:",omitempty"`
-	Total    *int64 `json:",omitempty"`
+	PageNum  int64
+	PageSize int64
+	Total    int64
 }
 
 type DescribeContentBlockTasksTaskInfo struct {
-	CreateTime *int64  `json:",omitempty"`
-	Status     *string `json:",omitempty"`
-	TaskID     *string `json:",omitempty"`
-	TaskType   *string `json:",omitempty"`
-	Url        *string `json:",omitempty"`
+	CreateTime int64
+	Status     string
+	TaskID     string
+	TaskType   string
+	Url        string
 }
 
 type DescribeContentQuotaResponse struct {
@@ -607,12 +607,12 @@ type DescribeContentQuotaResponse struct {
 }
 
 type DescribeContentQuotaResult struct {
-	PreloadQuota     *int64 `json:",omitempty"`
-	PreloadRemain    *int64 `json:",omitempty"`
-	RefreshDirQuota  *int64 `json:",omitempty"`
-	RefreshDirRemain *int64 `json:",omitempty"`
-	RefreshQuota     *int64 `json:",omitempty"`
-	RefreshRemain    *int64 `json:",omitempty"`
+	PreloadQuota     int64
+	PreloadRemain    int64
+	RefreshDirQuota  int64
+	RefreshDirRemain int64
+	RefreshQuota     int64
+	RefreshRemain    int64
 }
 
 type DescribeContentTasksRequest struct {
@@ -635,9 +635,9 @@ type DescribeContentTasksResponse struct {
 
 type DescribeContentTasksResult struct {
 	Data     []ContentTask
-	PageNum  *int64 `json:",omitempty"`
-	PageSize *int64 `json:",omitempty"`
-	Total    *int64 `json:",omitempty"`
+	PageNum  int64
+	PageSize int64
+	Total    int64
 }
 
 type DescribeEdgeNrtDataSummaryRequest struct {
@@ -702,9 +702,9 @@ type DescribeEdgeTopNrtDataResponse struct {
 }
 
 type DescribeEdgeTopNrtDataResult struct {
-	Item           *string `json:",omitempty"`
-	Metric         *string `json:",omitempty"`
-	Name           *string `json:",omitempty"`
+	Item           string
+	Metric         string
+	Name           string
 	TopDataDetails []TopNrtDataDetail
 }
 
@@ -723,9 +723,9 @@ type DescribeEdgeTopStatisticalDataResponse struct {
 }
 
 type DescribeEdgeTopStatisticalDataResult struct {
-	Item           *string `json:",omitempty"`
-	Metric         *string `json:",omitempty"`
-	Name           *string `json:",omitempty"`
+	Item           string
+	Metric         string
+	Name           string
 	TopDataDetails []EdgeTopStatisticalDataDetail
 }
 
@@ -745,9 +745,9 @@ type DescribeEdgeTopStatusCodeResponse struct {
 }
 
 type DescribeEdgeTopStatusCodeResult struct {
-	Item           *string `json:",omitempty"`
-	Metric         *string `json:",omitempty"`
-	Name           *string `json:",omitempty"`
+	Item           string
+	Metric         string
+	Name           string
 	TopDataDetails []TopStatusCodeDetail
 }
 
@@ -761,10 +761,10 @@ type DescribeIPInfoResponse struct {
 }
 
 type DescribeIPInfoResult struct {
-	CdnIp    *bool   `json:",omitempty"`
-	IP       *string `json:",omitempty"`
-	ISP      *string `json:",omitempty"`
-	Location *string `json:",omitempty"`
+	CdnIp    bool
+	IP       string
+	ISP      string
+	Location string
 }
 
 type DescribeIPListInfoRequest struct {
@@ -818,9 +818,9 @@ type DescribeOriginTopNrtDataResponse struct {
 }
 
 type DescribeOriginTopNrtDataResult struct {
-	Item           *string `json:",omitempty"`
-	Metric         *string `json:",omitempty"`
-	Name           *string `json:",omitempty"`
+	Item           string
+	Metric         string
+	Name           string
 	TopDataDetails []TopNrtDataDetail
 }
 
@@ -840,16 +840,16 @@ type DescribeOriginTopStatusCodeResponse struct {
 }
 
 type DescribeOriginTopStatusCodeResult struct {
-	Item           *string `json:",omitempty"`
-	Metric         *string `json:",omitempty"`
-	Name           *string `json:",omitempty"`
+	Item           string
+	Metric         string
+	Name           string
 	TopDataDetails []TopStatusCodeDetail
 }
 
 type DomainCertDeployStatus struct {
-	Domain   *string `json:",omitempty"`
-	ErrorMsg *string `json:",omitempty"`
-	Status   *string `json:",omitempty"`
+	Domain   string
+	ErrorMsg string
+	Status   string
 }
 
 type DomainCertResult struct {
@@ -859,11 +859,11 @@ type DomainCertResult struct {
 }
 
 type DomainLogDetail struct {
-	EndTime   *int64  `json:",omitempty"`
-	LogName   *string `json:",omitempty"`
-	LogPath   *string `json:",omitempty"`
-	LogSize   *int64  `json:",omitempty"`
-	StartTime *int64  `json:",omitempty"`
+	EndTime   int64
+	LogName   string
+	LogPath   string
+	LogSize   int64
+	StartTime int64
 }
 
 type DomainVolcanoDetail struct {
@@ -943,13 +943,13 @@ type DownloadSpeedLimitUpdate struct {
 
 type EdgeStatisticalDataResource struct {
 	Metrics []MetricTimeStampValue
-	Name    *string `json:",omitempty"`
+	Name    string
 }
 
 type EdgeTopStatisticalDataDetail struct {
-	ItemKey   *string  `json:",omitempty"`
-	ItemKeyCN *string  `json:",omitempty"`
-	Value     *float64 `json:",omitempty"`
+	ItemKey   string
+	ItemKeyCN string
+	Value     float64
 }
 
 type ErrorObj struct {
@@ -1021,10 +1021,10 @@ type HttpForcedRedirectUpdate struct {
 }
 
 type IPInfo struct {
-	CdnIp    *bool   `json:",omitempty"`
-	IP       *string `json:",omitempty"`
-	ISP      *string `json:",omitempty"`
-	Location *string `json:",omitempty"`
+	CdnIp    bool
+	IP       string
+	ISP      string
+	Location string
 }
 
 type IPv6 struct {
@@ -1124,26 +1124,26 @@ type ListCdnCertInfoResponse struct {
 
 type ListCdnCertInfoResult struct {
 	CertInfo      []CertInfo
-	ExpiringCount *int64 `json:",omitempty"`
-	PageNum       *int64 `json:",omitempty"`
-	PageSize      *int64 `json:",omitempty"`
-	Total         *int64 `json:",omitempty"`
+	ExpiringCount int64
+	PageNum       int64
+	PageSize      int64
+	Total         int64
 }
 
 type ListCdnDomainDomain struct {
 	BackupOrigin   []string
-	Cname          *string `json:",omitempty"`
-	CreateTime     *int64  `json:",omitempty"`
-	Domain         *string `json:",omitempty"`
-	HTTPS          *bool   `json:",omitempty"`
-	IPv6           *bool   `json:",omitempty"`
-	OriginProtocol *string `json:",omitempty"`
+	Cname          string
+	CreateTime     int64
+	Domain         string
+	HTTPS          bool
+	IPv6           bool
+	OriginProtocol string
 	PrimaryOrigin  []string
 	ResourceTags   []ResourceTag
-	ServiceRegion  *string `json:",omitempty"`
-	ServiceType    *string `json:",omitempty"`
-	Status         *string `json:",omitempty"`
-	UpdateTime     *int64  `json:",omitempty"`
+	ServiceRegion  string
+	ServiceType    string
+	Status         string
+	UpdateTime     int64
 }
 
 type ListCdnDomainsRequest struct {
@@ -1170,9 +1170,9 @@ type ListCdnDomainsResponse struct {
 
 type ListCdnDomainsResult struct {
 	Data     []ListCdnDomainDomain
-	PageNum  *int64 `json:",omitempty"`
-	PageSize *int64 `json:",omitempty"`
-	Total    *int64 `json:",omitempty"`
+	PageNum  int64
+	PageSize int64
+	Total    int64
 }
 
 type ListCertInfoRequest struct {
@@ -1191,10 +1191,10 @@ type ListCertInfoResponse struct {
 
 type ListCertInfoResult struct {
 	CertInfo      []CertInfo
-	ExpiringCount *int64 `json:",omitempty"`
-	PageNum       *int64 `json:",omitempty"`
-	PageSize      *int64 `json:",omitempty"`
-	Total         *int64 `json:",omitempty"`
+	ExpiringCount int64
+	PageNum       int64
+	PageSize      int64
+	Total         int64
 }
 
 type ListResourceTagsResponse struct {
@@ -1232,16 +1232,16 @@ type MetricValue struct {
 }
 
 type ModuleLockConfig struct {
-	CacheKeyLocked          *bool `json:",omitempty"`
-	CacheLocked             *bool `json:",omitempty"`
-	CompressionLocked       *bool `json:",omitempty"`
-	IpAccessRuleLocked      *bool `json:",omitempty"`
-	NegativeCacheLocked     *bool `json:",omitempty"`
-	OriginLocked            *bool `json:",omitempty"`
-	RefererAccessRuleLocked *bool `json:",omitempty"`
-	RequestHeaderLocked     *bool `json:",omitempty"`
-	ResponseHeaderLocked    *bool `json:",omitempty"`
-	SignUrlAuthLocked       *bool `json:",omitempty"`
+	CacheKeyLocked          bool
+	CacheLocked             bool
+	CompressionLocked       bool
+	IpAccessRuleLocked      bool
+	NegativeCacheLocked     bool
+	OriginLocked            bool
+	RefererAccessRuleLocked bool
+	RequestHeaderLocked     bool
+	ResponseHeaderLocked    bool
+	SignUrlAuthLocked       bool
 }
 
 type NamePair struct {
@@ -1272,9 +1272,9 @@ type NegativeCacheUpdate struct {
 }
 
 type NrtDataDetails struct {
-	Isp     *string `json:",omitempty"`
+	Isp     string
 	Metrics []MetricTimestampValue
-	Region  *string `json:",omitempty"`
+	Region  string
 }
 
 type NrtDataResource struct {
@@ -1702,7 +1702,7 @@ type SubmitBlockTaskResponse struct {
 }
 
 type SubmitBlockTaskResult struct {
-	TaskID *string `json:",omitempty"`
+	TaskID string
 }
 
 type SubmitPreloadTaskRequest struct {
@@ -1744,7 +1744,7 @@ type SubmitUnblockTaskResponse struct {
 }
 
 type SubmitUnblockTaskResult struct {
-	TaskID *string `json:",omitempty"`
+	TaskID string
 }
 
 type TargetQueryComponents struct {
@@ -1778,37 +1778,37 @@ type TimestampValue struct {
 }
 
 type TopDataDetail struct {
-	Status2xx      *int64   `json:"2xx,omitempty"`
-	Status2xxRatio *float64 `json:"2xxRatio,omitempty"`
-	Status3xx      *int64   `json:"3xx,omitempty"`
-	Status3xxRatio *float64 `json:"3xxRatio,omitempty"`
-	Status4xx      *int64   `json:"4xx,omitempty"`
-	Status4xxRatio *float64 `json:"4xxRatio,omitempty"`
-	Status5xx      *int64   `json:"5xx,omitempty"`
-	Status5xxRatio *float64 `json:"5xxRatio,omitempty"`
-	Bandwidth      *float64 `json:",omitempty"`
-	BandwidthRatio *float64 `json:",omitempty"`
-	ClientIP       *int64   `json:",omitempty"`
-	ClientIPRatio  *float64 `json:",omitempty"`
-	Flux           *int64   `json:",omitempty"`
-	FluxRatio      *float64 `json:",omitempty"`
-	Item           *string  `json:",omitempty"`
-	PV             *int64   `json:",omitempty"`
-	PVRatio        *float64 `json:",omitempty"`
+	Status2xx      int64   `json:"2xx"`
+	Status2xxRatio float64 `json:"2xxRatio"`
+	Status3xx      int64   `json:"3xx"`
+	Status3xxRatio float64 `json:"3xxRatio"`
+	Status4xx      int64   `json:"4xx"`
+	Status4xxRatio float64 `json:"4xxRatio"`
+	Status5xx      int64   `json:"5xx"`
+	Status5xxRatio float64 `json:"5xxRatio"`
+	Bandwidth      float64
+	BandwidthRatio float64
+	ClientIP       int64
+	ClientIPRatio  float64
+	Flux           int64
+	FluxRatio      float64
+	Item           string
+	PV             int64
+	PVRatio        float64
 }
 
 type TopInstanceDetail struct {
-	BillingCode      *string `json:",omitempty"`
-	BillingCycle     *string `json:",omitempty"`
-	BillingData      *string `json:",omitempty"`
-	BillingDesc      *string `json:",omitempty"`
-	CreateTime       *string `json:",omitempty"`
-	InstanceCategory *string `json:",omitempty"`
-	InstanceType     *string `json:",omitempty"`
-	MetricType       *string `json:",omitempty"`
-	ServiceRegion    *string `json:",omitempty"`
-	StartTime        *string `json:",omitempty"`
-	Status           *string `json:",omitempty"`
+	BillingCode      string
+	BillingCycle     string
+	BillingData      string
+	BillingDesc      string
+	CreateTime       string
+	InstanceCategory string
+	InstanceType     string
+	MetricType       string
+	ServiceRegion    string
+	StartTime        string
+	Status           string
 }
 
 type TopNrtDataDetail struct {

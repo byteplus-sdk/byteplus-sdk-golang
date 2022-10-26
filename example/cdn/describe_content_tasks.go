@@ -14,5 +14,5 @@ func DescribeContentTasks(t *testing.T) {
 		EndTime:   &testEndTime,
 	})
 	assert.NoError(t, err)
-	assert.Greater(t, int(*resp.Result.Total), 0)
+	assert.Greater(t, int(resp.Result.Total), 0)
 }
