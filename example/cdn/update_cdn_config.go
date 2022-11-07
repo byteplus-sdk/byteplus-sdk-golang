@@ -10,9 +10,9 @@ import (
 func UpdateCdnConfig(t *testing.T) {
 	resp, err := DefaultInstance.UpdateCdnConfig(&cdn.UpdateCdnConfigRequest{
 		Domain: &exampleDomain,
-		Origin: []cdn.OriginRuleUpdate{
-			{OriginAction: &cdn.OriginActionUpdate{
-				OriginLines: []cdn.OriginLineUpdate{
+		Origin: []cdn.OriginRule{
+			{OriginAction: &cdn.OriginAction{
+				OriginLines: []cdn.OriginLine{
 					{
 						OriginType:   cdn.GetStrPtr("primary"),
 						InstanceType: cdn.GetStrPtr("ip"),

@@ -159,14 +159,6 @@ var ApiInfoList = map[string]*base.ApiInfo{
 			"Version": []string{ServiceVersion},
 		},
 	},
-	"DescribeCdnDomainTopData": {
-		Method: http.MethodPost,
-		Path:   "/",
-		Query: url.Values{
-			"Action":  []string{"DescribeCdnDomainTopData"},
-			"Version": []string{ServiceVersion},
-		},
-	},
 	"DescribeCdnService": {
 		Method: http.MethodPost,
 		Path:   "/",
