@@ -16,7 +16,7 @@ func AddCdnCertificate(t *testing.T) {
 		CertInfo: &cdn.AddCdnCertInfo{
 			Desc: cdn.GetStrPtr("MyCert"),
 		},
-		Source: cdn.GetStrPtr("volc_cert_center"),
+		Source: cdn.GetStrPtr("cdn_cert_hosting"),
 	})
 	assert.NoError(t, err)
 	assert.NotNil(t, resp)

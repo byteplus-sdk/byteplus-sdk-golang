@@ -11,7 +11,7 @@ import (
 
 func ListCertInfo(t *testing.T) {
 	resp, err := DefaultInstance.ListCertInfo(&cdn.ListCertInfoRequest{
-		Source: cdn.GetStrPtr("volc_cert_center"),
+		Source: cdn.GetStrPtr("cdn_cert_hosting"),
 	})
 	assert.NoError(t, err)
 	assert.NotNil(t, resp)

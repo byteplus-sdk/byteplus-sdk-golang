@@ -1,8 +1,13 @@
 package cdn
 
+type AccountingData struct {
+	Metric string
+	Values []DataPoint
+}
+
 type AccountingDataDetail struct {
 	BillingRegion string
-	Metrics       []MetricTimeStampValue
+	Metrics       []AccountingData
 	Name          string
 }
 
@@ -226,6 +231,11 @@ type ContentTask struct {
 type CustomErrorPage struct {
 	ErrorPageRule []ErrorPageRule
 	Switch        *bool `json:",omitempty"`
+}
+
+type DataPoint struct {
+	TimeStamp int64
+	Value     float64
 }
 
 type DeleteCdnDomainRequest struct {
@@ -778,7 +788,7 @@ type DownloadSpeedLimitRule struct {
 }
 
 type EdgeStatisticalDataResource struct {
-	Metrics []MetricTimeStampValue
+	Metrics []AccountingData
 	Name    string
 }
 
@@ -974,11 +984,6 @@ type ListResourceTagsResult struct {
 type MethodDeniedRule struct {
 	Methods *string `json:",omitempty"`
 	Switch  *bool   `json:",omitempty"`
-}
-
-type MetricTimeStampValue struct {
-	Metric string
-	Values []TimeStampValue
 }
 
 type MetricTimestampValue struct {
@@ -1303,11 +1308,6 @@ type TargetQueryComponents struct {
 type TimeOutAction struct {
 	Action *string `json:",omitempty"`
 	Time   *int64  `json:",omitempty"`
-}
-
-type TimeStampValue struct {
-	TimeStamp int64
-	Value     float64
 }
 
 type TimestampValue struct {
