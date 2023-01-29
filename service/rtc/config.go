@@ -25,13 +25,14 @@ func NewInstance() *RTC {
 const (
 	DefaultRegion          = base.RegionApSingapore
 	ServiceVersion20201201 = "2020-12-01"
+	ServiceVersion20220601 = "2022-06-01"
 	ServiceName            = "rtc"
 	//Please replace it with the address in the official website document
 	ServiceHost = "open.byteplusapi.com"
 
 	// action name
-	ActionListRoomInformation = "ListRoomInformation"
-	ActionListIndicators      = "ListIndicators"
+	ActionStartRecord   = "StartRecord"
+	ActionGetRecordTask = "GetRecordTask"
 )
 
 var (
@@ -44,22 +45,23 @@ var (
 	}
 
 	DefaultApiInfoList = map[string]*base.ApiInfo{
-		ActionListRoomInformation: {
-			Method: http.MethodGet,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{ActionListRoomInformation},
-				"Version": []string{ServiceVersion20201201},
-			},
-		},
-		ActionListIndicators: {
+		ActionStartRecord: {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{ActionListIndicators},
-				"Version": []string{ServiceVersion20201201},
+				"Action":  []string{ActionStartRecord},
+				"Version": []string{ServiceVersion20220601},
 			},
 		},
+		ActionGetRecordTask: {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{ActionGetRecordTask},
+				"Version": []string{ServiceVersion20220601},
+			},
+		},
+
 		//ActionExample, add new action
 		/*
 			"ActionExample": {
