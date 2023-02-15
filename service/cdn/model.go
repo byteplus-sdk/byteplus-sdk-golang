@@ -1102,6 +1102,11 @@ type OriginSni struct {
 	Switch    *bool   `json:",omitempty"`
 }
 
+type OriginTimeoutAction struct {
+	HttpTimeout *int64 `json:",omitempty"`
+	TcpTimeout  *int64 `json:",omitempty"`
+}
+
 type PrivateBucketAuth struct {
 	AuthType           *string             `json:",omitempty"`
 	Switch             *bool               `json:",omitempty"`
@@ -1359,19 +1364,14 @@ type TimeOutAction struct {
 	Time   *int64  `json:",omitempty"`
 }
 
-type TimeoutAction struct {
-	HttpTimeout *int64 `json:",omitempty"`
-	TcpTimeout  *int64 `json:",omitempty"`
-}
-
 type TimeoutArg struct {
 	Switch       *bool `json:",omitempty"`
 	TimeoutRules []TimeoutRule
 }
 
 type TimeoutRule struct {
-	Condition     *Condition     `json:",omitempty"`
-	TimeoutAction *TimeoutAction `json:",omitempty"`
+	Condition     *Condition           `json:",omitempty"`
+	TimeoutAction *OriginTimeoutAction `json:",omitempty"`
 }
 
 type TimestampValue struct {
