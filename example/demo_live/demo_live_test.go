@@ -8,8 +8,8 @@ import (
 )
 
 const (
-	testAk = "AKAPN2MyNjMxNWE2NmNlNGIyNGE2YmJkODlmZDAzMzgzMTA"
-	testSk = "T1RnM1lXVTFOVGRsWkRFeE5ESXhaR0ZpTlRBeFltSmxZbVU0Wmpoa1pEaw=="
+	testAk = ""
+	testSk = ""
 )
 
 func TestUpdateCallback(t *testing.T) {
@@ -735,6 +735,8 @@ func TestListStorageSpace(t *testing.T) {
 	live.DefaultInstance.Client.SetAccessKey(testAk)
 	live.DefaultInstance.Client.SetSecretKey(testSk)
 	bodyMap := map[string]interface{}{
+		"PageSize":         10,
+		"PageNum":          1,
 		"StorageSpaceList": []string{},
 	}
 	body, _ := json.Marshal(bodyMap)

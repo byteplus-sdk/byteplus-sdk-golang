@@ -16,31 +16,37 @@ import (
 )
 
 const (
-	appId   = ""
-	Your_AK = ""
-	Your_SK = ""
+	// ak/sk references: https://docs.byteplus.com/byteplus-rtc/reference/69828
+	appId  = ""
+	testAk = ""
+	testSk = ""
 )
 
-var rtcClient *rtc.RTC
+var (
+	roomId     = "Your_roomId"
+	busineseId = "Your_BusinessId"
+	taskId     = appId + "_" + roomId + "_xxx"
+
+	s *rtc.RTC
+)
 
 func TestMain(t *testing.M) {
-	//init rtc service
-	rtcClient = rtc.NewInstance()
-	rtcClient.Client.SetAccessKey(Your_AK)
-	rtcClient.Client.SetSecretKey(Your_SK)
-	//Please replace it with the address in the official website document
-	rtcClient.Client.SetHost(rtc.ServiceHost)
+	// init rtc service, Just initialize once
+	s = rtc.NewInstance()
+	s.Client.SetAccessKey(testAk)
+	s.Client.SetSecretKey(testSk)
+	s.Client.SetHost(rtc.ServiceHost)
 
 	t.Run()
 }
 
-func TestListRoomInformation(t *testing.T) {
+func TestGetRecordTask(t *testing.T) {
 	query := url.Values{}
 	query.Set("AppId", appId)
-	query.Set("StartTime", "2022-04-22T12:00:00+08:00")
-	query.Set("EndTime", "2022-05-22T12:59:00+08:00")
+	query.Set("RoomId", roomId)
+	query.Set("TaskId", taskId)
 
-	res, _, err := rtc.ListRoomInformation(rtcClient, query)
+	res, _, err := rtc.GetRecordTask(s, query)
 	if err != nil {
 		fmt.Printf("err:%v\n", err)
 		return
@@ -53,16 +59,30 @@ func TestListRoomInformation(t *testing.T) {
 	fmt.Printf("result: %+v\n", res.Result)
 }
 
-func TestListIndicators(t *testing.T) {
-	req := rtc.ListIndicatorsRequest{
-		AppId:     appId,
-		StartTime: "2022-05-17T00:00:00+08:00",
-		EndTime:   "2022-06-18T00:00:00+08:00",
-		Indicator: "NetworkTransDelay",
+func TestStartRecord(t *testing.T) {
+	req := rtc.StartRecordRequest{
+		AppId:      appId,
+		BusinessId: busineseId,
+		RoomId:     roomId,
+		TaskId:     taskId,
+		Encode: &rtc.Encode{
+			VideoWidth:   1920,
+			VideoHeight:  1080,
+			VideoFps:     15,
+			VideoBitrate: 4000,
+		},
+		FileFormatConfig: &rtc.FileFormatConfig{
+			FileFormat: []string{"MP4"},
+		},
+		StorageConfig: rtc.StorageConfig{
+			Type: 1,
+			VodConfig: &rtc.VodConfig{
+				AccountId: "Your_Volc_AccountId",
+				Space:     "Your_Space",
+			},
+		},
 	}
-	//req.OS = "android"
-	//req.Network = "wifi"
-	res, _, err := rtc.ListIndicators(rtcClient, &req)
+	res, _, err := rtc.StartRecord(s, &req)
 	if err != nil {
 		fmt.Printf("err:%v\n", err)
 		return

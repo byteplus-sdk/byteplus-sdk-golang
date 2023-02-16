@@ -17,7 +17,7 @@ const (
 var (
 	ServiceInfo = &base.ServiceInfo{
 		Timeout: 5 * time.Second,
-		Host:    "byteplusapi.byted.org",
+		Host:    "open.byteplusapi.com",
 		Header: http.Header{
 			"Accept": []string{"application/json"},
 		},
