@@ -1,9 +1,10 @@
 package cdn
 
 import (
+	"testing"
+
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/cdn"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func DescribeCdnAccessLog(t *testing.T) {

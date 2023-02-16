@@ -132,6 +132,17 @@ func (s *CDN) DescribeCdnDataDetail(dto *DescribeCdnDataDetailRequest) (response
 	return
 }
 
+func (s *CDN) DescribeDistrictIspData(dto *DescribeDistrictIspDataRequest) (responseBody *DescribeDistrictIspDataResponse, err error) {
+	responseBody = new(DescribeDistrictIspDataResponse)
+	if err = s.post("DescribeDistrictIspData", &dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
 func (s *CDN) DescribeEdgeStatisticalData(dto *DescribeEdgeStatisticalDataRequest) (responseBody *DescribeEdgeStatisticalDataResponse, err error) {
 	responseBody = new(DescribeEdgeStatisticalDataResponse)
 	if err = s.post("DescribeEdgeStatisticalData", &dto, responseBody); err != nil {
@@ -201,17 +212,6 @@ func (s *CDN) DescribeEdgeTopStatisticalData(dto *DescribeEdgeTopStatisticalData
 func (s *CDN) DescribeCdnRegionAndIsp(dto *DescribeCdnRegionAndIspRequest) (responseBody *DescribeCdnRegionAndIspResponse, err error) {
 	responseBody = new(DescribeCdnRegionAndIspResponse)
 	if err = s.post("DescribeCdnRegionAndIsp", &dto, responseBody); err != nil {
-		return
-	}
-	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
-		return
-	}
-	return
-}
-
-func (s *CDN) DescribeCdnDomainTopData(dto *DescribeCdnDomainTopDataRequest) (responseBody *DescribeCdnDomainTopDataResponse, err error) {
-	responseBody = new(DescribeCdnDomainTopDataResponse)
-	if err = s.post("DescribeCdnDomainTopData", &dto, responseBody); err != nil {
 		return
 	}
 	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
@@ -341,9 +341,75 @@ func (s *CDN) DescribeIPInfo(dto *DescribeIPInfoRequest) (responseBody *Describe
 	return
 }
 
+func (s *CDN) DescribeIPListInfo(dto *DescribeIPListInfoRequest) (responseBody *DescribeIPListInfoResponse, err error) {
+	responseBody = new(DescribeIPListInfoResponse)
+	if err = s.post("DescribeIPListInfo", &dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
 func (s *CDN) DescribeCdnUpperIp(dto *DescribeCdnUpperIpRequest) (responseBody *DescribeCdnUpperIpResponse, err error) {
 	responseBody = new(DescribeCdnUpperIpResponse)
 	if err = s.post("DescribeCdnUpperIp", &dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) AddCdnCertificate(dto *AddCdnCertificateRequest) (responseBody *AddCdnCertificateResponse, err error) {
+	responseBody = new(AddCdnCertificateResponse)
+	if err = s.post("AddCdnCertificate", &dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) ListCertInfo(dto *ListCertInfoRequest) (responseBody *ListCertInfoResponse, err error) {
+	responseBody = new(ListCertInfoResponse)
+	if err = s.post("ListCertInfo", &dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) ListCdnCertInfo(dto *ListCdnCertInfoRequest) (responseBody *ListCdnCertInfoResponse, err error) {
+	responseBody = new(ListCdnCertInfoResponse)
+	if err = s.post("ListCdnCertInfo", &dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) DescribeCertConfig(dto *DescribeCertConfigRequest) (responseBody *DescribeCertConfigResponse, err error) {
+	responseBody = new(DescribeCertConfigResponse)
+	if err = s.post("DescribeCertConfig", &dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) BatchDeployCert(dto *BatchDeployCertRequest) (responseBody *BatchDeployCertResponse, err error) {
+	responseBody = new(BatchDeployCertResponse)
+	if err = s.post("BatchDeployCert", &dto, responseBody); err != nil {
 		return
 	}
 	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
