@@ -274,6 +274,7 @@ type DescribeAccountingDataRequest struct {
 	Interval         *int64 `json:",omitempty"`
 	IsWildcardDomain *bool  `json:",omitempty"`
 	Metric           string
+	Project          *string `json:",omitempty"`
 	Protocol         *string `json:",omitempty"`
 	StartTime        int64
 }
@@ -354,6 +355,7 @@ type DescribeCdnDataRequest struct {
 	IsWildcardDomain    *bool   `json:",omitempty"`
 	Isp                 *string `json:",omitempty"`
 	Metric              string
+	Project             *string `json:",omitempty"`
 	Protocol            *string `json:",omitempty"`
 	Region              *string `json:",omitempty"`
 	StartTime           int64
@@ -377,6 +379,7 @@ type DescribeCdnOriginDataRequest struct {
 	Interval            *string `json:",omitempty"`
 	IsWildcardDomain    *bool   `json:",omitempty"`
 	Metric              string
+	Project             *string `json:",omitempty"`
 	StartTime           int64
 }
 
@@ -390,7 +393,8 @@ type DescribeCdnOriginDataResult struct {
 }
 
 type DescribeCdnRegionAndIspRequest struct {
-	Area *string `json:",omitempty"`
+	Area    *string `json:",omitempty"`
+	Feature *string `json:",omitempty"`
 }
 
 type DescribeCdnRegionAndIspResponse struct {
@@ -516,6 +520,26 @@ type DescribeContentTasksResult struct {
 	Total    int64
 }
 
+type DescribeDistrictIspDataRequest struct {
+	Aggregate *string `json:",omitempty"`
+	Domain    string
+	EndTime   int64
+	Interval  *string `json:",omitempty"`
+	IpVersion *string `json:",omitempty"`
+	Metric    string
+	Protocol  *string `json:",omitempty"`
+	StartTime int64
+}
+
+type DescribeDistrictIspDataResponse struct {
+	ResponseMetadata *ResponseMetadata `json:",omitempty"`
+	Result           DescribeDistrictIspDataResult
+}
+
+type DescribeDistrictIspDataResult struct {
+	Resources []DomainNrtDetailData
+}
+
 type DescribeEdgeNrtDataSummaryRequest struct {
 	Aggregate           *string `json:",omitempty"`
 	Area                *string `json:",omitempty"`
@@ -527,6 +551,7 @@ type DescribeEdgeNrtDataSummaryRequest struct {
 	IpVersion           *string `json:",omitempty"`
 	Isp                 *string `json:",omitempty"`
 	Metric              string
+	Project             *string `json:",omitempty"`
 	Protocol            *string `json:",omitempty"`
 	Region              *string `json:",omitempty"`
 	StartTime           int64
@@ -569,6 +594,7 @@ type DescribeEdgeTopNrtDataRequest struct {
 	Interval      *string `json:",omitempty"`
 	Item          string
 	Metric        string
+	Project       *string `json:",omitempty"`
 	StartTime     int64
 }
 
@@ -612,6 +638,7 @@ type DescribeEdgeTopStatusCodeRequest struct {
 	EndTime       int64
 	Item          string
 	Metric        string
+	Project       *string `json:",omitempty"`
 	StartTime     int64
 }
 
@@ -663,6 +690,7 @@ type DescribeOriginNrtDataSummaryRequest struct {
 	IpVersion           *string `json:",omitempty"`
 	Isp                 *string `json:",omitempty"`
 	Metric              string
+	Project             *string `json:",omitempty"`
 	Protocol            *string `json:",omitempty"`
 	Region              *string `json:",omitempty"`
 	StartTime           int64
@@ -685,6 +713,7 @@ type DescribeOriginTopNrtDataRequest struct {
 	Interval      *string `json:",omitempty"`
 	Item          string
 	Metric        string
+	Project       *string `json:",omitempty"`
 	StartTime     int64
 }
 
@@ -707,6 +736,7 @@ type DescribeOriginTopStatusCodeRequest struct {
 	EndTime       int64
 	Item          string
 	Metric        string
+	Project       *string `json:",omitempty"`
 	StartTime     int64
 }
 
@@ -740,6 +770,11 @@ type DomainLogDetail struct {
 	LogPath   string
 	LogSize   int64
 	StartTime int64
+}
+
+type DomainNrtDetailData struct {
+	DataDetails []NrtDataDetails
+	Name        string
 }
 
 type DomainVolcanoDetail struct {
