@@ -33,3 +33,16 @@ func TestGetSubAccountDetail(t *testing.T) {
 	t.Logf("statusCode = %+v\n", statusCode)
 	t.Logf("err = %+v\n", err)
 }
+
+func TestInsertSmsSubAccount(t *testing.T) {
+	i18nInstance := sms.NewInstanceI18n(base.RegionApSingapore)
+	i18nInstance.Client.SetAccessKey(testAk)
+	i18nInstance.Client.SetSecretKey(testSk)
+	req := &sms.InsertSmsSubAccountReq{
+		SubAccountName: "testsdk",
+	}
+	result, statusCode, err := i18nInstance.InsertSmsSubAccount(req)
+	t.Logf("result = %+v\n", result)
+	t.Logf("statusCode = %+v\n", statusCode)
+	t.Logf("err = %+v\n", err)
+}
