@@ -115,6 +115,14 @@ var (
 				"Version": []string{ServiceVersion20210111},
 			},
 		},
+		"InsertSubAccount": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"InsertSubAccount"},
+				"Version": []string{ServiceVersion20210111},
+			},
+		},
 	}
 )
 
