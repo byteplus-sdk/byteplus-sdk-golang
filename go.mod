@@ -5,10 +5,10 @@ go 1.14
 require (
 	github.com/avast/retry-go v3.0.0+incompatible
 	github.com/google/go-querystring v1.1.0
-	github.com/google/uuid v1.1.2
+	github.com/google/uuid v1.3.0
 	github.com/pkg/errors v0.9.1
-	github.com/stretchr/testify v1.8.0
-	google.golang.org/protobuf v1.28.0
+	github.com/stretchr/testify v1.8.2
+	google.golang.org/protobuf v1.30.0
 )
 
 replace github.com/byteplus-sdk/byteplus-sdk-golang => ../byteplus-sdk-golang
