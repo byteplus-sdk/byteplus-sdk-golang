@@ -1,12 +1,11 @@
 package vod
 
 import (
+	"github.com/byteplus-sdk/byteplus-sdk-golang/base"
 	"net/http"
 	"net/url"
 	"sync"
 	"time"
-
-	"github.com/byteplus-sdk/byteplus-sdk-golang/base"
 )
 
 type Vod struct {
@@ -40,7 +39,7 @@ func NewInstanceWithRegion(region string) *Vod {
 var (
 	ServiceInfoMap = map[string]*base.ServiceInfo{
 		base.RegionApSingapore: {
-			Timeout: 5 * time.Second,
+			Timeout: 60 * time.Second,
 			Host:    "vod.byteplusapi.com",
 			Header: http.Header{
 				"Accept": []string{"application/json"},
@@ -58,43 +57,27 @@ var (
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"GetPlayInfo"},
-				"Version": []string{"2020-08-01"},
+				"Version": []string{"2023-01-01"},
 			},
 		},
-		"GetHlsDecryptionKey": {
+		"GetPlayInfoWithLiveTimeShiftScene": {
 			Method: http.MethodGet,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{"GetHlsDecryptionKey"},
-				"Version": []string{"2020-08-01"},
+				"Action":  []string{"GetPlayInfoWithLiveTimeShiftScene"},
+				"Version": []string{"2023-01-01"},
 			},
 		},
 
 		// **********************************************************************
 		// 上传
 		// **********************************************************************
-		"UploadMediaByUrl": {
-			Method: http.MethodGet,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UploadMediaByUrl"},
-				"Version": []string{"2020-08-01"},
-			},
-		},
-		"QueryUploadTaskInfo": {
-			Method: http.MethodGet,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"QueryUploadTaskInfo"},
-				"Version": []string{"2020-08-01"},
-			},
-		},
 		"ApplyUploadInfo": {
 			Method: http.MethodGet,
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"ApplyUploadInfo"},
-				"Version": []string{"2020-08-01"},
+				"Version": []string{"2023-01-01"},
 			},
 		},
 		"CommitUploadInfo": {
@@ -102,7 +85,7 @@ var (
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"CommitUploadInfo"},
-				"Version": []string{"2020-08-01"},
+				"Version": []string{"2023-01-01"},
 			},
 			Timeout: 8 * time.Second,
 		},
@@ -110,65 +93,56 @@ var (
 		// **********************************************************************
 		// 媒资
 		// **********************************************************************
-		"UpdateMediaInfo": {
-			Method: http.MethodGet,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateMediaInfo"},
-				"Version": []string{"2020-08-01"},
-			},
-		},
-		"UpdateMediaPublishStatus": {
-			Method: http.MethodGet,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateMediaPublishStatus"},
-				"Version": []string{"2020-08-01"},
-			},
-		},
-		"GetMediaInfos": {
-			Method: http.MethodGet,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"GetMediaInfos"},
-				"Version": []string{"2020-08-01"},
-			},
-		},
-		"DeleteMedia": {
-			Method: http.MethodGet,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteMedia"},
-				"Version": []string{"2020-08-01"},
-			},
-		},
-		"DeleteTranscodes": {
-			Method: http.MethodGet,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteTranscodes"},
-				"Version": []string{"2020-08-01"},
-			},
-		},
-		"GetMediaList": {
-			Method: http.MethodGet,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"GetMediaList"},
-				"Version": []string{"2020-08-01"},
-			},
-		},
 
 		// **********************************************************************
 		// 转码
 		// **********************************************************************
-		"StartWorkflow": {
-			Method: http.MethodPost,
+
+		// **********************************************************************
+		// 视频编辑
+		// **********************************************************************
+
+		// **********************************************************************
+		// 空间管理
+		// **********************************************************************
+
+		"ListSpace": {
+			Method: http.MethodGet,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{"StartWorkflow"},
-				"Version": []string{"2020-08-01"},
+				"Action":  []string{"ListSpace"},
+				"Version": []string{"2023-01-01"},
 			},
 		},
+
+		"UpdateSpaceUploadConfig": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"UpdateSpaceUploadConfig"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+
+		// **********************************************************************
+		// 分发加速管理
+		// **********************************************************************
+		"ListDomain": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"ListDomain"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+
+		// **********************************************************************
+		// 回调管理
+		// **********************************************************************
+
+		// **********************************************************************
+		// 计量计费
+		// **********************************************************************
+
 	}
 )

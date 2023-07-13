@@ -3,12 +3,12 @@ package upload
 import (
 	"encoding/json"
 	"fmt"
-	"testing"
-
 	"github.com/byteplus-sdk/byteplus-sdk-golang/base"
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/vod"
+	"github.com/byteplus-sdk/byteplus-sdk-golang/service/vod/models/business"
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/vod/models/request"
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/vod/upload/functions"
+	"testing"
 )
 
 func TestVod_CommitUploadInfo(t *testing.T) {
@@ -26,9 +26,9 @@ func TestVod_CommitUploadInfo(t *testing.T) {
 	space := "your space name"
 	session := "apply return session"
 
-	funcs := make([]vod.Function, 0)
+	funcs := make([]business.VodUploadFunction, 0)
 
-	snapShotFunc := functions.SnapshotFunc(2.3)
+	snapShotFunc := functions.SnapshotFunc(business.VodUploadFunctionInput{SnapshotTime: 1.3})
 	getMetaFunc := functions.GetMetaFunc()
 
 	funcs = append(funcs, snapShotFunc)

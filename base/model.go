@@ -7,7 +7,6 @@ import (
 )
 
 const (
-	RegionCnNorth1    = "cn-north-1"
 	RegionUsEast1     = "us-east-1"
 	RegionApSingapore = "ap-singapore-1"
 
