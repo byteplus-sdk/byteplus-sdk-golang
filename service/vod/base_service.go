@@ -29,6 +29,31 @@ import (
 	"google.golang.org/protobuf/encoding/protojson"
 )
 
+func (p *Vod) GetSubtitleAuthToken(req *request.VodGetSubtitleInfoListRequest, tokenExpireTime int) (string, error) {
+	if len(req.GetVid()) == 0 {
+		return "", errors.New("传入的Vid为空")
+	}
+	query := url.Values{
+		"Vid":    []string{req.GetVid()},
+		"Status": []string{"Published"},
+	}
+
+	if tokenExpireTime > 0 {
+		query.Add("X-Expires", strconv.Itoa(tokenExpireTime))
+	}
+
+	if getSubtitleInfoAuthToken, err := p.GetSignUrl("GetSubtitleInfoList", query); err == nil {
+		ret := map[string]string{}
+		ret["GetSubtitleAuthToken"] = getSubtitleInfoAuthToken
+		b, err := json.Marshal(ret)
+		if err != nil {
+			return "", err
+		}
+		return base64.StdEncoding.EncodeToString(b), nil
+	} else {
+		return "", err
+	}
+}
 func (p *Vod) GetPlayAuthToken(req *request.VodGetPlayInfoRequest, tokenExpireTime int) (string, error) {
 	if len(req.GetVid()) == 0 {
 		return "", errors.New("传入的Vid为空")
