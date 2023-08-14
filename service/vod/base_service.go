@@ -31,7 +31,7 @@ import (
 
 func (p *Vod) GetSubtitleAuthToken(req *request.VodGetSubtitleInfoListRequest, tokenExpireTime int) (string, error) {
 	if len(req.GetVid()) == 0 {
-		return "", errors.New("传入的Vid为空")
+		return "", errors.New("vid is nil")
 	}
 	query := url.Values{
 		"Vid":    []string{req.GetVid()},
