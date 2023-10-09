@@ -45,7 +45,6 @@ type BillDetail struct {
 	PreferentialBillAmount string `json:"PreferentialBillAmount"`
 	DiscountBillAmount     string `json:"DiscountBillAmount"`
 	CouponAmount           string `json:"CouponAmount"`
-	PayableAmount          string `json:"PayableAmount"`
 	PaidAmount             string `json:"PaidAmount"`
 	UnpaidAmount           string `json:"UnpaidAmount"`
 	Currency               string `json:"Currency"`
@@ -135,7 +134,6 @@ type SplitBillDetail struct {
 	PreferentialBillAmount string `json:"PreferentialBillAmount"`
 	DiscountBillAmount     string `json:"DiscountBillAmount"`
 	CouponDeductionAmount  string `json:"CouponDeductionAmount"`
-	PayableAmount          string `json:"PayableAmount"`
 	PaidAmount             string `json:"PaidAmount"`
 	UnpaidAmount           string `json:"UnpaidAmount"`
 	Currency               string `json:"Currency"`
