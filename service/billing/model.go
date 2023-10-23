@@ -183,3 +183,111 @@ type ListSplitBillDetailResp struct {
 	ResponseMetadata *base.ResponseMetadata
 	Result           *SplitBillDetailList `json:"Result,omitempty"`
 }
+
+type BillOverviewByProd struct {
+	BillPeriod             string `json:"BillPeriod"`
+	PayerID                string `json:"PayerID"`
+	PayerUserName          string `json:"PayerUserName"`
+	PayerCustomerName      string `json:"PayerCustomerName"`
+	SellerID               string `json:"SellerID"`
+	SellerUserName         string `json:"SellerUserName"`
+	SellerCustomerName     string `json:"SellerCustomerName"`
+	OwnerID                string `json:"OwnerID"`
+	OwnerUserName          string `json:"OwnerUserName"`
+	OwnerCustomerName      string `json:"OwnerCustomerName"`
+	BusinessMode           string `json:"BusinessMode"`
+	Product                string `json:"Product"`
+	ProductZh              string `json:"ProductZh"`
+	BillingMode            string `json:"BillingMode"`
+	BillCategoryParent     string `json:"BillCategoryParent"`
+	OriginalBillAmount     string `json:"OriginalBillAmount"`
+	PreferentialBillAmount string `json:"PreferentialBillAmount"`
+	RoundBillAmount        string `json:"RoundBillAmount"`
+	DiscountBillAmount     string `json:"DiscountBillAmount"`
+	CouponAmount           string `json:"CouponAmount"`
+	PaidAmount             string `json:"PaidAmount"`
+	UnpaidAmount           string `json:"UnpaidAmount"`
+	SettlementType         string `json:"SettlementType"`
+	Currency               string `json:"Currency"`
+	Tax                    string `json:"Tax"`
+	PosttaxAmount          string `json:"PosttaxAmount"`
+	PretaxAmount           string `json:"PretaxAmount"`
+	CountryRegion          string `json:"CountryRegion"`
+}
+
+type BillOverviewByProdList struct {
+	List   []*BillOverviewByProd `json:"List"`
+	Total  int                   `json:"Total"`
+	Limit  int                   `json:"Limit"`
+	Offset int                   `json:"Offset"`
+}
+
+type ListBillOverviewByProdRequest struct {
+	Offset             int64  `json:"Offset"`
+	Limit              int64  `json:"Limit"`
+	BillPeriod         string `json:"BillPeriod"`
+	Product            string `json:"Product,omitempty"` // 当该字段的值为该字段类型的零值时，忽略该字段
+	BillingMode        string `json:"BillingMode,omitempty"`
+	BillCategoryParent string `json:"BillCategoryParent,omitempty"`
+	IgnoreZero         int64  `json:"IgnoreZero"`
+	NeedRecordNum      int64  `json:"NeedRecordNum"`
+}
+
+func (r *ListBillOverviewByProdRequest) ToQuery() url.Values {
+	return ToUrlValues(r)
+}
+
+type ListBillOverviewByProdResp struct {
+	ResponseMetadata *base.ResponseMetadata
+	Result           *BillOverviewByProdList `json:"Result,omitempty"`
+}
+
+type BillOverviewByCategory struct {
+	PayerID             string `json:"PayerID"`
+	PayerUserName       string `json:"PayerUserName"`
+	PayerCustomerName   string `json:"PayerCustomerName"`
+	BusinessMode        string `json:"BusinessMode"`
+	BillPeriod          string `json:"BillPeriod"`
+	BillCategoryParent  string `json:"BillCategoryParent"`
+	SubjectNo           string `json:"SubjectNo"`
+	SellerID            string `json:"SellerID"`
+	SellerUserName      string `json:"SellerUserName"`
+	SellerCustomerName  string `json:"SellerCustomerName"`
+	OwnerID             string `json:"OwnerID"`
+	OwnerUserName       string `json:"OwnerUserName"`
+	OwnerCustomerName   string `json:"OwnerCustomerName"`
+	SettlementType      string `json:"SettlementType"`
+	SubjectName         string `json:"SubjectName"`
+	OriginalBillAmount  string `json:"OriginalBillAmount"`
+	DiscountBillAmount  string `json:"DiscountBillAmount"`
+	CouponAmount        string `json:"CouponAmount"`
+	PaidAmount          string `json:"PaidAmount"`
+	UnpaidAmount        string `json:"UnpaidAmount"`
+	CreditCarriedAmount string `json:"CreditCarriedAmount"`
+	Currency            string `json:"Currency"`
+	Tax                 string `json:"Tax"`
+	PosttaxAmount       string `json:"PosttaxAmount"`
+	PretaxAmount        string `json:"PretaxAmount"`
+	CountryRegion       string `json:"CountryRegion"`
+}
+
+type BillOverviewByCategoryMap struct {
+	Map map[int64][]*BillOverviewByCategory
+}
+
+type ListBillOverviewByCategoryRequest struct {
+	Offset             int64  `json:"Offset"`
+	Limit              int64  `json:"Limit"`
+	BillPeriod         string `json:"BillPeriod"`
+	BillingMode        string `json:"BillingMode,omitempty"`
+	BillCategoryParent string `json:"BillCategoryParent,omitempty"`
+}
+
+func (r *ListBillOverviewByCategoryRequest) ToQuery() url.Values {
+	return ToUrlValues(r)
+}
+
+type ListBillOverviewByCategoryResp struct {
+	ResponseMetadata *base.ResponseMetadata
+	Result           *BillOverviewByCategoryMap `json:"Result,omitempty"`
+}
