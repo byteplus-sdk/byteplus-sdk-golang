@@ -207,12 +207,14 @@ type BillOverviewByProd struct {
 	CouponAmount           string `json:"CouponAmount"`
 	PaidAmount             string `json:"PaidAmount"`
 	UnpaidAmount           string `json:"UnpaidAmount"`
+	CreditCarriedAmount    string `json:"CreditCarriedAmount"`
 	SettlementType         string `json:"SettlementType"`
 	Currency               string `json:"Currency"`
 	Tax                    string `json:"Tax"`
 	PosttaxAmount          string `json:"PosttaxAmount"`
 	PretaxAmount           string `json:"PretaxAmount"`
 	CountryRegion          string `json:"CountryRegion"`
+	SubjectName            string `json:"SubjectName"`
 }
 
 type BillOverviewByProdList struct {
