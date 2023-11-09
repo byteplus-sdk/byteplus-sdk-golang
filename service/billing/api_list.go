@@ -7,8 +7,10 @@ import (
 )
 
 var (
-	ActionListBillDetail      = "ListBillDetail"
-	ActionListSplitBillDetail = "ListSplitBillDetail"
+	ActionListBillDetail             = "ListBillDetail"
+	ActionListSplitBillDetail        = "ListSplitBillDetail"
+	ActionListBillOverviewByProd     = "ListBillOverviewByProd"
+	ActionListBillOverviewByCategory = "ListBillOverviewByCategory"
 )
 
 var ApiInfoList = map[string]*base.ApiInfo{
@@ -25,6 +27,22 @@ var ApiInfoList = map[string]*base.ApiInfo{
 		Path:   "/",
 		Query: url.Values{
 			"Action":  []string{ActionListSplitBillDetail},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	ActionListBillOverviewByProd: {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{ActionListBillOverviewByProd},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	ActionListBillOverviewByCategory: {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{ActionListBillOverviewByCategory},
 			"Version": []string{ServiceVersion},
 		},
 	},
