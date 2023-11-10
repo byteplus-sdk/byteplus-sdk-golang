@@ -13,6 +13,27 @@ import (
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/vod/models/request"
 )
 
+func Test_CreateSpace(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodCreateSpaceRequest{
+		SpaceName:   "your SpaceName",
+		ProjectName: "your ProjectName",
+		Description: "your Description",
+		Region:      "your Region",
+		UserName:    "your UserName",
+	}
+
+	resp, status, err := instance.CreateSpace(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
 func Test_ListSpace(t *testing.T) {
 	instance := vod.NewInstance()
 	instance.SetCredential(base.Credentials{
@@ -26,6 +47,23 @@ func Test_ListSpace(t *testing.T) {
 	}
 
 	resp, status, err := instance.ListSpace(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
+func Test_GetSpaceDetail(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodGetSpaceDetailRequest{
+		SpaceName: "your SpaceName",
+	}
+
+	resp, status, err := instance.GetSpaceDetail(query)
 	fmt.Println(status)
 	fmt.Println(err)
 	fmt.Println(resp.String())
@@ -45,6 +83,27 @@ func Test_UpdateSpaceUploadConfig(t *testing.T) {
 	}
 
 	resp, status, err := instance.UpdateSpaceUploadConfig(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
+func Test_DescribeVodSpaceStorageData(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodDescribeVodSpaceStorageDataRequest{
+		SpaceList:   "your SpaceList",
+		StartTime:   "your StartTime",
+		EndTime:     "your EndTime",
+		Aggregation: 0,
+		Type:        "your Type",
+	}
+
+	resp, status, err := instance.DescribeVodSpaceStorageData(query)
 	fmt.Println(status)
 	fmt.Println(err)
 	fmt.Println(resp.String())

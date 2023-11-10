@@ -54,6 +54,41 @@ func (p *Vod) GetSubtitleAuthToken(req *request.VodGetSubtitleInfoListRequest, t
 		return "", err
 	}
 }
+
+func (p *Vod) GetPrivateDrmAuthToken(req *request.VodGetPrivateDrmPlayAuthRequest, tokenExpireTime int) (string, error) {
+	if len(req.GetVid()) == 0 {
+		return "", errors.New("传入的Vid为空")
+	}
+	query := url.Values{
+		"Vid": []string{req.GetVid()},
+	}
+
+	if len(req.GetPlayAuthIds()) > 0 {
+		query.Add("PlayAuthIds", req.GetPlayAuthIds())
+	}
+	if len(req.GetDrmType()) > 0 {
+		query.Add("DrmType", req.GetDrmType())
+		switch req.GetDrmType() {
+		case "appdevice", "webdevice":
+			if len(req.GetUnionInfo()) == 0 {
+				return "", errors.New("invalid unionInfo")
+			}
+		}
+	}
+	if len(req.GetUnionInfo()) > 0 {
+		query.Add("UnionInfo", req.GetUnionInfo())
+	}
+	if tokenExpireTime > 0 {
+		query.Add("X-Expires", strconv.Itoa(tokenExpireTime))
+	}
+
+	if getPrivateDrmAuthToken, err := p.GetSignUrl("GetPrivateDrmPlayAuth", query); err == nil {
+		return getPrivateDrmAuthToken, nil
+	} else {
+		return "", err
+	}
+}
+
 func (p *Vod) GetPlayAuthToken(req *request.VodGetPlayInfoRequest, tokenExpireTime int) (string, error) {
 	if len(req.GetVid()) == 0 {
 		return "", errors.New("传入的Vid为空")

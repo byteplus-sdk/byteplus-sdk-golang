@@ -66,3 +66,23 @@ func Test_GetPlayInfoWithLiveTimeShiftScene(t *testing.T) {
 	fmt.Println(err)
 	fmt.Println(resp.String())
 }
+
+func Test_GetPrivateDrmPlayAuth(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodGetPrivateDrmPlayAuthRequest{
+		DrmType:     "your DrmType",
+		Vid:         "your Vid",
+		PlayAuthIds: "your PlayAuthIds",
+		UnionInfo:   "your UnionInfo",
+	}
+
+	resp, status, err := instance.GetPrivateDrmPlayAuth(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
