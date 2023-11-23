@@ -11,6 +11,7 @@ import (
 const (
 	DefaultRegion          = base.RegionApSingapore
 	ServiceVersion20200601 = "2020-06-01"
+	ServiceVersion20230801 = "2023-08-01"
 	ServiceName            = "livesaas"
 )
 
@@ -62,6 +63,14 @@ var (
 			Query: url.Values{
 				"Action":  []string{"UpdateActivityBasicConfigAPI"},
 				"Version": []string{ServiceVersion20200601},
+			},
+		},
+		"ListActivityDetailInfoAPI": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"ListActivityDetailInfoAPI"},
+				"Version": []string{ServiceVersion20230801},
 			},
 		},
 	}

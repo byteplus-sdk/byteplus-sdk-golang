@@ -2,11 +2,12 @@ package demo_livesaas
 
 import (
 	"encoding/json"
-	livesaas "github.com/byteplus-sdk/byteplus-sdk-golang/service/livesaas"
 	"net/url"
 	"strconv"
 	"testing"
 	"time"
+
+	livesaas "github.com/byteplus-sdk/byteplus-sdk-golang/service/livesaas"
 )
 
 const (
@@ -134,6 +135,29 @@ func TestLIVESAAS_UpdateActivityBasicConfigAPI(t *testing.T) {
 
 	// Call the API operation to create a live-streaming activity with the serialized request parameters
 	resp, statusCode, err := livesaas.DefaultInstance.UpdateActivityBasicConfigAPI(nil, string(body))
+
+	// If an error occurs while calling the API operation, print the error
+	if err != nil {
+		t.Logf("error occur %v", err)
+	}
+	// Serialize the response data
+	res, _ := json.Marshal(resp)
+	// Print the response data
+	t.Logf("statusCode = %+v  msgInfo = %+v \n", statusCode, string(res))
+}
+
+func TestLIVESAAS_ListActivityDetailInfoAPI(t *testing.T) {
+	livesaas.DefaultInstance.Client.SetAccessKey(testAk)
+	livesaas.DefaultInstance.Client.SetSecretKey(testSk)
+	livesaas.DefaultInstance.Client.SetTimeout(time.Second * 10)
+
+	// Print the request parameters
+	query := url.Values{}
+	query.Set("PageNumber", "1")
+	query.Set("PageSize", "5")
+
+	// Call the API operation to create a live-streaming activity with the serialized request parameters
+	resp, statusCode, err := livesaas.DefaultInstance.ListActivityDetailInfoAPI(query)
 
 	// If an error occurs while calling the API operation, print the error
 	if err != nil {

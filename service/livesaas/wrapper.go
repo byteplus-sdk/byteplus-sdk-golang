@@ -72,3 +72,12 @@ func (p *LIVESAAS) UpdateActivityBasicConfigAPI(query url.Values, body string) (
 	}
 	return resp, statesCode, nil
 }
+
+func (p *LIVESAAS) ListActivityDetailInfoAPI(query url.Values) (*ListActivityDetailInfoAPIResponse, int, error) {
+	resp := new(ListActivityDetailInfoAPIResponse)
+	statesCode, err := p.commonHandler("ListActivityDetailInfoAPI", query, resp)
+	if err != nil {
+		return nil, statesCode, err
+	}
+	return resp, statesCode, nil
+}
