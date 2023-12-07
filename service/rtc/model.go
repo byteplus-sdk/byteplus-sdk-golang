@@ -56,7 +56,7 @@ type (
 
 	CustomConfig struct {
 		Vendor    uint32 `json:"Vendor"`
-		Region    string `json:"Region"`
+		Region    uint32 `json:"Region"`
 		Bucket    string `json:"Bucket"`
 		AccessKey string `json:"AccessKey"`
 		SecretKey string `json:"SecretKey"`
