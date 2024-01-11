@@ -4354,6 +4354,213 @@ func (x *VodQueryMediaBlockStatusResponse) GetResult() *business.VodQueryMediaBl
 	return nil
 }
 
+// **********************************************************************
+// 播放列表
+// **********************************************************************
+type VodCreatePlaylistResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ResponseMetadata *base.ResponseMetadata            `protobuf:"bytes,1,opt,name=ResponseMetadata,proto3" json:"ResponseMetadata,omitempty"`
+	Result           *business.VodCreatePlaylistResult `protobuf:"bytes,2,opt,name=Result,proto3" json:"Result,omitempty"`
+}
+
+func (x *VodCreatePlaylistResponse) Reset() {
+	*x = VodCreatePlaylistResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[80]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *VodCreatePlaylistResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*VodCreatePlaylistResponse) ProtoMessage() {}
+
+func (x *VodCreatePlaylistResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[80]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use VodCreatePlaylistResponse.ProtoReflect.Descriptor instead.
+func (*VodCreatePlaylistResponse) Descriptor() ([]byte, []int) {
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{80}
+}
+
+func (x *VodCreatePlaylistResponse) GetResponseMetadata() *base.ResponseMetadata {
+	if x != nil {
+		return x.ResponseMetadata
+	}
+	return nil
+}
+
+func (x *VodCreatePlaylistResponse) GetResult() *business.VodCreatePlaylistResult {
+	if x != nil {
+		return x.Result
+	}
+	return nil
+}
+
+type VodGetPlaylistsResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ResponseMetadata *base.ResponseMetadata          `protobuf:"bytes,1,opt,name=ResponseMetadata,proto3" json:"ResponseMetadata,omitempty"`
+	Result           *business.VodGetPlaylistsResult `protobuf:"bytes,2,opt,name=Result,proto3" json:"Result,omitempty"`
+}
+
+func (x *VodGetPlaylistsResponse) Reset() {
+	*x = VodGetPlaylistsResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[81]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *VodGetPlaylistsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*VodGetPlaylistsResponse) ProtoMessage() {}
+
+func (x *VodGetPlaylistsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[81]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use VodGetPlaylistsResponse.ProtoReflect.Descriptor instead.
+func (*VodGetPlaylistsResponse) Descriptor() ([]byte, []int) {
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{81}
+}
+
+func (x *VodGetPlaylistsResponse) GetResponseMetadata() *base.ResponseMetadata {
+	if x != nil {
+		return x.ResponseMetadata
+	}
+	return nil
+}
+
+func (x *VodGetPlaylistsResponse) GetResult() *business.VodGetPlaylistsResult {
+	if x != nil {
+		return x.Result
+	}
+	return nil
+}
+
+type VodUpdatePlaylistResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ResponseMetadata *base.ResponseMetadata `protobuf:"bytes,1,opt,name=ResponseMetadata,proto3" json:"ResponseMetadata,omitempty"`
+}
+
+func (x *VodUpdatePlaylistResponse) Reset() {
+	*x = VodUpdatePlaylistResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[82]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *VodUpdatePlaylistResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*VodUpdatePlaylistResponse) ProtoMessage() {}
+
+func (x *VodUpdatePlaylistResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[82]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use VodUpdatePlaylistResponse.ProtoReflect.Descriptor instead.
+func (*VodUpdatePlaylistResponse) Descriptor() ([]byte, []int) {
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{82}
+}
+
+func (x *VodUpdatePlaylistResponse) GetResponseMetadata() *base.ResponseMetadata {
+	if x != nil {
+		return x.ResponseMetadata
+	}
+	return nil
+}
+
+type VodDeletePlaylistResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ResponseMetadata *base.ResponseMetadata `protobuf:"bytes,1,opt,name=ResponseMetadata,proto3" json:"ResponseMetadata,omitempty"`
+}
+
+func (x *VodDeletePlaylistResponse) Reset() {
+	*x = VodDeletePlaylistResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[83]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *VodDeletePlaylistResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*VodDeletePlaylistResponse) ProtoMessage() {}
+
+func (x *VodDeletePlaylistResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[83]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use VodDeletePlaylistResponse.ProtoReflect.Descriptor instead.
+func (*VodDeletePlaylistResponse) Descriptor() ([]byte, []int) {
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{83}
+}
+
+func (x *VodDeletePlaylistResponse) GetResponseMetadata() *base.ResponseMetadata {
+	if x != nil {
+		return x.ResponseMetadata
+	}
+	return nil
+}
+
 var File_byteplus_vod_response_response_vod_proto protoreflect.FileDescriptor
 
 var file_byteplus_vod_response_response_vod_proto_rawDesc = []byte{
@@ -5354,21 +5561,60 @@ var file_byteplus_vod_response_response_vod_proto_rawDesc = []byte{
 	0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f,
 	0x64, 0x51, 0x75, 0x65, 0x72, 0x79, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x42, 0x6c, 0x6f, 0x63, 0x6b,
 	0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x06, 0x52, 0x65,
-	0x73, 0x75, 0x6c, 0x74, 0x42, 0xd8, 0x01, 0x0a, 0x27, 0x63, 0x6f, 0x6d, 0x2e, 0x62, 0x79, 0x74,
-	0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x76, 0x6f,
-	0x64, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x42, 0x0b, 0x56, 0x6f, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x50, 0x01, 0x5a,
-	0x47, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x62, 0x79, 0x74, 0x65,
-	0x70, 0x6c, 0x75, 0x73, 0x2d, 0x73, 0x64, 0x6b, 0x2f, 0x62, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75,
-	0x73, 0x2d, 0x73, 0x64, 0x6b, 0x2d, 0x67, 0x6f, 0x6c, 0x61, 0x6e, 0x67, 0x2f, 0x73, 0x65, 0x72,
-	0x76, 0x69, 0x63, 0x65, 0x2f, 0x76, 0x6f, 0x64, 0x2f, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2f,
-	0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0xa0, 0x01, 0x01, 0xd8, 0x01, 0x01, 0xca, 0x02,
-	0x24, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x5c, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63,
-	0x65, 0x5c, 0x56, 0x6f, 0x64, 0x5c, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x5c, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0xe2, 0x02, 0x27, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73,
-	0x5c, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5c, 0x56, 0x6f, 0x64, 0x5c, 0x4d, 0x6f, 0x64,
-	0x65, 0x6c, 0x73, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x62,
-	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x73, 0x75, 0x6c, 0x74, 0x22, 0xc3, 0x01, 0x0a, 0x19, 0x56, 0x6f, 0x64, 0x43, 0x72, 0x65, 0x61,
+	0x74, 0x65, 0x50, 0x6c, 0x61, 0x79, 0x6c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65,
+	0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42,
+	0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64,
+	0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x4d, 0x0a, 0x06, 0x52,
+	0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x35, 0x2e, 0x42, 0x79,
+	0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c,
+	0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x43, 0x72,
+	0x65, 0x61, 0x74, 0x65, 0x50, 0x6c, 0x61, 0x79, 0x6c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x75,
+	0x6c, 0x74, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xbf, 0x01, 0x0a, 0x17, 0x56,
+	0x6f, 0x64, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x6c, 0x69, 0x73, 0x74, 0x73, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65,
+	0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12,
+	0x4b, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32,
+	0x33, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d,
+	0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56,
+	0x6f, 0x64, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x6c, 0x69, 0x73, 0x74, 0x73, 0x52, 0x65,
+	0x73, 0x75, 0x6c, 0x74, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0x74, 0x0a, 0x19,
+	0x56, 0x6f, 0x64, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x50, 0x6c, 0x61, 0x79, 0x6c, 0x69, 0x73,
+	0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42,
+	0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61,
+	0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61,
+	0x74, 0x61, 0x22, 0x74, 0x0a, 0x19, 0x56, 0x6f, 0x64, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x50,
+	0x6c, 0x61, 0x79, 0x6c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64,
+	0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65,
+	0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73,
+	0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65,
+	0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x42, 0xd8, 0x01, 0x0a, 0x27, 0x63, 0x6f, 0x6d,
+	0x2e, 0x62, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
+	0x65, 0x2e, 0x76, 0x6f, 0x64, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x72, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x42, 0x0b, 0x56, 0x6f, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x50, 0x01, 0x5a, 0x47, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
+	0x62, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2d, 0x73, 0x64, 0x6b, 0x2f, 0x62, 0x79, 0x74,
+	0x65, 0x70, 0x6c, 0x75, 0x73, 0x2d, 0x73, 0x64, 0x6b, 0x2d, 0x67, 0x6f, 0x6c, 0x61, 0x6e, 0x67,
+	0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2f, 0x76, 0x6f, 0x64, 0x2f, 0x6d, 0x6f, 0x64,
+	0x65, 0x6c, 0x73, 0x2f, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0xa0, 0x01, 0x01, 0xd8,
+	0x01, 0x01, 0xca, 0x02, 0x24, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x5c, 0x53, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x5c, 0x56, 0x6f, 0x64, 0x5c, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73,
+	0x5c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0xe2, 0x02, 0x27, 0x42, 0x79, 0x74, 0x65,
+	0x70, 0x6c, 0x75, 0x73, 0x5c, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5c, 0x56, 0x6f, 0x64,
+	0x5c, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64,
+	0x61, 0x74, 0x61, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -5383,7 +5629,7 @@ func file_byteplus_vod_response_response_vod_proto_rawDescGZIP() []byte {
 	return file_byteplus_vod_response_response_vod_proto_rawDescData
 }
 
-var file_byteplus_vod_response_response_vod_proto_msgTypes = make([]protoimpl.MessageInfo, 80)
+var file_byteplus_vod_response_response_vod_proto_msgTypes = make([]protoimpl.MessageInfo, 84)
 var file_byteplus_vod_response_response_vod_proto_goTypes = []interface{}{
 	(*VodGetAllPlayInfoResponse)(nil),                               // 0: Byteplus.Vod.Models.Response.VodGetAllPlayInfoResponse
 	(*VodGetPlayInfoResponse)(nil),                                  // 1: Byteplus.Vod.Models.Response.VodGetPlayInfoResponse
@@ -5465,222 +5711,234 @@ var file_byteplus_vod_response_response_vod_proto_goTypes = []interface{}{
 	(*VodSubmitBlockMediaTaskResponse)(nil),                         // 77: Byteplus.Vod.Models.Response.VodSubmitBlockMediaTaskResponse
 	(*VodSubmitUnblockMediaTaskResponse)(nil),                       // 78: Byteplus.Vod.Models.Response.VodSubmitUnblockMediaTaskResponse
 	(*VodQueryMediaBlockStatusResponse)(nil),                        // 79: Byteplus.Vod.Models.Response.VodQueryMediaBlockStatusResponse
-	(*base.ResponseMetadata)(nil),                                   // 80: Byteplus.Base.Models.Base.ResponseMetadata
-	(*business.VodAllPlayInfoResult)(nil),                           // 81: Byteplus.Vod.Models.Business.VodAllPlayInfoResult
-	(*business.VodPlayInfoModel)(nil),                               // 82: Byteplus.Vod.Models.Business.VodPlayInfoModel
-	(*business.VodGetOriginalPlayInfoResult)(nil),                   // 83: Byteplus.Vod.Models.Business.VodGetOriginalPlayInfoResult
-	(*business.VodGetPrivateDrmPlayAuthResult)(nil),                 // 84: Byteplus.Vod.Models.Business.VodGetPrivateDrmPlayAuthResult
-	(*business.VodGetHlsDecryptionKeyResult)(nil),                   // 85: Byteplus.Vod.Models.Business.VodGetHlsDecryptionKeyResult
-	(*business.VodGetPlayInfoWithLiveTimeShiftSceneResult)(nil),     // 86: Byteplus.Vod.Models.Business.VodGetPlayInfoWithLiveTimeShiftSceneResult
-	(*business.VodCommitData)(nil),                                  // 87: Byteplus.Vod.Models.Business.VodCommitData
-	(*business.VodQueryData)(nil),                                   // 88: Byteplus.Vod.Models.Business.VodQueryData
-	(*business.VodUrlResponseData)(nil),                             // 89: Byteplus.Vod.Models.Business.VodUrlResponseData
-	(*business.VodApplyUploadInfoResult)(nil),                       // 90: Byteplus.Vod.Models.Business.VodApplyUploadInfoResult
-	(*business.VodCommitUploadInfoResult)(nil),                      // 91: Byteplus.Vod.Models.Business.VodCommitUploadInfoResult
-	(*business.VodGetMediaInfosData)(nil),                           // 92: Byteplus.Vod.Models.Business.VodGetMediaInfosData
-	(*business.VodGetRecPosterData)(nil),                            // 93: Byteplus.Vod.Models.Business.VodGetRecPosterData
-	(*business.VodUpdateMediaStorageClassData)(nil),                 // 94: Byteplus.Vod.Models.Business.VodUpdateMediaStorageClassData
-	(*business.VodDeleteMediaData)(nil),                             // 95: Byteplus.Vod.Models.Business.VodDeleteMediaData
-	(*business.VodDeleteTranscodesData)(nil),                        // 96: Byteplus.Vod.Models.Business.VodDeleteTranscodesData
-	(*business.VodGetMediaListData)(nil),                            // 97: Byteplus.Vod.Models.Business.VodGetMediaListData
-	(*business.VodGetSubtitleInfoListData)(nil),                     // 98: Byteplus.Vod.Models.Business.VodGetSubtitleInfoListData
-	(*business.VodUpdateSubtitleStatusData)(nil),                    // 99: Byteplus.Vod.Models.Business.VodUpdateSubtitleStatusData
-	(*business.VodGetFramesForAuditResult)(nil),                     // 100: Byteplus.Vod.Models.Business.VodGetFramesForAuditResult
-	(*business.VodGetBetterFramesForAuditResult)(nil),               // 101: Byteplus.Vod.Models.Business.VodGetBetterFramesForAuditResult
-	(*business.VodGetAudioInfoForAuditResult)(nil),                  // 102: Byteplus.Vod.Models.Business.VodGetAudioInfoForAuditResult
-	(*business.VodGetAutomaticSpeechRecognitionForAuditResult)(nil), // 103: Byteplus.Vod.Models.Business.VodGetAutomaticSpeechRecognitionForAuditResult
-	(*business.VodGetAudioEventDetectionForAuditResult)(nil),        // 104: Byteplus.Vod.Models.Business.VodGetAudioEventDetectionForAuditResult
-	(*business.VodCreateVideoClassificationData)(nil),               // 105: Byteplus.Vod.Models.Business.VodCreateVideoClassificationData
-	(*business.VodVideoClassificationsData)(nil),                    // 106: Byteplus.Vod.Models.Business.VodVideoClassificationsData
-	(*business.VodSnapshotData)(nil),                                // 107: Byteplus.Vod.Models.Business.VodSnapshotData
-	(*business.VodStartWorkflowResult)(nil),                         // 108: Byteplus.Vod.Models.Business.VodStartWorkflowResult
-	(*business.TranscodeResult)(nil),                                // 109: Byteplus.Vod.Models.Business.TranscodeResult
-	(*business.VodListWorkflowExecutionResult)(nil),                 // 110: Byteplus.Vod.Models.Business.VodListWorkflowExecutionResult
-	(*business.VodGetWorkflowExecutionDetailResult)(nil),            // 111: Byteplus.Vod.Models.Business.VodGetWorkflowExecutionDetailResult
-	(*business.WorkflowExecution)(nil),                              // 112: Byteplus.Vod.Models.Business.WorkflowExecution
-	(*business.VodWorkflowResult)(nil),                              // 113: Byteplus.Vod.Models.Business.VodWorkflowResult
-	(*business.SubmitDirectEditTaskAsyncResult)(nil),                // 114: Byteplus.Vod.Models.Business.SubmitDirectEditTaskAsyncResult
-	(*business.GetDirectEditProgress)(nil),                          // 115: Byteplus.Vod.Models.Business.GetDirectEditProgress
-	(*business.GetDirectEditResult)(nil),                            // 116: Byteplus.Vod.Models.Business.GetDirectEditResult
-	(*business.VodSpaceInfo)(nil),                                   // 117: Byteplus.Vod.Models.Business.VodSpaceInfo
-	(*business.VodDescribeVodSpaceStorageDataResult)(nil),           // 118: Byteplus.Vod.Models.Business.VodDescribeVodSpaceStorageDataResult
-	(*business.VodDomainConfigInfo)(nil),                            // 119: Byteplus.Vod.Models.Business.VodDomainConfigInfo
-	(*business.VodCreateCdnTaskResult)(nil),                         // 120: Byteplus.Vod.Models.Business.VodCreateCdnTaskResult
-	(*business.VodCdnTaskResult)(nil),                               // 121: Byteplus.Vod.Models.Business.VodCdnTaskResult
-	(*business.VodListCdnAccessLogResult)(nil),                      // 122: Byteplus.Vod.Models.Business.VodListCdnAccessLogResult
-	(*business.VodListCdnTopAccessUrlResult)(nil),                   // 123: Byteplus.Vod.Models.Business.VodListCdnTopAccessUrlResult
-	(*business.VodDescribeVodDomainBandwidthDataResult)(nil),        // 124: Byteplus.Vod.Models.Business.VodDescribeVodDomainBandwidthDataResult
-	(*business.VodCdnStatisticsCommonResult)(nil),                   // 125: Byteplus.Vod.Models.Business.VodCdnStatisticsCommonResult
-	(*business.VodCdnIpInfo)(nil),                                   // 126: Byteplus.Vod.Models.Business.VodCdnIpInfo
-	(*business.VodDescribeVodDomainTrafficDataResult)(nil),          // 127: Byteplus.Vod.Models.Business.VodDescribeVodDomainTrafficDataResult
-	(*business.VodSubmitBlockTasksResult)(nil),                      // 128: Byteplus.Vod.Models.Business.VodSubmitBlockTasksResult
-	(*business.VodGetContentBlockTasksResult)(nil),                  // 129: Byteplus.Vod.Models.Business.VodGetContentBlockTasksResult
-	(*business.VodGetSmartStrategyLitePlayInfoResult)(nil),          // 130: Byteplus.Vod.Models.Business.VodGetSmartStrategyLitePlayInfoResult
-	(*business.VodGetAppInfoResult)(nil),                            // 131: Byteplus.Vod.Models.Business.VodGetAppInfoResult
-	(*business.DescribeVodSpaceTranscodeDataResult)(nil),            // 132: Byteplus.Vod.Models.Business.DescribeVodSpaceTranscodeDataResult
-	(*business.DescribeVodSpaceAIStatisDataResult)(nil),             // 133: Byteplus.Vod.Models.Business.DescribeVodSpaceAIStatisDataResult
-	(*business.DescribeVodSpaceSubtitleStatisDataResult)(nil),       // 134: Byteplus.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataResult
-	(*business.DescribeVodSpaceDetectStatisDataResult)(nil),         // 135: Byteplus.Vod.Models.Business.DescribeVodSpaceDetectStatisDataResult
-	(*business.DescribeVodSnapshotDataResult)(nil),                  // 136: Byteplus.Vod.Models.Business.DescribeVodSnapshotDataResult
-	(*business.DescribeVodSpaceWorkflowDetailDataResult)(nil),       // 137: Byteplus.Vod.Models.Business.DescribeVodSpaceWorkflowDetailDataResult
-	(*business.DescribeVodSpaceEditDetailDataResult)(nil),           // 138: Byteplus.Vod.Models.Business.DescribeVodSpaceEditDetailDataResult
-	(*business.DescribeVodPlayFileLogByDomainResult)(nil),           // 139: Byteplus.Vod.Models.Business.DescribeVodPlayFileLogByDomainResult
-	(*business.VodSubmitBlockMediaTaskResult)(nil),                  // 140: Byteplus.Vod.Models.Business.VodSubmitBlockMediaTaskResult
-	(*business.VodSubmitUnblockMediaTaskResult)(nil),                // 141: Byteplus.Vod.Models.Business.VodSubmitUnblockMediaTaskResult
-	(*business.VodQueryMediaBlockStatusResult)(nil),                 // 142: Byteplus.Vod.Models.Business.VodQueryMediaBlockStatusResult
+	(*VodCreatePlaylistResponse)(nil),                               // 80: Byteplus.Vod.Models.Response.VodCreatePlaylistResponse
+	(*VodGetPlaylistsResponse)(nil),                                 // 81: Byteplus.Vod.Models.Response.VodGetPlaylistsResponse
+	(*VodUpdatePlaylistResponse)(nil),                               // 82: Byteplus.Vod.Models.Response.VodUpdatePlaylistResponse
+	(*VodDeletePlaylistResponse)(nil),                               // 83: Byteplus.Vod.Models.Response.VodDeletePlaylistResponse
+	(*base.ResponseMetadata)(nil),                                   // 84: Byteplus.Base.Models.Base.ResponseMetadata
+	(*business.VodAllPlayInfoResult)(nil),                           // 85: Byteplus.Vod.Models.Business.VodAllPlayInfoResult
+	(*business.VodPlayInfoModel)(nil),                               // 86: Byteplus.Vod.Models.Business.VodPlayInfoModel
+	(*business.VodGetOriginalPlayInfoResult)(nil),                   // 87: Byteplus.Vod.Models.Business.VodGetOriginalPlayInfoResult
+	(*business.VodGetPrivateDrmPlayAuthResult)(nil),                 // 88: Byteplus.Vod.Models.Business.VodGetPrivateDrmPlayAuthResult
+	(*business.VodGetHlsDecryptionKeyResult)(nil),                   // 89: Byteplus.Vod.Models.Business.VodGetHlsDecryptionKeyResult
+	(*business.VodGetPlayInfoWithLiveTimeShiftSceneResult)(nil),     // 90: Byteplus.Vod.Models.Business.VodGetPlayInfoWithLiveTimeShiftSceneResult
+	(*business.VodCommitData)(nil),                                  // 91: Byteplus.Vod.Models.Business.VodCommitData
+	(*business.VodQueryData)(nil),                                   // 92: Byteplus.Vod.Models.Business.VodQueryData
+	(*business.VodUrlResponseData)(nil),                             // 93: Byteplus.Vod.Models.Business.VodUrlResponseData
+	(*business.VodApplyUploadInfoResult)(nil),                       // 94: Byteplus.Vod.Models.Business.VodApplyUploadInfoResult
+	(*business.VodCommitUploadInfoResult)(nil),                      // 95: Byteplus.Vod.Models.Business.VodCommitUploadInfoResult
+	(*business.VodGetMediaInfosData)(nil),                           // 96: Byteplus.Vod.Models.Business.VodGetMediaInfosData
+	(*business.VodGetRecPosterData)(nil),                            // 97: Byteplus.Vod.Models.Business.VodGetRecPosterData
+	(*business.VodUpdateMediaStorageClassData)(nil),                 // 98: Byteplus.Vod.Models.Business.VodUpdateMediaStorageClassData
+	(*business.VodDeleteMediaData)(nil),                             // 99: Byteplus.Vod.Models.Business.VodDeleteMediaData
+	(*business.VodDeleteTranscodesData)(nil),                        // 100: Byteplus.Vod.Models.Business.VodDeleteTranscodesData
+	(*business.VodGetMediaListData)(nil),                            // 101: Byteplus.Vod.Models.Business.VodGetMediaListData
+	(*business.VodGetSubtitleInfoListData)(nil),                     // 102: Byteplus.Vod.Models.Business.VodGetSubtitleInfoListData
+	(*business.VodUpdateSubtitleStatusData)(nil),                    // 103: Byteplus.Vod.Models.Business.VodUpdateSubtitleStatusData
+	(*business.VodGetFramesForAuditResult)(nil),                     // 104: Byteplus.Vod.Models.Business.VodGetFramesForAuditResult
+	(*business.VodGetBetterFramesForAuditResult)(nil),               // 105: Byteplus.Vod.Models.Business.VodGetBetterFramesForAuditResult
+	(*business.VodGetAudioInfoForAuditResult)(nil),                  // 106: Byteplus.Vod.Models.Business.VodGetAudioInfoForAuditResult
+	(*business.VodGetAutomaticSpeechRecognitionForAuditResult)(nil), // 107: Byteplus.Vod.Models.Business.VodGetAutomaticSpeechRecognitionForAuditResult
+	(*business.VodGetAudioEventDetectionForAuditResult)(nil),        // 108: Byteplus.Vod.Models.Business.VodGetAudioEventDetectionForAuditResult
+	(*business.VodCreateVideoClassificationData)(nil),               // 109: Byteplus.Vod.Models.Business.VodCreateVideoClassificationData
+	(*business.VodVideoClassificationsData)(nil),                    // 110: Byteplus.Vod.Models.Business.VodVideoClassificationsData
+	(*business.VodSnapshotData)(nil),                                // 111: Byteplus.Vod.Models.Business.VodSnapshotData
+	(*business.VodStartWorkflowResult)(nil),                         // 112: Byteplus.Vod.Models.Business.VodStartWorkflowResult
+	(*business.TranscodeResult)(nil),                                // 113: Byteplus.Vod.Models.Business.TranscodeResult
+	(*business.VodListWorkflowExecutionResult)(nil),                 // 114: Byteplus.Vod.Models.Business.VodListWorkflowExecutionResult
+	(*business.VodGetWorkflowExecutionDetailResult)(nil),            // 115: Byteplus.Vod.Models.Business.VodGetWorkflowExecutionDetailResult
+	(*business.WorkflowExecution)(nil),                              // 116: Byteplus.Vod.Models.Business.WorkflowExecution
+	(*business.VodWorkflowResult)(nil),                              // 117: Byteplus.Vod.Models.Business.VodWorkflowResult
+	(*business.SubmitDirectEditTaskAsyncResult)(nil),                // 118: Byteplus.Vod.Models.Business.SubmitDirectEditTaskAsyncResult
+	(*business.GetDirectEditProgress)(nil),                          // 119: Byteplus.Vod.Models.Business.GetDirectEditProgress
+	(*business.GetDirectEditResult)(nil),                            // 120: Byteplus.Vod.Models.Business.GetDirectEditResult
+	(*business.VodSpaceInfo)(nil),                                   // 121: Byteplus.Vod.Models.Business.VodSpaceInfo
+	(*business.VodDescribeVodSpaceStorageDataResult)(nil),           // 122: Byteplus.Vod.Models.Business.VodDescribeVodSpaceStorageDataResult
+	(*business.VodDomainConfigInfo)(nil),                            // 123: Byteplus.Vod.Models.Business.VodDomainConfigInfo
+	(*business.VodCreateCdnTaskResult)(nil),                         // 124: Byteplus.Vod.Models.Business.VodCreateCdnTaskResult
+	(*business.VodCdnTaskResult)(nil),                               // 125: Byteplus.Vod.Models.Business.VodCdnTaskResult
+	(*business.VodListCdnAccessLogResult)(nil),                      // 126: Byteplus.Vod.Models.Business.VodListCdnAccessLogResult
+	(*business.VodListCdnTopAccessUrlResult)(nil),                   // 127: Byteplus.Vod.Models.Business.VodListCdnTopAccessUrlResult
+	(*business.VodDescribeVodDomainBandwidthDataResult)(nil),        // 128: Byteplus.Vod.Models.Business.VodDescribeVodDomainBandwidthDataResult
+	(*business.VodCdnStatisticsCommonResult)(nil),                   // 129: Byteplus.Vod.Models.Business.VodCdnStatisticsCommonResult
+	(*business.VodCdnIpInfo)(nil),                                   // 130: Byteplus.Vod.Models.Business.VodCdnIpInfo
+	(*business.VodDescribeVodDomainTrafficDataResult)(nil),          // 131: Byteplus.Vod.Models.Business.VodDescribeVodDomainTrafficDataResult
+	(*business.VodSubmitBlockTasksResult)(nil),                      // 132: Byteplus.Vod.Models.Business.VodSubmitBlockTasksResult
+	(*business.VodGetContentBlockTasksResult)(nil),                  // 133: Byteplus.Vod.Models.Business.VodGetContentBlockTasksResult
+	(*business.VodGetSmartStrategyLitePlayInfoResult)(nil),          // 134: Byteplus.Vod.Models.Business.VodGetSmartStrategyLitePlayInfoResult
+	(*business.VodGetAppInfoResult)(nil),                            // 135: Byteplus.Vod.Models.Business.VodGetAppInfoResult
+	(*business.DescribeVodSpaceTranscodeDataResult)(nil),            // 136: Byteplus.Vod.Models.Business.DescribeVodSpaceTranscodeDataResult
+	(*business.DescribeVodSpaceAIStatisDataResult)(nil),             // 137: Byteplus.Vod.Models.Business.DescribeVodSpaceAIStatisDataResult
+	(*business.DescribeVodSpaceSubtitleStatisDataResult)(nil),       // 138: Byteplus.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataResult
+	(*business.DescribeVodSpaceDetectStatisDataResult)(nil),         // 139: Byteplus.Vod.Models.Business.DescribeVodSpaceDetectStatisDataResult
+	(*business.DescribeVodSnapshotDataResult)(nil),                  // 140: Byteplus.Vod.Models.Business.DescribeVodSnapshotDataResult
+	(*business.DescribeVodSpaceWorkflowDetailDataResult)(nil),       // 141: Byteplus.Vod.Models.Business.DescribeVodSpaceWorkflowDetailDataResult
+	(*business.DescribeVodSpaceEditDetailDataResult)(nil),           // 142: Byteplus.Vod.Models.Business.DescribeVodSpaceEditDetailDataResult
+	(*business.DescribeVodPlayFileLogByDomainResult)(nil),           // 143: Byteplus.Vod.Models.Business.DescribeVodPlayFileLogByDomainResult
+	(*business.VodSubmitBlockMediaTaskResult)(nil),                  // 144: Byteplus.Vod.Models.Business.VodSubmitBlockMediaTaskResult
+	(*business.VodSubmitUnblockMediaTaskResult)(nil),                // 145: Byteplus.Vod.Models.Business.VodSubmitUnblockMediaTaskResult
+	(*business.VodQueryMediaBlockStatusResult)(nil),                 // 146: Byteplus.Vod.Models.Business.VodQueryMediaBlockStatusResult
+	(*business.VodCreatePlaylistResult)(nil),                        // 147: Byteplus.Vod.Models.Business.VodCreatePlaylistResult
+	(*business.VodGetPlaylistsResult)(nil),                          // 148: Byteplus.Vod.Models.Business.VodGetPlaylistsResult
 }
 var file_byteplus_vod_response_response_vod_proto_depIdxs = []int32{
-	80,  // 0: Byteplus.Vod.Models.Response.VodGetAllPlayInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	81,  // 1: Byteplus.Vod.Models.Response.VodGetAllPlayInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodAllPlayInfoResult
-	80,  // 2: Byteplus.Vod.Models.Response.VodGetPlayInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	82,  // 3: Byteplus.Vod.Models.Response.VodGetPlayInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodPlayInfoModel
-	80,  // 4: Byteplus.Vod.Models.Response.VodGetOriginalPlayInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	83,  // 5: Byteplus.Vod.Models.Response.VodGetOriginalPlayInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetOriginalPlayInfoResult
-	80,  // 6: Byteplus.Vod.Models.Response.VodGetPrivateDrmPlayAuthResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	84,  // 7: Byteplus.Vod.Models.Response.VodGetPrivateDrmPlayAuthResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetPrivateDrmPlayAuthResult
-	80,  // 8: Byteplus.Vod.Models.Response.VodGetHlsDecryptionKeyResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	85,  // 9: Byteplus.Vod.Models.Response.VodGetHlsDecryptionKeyResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetHlsDecryptionKeyResult
-	80,  // 10: Byteplus.Vod.Models.Response.VodGetPlayInfoWithLiveTimeShiftSceneResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	86,  // 11: Byteplus.Vod.Models.Response.VodGetPlayInfoWithLiveTimeShiftSceneResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetPlayInfoWithLiveTimeShiftSceneResult
-	80,  // 12: Byteplus.Vod.Models.Response.VodUploadMediaResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	87,  // 13: Byteplus.Vod.Models.Response.VodUploadMediaResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCommitData
-	80,  // 14: Byteplus.Vod.Models.Response.VodQueryUploadTaskInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	88,  // 15: Byteplus.Vod.Models.Response.VodQueryUploadTaskInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodQueryData
-	80,  // 16: Byteplus.Vod.Models.Response.VodUrlUploadResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	89,  // 17: Byteplus.Vod.Models.Response.VodUrlUploadResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodUrlResponseData
-	80,  // 18: Byteplus.Vod.Models.Response.VodApplyUploadInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	90,  // 19: Byteplus.Vod.Models.Response.VodApplyUploadInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodApplyUploadInfoResult
-	80,  // 20: Byteplus.Vod.Models.Response.VodCommitUploadInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	91,  // 21: Byteplus.Vod.Models.Response.VodCommitUploadInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCommitUploadInfoResult
-	80,  // 22: Byteplus.Vod.Models.Response.VodGetMediaInfosResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	92,  // 23: Byteplus.Vod.Models.Response.VodGetMediaInfosResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetMediaInfosData
-	80,  // 24: Byteplus.Vod.Models.Response.VodUpdateMediaInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	80,  // 25: Byteplus.Vod.Models.Response.VodGetRecommendedPosterResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	93,  // 26: Byteplus.Vod.Models.Response.VodGetRecommendedPosterResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetRecPosterData
-	80,  // 27: Byteplus.Vod.Models.Response.VodUpdateMediaPublishStatusResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	80,  // 28: Byteplus.Vod.Models.Response.VodUpdateMediaStorageClassResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	94,  // 29: Byteplus.Vod.Models.Response.VodUpdateMediaStorageClassResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodUpdateMediaStorageClassData
-	80,  // 30: Byteplus.Vod.Models.Response.VodDeleteMediaResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	95,  // 31: Byteplus.Vod.Models.Response.VodDeleteMediaResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDeleteMediaData
-	80,  // 32: Byteplus.Vod.Models.Response.VodDeleteTranscodesResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	96,  // 33: Byteplus.Vod.Models.Response.VodDeleteTranscodesResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDeleteTranscodesData
-	80,  // 34: Byteplus.Vod.Models.Response.VodGetMediaListResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	97,  // 35: Byteplus.Vod.Models.Response.VodGetMediaListResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetMediaListData
-	80,  // 36: Byteplus.Vod.Models.Response.VodGetSubtitleInfoListResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	98,  // 37: Byteplus.Vod.Models.Response.VodGetSubtitleInfoListResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetSubtitleInfoListData
-	80,  // 38: Byteplus.Vod.Models.Response.VodUpdateSubtitleStatusResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	99,  // 39: Byteplus.Vod.Models.Response.VodUpdateSubtitleStatusResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodUpdateSubtitleStatusData
-	80,  // 40: Byteplus.Vod.Models.Response.VodUpdateSubtitleInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	80,  // 41: Byteplus.Vod.Models.Response.VodGetAuditFramesForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	100, // 42: Byteplus.Vod.Models.Response.VodGetAuditFramesForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetFramesForAuditResult
-	80,  // 43: Byteplus.Vod.Models.Response.VodGetMLFramesForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	100, // 44: Byteplus.Vod.Models.Response.VodGetMLFramesForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetFramesForAuditResult
-	80,  // 45: Byteplus.Vod.Models.Response.VodGetBetterFramesForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	101, // 46: Byteplus.Vod.Models.Response.VodGetBetterFramesForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetBetterFramesForAuditResult
-	80,  // 47: Byteplus.Vod.Models.Response.VodGetAudioInfoForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	102, // 48: Byteplus.Vod.Models.Response.VodGetAudioInfoForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetAudioInfoForAuditResult
-	80,  // 49: Byteplus.Vod.Models.Response.VodGetAutomaticSpeechRecognitionForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	103, // 50: Byteplus.Vod.Models.Response.VodGetAutomaticSpeechRecognitionForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetAutomaticSpeechRecognitionForAuditResult
-	80,  // 51: Byteplus.Vod.Models.Response.VodGetAudioEventDetectionForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	104, // 52: Byteplus.Vod.Models.Response.VodGetAudioEventDetectionForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetAudioEventDetectionForAuditResult
-	80,  // 53: Byteplus.Vod.Models.Response.VodCreateVideoClassificationResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	105, // 54: Byteplus.Vod.Models.Response.VodCreateVideoClassificationResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCreateVideoClassificationData
-	80,  // 55: Byteplus.Vod.Models.Response.VodUpdateVideoClassificationResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	80,  // 56: Byteplus.Vod.Models.Response.VodDeleteVideoClassificationResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	80,  // 57: Byteplus.Vod.Models.Response.VodListVideoClassificationsResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	106, // 58: Byteplus.Vod.Models.Response.VodListVideoClassificationsResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodVideoClassificationsData
-	80,  // 59: Byteplus.Vod.Models.Response.VodListSnapshotsResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	107, // 60: Byteplus.Vod.Models.Response.VodListSnapshotsResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSnapshotData
-	80,  // 61: Byteplus.Vod.Models.Response.VodGetFileListResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	92,  // 62: Byteplus.Vod.Models.Response.VodGetFileListResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetMediaInfosData
-	80,  // 63: Byteplus.Vod.Models.Response.VodExtractMediaMetaTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	80,  // 64: Byteplus.Vod.Models.Response.VodStartWorkflowResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	108, // 65: Byteplus.Vod.Models.Response.VodStartWorkflowResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodStartWorkflowResult
-	80,  // 66: Byteplus.Vod.Models.Response.VodRetrieveTranscodeResultResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	109, // 67: Byteplus.Vod.Models.Response.VodRetrieveTranscodeResultResponse.Result:type_name -> Byteplus.Vod.Models.Business.TranscodeResult
-	80,  // 68: Byteplus.Vod.Models.Response.VodListWorkflowExecutionResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	110, // 69: Byteplus.Vod.Models.Response.VodListWorkflowExecutionResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListWorkflowExecutionResult
-	80,  // 70: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionDetailResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 71: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionDetailResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetWorkflowExecutionDetailResult
-	80,  // 72: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionStatusResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	112, // 73: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionStatusResponse.Result:type_name -> Byteplus.Vod.Models.Business.WorkflowExecution
-	80,  // 74: Byteplus.Vod.Models.Response.VodGetWorkflowResultResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	113, // 75: Byteplus.Vod.Models.Response.VodGetWorkflowResultResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodWorkflowResult
-	80,  // 76: Byteplus.Vod.Models.Response.VodSubmitDirectEditTaskAsyncResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	114, // 77: Byteplus.Vod.Models.Response.VodSubmitDirectEditTaskAsyncResponse.Result:type_name -> Byteplus.Vod.Models.Business.SubmitDirectEditTaskAsyncResult
-	80,  // 78: Byteplus.Vod.Models.Response.VodGetDirectEditProgressResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	115, // 79: Byteplus.Vod.Models.Response.VodGetDirectEditProgressResponse.Result:type_name -> Byteplus.Vod.Models.Business.GetDirectEditProgress
-	80,  // 80: Byteplus.Vod.Models.Response.VodGetDirectEditResultResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	116, // 81: Byteplus.Vod.Models.Response.VodGetDirectEditResultResponse.Result:type_name -> Byteplus.Vod.Models.Business.GetDirectEditResult
-	80,  // 82: Byteplus.Vod.Models.Response.VodCreateSpaceResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	80,  // 83: Byteplus.Vod.Models.Response.VodListSpaceResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	117, // 84: Byteplus.Vod.Models.Response.VodListSpaceResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSpaceInfo
-	80,  // 85: Byteplus.Vod.Models.Response.VodGetSpaceDetailResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	117, // 86: Byteplus.Vod.Models.Response.VodGetSpaceDetailResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSpaceInfo
-	80,  // 87: Byteplus.Vod.Models.Response.VodUpdateSpaceResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	80,  // 88: Byteplus.Vod.Models.Response.VodUpdateSpaceUploadConfigResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	80,  // 89: Byteplus.Vod.Models.Response.VodDescribeVodSpaceStorageDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	118, // 90: Byteplus.Vod.Models.Response.VodDescribeVodSpaceStorageDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDescribeVodSpaceStorageDataResult
-	80,  // 91: Byteplus.Vod.Models.Response.VodListDomainResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	119, // 92: Byteplus.Vod.Models.Response.VodListDomainResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDomainConfigInfo
-	80,  // 93: Byteplus.Vod.Models.Response.VodCreateCdnRefreshTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	120, // 94: Byteplus.Vod.Models.Response.VodCreateCdnRefreshTaskResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCreateCdnTaskResult
-	80,  // 95: Byteplus.Vod.Models.Response.VodCreateCdnPreloadTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	120, // 96: Byteplus.Vod.Models.Response.VodCreateCdnPreloadTaskResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCreateCdnTaskResult
-	80,  // 97: Byteplus.Vod.Models.Response.VodListCdnTasksResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	121, // 98: Byteplus.Vod.Models.Response.VodListCdnTasksResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCdnTaskResult
-	80,  // 99: Byteplus.Vod.Models.Response.VodListCdnAccessLogResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	122, // 100: Byteplus.Vod.Models.Response.VodListCdnAccessLogResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListCdnAccessLogResult
-	80,  // 101: Byteplus.Vod.Models.Response.VodListCdnTopAccessUrlResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	123, // 102: Byteplus.Vod.Models.Response.VodListCdnTopAccessUrlResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListCdnTopAccessUrlResult
-	80,  // 103: Byteplus.Vod.Models.Response.VodDescribeVodDomainBandwidthDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	124, // 104: Byteplus.Vod.Models.Response.VodDescribeVodDomainBandwidthDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDescribeVodDomainBandwidthDataResult
-	80,  // 105: Byteplus.Vod.Models.Response.VodCdnStatisticsCommonResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	125, // 106: Byteplus.Vod.Models.Response.VodCdnStatisticsCommonResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCdnStatisticsCommonResult
-	80,  // 107: Byteplus.Vod.Models.Response.VodDescribeIPInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	126, // 108: Byteplus.Vod.Models.Response.VodDescribeIPInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCdnIpInfo
-	80,  // 109: Byteplus.Vod.Models.Response.VodDescribeVodDomainTrafficDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	127, // 110: Byteplus.Vod.Models.Response.VodDescribeVodDomainTrafficDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDescribeVodDomainTrafficDataResult
-	80,  // 111: Byteplus.Vod.Models.Response.VodSubmitBlockTasksResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	128, // 112: Byteplus.Vod.Models.Response.VodSubmitBlockTasksResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSubmitBlockTasksResult
-	80,  // 113: Byteplus.Vod.Models.Response.VodGetContentBlockTasksResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	129, // 114: Byteplus.Vod.Models.Response.VodGetContentBlockTasksResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetContentBlockTasksResult
-	80,  // 115: Byteplus.Vod.Models.Response.VodCreateDomainV2Response.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	80,  // 116: Byteplus.Vod.Models.Response.VodUpdateDomainExpireV2Response.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	80,  // 117: Byteplus.Vod.Models.Response.VodUpdateDomainAuthConfigV2Response.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	80,  // 118: Byteplus.Vod.Models.Response.VodAddCallbackSubscriptionResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	80,  // 119: Byteplus.Vod.Models.Response.VodSetCallbackEventResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	80,  // 120: Byteplus.Vod.Models.Response.VodGetSmartStrategyLitePlayInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	130, // 121: Byteplus.Vod.Models.Response.VodGetSmartStrategyLitePlayInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetSmartStrategyLitePlayInfoResult
-	80,  // 122: Byteplus.Vod.Models.Response.VodGetAppInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	131, // 123: Byteplus.Vod.Models.Response.VodGetAppInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetAppInfoResult
-	80,  // 124: Byteplus.Vod.Models.Response.DescribeVodSpaceTranscodeDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	132, // 125: Byteplus.Vod.Models.Response.DescribeVodSpaceTranscodeDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceTranscodeDataResult
-	80,  // 126: Byteplus.Vod.Models.Response.DescribeVodSpaceAIStatisDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	133, // 127: Byteplus.Vod.Models.Response.DescribeVodSpaceAIStatisDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceAIStatisDataResult
-	80,  // 128: Byteplus.Vod.Models.Response.DescribeVodSpaceSubtitleStatisDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	134, // 129: Byteplus.Vod.Models.Response.DescribeVodSpaceSubtitleStatisDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataResult
-	80,  // 130: Byteplus.Vod.Models.Response.DescribeVodSpaceDetectStatisDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	135, // 131: Byteplus.Vod.Models.Response.DescribeVodSpaceDetectStatisDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceDetectStatisDataResult
-	80,  // 132: Byteplus.Vod.Models.Response.DescribeVodSnapshotDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	136, // 133: Byteplus.Vod.Models.Response.DescribeVodSnapshotDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSnapshotDataResult
-	80,  // 134: Byteplus.Vod.Models.Response.DescribeVodSpaceWorkflowDetailDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	137, // 135: Byteplus.Vod.Models.Response.DescribeVodSpaceWorkflowDetailDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceWorkflowDetailDataResult
-	80,  // 136: Byteplus.Vod.Models.Response.DescribeVodSpaceEditDetailDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	138, // 137: Byteplus.Vod.Models.Response.DescribeVodSpaceEditDetailDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceEditDetailDataResult
-	80,  // 138: Byteplus.Vod.Models.Response.DescribeVodPlayFileLogByDomainResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	139, // 139: Byteplus.Vod.Models.Response.DescribeVodPlayFileLogByDomainResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodPlayFileLogByDomainResult
-	80,  // 140: Byteplus.Vod.Models.Response.VodSubmitBlockMediaTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	140, // 141: Byteplus.Vod.Models.Response.VodSubmitBlockMediaTaskResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSubmitBlockMediaTaskResult
-	80,  // 142: Byteplus.Vod.Models.Response.VodSubmitUnblockMediaTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	141, // 143: Byteplus.Vod.Models.Response.VodSubmitUnblockMediaTaskResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSubmitUnblockMediaTaskResult
-	80,  // 144: Byteplus.Vod.Models.Response.VodQueryMediaBlockStatusResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	142, // 145: Byteplus.Vod.Models.Response.VodQueryMediaBlockStatusResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodQueryMediaBlockStatusResult
-	146, // [146:146] is the sub-list for method output_type
-	146, // [146:146] is the sub-list for method input_type
-	146, // [146:146] is the sub-list for extension type_name
-	146, // [146:146] is the sub-list for extension extendee
-	0,   // [0:146] is the sub-list for field type_name
+	84,  // 0: Byteplus.Vod.Models.Response.VodGetAllPlayInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	85,  // 1: Byteplus.Vod.Models.Response.VodGetAllPlayInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodAllPlayInfoResult
+	84,  // 2: Byteplus.Vod.Models.Response.VodGetPlayInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	86,  // 3: Byteplus.Vod.Models.Response.VodGetPlayInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodPlayInfoModel
+	84,  // 4: Byteplus.Vod.Models.Response.VodGetOriginalPlayInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	87,  // 5: Byteplus.Vod.Models.Response.VodGetOriginalPlayInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetOriginalPlayInfoResult
+	84,  // 6: Byteplus.Vod.Models.Response.VodGetPrivateDrmPlayAuthResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	88,  // 7: Byteplus.Vod.Models.Response.VodGetPrivateDrmPlayAuthResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetPrivateDrmPlayAuthResult
+	84,  // 8: Byteplus.Vod.Models.Response.VodGetHlsDecryptionKeyResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	89,  // 9: Byteplus.Vod.Models.Response.VodGetHlsDecryptionKeyResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetHlsDecryptionKeyResult
+	84,  // 10: Byteplus.Vod.Models.Response.VodGetPlayInfoWithLiveTimeShiftSceneResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	90,  // 11: Byteplus.Vod.Models.Response.VodGetPlayInfoWithLiveTimeShiftSceneResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetPlayInfoWithLiveTimeShiftSceneResult
+	84,  // 12: Byteplus.Vod.Models.Response.VodUploadMediaResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	91,  // 13: Byteplus.Vod.Models.Response.VodUploadMediaResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCommitData
+	84,  // 14: Byteplus.Vod.Models.Response.VodQueryUploadTaskInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	92,  // 15: Byteplus.Vod.Models.Response.VodQueryUploadTaskInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodQueryData
+	84,  // 16: Byteplus.Vod.Models.Response.VodUrlUploadResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	93,  // 17: Byteplus.Vod.Models.Response.VodUrlUploadResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodUrlResponseData
+	84,  // 18: Byteplus.Vod.Models.Response.VodApplyUploadInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	94,  // 19: Byteplus.Vod.Models.Response.VodApplyUploadInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodApplyUploadInfoResult
+	84,  // 20: Byteplus.Vod.Models.Response.VodCommitUploadInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	95,  // 21: Byteplus.Vod.Models.Response.VodCommitUploadInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCommitUploadInfoResult
+	84,  // 22: Byteplus.Vod.Models.Response.VodGetMediaInfosResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	96,  // 23: Byteplus.Vod.Models.Response.VodGetMediaInfosResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetMediaInfosData
+	84,  // 24: Byteplus.Vod.Models.Response.VodUpdateMediaInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	84,  // 25: Byteplus.Vod.Models.Response.VodGetRecommendedPosterResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	97,  // 26: Byteplus.Vod.Models.Response.VodGetRecommendedPosterResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetRecPosterData
+	84,  // 27: Byteplus.Vod.Models.Response.VodUpdateMediaPublishStatusResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	84,  // 28: Byteplus.Vod.Models.Response.VodUpdateMediaStorageClassResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	98,  // 29: Byteplus.Vod.Models.Response.VodUpdateMediaStorageClassResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodUpdateMediaStorageClassData
+	84,  // 30: Byteplus.Vod.Models.Response.VodDeleteMediaResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	99,  // 31: Byteplus.Vod.Models.Response.VodDeleteMediaResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDeleteMediaData
+	84,  // 32: Byteplus.Vod.Models.Response.VodDeleteTranscodesResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	100, // 33: Byteplus.Vod.Models.Response.VodDeleteTranscodesResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDeleteTranscodesData
+	84,  // 34: Byteplus.Vod.Models.Response.VodGetMediaListResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	101, // 35: Byteplus.Vod.Models.Response.VodGetMediaListResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetMediaListData
+	84,  // 36: Byteplus.Vod.Models.Response.VodGetSubtitleInfoListResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	102, // 37: Byteplus.Vod.Models.Response.VodGetSubtitleInfoListResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetSubtitleInfoListData
+	84,  // 38: Byteplus.Vod.Models.Response.VodUpdateSubtitleStatusResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	103, // 39: Byteplus.Vod.Models.Response.VodUpdateSubtitleStatusResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodUpdateSubtitleStatusData
+	84,  // 40: Byteplus.Vod.Models.Response.VodUpdateSubtitleInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	84,  // 41: Byteplus.Vod.Models.Response.VodGetAuditFramesForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	104, // 42: Byteplus.Vod.Models.Response.VodGetAuditFramesForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetFramesForAuditResult
+	84,  // 43: Byteplus.Vod.Models.Response.VodGetMLFramesForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	104, // 44: Byteplus.Vod.Models.Response.VodGetMLFramesForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetFramesForAuditResult
+	84,  // 45: Byteplus.Vod.Models.Response.VodGetBetterFramesForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	105, // 46: Byteplus.Vod.Models.Response.VodGetBetterFramesForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetBetterFramesForAuditResult
+	84,  // 47: Byteplus.Vod.Models.Response.VodGetAudioInfoForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	106, // 48: Byteplus.Vod.Models.Response.VodGetAudioInfoForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetAudioInfoForAuditResult
+	84,  // 49: Byteplus.Vod.Models.Response.VodGetAutomaticSpeechRecognitionForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	107, // 50: Byteplus.Vod.Models.Response.VodGetAutomaticSpeechRecognitionForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetAutomaticSpeechRecognitionForAuditResult
+	84,  // 51: Byteplus.Vod.Models.Response.VodGetAudioEventDetectionForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	108, // 52: Byteplus.Vod.Models.Response.VodGetAudioEventDetectionForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetAudioEventDetectionForAuditResult
+	84,  // 53: Byteplus.Vod.Models.Response.VodCreateVideoClassificationResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	109, // 54: Byteplus.Vod.Models.Response.VodCreateVideoClassificationResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCreateVideoClassificationData
+	84,  // 55: Byteplus.Vod.Models.Response.VodUpdateVideoClassificationResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	84,  // 56: Byteplus.Vod.Models.Response.VodDeleteVideoClassificationResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	84,  // 57: Byteplus.Vod.Models.Response.VodListVideoClassificationsResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	110, // 58: Byteplus.Vod.Models.Response.VodListVideoClassificationsResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodVideoClassificationsData
+	84,  // 59: Byteplus.Vod.Models.Response.VodListSnapshotsResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	111, // 60: Byteplus.Vod.Models.Response.VodListSnapshotsResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSnapshotData
+	84,  // 61: Byteplus.Vod.Models.Response.VodGetFileListResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	96,  // 62: Byteplus.Vod.Models.Response.VodGetFileListResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetMediaInfosData
+	84,  // 63: Byteplus.Vod.Models.Response.VodExtractMediaMetaTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	84,  // 64: Byteplus.Vod.Models.Response.VodStartWorkflowResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	112, // 65: Byteplus.Vod.Models.Response.VodStartWorkflowResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodStartWorkflowResult
+	84,  // 66: Byteplus.Vod.Models.Response.VodRetrieveTranscodeResultResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	113, // 67: Byteplus.Vod.Models.Response.VodRetrieveTranscodeResultResponse.Result:type_name -> Byteplus.Vod.Models.Business.TranscodeResult
+	84,  // 68: Byteplus.Vod.Models.Response.VodListWorkflowExecutionResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	114, // 69: Byteplus.Vod.Models.Response.VodListWorkflowExecutionResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListWorkflowExecutionResult
+	84,  // 70: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionDetailResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 71: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionDetailResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetWorkflowExecutionDetailResult
+	84,  // 72: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionStatusResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	116, // 73: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionStatusResponse.Result:type_name -> Byteplus.Vod.Models.Business.WorkflowExecution
+	84,  // 74: Byteplus.Vod.Models.Response.VodGetWorkflowResultResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	117, // 75: Byteplus.Vod.Models.Response.VodGetWorkflowResultResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodWorkflowResult
+	84,  // 76: Byteplus.Vod.Models.Response.VodSubmitDirectEditTaskAsyncResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	118, // 77: Byteplus.Vod.Models.Response.VodSubmitDirectEditTaskAsyncResponse.Result:type_name -> Byteplus.Vod.Models.Business.SubmitDirectEditTaskAsyncResult
+	84,  // 78: Byteplus.Vod.Models.Response.VodGetDirectEditProgressResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	119, // 79: Byteplus.Vod.Models.Response.VodGetDirectEditProgressResponse.Result:type_name -> Byteplus.Vod.Models.Business.GetDirectEditProgress
+	84,  // 80: Byteplus.Vod.Models.Response.VodGetDirectEditResultResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	120, // 81: Byteplus.Vod.Models.Response.VodGetDirectEditResultResponse.Result:type_name -> Byteplus.Vod.Models.Business.GetDirectEditResult
+	84,  // 82: Byteplus.Vod.Models.Response.VodCreateSpaceResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	84,  // 83: Byteplus.Vod.Models.Response.VodListSpaceResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	121, // 84: Byteplus.Vod.Models.Response.VodListSpaceResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSpaceInfo
+	84,  // 85: Byteplus.Vod.Models.Response.VodGetSpaceDetailResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	121, // 86: Byteplus.Vod.Models.Response.VodGetSpaceDetailResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSpaceInfo
+	84,  // 87: Byteplus.Vod.Models.Response.VodUpdateSpaceResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	84,  // 88: Byteplus.Vod.Models.Response.VodUpdateSpaceUploadConfigResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	84,  // 89: Byteplus.Vod.Models.Response.VodDescribeVodSpaceStorageDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	122, // 90: Byteplus.Vod.Models.Response.VodDescribeVodSpaceStorageDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDescribeVodSpaceStorageDataResult
+	84,  // 91: Byteplus.Vod.Models.Response.VodListDomainResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	123, // 92: Byteplus.Vod.Models.Response.VodListDomainResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDomainConfigInfo
+	84,  // 93: Byteplus.Vod.Models.Response.VodCreateCdnRefreshTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	124, // 94: Byteplus.Vod.Models.Response.VodCreateCdnRefreshTaskResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCreateCdnTaskResult
+	84,  // 95: Byteplus.Vod.Models.Response.VodCreateCdnPreloadTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	124, // 96: Byteplus.Vod.Models.Response.VodCreateCdnPreloadTaskResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCreateCdnTaskResult
+	84,  // 97: Byteplus.Vod.Models.Response.VodListCdnTasksResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	125, // 98: Byteplus.Vod.Models.Response.VodListCdnTasksResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCdnTaskResult
+	84,  // 99: Byteplus.Vod.Models.Response.VodListCdnAccessLogResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	126, // 100: Byteplus.Vod.Models.Response.VodListCdnAccessLogResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListCdnAccessLogResult
+	84,  // 101: Byteplus.Vod.Models.Response.VodListCdnTopAccessUrlResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	127, // 102: Byteplus.Vod.Models.Response.VodListCdnTopAccessUrlResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListCdnTopAccessUrlResult
+	84,  // 103: Byteplus.Vod.Models.Response.VodDescribeVodDomainBandwidthDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	128, // 104: Byteplus.Vod.Models.Response.VodDescribeVodDomainBandwidthDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDescribeVodDomainBandwidthDataResult
+	84,  // 105: Byteplus.Vod.Models.Response.VodCdnStatisticsCommonResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	129, // 106: Byteplus.Vod.Models.Response.VodCdnStatisticsCommonResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCdnStatisticsCommonResult
+	84,  // 107: Byteplus.Vod.Models.Response.VodDescribeIPInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	130, // 108: Byteplus.Vod.Models.Response.VodDescribeIPInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCdnIpInfo
+	84,  // 109: Byteplus.Vod.Models.Response.VodDescribeVodDomainTrafficDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	131, // 110: Byteplus.Vod.Models.Response.VodDescribeVodDomainTrafficDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDescribeVodDomainTrafficDataResult
+	84,  // 111: Byteplus.Vod.Models.Response.VodSubmitBlockTasksResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	132, // 112: Byteplus.Vod.Models.Response.VodSubmitBlockTasksResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSubmitBlockTasksResult
+	84,  // 113: Byteplus.Vod.Models.Response.VodGetContentBlockTasksResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	133, // 114: Byteplus.Vod.Models.Response.VodGetContentBlockTasksResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetContentBlockTasksResult
+	84,  // 115: Byteplus.Vod.Models.Response.VodCreateDomainV2Response.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	84,  // 116: Byteplus.Vod.Models.Response.VodUpdateDomainExpireV2Response.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	84,  // 117: Byteplus.Vod.Models.Response.VodUpdateDomainAuthConfigV2Response.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	84,  // 118: Byteplus.Vod.Models.Response.VodAddCallbackSubscriptionResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	84,  // 119: Byteplus.Vod.Models.Response.VodSetCallbackEventResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	84,  // 120: Byteplus.Vod.Models.Response.VodGetSmartStrategyLitePlayInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	134, // 121: Byteplus.Vod.Models.Response.VodGetSmartStrategyLitePlayInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetSmartStrategyLitePlayInfoResult
+	84,  // 122: Byteplus.Vod.Models.Response.VodGetAppInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	135, // 123: Byteplus.Vod.Models.Response.VodGetAppInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetAppInfoResult
+	84,  // 124: Byteplus.Vod.Models.Response.DescribeVodSpaceTranscodeDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	136, // 125: Byteplus.Vod.Models.Response.DescribeVodSpaceTranscodeDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceTranscodeDataResult
+	84,  // 126: Byteplus.Vod.Models.Response.DescribeVodSpaceAIStatisDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	137, // 127: Byteplus.Vod.Models.Response.DescribeVodSpaceAIStatisDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceAIStatisDataResult
+	84,  // 128: Byteplus.Vod.Models.Response.DescribeVodSpaceSubtitleStatisDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	138, // 129: Byteplus.Vod.Models.Response.DescribeVodSpaceSubtitleStatisDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataResult
+	84,  // 130: Byteplus.Vod.Models.Response.DescribeVodSpaceDetectStatisDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	139, // 131: Byteplus.Vod.Models.Response.DescribeVodSpaceDetectStatisDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceDetectStatisDataResult
+	84,  // 132: Byteplus.Vod.Models.Response.DescribeVodSnapshotDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	140, // 133: Byteplus.Vod.Models.Response.DescribeVodSnapshotDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSnapshotDataResult
+	84,  // 134: Byteplus.Vod.Models.Response.DescribeVodSpaceWorkflowDetailDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	141, // 135: Byteplus.Vod.Models.Response.DescribeVodSpaceWorkflowDetailDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceWorkflowDetailDataResult
+	84,  // 136: Byteplus.Vod.Models.Response.DescribeVodSpaceEditDetailDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	142, // 137: Byteplus.Vod.Models.Response.DescribeVodSpaceEditDetailDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceEditDetailDataResult
+	84,  // 138: Byteplus.Vod.Models.Response.DescribeVodPlayFileLogByDomainResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	143, // 139: Byteplus.Vod.Models.Response.DescribeVodPlayFileLogByDomainResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodPlayFileLogByDomainResult
+	84,  // 140: Byteplus.Vod.Models.Response.VodSubmitBlockMediaTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	144, // 141: Byteplus.Vod.Models.Response.VodSubmitBlockMediaTaskResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSubmitBlockMediaTaskResult
+	84,  // 142: Byteplus.Vod.Models.Response.VodSubmitUnblockMediaTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	145, // 143: Byteplus.Vod.Models.Response.VodSubmitUnblockMediaTaskResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSubmitUnblockMediaTaskResult
+	84,  // 144: Byteplus.Vod.Models.Response.VodQueryMediaBlockStatusResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	146, // 145: Byteplus.Vod.Models.Response.VodQueryMediaBlockStatusResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodQueryMediaBlockStatusResult
+	84,  // 146: Byteplus.Vod.Models.Response.VodCreatePlaylistResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	147, // 147: Byteplus.Vod.Models.Response.VodCreatePlaylistResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCreatePlaylistResult
+	84,  // 148: Byteplus.Vod.Models.Response.VodGetPlaylistsResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	148, // 149: Byteplus.Vod.Models.Response.VodGetPlaylistsResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetPlaylistsResult
+	84,  // 150: Byteplus.Vod.Models.Response.VodUpdatePlaylistResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	84,  // 151: Byteplus.Vod.Models.Response.VodDeletePlaylistResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	152, // [152:152] is the sub-list for method output_type
+	152, // [152:152] is the sub-list for method input_type
+	152, // [152:152] is the sub-list for extension type_name
+	152, // [152:152] is the sub-list for extension extendee
+	0,   // [0:152] is the sub-list for field type_name
 }
 
 func init() { file_byteplus_vod_response_response_vod_proto_init() }
@@ -6649,6 +6907,54 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 				return nil
 			}
 		}
+		file_byteplus_vod_response_response_vod_proto_msgTypes[80].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*VodCreatePlaylistResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_byteplus_vod_response_response_vod_proto_msgTypes[81].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*VodGetPlaylistsResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_byteplus_vod_response_response_vod_proto_msgTypes[82].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*VodUpdatePlaylistResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_byteplus_vod_response_response_vod_proto_msgTypes[83].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*VodDeletePlaylistResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -6656,7 +6962,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_byteplus_vod_response_response_vod_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   80,
+			NumMessages:   84,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

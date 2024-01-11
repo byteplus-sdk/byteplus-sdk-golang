@@ -243,6 +243,91 @@ func Test_UpdateSubtitleInfo(t *testing.T) {
 	fmt.Println(resp.String())
 }
 
+func Test_CreatePlaylist(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodCreatePlaylistRequest{
+		Name:       "your Name",
+		Format:     "your Format",
+		Codec:      "your Codec",
+		Definition: "your Definition",
+		Vids:       "your Vids",
+		StartTime:  "your StartTime",
+		EndTime:    "your EndTime",
+		Cycles:     "your Cycles",
+	}
+
+	resp, status, err := instance.CreatePlaylist(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
+func Test_GetPlaylists(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodGetPlaylistsRequest{
+		Ids:    "your Ids",
+		Limit:  0,
+		Offset: 0,
+	}
+
+	resp, status, err := instance.GetPlaylists(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
+func Test_UpdatePlaylist(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodUpdatePlaylistRequest{
+		Id:         "your Id",
+		Name:       nil,
+		Format:     nil,
+		Codec:      nil,
+		Definition: nil,
+		Vids:       nil,
+		StartTime:  nil,
+		EndTime:    nil,
+		Cycles:     nil,
+	}
+
+	resp, status, err := instance.UpdatePlaylist(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
+func Test_DeletePlaylist(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodDeletePlaylistRequest{
+		Id: "your Id",
+	}
+
+	resp, status, err := instance.DeletePlaylist(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
 func Test_CreateVideoClassification(t *testing.T) {
 	instance := vod.NewInstance()
 	instance.SetCredential(base.Credentials{

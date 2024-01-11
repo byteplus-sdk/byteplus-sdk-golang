@@ -118,6 +118,38 @@ var (
 		// **********************************************************************
 		// 媒资
 		// **********************************************************************
+		"CreatePlaylist": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"CreatePlaylist"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"GetPlaylists": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"GetPlaylists"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"UpdatePlaylist": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"UpdatePlaylist"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DeletePlaylist": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DeletePlaylist"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
 		"UpdateMediaInfo": {
 			Method: http.MethodGet,
 			Path:   "/",
