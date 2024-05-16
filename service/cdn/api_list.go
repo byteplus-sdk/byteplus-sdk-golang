@@ -311,4 +311,124 @@ var ApiInfoList = map[string]*base.ApiInfo{
 			"Version": []string{ServiceVersion},
 		},
 	},
+	"DeleteCdnCertificate": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"DeleteCdnCertificate"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"DescribeAccountingSummary": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"DescribeAccountingSummary"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"DescribeTemplates": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"DescribeTemplates"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"DescribeServiceTemplate": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"DescribeServiceTemplate"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"DescribeCipherTemplate": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"DescribeCipherTemplate"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"CreateCipherTemplate": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"CreateCipherTemplate"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"UpdateServiceTemplate": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"UpdateServiceTemplate"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"UpdateCipherTemplate": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"UpdateCipherTemplate"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"DuplicateTemplate": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"DuplicateTemplate"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"LockTemplate": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"LockTemplate"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"DeleteTemplate": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"DeleteTemplate"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"DescribeTemplateDomains": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"DescribeTemplateDomains"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"AddTemplateDomain": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"AddTemplateDomain"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"UpdateTemplateDomain": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"UpdateTemplateDomain"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"CreateServiceTemplate": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"CreateServiceTemplate"},
+			"Version": []string{ServiceVersion},
+		},
+	},
 }
