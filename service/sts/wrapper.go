@@ -3,6 +3,7 @@ package sts
 import (
 	"encoding/json"
 	"net/url"
+	"strconv"
 )
 
 func (p *STS) commonHandler(api string, query url.Values, resp interface{}) (int, error) {
@@ -23,7 +24,10 @@ func (p *STS) AssumeRole(req *AssumeRoleRequest) (*AssumeRoleResp, int, error) {
 
 	if req.DurationSeconds == 0 {
 		query.Set("DurationSeconds", "3600")
+	} else {
+		query.Set("DurationSeconds", strconv.Itoa(req.DurationSeconds))
 	}
+
 	if req.Policy != "" {
 		query.Set("Policy", req.Policy)
 	}
