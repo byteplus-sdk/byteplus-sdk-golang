@@ -1,7 +1,6 @@
 package live_v20230101_test
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -18,7 +17,7 @@ func Test_DescribeLiveRegionData(t *testing.T) {
 		SecretAccessKey: "sk",
 	})
 
-	resp, err := instance.DescribeLiveRegionData(context.Background())
+	resp, err := instance.DescribeLiveRegionData()
 
 	if err != nil {
 		fmt.Printf("error %v", err)

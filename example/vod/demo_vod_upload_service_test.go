@@ -10,44 +10,8 @@ import (
 
 	"github.com/byteplus-sdk/byteplus-sdk-golang/base"
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/vod"
-	"github.com/byteplus-sdk/byteplus-sdk-golang/service/vod/models/business"
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/vod/models/request"
 )
-
-func Test_UploadMediaByUrl(t *testing.T) {
-	instance := vod.NewInstance()
-	instance.SetCredential(base.Credentials{
-		AccessKeyID:     "your ak",
-		SecretAccessKey: "your sk",
-	})
-
-	query := &request.VodUrlUploadRequest{
-		SpaceName: "your SpaceName",
-		URLSets: []*business.VodUrlUploadURLSet{
-			{
-				SourceUrl:              "your SourceUrl",
-				CallbackArgs:           "your CallbackArgs",
-				Md5:                    "your Md5",
-				TemplateId:             "your TemplateId",
-				Title:                  "your Title",
-				Description:            "your Description",
-				Tags:                   "your Tags",
-				Category:               "your Category",
-				FileName:               "your FileName",
-				ClassificationId:       0,
-				StorageClass:           0,
-				FileExtension:          "your FileExtension",
-				UrlEncryptionAlgorithm: "your UrlEncryptionAlgorithm",
-				EnableLowPriority:      false,
-			},
-		},
-	}
-
-	resp, status, err := instance.UploadMediaByUrl(query)
-	fmt.Println(status)
-	fmt.Println(err)
-	fmt.Println(resp.String())
-}
 
 func Test_QueryUploadTaskInfo(t *testing.T) {
 	instance := vod.NewInstance()

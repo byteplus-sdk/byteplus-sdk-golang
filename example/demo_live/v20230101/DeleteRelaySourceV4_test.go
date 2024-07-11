@@ -1,7 +1,6 @@
 package live_v20230101_test
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -20,7 +19,7 @@ func Test_DeleteRelaySourceV4(t *testing.T) {
 
 	param := &live_v20230101.DeleteRelaySourceV4Body{}
 
-	resp, err := instance.DeleteRelaySourceV4(context.Background(), param)
+	resp, err := instance.DeleteRelaySourceV4(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

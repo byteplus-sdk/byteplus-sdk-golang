@@ -1,8 +1,10 @@
 package vod
 
 import (
+	"encoding/json"
 	"fmt"
 	"testing"
+	"time"
 
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/vod"
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/vod/models/request"
@@ -56,4 +58,19 @@ func TestVod_GetPlayAuthToken(t *testing.T) {
 	}
 	newToken, _ := instance.GetPlayAuthToken(query, tokenExpireTime)
 	fmt.Println(newToken)
+}
+
+func TestVod_GetUploadAuthWithExpiredTime(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetAccessKey("")
+	instance.SetSecretKey("")
+
+	// 默认过期时间为1小时
+	ret, _ := instance.GetUploadAuth()
+	b, _ := json.Marshal(ret)
+	fmt.Println(string(b))
+
+	ret2, _ := instance.GetUploadAuthWithExpiredTime(3 * time.Hour)
+	b2, _ := json.Marshal(ret2)
+	fmt.Println(string(b2))
 }

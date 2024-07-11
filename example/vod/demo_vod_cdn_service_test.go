@@ -13,6 +13,105 @@ import (
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/vod/models/request"
 )
 
+func Test_StartDomain(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodStartDomainRequest{
+		SpaceName:         "your SpaceName",
+		DomainType:        "your DomainType",
+		Domain:            "your Domain",
+		SourceStationType: 0,
+	}
+
+	resp, status, err := instance.StartDomain(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
+func Test_StopDomain(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodStopDomainRequest{
+		SpaceName:         "your SpaceName",
+		DomainType:        "your DomainType",
+		Domain:            "your Domain",
+		SourceStationType: 0,
+	}
+
+	resp, status, err := instance.StopDomain(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
+func Test_AddDomainToScheduler(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodAddDomainToSchedulerRequest{
+		SpaceName:         "your SpaceName",
+		DomainType:        "your DomainType",
+		Domain:            "your Domain",
+		SourceStationType: 0,
+	}
+
+	resp, status, err := instance.AddDomainToScheduler(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
+func Test_RemoveDomainFromScheduler(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodRemoveDomainFromSchedulerRequest{
+		SpaceName:         "your SpaceName",
+		DomainType:        "your DomainType",
+		Domain:            "your Domain",
+		SourceStationType: 0,
+	}
+
+	resp, status, err := instance.RemoveDomainFromScheduler(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
+func Test_UpdateDomainPlayRule(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodUpdateDomainPlayRuleRequestRequest{
+		SpaceName:     "your SpaceName",
+		DefaultDomain: "your DefaultDomain",
+		PlayRule:      0,
+	}
+
+	resp, status, err := instance.UpdateDomainPlayRule(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
 func Test_ListDomain(t *testing.T) {
 	instance := vod.NewInstance()
 	instance.SetCredential(base.Credentials{
@@ -21,7 +120,11 @@ func Test_ListDomain(t *testing.T) {
 	})
 
 	query := &request.VodListDomainRequest{
-		SpaceName: "your SpaceName",
+		SpaceName:         "your SpaceName",
+		DomainType:        "your DomainType",
+		SourceStationType: 0,
+		Offset:            0,
+		Limit:             0,
 	}
 
 	resp, status, err := instance.ListDomain(query)
@@ -299,6 +402,27 @@ func Test_UpdateDomainExpire(t *testing.T) {
 	}
 
 	resp, status, err := instance.UpdateDomainExpire(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
+func Test_AddOrUpdateCertificate(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.AddOrUpdateCertificateV2Request{
+		SpaceName:     "your SpaceName",
+		Domain:        "your Domain",
+		DomainType:    "your DomainType",
+		CertificateId: "your CertificateId",
+		HttpsStatus:   "your HttpsStatus",
+	}
+
+	resp, status, err := instance.AddOrUpdateCertificate(query)
 	fmt.Println(status)
 	fmt.Println(err)
 	fmt.Println(resp.String())

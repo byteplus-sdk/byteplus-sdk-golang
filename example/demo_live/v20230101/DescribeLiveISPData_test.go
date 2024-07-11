@@ -1,7 +1,6 @@
 package live_v20230101_test
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -18,7 +17,7 @@ func Test_DescribeLiveISPData(t *testing.T) {
 		SecretAccessKey: "sk",
 	})
 
-	resp, err := instance.DescribeLiveISPData(context.Background())
+	resp, err := instance.DescribeLiveISPData()
 
 	if err != nil {
 		fmt.Printf("error %v", err)

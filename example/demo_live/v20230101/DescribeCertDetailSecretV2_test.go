@@ -1,7 +1,6 @@
 package live_v20230101_test
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -20,7 +19,7 @@ func Test_DescribeCertDetailSecretV2(t *testing.T) {
 
 	param := &live_v20230101.DescribeCertDetailSecretV2Body{}
 
-	resp, err := instance.DescribeCertDetailSecretV2(context.Background(), param)
+	resp, err := instance.DescribeCertDetailSecretV2(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

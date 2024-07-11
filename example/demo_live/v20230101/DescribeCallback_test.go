@@ -1,7 +1,6 @@
 package live_v20230101_test
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -20,7 +19,7 @@ func Test_DescribeCallback(t *testing.T) {
 
 	param := &live_v20230101.DescribeCallbackBody{}
 
-	resp, err := instance.DescribeCallback(context.Background(), param)
+	resp, err := instance.DescribeCallback(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

@@ -1,7 +1,6 @@
 package live_v20230101_test
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -20,7 +19,7 @@ func Test_DescribeLiveSnapshotData(t *testing.T) {
 
 	param := &live_v20230101.DescribeLiveSnapshotDataBody{}
 
-	resp, err := instance.DescribeLiveSnapshotData(context.Background(), param)
+	resp, err := instance.DescribeLiveSnapshotData(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

@@ -1,7 +1,6 @@
 package live_v20230101_test
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -20,7 +19,7 @@ func Test_EnableDomain(t *testing.T) {
 
 	param := &live_v20230101.EnableDomainBody{}
 
-	resp, err := instance.EnableDomain(context.Background(), param)
+	resp, err := instance.EnableDomain(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

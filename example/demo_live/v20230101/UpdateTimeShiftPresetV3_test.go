@@ -1,7 +1,6 @@
 package live_v20230101_test
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -20,7 +19,7 @@ func Test_UpdateTimeShiftPresetV3(t *testing.T) {
 
 	param := &live_v20230101.UpdateTimeShiftPresetV3Body{}
 
-	resp, err := instance.UpdateTimeShiftPresetV3(context.Background(), param)
+	resp, err := instance.UpdateTimeShiftPresetV3(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

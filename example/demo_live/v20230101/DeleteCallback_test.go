@@ -1,7 +1,6 @@
 package live_v20230101_test
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -20,7 +19,7 @@ func Test_DeleteCallback(t *testing.T) {
 
 	param := &live_v20230101.DeleteCallbackBody{}
 
-	resp, err := instance.DeleteCallback(context.Background(), param)
+	resp, err := instance.DeleteCallback(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

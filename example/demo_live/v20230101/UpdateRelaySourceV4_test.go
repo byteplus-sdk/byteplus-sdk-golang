@@ -1,7 +1,6 @@
 package live_v20230101_test
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -20,7 +19,7 @@ func Test_UpdateRelaySourceV4(t *testing.T) {
 
 	param := &live_v20230101.UpdateRelaySourceV4Body{}
 
-	resp, err := instance.UpdateRelaySourceV4(context.Background(), param)
+	resp, err := instance.UpdateRelaySourceV4(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

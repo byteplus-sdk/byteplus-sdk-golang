@@ -1,7 +1,6 @@
 package live_v20230101_test
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -20,7 +19,7 @@ func Test_DescribeLicenseDRM(t *testing.T) {
 
 	param := &live_v20230101.DescribeLicenseDRMQuery{}
 
-	resp, err := instance.DescribeLicenseDRM(context.Background(), param)
+	resp, err := instance.DescribeLicenseDRM(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

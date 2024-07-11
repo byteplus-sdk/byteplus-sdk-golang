@@ -38,30 +38,6 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"DeleteCommonTransPreset": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteCommonTransPreset"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DeleteTranscodePresetPatchByAdmin": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteTranscodePresetPatchByAdmin"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"AddCommonTransPreset": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"AddCommonTransPreset"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
 		"UpdateTranscodePreset": {
 			Method: http.MethodPost,
 			Path:   "/",
@@ -75,14 +51,6 @@ var (
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"ListCommonTransPresetDetail"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeTranscodePresetDetail": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeTranscodePresetDetail"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -102,51 +70,11 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"CreateTranscodePresetPatchByAdmin": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreateTranscodePresetPatchByAdmin"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DeleteWatermarkPresetV2": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteWatermarkPresetV2"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateWatermarkPresetV2": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateWatermarkPresetV2"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeWatermarkPresetDetail": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeWatermarkPresetDetail"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
 		"CreateWatermarkPreset": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"CreateWatermarkPreset"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"CreateWatermarkPresetV2": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreateWatermarkPresetV2"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -182,30 +110,6 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"StopPullRecordTask": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"StopPullRecordTask"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"CreatePullRecordTask": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreatePullRecordTask"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DeleteRecordHistory": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteRecordHistory"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
 		"DeleteRecordPreset": {
 			Method: http.MethodPost,
 			Path:   "/",
@@ -238,27 +142,11 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"ListPullRecordTask": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListPullRecordTask"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
 		"CreateRecordPresetV2": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"CreateRecordPresetV2"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListVideoClassifications": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListVideoClassifications"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -278,14 +166,6 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"UpdateSnapshotPresetV2": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateSnapshotPresetV2"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
 		"DescribeCDNSnapshotHistory": {
 			Method: http.MethodPost,
 			Path:   "/",
@@ -302,35 +182,11 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"ListVhostSnapshotPresetV2": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListVhostSnapshotPresetV2"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
 		"CreateSnapshotPreset": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"CreateSnapshotPreset"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"CreateSnapshotPresetV2": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreateSnapshotPresetV2"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DeleteTimeShiftPresetV2": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteTimeShiftPresetV2"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -342,35 +198,11 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"CreateTimeShiftPresetV2": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreateTimeShiftPresetV2"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateTimeShiftPresetV2": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateTimeShiftPresetV2"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
 		"UpdateTimeShiftPresetV3": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"UpdateTimeShiftPresetV3"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeTimeShiftPresetDetail": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeTimeShiftPresetDetail"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -387,70 +219,6 @@ var (
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"CreateTimeShiftPresetV3"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"GenerateTimeShiftPlayURL": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"GenerateTimeShiftPlayURL"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListVhostDomainDetailByUserID": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListVhostDomainDetailByUserID"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateVhostTags": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateVhostTags"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListVhostDetail": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListVhostDetail"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListVhostDetailByAdmin": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListVhostDetailByAdmin"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeVhost": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeVhost"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"GetTags": {
-			Method: http.MethodGet,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"GetTags"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListProjects": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListProjects"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -478,51 +246,11 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"DeleteAuth": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteAuth"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"EnableAuth": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"EnableAuth"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeAuth": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeAuth"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DisableAuth": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DisableAuth"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
 		"DeleteCert": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"DeleteCert"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateCert": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateCert"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -539,14 +267,6 @@ var (
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"ListCertV2"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeCertDetailV2": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeCertDetailV2"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -574,107 +294,11 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"ListObject": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListObject"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ManagerPullPushDomainBind": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ManagerPullPushDomainBind"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeCertDetailSecret": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeCertDetailSecret"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeDomainVerify": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeDomainVerify"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"CreateVerifyContent": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreateVerifyContent"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListVqosDimensionValues": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListVqosDimensionValues"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListCert": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListCert"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListCertBindInfo": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListCertBindInfo"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeLiveFreeTimeInterval": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeLiveFreeTimeInterval"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"VerifyDomainOwner": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"VerifyDomainOwner"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ValidateCert": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ValidateCert"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
 		"DeleteDomain": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"DeleteDomain"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DeleteDomainV2": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteDomainV2"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -694,27 +318,11 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"RejectDomain": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"RejectDomain"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
 		"UpdateDomainVhost": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"UpdateDomainVhost"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateDomain": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateDomain"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -734,43 +342,11 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"CreateDomain": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreateDomain"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
 		"DisableDomain": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"DisableDomain"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"CreateVQScoreTask": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreateVQScoreTask"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeVQScoreTask": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeVQScoreTask"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListVQScoreTask": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListVQScoreTask"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -819,22 +395,6 @@ var (
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"ListPullToPushTask"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DeleteDenyConfigV2": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteDenyConfigV2"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeDenyConfigV2": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeDenyConfigV2"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -990,318 +550,6 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"UpdateSDKLicense": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateSDKLicense"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"CreateApp": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreateApp"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DeleteSDK": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteSDK"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateApp": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateApp"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateSDK": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateSDK"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeSDKDetail": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeSDKDetail"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeSDKParamsAvailable": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeSDKParamsAvailable"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeAppIDParamsAvailable": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeAppIDParamsAvailable"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"CreateSDK": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreateSDK"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListSDK": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListSDK"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListSDKAdmin": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListSDKAdmin"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"GetApps": {
-			Method: http.MethodGet,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"GetApps"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateService": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateService"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListServices": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListServices"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeService": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeService"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateActivityBilling": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateActivityBilling"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateBilling": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateBilling"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListInstance": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListInstance"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeBillingForAdmin": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeBillingForAdmin"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeBilling": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeBilling"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeBillingMonthAvailable": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeBillingMonthAvailable"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListResourcePackage": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListResourcePackage"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"TerminateInstance": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"TerminateInstance"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DeleteStreamQuotaConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteStreamQuotaConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateStreamQuotaConfigPatch": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateStreamQuotaConfigPatch"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeStreamQuotaConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeStreamQuotaConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateStreamQuotaConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateStreamQuotaConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListVqosMetricsDimensions": {
-			Method: http.MethodGet,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListVqosMetricsDimensions"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"GetVqosRawData": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"GetVqosRawData"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"StopPullCDNSnapshotTask": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"StopPullCDNSnapshotTask"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"CreatePullCDNSnapshotTask": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreatePullCDNSnapshotTask"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"GetPullCDNSnapshotTask": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"GetPullCDNSnapshotTask"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListPullCDNSnapshotTask": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListPullCDNSnapshotTask"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"GetPullRecordTask": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"GetPullRecordTask"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DeleteSnapshotAuditPreset": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteSnapshotAuditPreset"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateSnapshotAuditPreset": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateSnapshotAuditPreset"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeSnapshotAuditPresetDetail": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeSnapshotAuditPresetDetail"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListVhostSnapshotAuditPreset": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListVhostSnapshotAuditPreset"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"CreateSnapshotAuditPreset": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreateSnapshotAuditPreset"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
 		"DescribeIpInfo": {
 			Method: http.MethodPost,
 			Path:   "/",
@@ -1334,6 +582,14 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
+		"DescribeLiveStreamSessionData": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeLiveStreamSessionData"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
 		"DescribeLivePlayStatusCodeData": {
 			Method: http.MethodPost,
 			Path:   "/",
@@ -1342,67 +598,11 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"DescribeLiveBatchSourceStreamMetrics": {
+		"DescribeLivePushStreamInfoData": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{"DescribeLiveBatchSourceStreamMetrics"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeLiveBatchSourceStreamAvgMetrics": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeLiveBatchSourceStreamAvgMetrics"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeLiveBatchOnlineStreamMetrics": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeLiveBatchOnlineStreamMetrics"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeLiveBatchPushStreamMetrics": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeLiveBatchPushStreamMetrics"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeLiveBatchPushStreamAvgMetrics": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeLiveBatchPushStreamAvgMetrics"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeLiveBatchStreamTranscodeData": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeLiveBatchStreamTranscodeData"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeLiveStreamCountData": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeLiveStreamCountData"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeLivePushStreamCountData": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeLivePushStreamCountData"},
+				"Action":  []string{"DescribeLivePushStreamInfoData"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -1438,22 +638,6 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"DescribeLiveBatchStreamTrafficData": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeLiveBatchStreamTrafficData"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeLiveStreamSessionData": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeLiveStreamSessionData"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
 		"DescribeLiveISPData": {
 			Method: http.MethodPost,
 			Path:   "/",
@@ -1470,11 +654,11 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"DescribeLiveAuditData": {
+		"DescribeLiveASRDurationData": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{"DescribeLiveAuditData"},
+				"Action":  []string{"DescribeLiveASRDurationData"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -1534,75 +718,11 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"DescribeLiveTimeShiftData": {
+		"DescribeLiveStorageSpaceData": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{"DescribeLiveTimeShiftData"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeActionHistory": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeActionHistory"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListActionHistory": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListActionHistory"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DeleteDenseSnapshotPreset": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteDenseSnapshotPreset"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateDenseSnapshotPreset": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateDenseSnapshotPreset"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListVhostDenseSnapshotPreset": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListVhostDenseSnapshotPreset"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescDenseSnapshotPresetDetail": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescDenseSnapshotPresetDetail"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"CreateDenseSnapshotPreset": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreateDenseSnapshotPreset"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeLiveCustomizedLogData": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeLiveCustomizedLogData"},
+				"Action":  []string{"DescribeLiveStorageSpaceData"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -1614,59 +734,11 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"AssociatePreset": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"AssociatePreset"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DisAssociatePreset": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DisAssociatePreset"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdatePresetAssociation": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdatePresetAssociation"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribePresetAssociation": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribePresetAssociation"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"CreateTicket": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreateTicket"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
 		"DeleteReferer": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"DeleteReferer"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeDenyConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeDenyConfig"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -1678,19 +750,11 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"UpdateDenyConfig": {
+		"DescribeAuth": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{"UpdateDenyConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateDenyConfigV2": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateDenyConfigV2"},
+				"Action":  []string{"DescribeAuth"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -1707,30 +771,6 @@ var (
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"UpdateAuthKey"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DeleteRelaySink": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteRelaySink"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateRelaySink": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateRelaySink"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeRelaySink": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeRelaySink"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -1766,35 +806,11 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"DeleteHeaderConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteHeaderConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
 		"EnableHTTPHeaderConfig": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"EnableHTTPHeaderConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateHTTPHeaderConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateHTTPHeaderConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateHeaderConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateHeaderConfig"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -1806,99 +822,11 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"DescribeHeaderConfig": {
+		"UpdateHTTPHeaderConfig": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{"DescribeHeaderConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListHeaderEnum": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListHeaderEnum"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DeleteNSSRewriteConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteNSSRewriteConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateNSSRewriteConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateNSSRewriteConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeNSSRewriteConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeNSSRewriteConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeLiveActivityBandwidthData": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeLiveActivityBandwidthData"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"CreateLiveAccountFeeConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreateLiveAccountFeeConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DeleteLiveAccountFeeConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteLiveAccountFeeConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeLiveAccountFeeConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeLiveAccountFeeConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeLiveStreamUsageData": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeLiveStreamUsageData"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeLiveFeeConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeLiveFeeConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeLiveAccountFeeType": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeLiveAccountFeeType"},
+				"Action":  []string{"UpdateHTTPHeaderConfig"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -1910,11 +838,11 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"DescribeContentKey": {
+		"DescribeLicenseDRM": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{"DescribeContentKey"},
+				"Action":  []string{"DescribeLicenseDRM"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -1923,14 +851,6 @@ var (
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"DescribeCertDRM"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeLicenseDRM": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeLicenseDRM"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -1966,131 +886,19 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"CreateCustomLogConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreateCustomLogConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DeleteCustomLogConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteCustomLogConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeCustomLogConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeCustomLogConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"CheckCustomLogConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CheckCustomLogConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"CreateTranscodePresetBatch": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreateTranscodePresetBatch"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DeleteTranscodePresetBatch": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteTranscodePresetBatch"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"AssociateRefConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"AssociateRefConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DisassociateRefConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DisassociateRefConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeRefConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeRefConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListReferenceNames": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListReferenceNames"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListReferenceTypes": {
-			Method: http.MethodGet,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListReferenceTypes"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListReferenceInfo": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListReferenceInfo"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"CreateAvSlicePreset": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreateAvSlicePreset"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DeleteAvSlicePreset": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteAvSlicePreset"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateAvSlicePreset": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateAvSlicePreset"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
 		"DeleteIPAccessRule": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"DeleteIPAccessRule"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DeleteRegionAccessRule": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DeleteRegionAccessRule"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -2102,6 +910,14 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
+		"UpdateRegionAccessRule": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"UpdateRegionAccessRule"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
 		"DescribeIPAccessRule": {
 			Method: http.MethodPost,
 			Path:   "/",
@@ -2110,59 +926,11 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"CreateProxyConfig": {
+		"DescribeRegionAccessRule": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{"CreateProxyConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DeleteProxyConfigAssociation": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteProxyConfigAssociation"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DeleteProxyConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteProxyConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateProxyConfigAssociation": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateProxyConfigAssociation"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"UpdateProxyConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateProxyConfig"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DescribeProxyConfigAssociation": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeProxyConfigAssociation"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"ListProxyConfig": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListProxyConfig"},
+				"Action":  []string{"DescribeRegionAccessRule"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -2211,6 +979,78 @@ var (
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"DescribeLatencyConfig"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DeleteClusterRateLimit": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DeleteClusterRateLimit"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DescribeClusterRateLimit": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeClusterRateLimit"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"UpdateClusterRateLimit": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"UpdateClusterRateLimit"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DeleteUserAgentAccessRule": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DeleteUserAgentAccessRule"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DescribeUserAgentAccessRule": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeUserAgentAccessRule"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"UpdateUserAgentAccessRule": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"UpdateUserAgentAccessRule"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DeleteFormatAccessRule": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DeleteFormatAccessRule"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DescribeFormatAccessRule": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeFormatAccessRule"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"UpdateFormatAccessRule": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"UpdateFormatAccessRule"},
 				"Version": []string{"2023-01-01"},
 			},
 		},

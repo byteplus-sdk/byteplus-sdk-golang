@@ -1,7 +1,6 @@
 package live_v20230101_test
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -20,7 +19,7 @@ func Test_UpdateReferer(t *testing.T) {
 
 	param := &live_v20230101.UpdateRefererBody{}
 
-	resp, err := instance.UpdateReferer(context.Background(), param)
+	resp, err := instance.UpdateReferer(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

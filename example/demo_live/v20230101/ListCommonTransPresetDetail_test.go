@@ -1,7 +1,6 @@
 package live_v20230101_test
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -20,7 +19,7 @@ func Test_ListCommonTransPresetDetail(t *testing.T) {
 
 	param := &live_v20230101.ListCommonTransPresetDetailBody{}
 
-	resp, err := instance.ListCommonTransPresetDetail(context.Background(), param)
+	resp, err := instance.ListCommonTransPresetDetail(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

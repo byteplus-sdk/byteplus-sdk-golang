@@ -1,7 +1,6 @@
 package live_v20230101_test
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -20,7 +19,7 @@ func Test_ListBindEncryptDRM(t *testing.T) {
 
 	param := &live_v20230101.ListBindEncryptDRMBody{}
 
-	resp, err := instance.ListBindEncryptDRM(context.Background(), param)
+	resp, err := instance.ListBindEncryptDRM(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

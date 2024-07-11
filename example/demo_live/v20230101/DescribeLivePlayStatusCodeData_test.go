@@ -1,7 +1,6 @@
 package live_v20230101_test
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -20,7 +19,7 @@ func Test_DescribeLivePlayStatusCodeData(t *testing.T) {
 
 	param := &live_v20230101.DescribeLivePlayStatusCodeDataBody{}
 
-	resp, err := instance.DescribeLivePlayStatusCodeData(context.Background(), param)
+	resp, err := instance.DescribeLivePlayStatusCodeData(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

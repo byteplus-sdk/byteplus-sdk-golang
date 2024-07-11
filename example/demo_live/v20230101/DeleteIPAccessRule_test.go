@@ -1,7 +1,6 @@
 package live_v20230101_test
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -20,7 +19,7 @@ func Test_DeleteIPAccessRule(t *testing.T) {
 
 	param := &live_v20230101.DeleteIPAccessRuleBody{}
 
-	resp, err := instance.DeleteIPAccessRule(context.Background(), param)
+	resp, err := instance.DeleteIPAccessRule(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

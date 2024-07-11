@@ -1,7 +1,6 @@
 package live_v20230101_test
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -20,7 +19,7 @@ func Test_CreateDomainV2(t *testing.T) {
 
 	param := &live_v20230101.CreateDomainV2Body{}
 
-	resp, err := instance.CreateDomainV2(context.Background(), param)
+	resp, err := instance.CreateDomainV2(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

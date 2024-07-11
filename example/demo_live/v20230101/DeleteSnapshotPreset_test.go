@@ -1,7 +1,6 @@
 package live_v20230101_test
 
 import (
-	"context"
 	"encoding/json"
 	"fmt"
 	"testing"
@@ -20,7 +19,7 @@ func Test_DeleteSnapshotPreset(t *testing.T) {
 
 	param := &live_v20230101.DeleteSnapshotPresetBody{}
 
-	resp, err := instance.DeleteSnapshotPreset(context.Background(), param)
+	resp, err := instance.DeleteSnapshotPreset(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)
