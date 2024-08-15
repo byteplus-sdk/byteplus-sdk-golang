@@ -41,6 +41,7 @@ var (
 	ServiceInfoMap = map[string]*base.ServiceInfo{
 		base.RegionApSingapore: {
 			Timeout: 60 * time.Second,
+			Scheme:  "https",
 			Host:    "vod.byteplusapi.com",
 			Header: http.Header{
 				"Accept": []string{"application/json"},
