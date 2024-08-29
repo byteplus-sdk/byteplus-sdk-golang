@@ -28,9 +28,7 @@ func Test_GetThirdPartyDrmAuthToken(t *testing.T) {
 
 	query := &request.VodGetDrmLicenseRequest{
 		Vid:               vid,
-		ThirdPartyDrmType: "your DrmType",
-		Persistent:        0,
-		LicenseDuration:   0,
+		ThirdPartyDrmType: "your DrmType", // widevine or fairplay
 	}
 	newToken, err := instance.GetThirdPartyDrmAuthToken(query, tokenExpireTime)
 	if err != nil {
