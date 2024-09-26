@@ -257,7 +257,29 @@ func (p *Vod) UploadObjectWithCallback(filePath string, spaceName string, callba
 	}
 	return p.UploadMediaInner(file, stat.Size(), spaceName, "object", callbackArgs, funcs, fileName, fileExtension, "", 0)
 }
+func (p *Vod) CreateSha1HlsDrmAuthToken(expireSeconds int64) (auth string, err error) {
+	return p.createHlsDrmAuthToken(DSAHmacSha1, expireSeconds)
+}
+func (p *Vod) createHlsDrmAuthToken(authAlgorithm string, expireSeconds int64) (string, error) {
+	if expireSeconds == 0 {
+		return "", errors.New("invalid expire")
+	}
 
+	token, err := createAuth(authAlgorithm, Version2, p.ServiceInfo.Credentials.AccessKeyID,
+		p.ServiceInfo.Credentials.SecretAccessKey, p.ServiceInfo.Credentials.Region, expireSeconds)
+	if err != nil {
+		return "", err
+	}
+
+	query := url.Values{}
+	query.Set("DrmAuthToken", token)
+	query.Set("X-Expires", strconv.FormatInt(expireSeconds, 10))
+	if getAuth, err := p.GetSignUrl("GetHlsDecryptionKey", query); err == nil {
+		return getAuth, nil
+	} else {
+		return "", err
+	}
+}
 func (p *Vod) UploadMediaWithCallback(mediaRequset *request.VodUploadMediaRequest) (*response.VodCommitUploadInfoResponse, int, error) {
 	file, err := os.Open(filepath.Clean(mediaRequset.GetFilePath()))
 	if err != nil {

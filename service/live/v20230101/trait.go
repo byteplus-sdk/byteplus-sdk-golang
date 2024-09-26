@@ -530,18 +530,18 @@ func (c *Live) CreateSnapshotPreset(arg *CreateSnapshotPresetBody) (*CreateSnaps
 	return result, nil
 }
 
-func (c *Live) DeleteTimeShiftPresetV3(arg *DeleteTimeShiftPresetV3Body) (*DeleteTimeShiftPresetV3Res, error) {
+func (c *Live) DeleteTimeShiftPresetV2(arg *DeleteTimeShiftPresetV2Body) (*DeleteTimeShiftPresetV2Res, error) {
 	body, err := marshalToJson(arg)
 	if err != nil {
 		return nil, err
 	}
 
-	data, _, err := c.Client.Json("DeleteTimeShiftPresetV3", url.Values{}, string(body))
+	data, _, err := c.Client.Json("DeleteTimeShiftPresetV2", url.Values{}, string(body))
 	if err != nil {
 		return nil, err
 	}
 
-	result := new(DeleteTimeShiftPresetV3Res)
+	result := new(DeleteTimeShiftPresetV2Res)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err
@@ -550,18 +550,38 @@ func (c *Live) DeleteTimeShiftPresetV3(arg *DeleteTimeShiftPresetV3Body) (*Delet
 	return result, nil
 }
 
-func (c *Live) UpdateTimeShiftPresetV3(arg *UpdateTimeShiftPresetV3Body) (*UpdateTimeShiftPresetV3Res, error) {
+func (c *Live) CreateTimeShiftPresetV2(arg *CreateTimeShiftPresetV2Body) (*CreateTimeShiftPresetV2Res, error) {
 	body, err := marshalToJson(arg)
 	if err != nil {
 		return nil, err
 	}
 
-	data, _, err := c.Client.Json("UpdateTimeShiftPresetV3", url.Values{}, string(body))
+	data, _, err := c.Client.Json("CreateTimeShiftPresetV2", url.Values{}, string(body))
 	if err != nil {
 		return nil, err
 	}
 
-	result := new(UpdateTimeShiftPresetV3Res)
+	result := new(CreateTimeShiftPresetV2Res)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) UpdateTimeShiftPresetV2(arg *UpdateTimeShiftPresetV2Body) (*UpdateTimeShiftPresetV2Res, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("UpdateTimeShiftPresetV2", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(UpdateTimeShiftPresetV2Res)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err
@@ -582,26 +602,6 @@ func (c *Live) ListTimeShiftPresetV2(arg *ListTimeShiftPresetV2Body) (*ListTimeS
 	}
 
 	result := new(ListTimeShiftPresetV2Res)
-	err = unmarshalResultInto(data, result)
-	if err != nil {
-		return nil, err
-	}
-
-	return result, nil
-}
-
-func (c *Live) CreateTimeShiftPresetV3(arg *CreateTimeShiftPresetV3Body) (*CreateTimeShiftPresetV3Res, error) {
-	body, err := marshalToJson(arg)
-	if err != nil {
-		return nil, err
-	}
-
-	data, _, err := c.Client.Json("CreateTimeShiftPresetV3", url.Values{}, string(body))
-	if err != nil {
-		return nil, err
-	}
-
-	result := new(CreateTimeShiftPresetV3Res)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err
@@ -930,6 +930,86 @@ func (c *Live) DisableDomain(arg *DisableDomainBody) (*DisableDomainRes, error) 
 	return result, nil
 }
 
+func (c *Live) CreateLiveVideoQualityAnalysisTask(arg *CreateLiveVideoQualityAnalysisTaskBody) (*CreateLiveVideoQualityAnalysisTaskRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("CreateLiveVideoQualityAnalysisTask", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(CreateLiveVideoQualityAnalysisTaskRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) DeleteLiveVideoQualityAnalysisTask(arg *DeleteLiveVideoQualityAnalysisTaskBody) (*DeleteLiveVideoQualityAnalysisTaskRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("DeleteLiveVideoQualityAnalysisTask", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(DeleteLiveVideoQualityAnalysisTaskRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) GetLiveVideoQualityAnalysisTaskDetail(arg *GetLiveVideoQualityAnalysisTaskDetailBody) (*GetLiveVideoQualityAnalysisTaskDetailRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("GetLiveVideoQualityAnalysisTaskDetail", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(GetLiveVideoQualityAnalysisTaskDetailRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) ListLiveVideoQualityAnalysisTasks(arg *ListLiveVideoQualityAnalysisTasksBody) (*ListLiveVideoQualityAnalysisTasksRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("ListLiveVideoQualityAnalysisTasks", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(ListLiveVideoQualityAnalysisTasksRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
 func (c *Live) StopPullToPushTask(arg *StopPullToPushTaskBody) (*StopPullToPushTaskRes, error) {
 	body, err := marshalToJson(arg)
 	if err != nil {
@@ -970,6 +1050,26 @@ func (c *Live) CreatePullToPushTask(arg *CreatePullToPushTaskBody) (*CreatePullT
 	return result, nil
 }
 
+func (c *Live) CreatePullToPushGroup(arg *CreatePullToPushGroupBody) (*CreatePullToPushGroupRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("CreatePullToPushGroup", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(CreatePullToPushGroupRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
 func (c *Live) DeletePullToPushTask(arg *DeletePullToPushTaskBody) (*DeletePullToPushTaskRes, error) {
 	body, err := marshalToJson(arg)
 	if err != nil {
@@ -982,6 +1082,26 @@ func (c *Live) DeletePullToPushTask(arg *DeletePullToPushTaskBody) (*DeletePullT
 	}
 
 	result := new(DeletePullToPushTaskRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) DeletePullToPushGroup(arg *DeletePullToPushGroupBody) (*DeletePullToPushGroupRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("DeletePullToPushGroup", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(DeletePullToPushGroupRes)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err
@@ -1030,6 +1150,26 @@ func (c *Live) UpdatePullToPushTask(arg *UpdatePullToPushTaskBody) (*UpdatePullT
 	return result, nil
 }
 
+func (c *Live) ListPullToPushGroup(arg *ListPullToPushGroupBody) (*ListPullToPushGroupRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("ListPullToPushGroup", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(ListPullToPushGroupRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
 func (c *Live) ListPullToPushTask(arg *ListPullToPushTaskQuery) (*ListPullToPushTaskRes, error) {
 	query, err := marshalToQuery(arg)
 	if err != nil {
@@ -1050,6 +1190,26 @@ func (c *Live) ListPullToPushTask(arg *ListPullToPushTaskQuery) (*ListPullToPush
 	return result, nil
 }
 
+func (c *Live) ListPullToPushTaskV2(arg *ListPullToPushTaskV2Body) (*ListPullToPushTaskV2Res, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("ListPullToPushTaskV2", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(ListPullToPushTaskV2Res)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
 func (c *Live) DeleteRelaySourceRewrite(arg *DeleteRelaySourceRewriteBody) (*DeleteRelaySourceRewriteRes, error) {
 	body, err := marshalToJson(arg)
 	if err != nil {
@@ -1062,26 +1222,6 @@ func (c *Live) DeleteRelaySourceRewrite(arg *DeleteRelaySourceRewriteBody) (*Del
 	}
 
 	result := new(DeleteRelaySourceRewriteRes)
-	err = unmarshalResultInto(data, result)
-	if err != nil {
-		return nil, err
-	}
-
-	return result, nil
-}
-
-func (c *Live) DeleteRelaySourceV4(arg *DeleteRelaySourceV4Body) (*DeleteRelaySourceV4Res, error) {
-	body, err := marshalToJson(arg)
-	if err != nil {
-		return nil, err
-	}
-
-	data, _, err := c.Client.Json("DeleteRelaySourceV4", url.Values{}, string(body))
-	if err != nil {
-		return nil, err
-	}
-
-	result := new(DeleteRelaySourceV4Res)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err
@@ -1130,26 +1270,6 @@ func (c *Live) UpdateRelaySourceRewrite(arg *UpdateRelaySourceRewriteBody) (*Upd
 	return result, nil
 }
 
-func (c *Live) UpdateRelaySourceV4(arg *UpdateRelaySourceV4Body) (*UpdateRelaySourceV4Res, error) {
-	body, err := marshalToJson(arg)
-	if err != nil {
-		return nil, err
-	}
-
-	data, _, err := c.Client.Json("UpdateRelaySourceV4", url.Values{}, string(body))
-	if err != nil {
-		return nil, err
-	}
-
-	result := new(UpdateRelaySourceV4Res)
-	err = unmarshalResultInto(data, result)
-	if err != nil {
-		return nil, err
-	}
-
-	return result, nil
-}
-
 func (c *Live) DescribeRelaySourceRewrite(arg *DescribeRelaySourceRewriteBody) (*DescribeRelaySourceRewriteRes, error) {
 	body, err := marshalToJson(arg)
 	if err != nil {
@@ -1170,26 +1290,6 @@ func (c *Live) DescribeRelaySourceRewrite(arg *DescribeRelaySourceRewriteBody) (
 	return result, nil
 }
 
-func (c *Live) ListRelaySourceV4(arg *ListRelaySourceV4Body) (*ListRelaySourceV4Res, error) {
-	body, err := marshalToJson(arg)
-	if err != nil {
-		return nil, err
-	}
-
-	data, _, err := c.Client.Json("ListRelaySourceV4", url.Values{}, string(body))
-	if err != nil {
-		return nil, err
-	}
-
-	result := new(ListRelaySourceV4Res)
-	err = unmarshalResultInto(data, result)
-	if err != nil {
-		return nil, err
-	}
-
-	return result, nil
-}
-
 func (c *Live) DescribeRelaySourceV3(arg *DescribeRelaySourceV3Body) (*DescribeRelaySourceV3Res, error) {
 	body, err := marshalToJson(arg)
 	if err != nil {
@@ -1202,26 +1302,6 @@ func (c *Live) DescribeRelaySourceV3(arg *DescribeRelaySourceV3Body) (*DescribeR
 	}
 
 	result := new(DescribeRelaySourceV3Res)
-	err = unmarshalResultInto(data, result)
-	if err != nil {
-		return nil, err
-	}
-
-	return result, nil
-}
-
-func (c *Live) CreateRelaySourceV4(arg *CreateRelaySourceV4Body) (*CreateRelaySourceV4Res, error) {
-	body, err := marshalToJson(arg)
-	if err != nil {
-		return nil, err
-	}
-
-	data, _, err := c.Client.Json("CreateRelaySourceV4", url.Values{}, string(body))
-	if err != nil {
-		return nil, err
-	}
-
-	result := new(CreateRelaySourceV4Res)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err
@@ -1430,26 +1510,6 @@ func (c *Live) GeneratePushURL(arg *GeneratePushURLBody) (*GeneratePushURLRes, e
 	return result, nil
 }
 
-func (c *Live) DescribeIPInfo(arg *DescribeIPInfoBody) (*DescribeIPInfoRes, error) {
-	body, err := marshalToJson(arg)
-	if err != nil {
-		return nil, err
-	}
-
-	data, _, err := c.Client.Json("DescribeIpInfo", url.Values{}, string(body))
-	if err != nil {
-		return nil, err
-	}
-
-	result := new(DescribeIPInfoRes)
-	err = unmarshalResultInto(data, result)
-	if err != nil {
-		return nil, err
-	}
-
-	return result, nil
-}
-
 func (c *Live) DescribeLiveRegionData() (*DescribeLiveRegionDataRes, error) {
 
 	data, _, err := c.Client.Json("DescribeLiveRegionData", url.Values{}, "")
@@ -1546,6 +1606,26 @@ func (c *Live) DescribeLivePlayStatusCodeData(arg *DescribeLivePlayStatusCodeDat
 	return result, nil
 }
 
+func (c *Live) DescribeLiveBatchPushStreamMetrics(arg *DescribeLiveBatchPushStreamMetricsBody) (*DescribeLiveBatchPushStreamMetricsRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("DescribeLiveBatchPushStreamMetrics", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(DescribeLiveBatchPushStreamMetricsRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
 func (c *Live) DescribeLivePushStreamInfoData(arg *DescribeLivePushStreamInfoDataBody) (*DescribeLivePushStreamInfoDataRes, error) {
 	body, err := marshalToJson(arg)
 	if err != nil {
@@ -1558,6 +1638,26 @@ func (c *Live) DescribeLivePushStreamInfoData(arg *DescribeLivePushStreamInfoDat
 	}
 
 	result := new(DescribeLivePushStreamInfoDataRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) DescribeLiveTranscodeInfoData(arg *DescribeLiveTranscodeInfoDataBody) (*DescribeLiveTranscodeInfoDataRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("DescribeLiveTranscodeInfoData", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(DescribeLiveTranscodeInfoDataRes)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err
@@ -2142,6 +2242,62 @@ func (c *Live) UpdateEncryptDRM(arg *UpdateEncryptDRMBody) (*UpdateEncryptDRMRes
 	return result, nil
 }
 
+func (c *Live) UpdateEncryptHLS(arg *UpdateEncryptHLSBody) (*UpdateEncryptHLSRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("UpdateEncryptHLS", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(UpdateEncryptHLSRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) GetHLSEncryptDataKey(arg *GetHLSEncryptDataKeyQuery) (*GetHLSEncryptDataKeyRes, error) {
+	query, err := marshalToQuery(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Query("GetHLSEncryptDataKey", query)
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(GetHLSEncryptDataKeyRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) DescribeEncryptHLS() (*DescribeEncryptHLSRes, error) {
+
+	data, _, err := c.Client.Json("DescribeEncryptHLS", url.Values{}, "")
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(DescribeEncryptHLSRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
 func (c *Live) DescribeLicenseDRM(arg *DescribeLicenseDRMQuery) (*DescribeLicenseDRMRes, error) {
 	query, err := marshalToQuery(arg)
 	if err != nil {
@@ -2458,6 +2614,26 @@ func (c *Live) DeleteLatencyConfig(arg *DeleteLatencyConfigBody) (*DeleteLatency
 	return result, nil
 }
 
+func (c *Live) DescribeLatencyConfig(arg *DescribeLatencyConfigBody) (*DescribeLatencyConfigRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("DescribeLatencyConfig", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(DescribeLatencyConfigRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
 func (c *Live) UpdateLatencyConfig(arg *UpdateLatencyConfigBody) (*UpdateLatencyConfigRes, error) {
 	body, err := marshalToJson(arg)
 	if err != nil {
@@ -2478,18 +2654,98 @@ func (c *Live) UpdateLatencyConfig(arg *UpdateLatencyConfigBody) (*UpdateLatency
 	return result, nil
 }
 
-func (c *Live) DescribeLatencyConfig(arg *DescribeLatencyConfigBody) (*DescribeLatencyConfigRes, error) {
+func (c *Live) CreateCloudMixTask(arg *CreateCloudMixTaskBody) (*CreateCloudMixTaskRes, error) {
 	body, err := marshalToJson(arg)
 	if err != nil {
 		return nil, err
 	}
 
-	data, _, err := c.Client.Json("DescribeLatencyConfig", url.Values{}, string(body))
+	data, _, err := c.Client.Json("CreateCloudMixTask", url.Values{}, string(body))
 	if err != nil {
 		return nil, err
 	}
 
-	result := new(DescribeLatencyConfigRes)
+	result := new(CreateCloudMixTaskRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) UpdateCloudMixTask(arg *UpdateCloudMixTaskBody) (*UpdateCloudMixTaskRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("UpdateCloudMixTask", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(UpdateCloudMixTaskRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) GetCloudMixTaskDetail(arg *GetCloudMixTaskDetailBody) (*GetCloudMixTaskDetailRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("GetCloudMixTaskDetail", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(GetCloudMixTaskDetailRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) ListCloudMixTask(arg *ListCloudMixTaskBody) (*ListCloudMixTaskRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("ListCloudMixTask", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(ListCloudMixTaskRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) DeleteCloudMixTask(arg *DeleteCloudMixTaskBody) (*DeleteCloudMixTaskRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("DeleteCloudMixTask", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(DeleteCloudMixTaskRes)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err
@@ -2670,6 +2926,86 @@ func (c *Live) UpdateFormatAccessRule(arg *UpdateFormatAccessRuleBody) (*UpdateF
 	}
 
 	result := new(UpdateFormatAccessRuleRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) DeleteSubtitleTranscodePreset(arg *DeleteSubtitleTranscodePresetBody) (*DeleteSubtitleTranscodePresetRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("DeleteSubtitleTranscodePreset", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(DeleteSubtitleTranscodePresetRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) UpdateSubtitleTranscodePreset(arg *UpdateSubtitleTranscodePresetBody) (*UpdateSubtitleTranscodePresetRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("UpdateSubtitleTranscodePreset", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(UpdateSubtitleTranscodePresetRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) ListVhostSubtitleTranscodePreset(arg *ListVhostSubtitleTranscodePresetBody) (*ListVhostSubtitleTranscodePresetRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("ListVhostSubtitleTranscodePreset", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(ListVhostSubtitleTranscodePresetRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) CreateSubtitleTranscodePreset(arg *CreateSubtitleTranscodePresetBody) (*CreateSubtitleTranscodePresetRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("CreateSubtitleTranscodePreset", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(CreateSubtitleTranscodePresetRes)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err

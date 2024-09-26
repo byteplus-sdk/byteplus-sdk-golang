@@ -66,6 +66,25 @@ func Test_GetPrivateDrmPlayAuth(t *testing.T) {
 	fmt.Println(resp.String())
 }
 
+func Test_GetHlsDecryptionKey(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodGetHlsDecryptionKeyRequest{
+		DrmAuthToken: "your DrmAuthToken",
+		Ak:           "your Ak",
+		Source:       "your Source",
+	}
+
+	resp, status, err := instance.GetHlsDecryptionKey(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
 func Test_GetPlayInfoWithLiveTimeShiftScene(t *testing.T) {
 	instance := vod.NewInstance()
 	instance.SetCredential(base.Credentials{

@@ -1,5 +1,9 @@
 package live_v20230101
 
+type CreateSubtitleTranscodePresetBodyPositionRelative string
+
+type Enum0 string
+
 type BindCertBody struct {
 
 	// REQUIRED; 需要绑定的 HTTPS 证书的证书链 ID，可以通过查询证书列表 [https://www.volcengine.com/docs/6469/1126822]接口获取。
@@ -71,16 +75,34 @@ type BindEncryptDRMBody struct {
 	// REQUIRED; 应用名称，取值与直播流地址中 AppName 字段取值相同。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（_）、短横线（-）和句点（.）组成，长度为 1 到 30 个字符。
 	App string `json:"App"`
 
-	// REQUIRED; 是否开启当前 DRM 加密配置，取值及含义如下所示。
-	// * true：开启；
-	// * false：关闭。
-	Enable bool `json:"Enable"`
-
-	// REQUIRED; 待加密的转码流对应的转码流后缀配置。您可以调用查询转码配置列表 [https://www.volcengine.com/docs/6469/1126853]接口或在视频直播控制台的转码配置 [https://console.volcengine.com/live/main/application/transcode]页面，查看转码配置的转码流后缀。
-	EncryptTranscodeSuffix []string `json:"EncryptTranscodeSuffix"`
+	// REQUIRED; 加密类型，支持的取值及含义如下所示。
+	// * FairPlay：使用 FairPlay 技术的商业 DRM 加密；
+	// * Widevine：使用 Widevine 技术的商业 DRM 加密；
+	// * PlayReady：使用 PlayReady 技术的商业 DRM 加密；
+	// * ClearKey：HLS 标准加密。
+	// :::tip DRM 加密与 HLS 标准加密不可同时配置。 :::
+	DRMSystems []string `json:"DRMSystems"`
 
 	// REQUIRED; 域名空间，即直播流地址的域名所属的域名空间。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看直播流使用的域名所属的域名空间。
 	Vhost string `json:"Vhost"`
+
+	// 是否开启当前 DRM 加密配置，取值及含义如下所示。
+	// * true：（默认值）开启；
+	// * false：关闭。
+	Enable *bool `json:"Enable,omitempty"`
+
+	// 是否开启源流加密，取值及含义如下所示。
+	// * true：开启；
+	// * fasle：不开启。
+	EncryptOriginStream *bool `json:"EncryptOriginStream,omitempty"`
+
+	// 是否开启转码流加密，取值及含义如下所示。
+	// * true：开启；
+	// * fasle：不开启。
+	EncryptTranscodeStream *bool `json:"EncryptTranscodeStream,omitempty"`
+
+	// 开启转码流加密时待加密的转码流对应的转码流后缀配置。您可以调用查询转码配置列表 [https://www.volcengine.com/docs/6469/1126853]接口或在视频直播控制台的转码配置 [https://console.volcengine.com/live/main/application/transcode]页面，查看转码配置的转码流后缀。
+	EncryptTranscodeSuffix []*string `json:"EncryptTranscodeSuffix,omitempty"`
 }
 
 type BindEncryptDRMRes struct {
@@ -124,10 +146,38 @@ type Components1404CjzSchemasListvhostrecordpresetv2ResPropertiesResultPropertie
 	StorageDir string `json:"StorageDir"`
 }
 
+// Components1523StvSchemasListvhostsubtitletranscodepresetresPropertiesResultPropertiesPresetlistItemsPropertiesTranscodepresetPropertiesSourcelanguage
+// - 原文字幕展示参数配置。
+type Components1523StvSchemasListvhostsubtitletranscodepresetresPropertiesResultPropertiesPresetlistItemsPropertiesTranscodepresetPropertiesSourcelanguage struct {
+	Border Components1O8E0AlSchemasListvhostsubtitletranscodepresetresPropertiesResultPropertiesPresetlistItemsPropertiesTranscodepresetPropertiesSourcelanguagePropertiesBorder `json:"Border"`
+
+	Display bool `json:"Display"`
+
+	Font string `json:"Font"`
+
+	FontColor string `json:"FontColor"`
+
+	FontSize int32 `json:"FontSize"`
+
+	Language string `json:"Language"`
+}
+
 type Components17Ohct5SchemasDescribeliveasrdurationdataresPropertiesResultPropertiesAsrdurationdetaildataItemsPropertiesAsrdurationdataItems struct {
 	Duration float32 `json:"Duration"`
 
 	TimeStamp string `json:"TimeStamp"`
+}
+
+type Components1C398ShSchemasListvhostsubtitletranscodepresetresPropertiesResultPropertiesPresetlistItemsPropertiesTranscodepresetPropertiesTargetlanguageItems struct {
+	Border ListVhostSubtitleTranscodePresetResResultPresetListItemTranscodePresetTargetLanguageItemBorder `json:"Border"`
+
+	Font string `json:"Font"`
+
+	FontColor string `json:"FontColor"`
+
+	FontSize int32 `json:"FontSize"`
+
+	Language string `json:"Language"`
 }
 
 // Components1Hkcrc4SchemasListvhostsnapshotpresetresPropertiesResultPropertiesPresetlistItemsPropertiesSlicepresetPropertiesCallbackdetail
@@ -136,6 +186,22 @@ type Components1Hkcrc4SchemasListvhostsnapshotpresetresPropertiesResultPropertie
 	URL string `json:"URL"`
 
 	CallbackType *string `json:"CallbackType,omitempty"`
+}
+
+type Components1Nf1A8CSchemasListpulltopushtaskv2ResPropertiesResultPropertiesListItemsPropertiesVodsrcaddrsItems struct {
+	SrcAddr string `json:"SrcAddr"`
+
+	EndOffset *float32 `json:"EndOffset,omitempty"`
+
+	StartOffset *float32 `json:"StartOffset,omitempty"`
+}
+
+// Components1O8E0AlSchemasListvhostsubtitletranscodepresetresPropertiesResultPropertiesPresetlistItemsPropertiesTranscodepresetPropertiesSourcelanguagePropertiesBorder
+// - 原文字幕的字体描边配置。
+type Components1O8E0AlSchemasListvhostsubtitletranscodepresetresPropertiesResultPropertiesPresetlistItemsPropertiesTranscodepresetPropertiesSourcelanguagePropertiesBorder struct {
+	Color string `json:"Color"`
+
+	Width int32 `json:"Width"`
 }
 
 // Components1Via6UrSchemasListvhostrecordpresetv2ResPropertiesResultPropertiesPresetlistItemsPropertiesSlicepresetv2PropertiesRecordpresetconfigPropertiesMp4ParamPropertiesTosparam
@@ -219,6 +285,27 @@ type ComponentsFuamuzSchemasListvhostrecordpresetv2ResPropertiesResultProperties
 	TranscodeSuffixList []*string `json:"TranscodeSuffixList,omitempty"`
 }
 
+type ComponentsGg7M1TSchemasListpulltopushtaskresPropertiesResultPropertiesListItemsPropertiesVodsrcaddrsItems struct {
+	SrcAddr string `json:"SrcAddr"`
+
+	EndOffset *float32 `json:"EndOffset,omitempty"`
+
+	StartOffset *float32 `json:"StartOffset,omitempty"`
+}
+
+// ComponentsJ1MbxoSchemasListvhostsubtitletranscodepresetresPropertiesResultPropertiesPresetlistItemsPropertiesTranscodepresetPropertiesPosition
+// - 字幕位置设置，通过设置字幕距离画面左右边距和底部边距来指定字幕位置。
+// :::tip
+// * 使用预设配置时，字幕位置设置不生效。
+// * 不使用预设配置时，字幕位置设置必填。 :::
+type ComponentsJ1MbxoSchemasListvhostsubtitletranscodepresetresPropertiesResultPropertiesPresetlistItemsPropertiesTranscodepresetPropertiesPosition struct {
+	MarginHorizontal float32 `json:"MarginHorizontal"`
+
+	MarginVertical float32 `json:"MarginVertical"`
+
+	Relative string `json:"Relative"`
+}
+
 // ComponentsKovkk9SchemasListvhostrecordpresetv2ResPropertiesResultPropertiesPresetlistItemsPropertiesSlicepresetv2PropertiesRecordpresetconfigPropertiesFlvparamPropertiesVodparam
 // - VOD 存储相关配置。
 type ComponentsKovkk9SchemasListvhostrecordpresetv2ResPropertiesResultPropertiesPresetlistItemsPropertiesSlicepresetv2PropertiesRecordpresetconfigPropertiesFlvparamPropertiesVodparam struct {
@@ -285,11 +372,6 @@ type ComponentsS0Ofr3SchemasListvhostrecordpresetv2ResPropertiesResultProperties
 	VodNamespace *string `json:"VodNamespace,omitempty"`
 
 	WorkflowID *string `json:"WorkflowID,omitempty"`
-}
-
-type ComponentsXsjbgcSchemasCreatetranscodepresetbodyPropertiesTranscodestructPropertiesAbtestAdditionalproperties struct {
-	Label *int32 `json:"Label,omitempty"`
-	Ratio *int32 `json:"Ratio,omitempty"`
 }
 
 type CreateCertBody struct {
@@ -372,6 +454,230 @@ type CreateCertResResult struct {
 	UseWay *string `json:"UseWay,omitempty"`
 }
 
+type CreateCloudMixTaskBody struct {
+
+	// REQUIRED; 混流任务详细配置。
+	MixedRules CreateCloudMixTaskBodyMixedRules `json:"MixedRules"`
+
+	// REQUIRED; 混流任务名称，与正在进行中的任务名称不能重复。
+	Name string `json:"Name"`
+}
+
+// CreateCloudMixTaskBodyMixedRules - 混流任务详细配置。
+type CreateCloudMixTaskBodyMixedRules struct {
+
+	// REQUIRED; 混流输出布局配置。
+	InputLayout CreateCloudMixTaskBodyMixedRulesInputLayout `json:"InputLayout"`
+
+	// REQUIRED; 混流素材列表，最多支持配置 8 路素材。
+	InputSource []CreateCloudMixTaskBodyMixedRulesInputSourceItem `json:"InputSource"`
+
+	// REQUIRED; 混流输出视频质量参数配置。
+	Output CreateCloudMixTaskBodyMixedRulesOutput `json:"Output"`
+}
+
+// CreateCloudMixTaskBodyMixedRulesInputLayout - 混流输出布局配置。
+type CreateCloudMixTaskBodyMixedRulesInputLayout struct {
+
+	// REQUIRED; 混流输出画布配置及素材布局配置。
+	Scene CreateCloudMixTaskBodyMixedRulesInputLayoutScene `json:"Scene"`
+
+	// 混流输出视频中 Logo 布局配置。
+	// :::tip 支持最多配置 4 个 Logo，展示层级以添加顺序为准。 :::
+	Logo []*CreateCloudMixTaskBodyMixedRulesInputLayoutLogoItem `json:"Logo,omitempty"`
+
+	// 预设混流模板 ID。 模板配置还有变动，后续稳定后对外，且后续支持用户自定义模板。
+	TemplateID *string `json:"TemplateID,omitempty"`
+}
+
+type CreateCloudMixTaskBodyMixedRulesInputLayoutLogoItem struct {
+
+	// REQUIRED; Logo 图片在混流输出整体画面中的布局配置。
+	Layout CreateCloudMixTaskBodyMixedRulesInputLayoutLogoItemLayout `json:"Layout"`
+
+	// REQUIRED; Logo 图片访问地址。
+	URL string `json:"Url"`
+}
+
+// CreateCloudMixTaskBodyMixedRulesInputLayoutLogoItemLayout - Logo 图片在混流输出整体画面中的布局配置。
+type CreateCloudMixTaskBodyMixedRulesInputLayoutLogoItemLayout struct {
+
+	// REQUIRED
+	H int32 `json:"H"`
+
+	// REQUIRED
+	W int32 `json:"W"`
+
+	// REQUIRED
+	X int32 `json:"X"`
+
+	// REQUIRED
+	Y int32 `json:"Y"`
+}
+
+// CreateCloudMixTaskBodyMixedRulesInputLayoutScene - 混流输出画布配置及素材布局配置。
+type CreateCloudMixTaskBodyMixedRulesInputLayoutScene struct {
+
+	// REQUIRED; 混流输出整体画布高度，单位为 px，取值范围为 [10,2160]。
+	Height int32 `json:"Height"`
+
+	// REQUIRED; 混流素材在混流输出整体画面中的布局配置。 :::tip 混流素材布局中需包含所有素材的配置，且需与通过 Layer 参数与混流素材一一匹配。 :::
+	Layout []CreateCloudMixTaskBodyMixedRulesInputLayoutSceneLayoutItem `json:"Layout"`
+
+	// REQUIRED; 混流输出画布整体宽度，单位为 px，取值范围为 [10,2160]。
+	Width int32 `json:"Width"`
+}
+
+type CreateCloudMixTaskBodyMixedRulesInputLayoutSceneLayoutItem struct {
+
+	// REQUIRED; 当前素材或 Logo 图片在混流输出画面中的限制高度，单位为 px，取值范围为 [10,2160]。
+	// :::tip 限制宽度和限制高度指定了素材展示的限制范围，当素材尺寸和限制值不一致时，素材将在限制范围内根据长边进行等比缩放，其余区域透明展示。 :::
+	H int32 `json:"H"`
+
+	// REQUIRED; 当配置素材布局时需要通过 Layer 参数与素材进行一一对应。 :::tip 配置 Logo 图片的布局时此参数不生效。 :::
+	Layer int32 `json:"Layer"`
+
+	// REQUIRED; 当前素材或 Logo 图片在混流输出画面中的限制宽度，单位为 px，取值范围为 [10,2160]。
+	W int32 `json:"W"`
+
+	// REQUIRED; 当前素材或 Logo 图片在输出画面中相对画面左上角的 X 偏移位置，单位为 px，取值范围为 0 到设置的画面宽度。
+	X int32 `json:"X"`
+
+	// REQUIRED; 当前素材或 Logo 图片在输出画面中相对画面左上角的 Y 偏移位置，单位为 px，取值范围为 0 到设置的画面高度。
+	Y int32 `json:"Y"`
+}
+
+type CreateCloudMixTaskBodyMixedRulesInputSourceItem struct {
+
+	// REQUIRED; 混流素材 ID，一个任务中素材 ID 不能重复，此 ID 用于任务状态回调消息中标识素材。
+	ID string `json:"ID"`
+
+	// REQUIRED; 混流素材的叠放顺序，1 为最底层，2 层在 1 层之上，以此类推，取值范围为[1,9999]。 :::tip 当前准备使用某个素材作为布局背景时，其叠放顺序应设置为所有素材中的最小值。 :::
+	Layer int32 `json:"Layer"`
+
+	// REQUIRED; 混流素材类型，支持的取值及含义如下所示。
+	// * vod：视频点播中的素材，支持 MP4、FLV 格式素材；
+	// * live：直播源素材，支持 RTMP、FLV 协议拉流地址；
+	// * pic：图片素材，支持 png、jpg 格式图片。
+	Type string `json:"Type"`
+
+	// REQUIRED; 混流素材的访问地址。 :::tip 混流素材的访问地址需与混流素材的类型保持对应关系。 :::
+	URL string `json:"Url"`
+}
+
+// CreateCloudMixTaskBodyMixedRulesOutput - 混流输出视频质量参数配置。
+type CreateCloudMixTaskBodyMixedRulesOutput struct {
+
+	// REQUIRED; 混流音频参数设置。
+	Audio CreateCloudMixTaskBodyMixedRulesOutputAudio `json:"Audio"`
+
+	// REQUIRED; 混流视频的推流地址，支持最多配置 8 个推流地址。
+	URL []string `json:"Url"`
+
+	// REQUIRED; 混流视频参数设置。
+	Video CreateCloudMixTaskBodyMixedRulesOutputVideo `json:"Video"`
+
+	// 任务状态回调地址配置。
+	Callback *CreateCloudMixTaskBodyMixedRulesOutputCallback `json:"Callback,omitempty"`
+}
+
+// CreateCloudMixTaskBodyMixedRulesOutputAudio - 混流音频参数设置。
+type CreateCloudMixTaskBodyMixedRulesOutputAudio struct {
+
+	// REQUIRED; 混流输出流的音频码率，单位为 bps，取值范围为 [128000,320000]，常见取值及含义如下所示。
+	// * 128000：128 kbps；
+	// * 144000：144 kbps；
+	// * 256000：256 kbps；
+	// * 320000：320 kbps。
+	BitRate int32 `json:"BitRate"`
+
+	// REQUIRED; 混流输出流的音频声道设置，取值及含义如下所示。
+	// * mono：单声道；
+	// * stereo：立体声。
+	ChannelLayout string `json:"ChannelLayout"`
+
+	// REQUIRED; 混流输出流的音频采样率，单位为 HZ，常见取值及含义如下所示。
+	// * 32000：32 kHZ；
+	// * 44100：44.1 kHZ；
+	// * 48000：48 kHZ。
+	SampleRate int32 `json:"SampleRate"`
+}
+
+// CreateCloudMixTaskBodyMixedRulesOutputCallback - 任务状态回调地址配置。
+type CreateCloudMixTaskBodyMixedRulesOutputCallback struct {
+
+	// REQUIRED; 接收云端混流任务状态回调的 HTTP 地址。
+	URL string `json:"Url"`
+}
+
+// CreateCloudMixTaskBodyMixedRulesOutputVideo - 混流视频参数设置。
+type CreateCloudMixTaskBodyMixedRulesOutputVideo struct {
+
+	// REQUIRED; 混流输出视频码率，单位为 bps，取值范围为 [1000000,20000000]，输入值小于或大于取值范围时会进行自动修正至最小值和最大值。
+	BitRate int32 `json:"BitRate"`
+
+	// REQUIRED; 混流输出视频编码格式，支持的取值及含义如下所示。
+	// * h264：使用 H.264 编码格式；
+	// * h265：使用 H.265 编码格式。
+	Codec string `json:"Codec"`
+
+	// REQUIRED; 混流输出视频帧率，单位为 fps，取值范围为 [10,60]，输入值小于或大于取值范围时会进行自动修正至最小值和最大值。
+	FrameRate int32 `json:"FrameRate"`
+
+	// REQUIRED; IDR 帧之间的最大间隔时间，单位为秒，取值范围为 [1,10]。
+	GOP int32 `json:"GOP"`
+}
+
+type CreateCloudMixTaskRes struct {
+
+	// REQUIRED
+	ResponseMetadata CreateCloudMixTaskResResponseMetadata `json:"ResponseMetadata"`
+
+	// 视请求的接口而定
+	Result *CreateCloudMixTaskResResult `json:"Result,omitempty"`
+}
+
+type CreateCloudMixTaskResResponseMetadata struct {
+
+	// REQUIRED; 请求的接口名，属于请求的公共参数。
+	Action string `json:"Action"`
+
+	// REQUIRED; 请求的Region，例如：cn-north-1
+	Region string `json:"Region"`
+
+	// REQUIRED; RequestID为每次API请求的唯一标识。
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED; 请求的服务，属于请求的公共参数。
+	Service string `json:"Service"`
+
+	// REQUIRED; 请求的版本号，属于请求的公共参数。
+	Version string `json:"Version"`
+}
+
+// CreateCloudMixTaskResResult - 视请求的接口而定
+type CreateCloudMixTaskResResult struct {
+
+	// REQUIRED; 请求响应码，取值及含义如下。
+	// * 0：请求成功；
+	// * 500：内部处理错误；
+	// * 400：请求异常。
+	Code int32 `json:"Code"`
+
+	// REQUIRED; 返回的数据。
+	Data CreateCloudMixTaskResResultData `json:"Data"`
+
+	// REQUIRED; 请求响应码对应的信息。
+	Message string `json:"Message"`
+}
+
+// CreateCloudMixTaskResResultData - 返回的数据。
+type CreateCloudMixTaskResResultData struct {
+
+	// REQUIRED; 混流任务 ID。
+	TaskID string `json:"TaskID"`
+}
+
 type CreateDomainV2Body struct {
 
 	// REQUIRED; 待添加到视频直播服务进行加速的域名列表信息。 :::tip 一个域名空间下最多包含 10 个域名。 :::
@@ -390,9 +696,6 @@ type CreateDomainV2Body struct {
 	// 为域名空间设置资源标签。您可以通过资源标签从不同维度对云资源进行分类和聚合管理，如资源分账等场景。 :::tip 如需使用标签进行资源分账，可以在可以在账单管理-费用标签 [https://console.volcengine.com/finance/bill/tag/]处管理启用标签，将对应标签运用到账单明细等数据中。
 	// :::
 	Tags []*CreateDomainV2BodyTagsItem `json:"Tags,omitempty"`
-
-	// 是否进行域名归属校验，不填默认需要校验
-	VerifyCheck *bool `json:"VerifyCheck,omitempty"`
 }
 
 type CreateDomainV2BodyDomainsItem struct {
@@ -470,26 +773,116 @@ type CreateDomainV2ResResponseMetadataError struct {
 	Message *string `json:"Message,omitempty"`
 }
 
+type CreateLiveVideoQualityAnalysisTaskBody struct {
+
+	// REQUIRED; 源流地址，支持flv、hls、rtmp地址
+	SrcURL string `json:"SrcURL"`
+
+	// 任务运行时常，支持60-300，单位s，默认180
+	Duration *int32 `json:"Duration,omitempty"`
+
+	// 截图间隔，支持3-10s，单位s，不填默认为10s
+	Interval *int32 `json:"Interval,omitempty"`
+
+	// 任务名称，用来查询使用。
+	Name *string `json:"Name,omitempty"`
+}
+
+type CreateLiveVideoQualityAnalysisTaskRes struct {
+
+	// REQUIRED
+	ResponseMetadata CreateLiveVideoQualityAnalysisTaskResResponseMetadata `json:"ResponseMetadata"`
+
+	// 视请求的接口而定
+	Result *CreateLiveVideoQualityAnalysisTaskResResult `json:"Result,omitempty"`
+}
+
+type CreateLiveVideoQualityAnalysisTaskResResponseMetadata struct {
+
+	// REQUIRED; 请求的接口名，属于请求的公共参数。
+	Action string `json:"Action"`
+
+	// REQUIRED; 请求的Region，例如：cn-north-1
+	Region string `json:"Region"`
+
+	// REQUIRED; RequestID为每次API请求的唯一标识。
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED; 请求的服务，属于请求的公共参数。
+	Service string `json:"Service"`
+
+	// REQUIRED; 请求的版本号，属于请求的公共参数。
+	Version string `json:"Version"`
+}
+
+// CreateLiveVideoQualityAnalysisTaskResResult - 视请求的接口而定
+type CreateLiveVideoQualityAnalysisTaskResResult struct {
+
+	// REQUIRED; 任务ID
+	ID string `json:"ID"`
+
+	// REQUIRED; 任务名称
+	Name string `json:"Name"`
+}
+
+type CreatePullToPushGroupBody struct {
+
+	// REQUIRED; 群组名称，支持有中文、大小写字母和数字组成，最大长度为 20 个字符。
+	Name string `json:"Name"`
+
+	// REQUIRED; 为任务群组设置所属项目，您可以在访问控制-项目列表 [https://console.volcengine.com/iam/resourcemanage/project]查看已有项目并对项目进行管理。 项目是火山引擎提供的一种资源管理方式，您可以对不同业务或项目使用的云资源进行分组管理，以实现基于项目的账单查看、子账号授权等功能。
+	ProjectName string `json:"ProjectName"`
+
+	// 为任务群组设置资源标签。您可以通过资源标签从不同维度对云资源进行分类和聚合管理，如资源分账等场景。 :::tip 如需使用标签进行资源分账，可以在可以在账单管理-费用标签 [https://console.volcengine.com/finance/bill/tag/]处管理启用标签，将对应标签运用到账单明细等数据中。
+	// :::
+	Tags []*CreatePullToPushGroupBodyTagsItem `json:"Tags,omitempty"`
+}
+
+type CreatePullToPushGroupBodyTagsItem struct {
+
+	// REQUIRED; 标签类型，支持以下取值。
+	// * System：系统内置标签；
+	// * Custom：自定义标签。
+	Category string `json:"Category"`
+
+	// REQUIRED; 标签 Key 值。
+	Key string `json:"Key"`
+
+	// REQUIRED; 标签 Value 值。
+	Value string `json:"Value"`
+}
+
+type CreatePullToPushGroupRes struct {
+
+	// REQUIRED
+	ResponseMetadata CreatePullToPushGroupResResponseMetadata `json:"ResponseMetadata"`
+
+	// 视请求的接口而定
+	Result interface{} `json:"Result,omitempty"`
+}
+
+type CreatePullToPushGroupResResponseMetadata struct {
+
+	// REQUIRED; 请求的接口名，属于请求的公共参数。
+	Action string `json:"Action"`
+
+	// REQUIRED; 请求的Region，例如：cn-north-1
+	Region string `json:"Region"`
+
+	// REQUIRED; RequestID为每次API请求的唯一标识。
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED; 请求的服务，属于请求的公共参数。
+	Service string `json:"Service"`
+
+	// REQUIRED; 请求的版本号，属于请求的公共参数。
+	Version string `json:"Version"`
+}
+
 type CreatePullToPushTaskBody struct {
 
 	// REQUIRED; 任务的结束时间，Unix 时间戳，单位为秒。 :::tip 拉流转推任务持续时间最长为 7 天。 :::
 	EndTime int32 `json:"EndTime"`
-
-	// REQUIRED; 设置点播视频转推至第三方推流域名时是否使用推流优先级参数，缺省情况下表示不使用此参数，支持的取值及含义如下。
-	// * true：使用；
-	//
-	//
-	// * false：不使用。 :::tip
-	//
-	//
-	// * 使用点播视频转推直播实现视频循环播放（轮播）时，支持使用带有推流优先级参数的推流地址进行推流，如在第一个点播视频的推流地址后添加 pri=10、在第二个点播视频的推流地址后添加 pri=11，可达到使用推流优先级高的流替换推流优先级低的流的目的。相比不使用推流优先级参数时可实现更平滑的轮播视频切换。
-	//
-	//
-	// * 推流至非第三方域名时，默认支持使用带有推流优先级参数的推流地址。
-	//
-	//
-	// * 推流至第三方域名时，如需使用推流优先级参数实现新流替换旧流时，需在创建拉流转推时为推流域名开启推流优先级参数配置开关。 :::
-	PushPriority bool `json:"PushPriority"`
 
 	// REQUIRED; 任务的开始时间，Unix 时间戳，单位为秒。 :::tip 拉流转推任务持续时间最长为 7 天。 :::
 	StartTime int32 `json:"StartTime"`
@@ -502,7 +895,7 @@ type CreatePullToPushTaskBody struct {
 	// 推流应用名称，推流地址（DstAddr）为空时必传；反之，则该参数不生效。
 	App *string `json:"App,omitempty"`
 
-	// 接收拉流转推任务状态回调的地址，最大长度为 2000 个字符，默认为空。
+	// 接收拉流转推任务状态回调的地址，最大长度为 512 个字符，默认为空。
 	CallbackURL *string `json:"CallbackURL,omitempty"`
 
 	// 续播策略，续播策略指转推点播视频进行直播时出现断流并恢复后，如何继续播放的策略，拉流来源类型为点播视频（Type 为 1）时参数生效，支持的取值及含义如下。
@@ -522,10 +915,16 @@ type CreatePullToPushTaskBody struct {
 	// 推流地址，即直播源或点播视频转推的目标地址。
 	DstAddr *string `json:"DstAddr,omitempty"`
 
-	// 点播文件启播时间偏移值，单位为秒，仅当点播视频播放地址列表（SrcAddrS）只有一个地址，且未配置 Offsets 时生效，缺省情况下为空表示不进行偏移。
+	// 群组所属名称，您可以调用 ListPullToPushGroup [https://www.volcengine.com/docs/6469/1327382] 获取可用的群组。 :::tip
+	// * 使用主账号调用时，为非必填，默认加入 default 群组，default 群组不存在时会默认创建，并绑定 default 项目。
+	// * 使用子账号调用时，为必填。 :::
+	GroupName *string `json:"GroupName,omitempty"`
+
+	// 点播文件启播时间偏移值，单位为秒，仅当点播视频播放地址列表（SrcAddrS）只有一个地址，且未配置 Offsets 时生效，缺省情况下为空表示不进行偏移。 :::tip 此字段为旧版本配置，请使用 VodSrcAddrs 配置点播视频地址和播放偏移时间。
+	// :::
 	Offset *float32 `json:"Offset,omitempty"`
 
-	// 点播文件启播时间偏移值，单位为秒，数量与拉流地址列表中地址数量相等，缺省情况下为空表示不进行偏移。拉流来源类型为点播视频时，参数生效。
+	// 点播文件启播时间偏移值，单位为秒，数量与拉流地址列表中地址数量相等，缺省情况下为空表示不进行偏移。拉流来源类型为点播视频时，参数生效。 :::tip 此字段为旧版本配置，请使用 VodSrcAddrs 配置点播视频地址和播放偏移时间。 :::
 	OffsetS []*float32 `json:"OffsetS,omitempty"`
 
 	// 点播视频文件循环播放次数，当 CycleMode 取值为 0 时，PlayTimes 取值将作为循环播放次数。 :::tip PlayTimes 为冗余参数，您可以将 PlayTimes 置 0 后直接使用 CycleMode 指定点播视频文件循环播放次数。
@@ -541,6 +940,7 @@ type CreatePullToPushTaskBody struct {
 	SrcAddr *string `json:"SrcAddr,omitempty"`
 
 	// 点播视频播放地址列表，拉流来源类型为点播视频时，为必传参数，最多支持传入 30 个点播视频播放地址，每个地址最大长度为 1000 个字符。
+	// :::tip 此字段为旧版本配置，请使用 VodSrcAddrs 配置点播视频地址和播放偏移时间。 :::
 	SrcAddrS []*string `json:"SrcAddrS,omitempty"`
 
 	// 推流的流名称，推流地址（DstAddr）为空时必传；反之，则该参数不生效。
@@ -549,8 +949,25 @@ type CreatePullToPushTaskBody struct {
 	// 拉流转推任务的名称，默认为空表示不配置任务名称。支持由中文、大小写字母（A - Z、a - z）和数字（0 - 9）组成，长度为 1 到 20 各字符。
 	Title *string `json:"Title,omitempty"`
 
+	// 点播文件地址和开始播放、结束播放的时间设置。 :::tip
+	// * 当 Type 为点播类型时配置生效。
+	// * 与 SrcAddrS 和 OffsetS 字段不可同时填写。 :::
+	VodSrcAddrs []*CreatePullToPushTaskBodyVodSrcAddrsItem `json:"VodSrcAddrs,omitempty"`
+
 	// 为拉流转推视频添加的水印配置信息。
 	Watermark *CreatePullToPushTaskBodyWatermark `json:"Watermark,omitempty"`
+}
+
+type CreatePullToPushTaskBodyVodSrcAddrsItem struct {
+
+	// REQUIRED; 点播文件地址。
+	SrcAddr string `json:"SrcAddr"`
+
+	// 当前点播文件结束播放的时间偏移值，单位为秒，默认为空时表示结束播放时间不进行偏移。
+	EndOffset *float32 `json:"EndOffset,omitempty"`
+
+	// 当前点播文件开始播放的时间偏移值，单位为秒。默认为空时表示开始播放时间不进行偏移。
+	StartOffset *float32 `json:"StartOffset,omitempty"`
 }
 
 // CreatePullToPushTaskBodyWatermark - 为拉流转推视频添加的水印配置信息。
@@ -622,7 +1039,7 @@ type CreateRecordPresetV2Body struct {
 	// [https://console.volcengine.com/live/main/domain/list]页面，查看需要录制的直播流使用的域名所属的域名空间。
 	Vhost string `json:"Vhost"`
 
-	// 应用名称，取值与直播流地址的 AppName 字段取值相同，支持填写星号（*）或由 1 到 30 位数字（0 - 9）、大写小字母（A - Z、a - z）、下划线（_）、短横线（-）和句点（.）组成，默认为空。 :::tip
+	// 应用名称，取值与直播流地址的 AppName 字段取值相同，由 1 到 30 位数字（0 - 9）、大写小字母（A - Z、a - z）、下划线（_）、短横线（-）和句点（.）组成，默认为空。 :::tip
 	// * App 取值为空时，Stream 取值也需为空，表示录制配置为 Vhost 级别的全局配置。
 	// * App 取值不为空时，Stream 取值含义请参见 Stream 参数说明。 :::
 	App *string `json:"App,omitempty"`
@@ -675,8 +1092,11 @@ type CreateRecordPresetV2BodyRecordPresetConfigFlvParam struct {
 
 	// 断流录制场景下，单文件录制时长，单位为秒，默认值为 7200，取值范围为 -1 和 [300,86400]。
 	// * 取值为 -1 时，表示不限制录制时长，录制结束后生成一个完整的录制文件。
-	// * 取值为 [300,86400] 之间的值时，表示根据设置的录制文件时分段长生成录制文件，完成录制后一起上传。
-	// :::tip 断流录制场景仅在录制格式为 HLS 时生效，且断流录制和实时录制为二选一配置。 :::
+	// * 取值为 [300,86400] 之间的值时，表示根据设置的录制文件时长，到达时长立即生成录制文件，完成录制后一起上传。
+	// :::tip
+	// * 断流录制场景仅在录制格式为 HLS 时生效，且断流录制和实时录制为二选一配置。
+	// * 如录制过程中出现断流，对应生成的录制文件时长也会相应缩短。
+	// :::
 	Duration *int32 `json:"Duration,omitempty"`
 
 	// 当前格式的录制是否开启，默认值为 false，支持的取值及含义如下所示。
@@ -684,7 +1104,8 @@ type CreateRecordPresetV2BodyRecordPresetConfigFlvParam struct {
 	// * true：开启。
 	Enable *bool `json:"Enable,omitempty"`
 
-	// 实时录制场景下，单文件录制时长，单位为秒，默认值为 1800，取值范围为 [300,21600]。录制时间到达设置的单文件录制时长时，会立即生成录制文件实时上传存储。
+	// 实时录制场景下，单文件录制时长，单位为秒，默认值为 1800，取值范围为 [300,21600]。录制时间到达设置的单文件录制时长时，会立即生成录制文件实时上传存储。 :::tip 如录制过程中出现断流，对应生成的录制文件时长也会相应缩短。
+	// :::
 	RealtimeRecordDuration *int32 `json:"RealtimeRecordDuration,omitempty"`
 
 	// 断流录制场景下，断流拼接时长，单位为秒，默认值为 0，支持的取值及含义如下所示。
@@ -968,74 +1389,6 @@ type CreateRecordPresetV2ResResponseMetadataError struct {
 	Message *string `json:"Message,omitempty"`
 }
 
-type CreateRelaySourceV4Body struct {
-
-	// REQUIRED; 应用名称，即直播流地址的AppName字段取值，支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（_）、短横线（-）和句点（.）组成，长度为 1 到 30 个字符。
-	App string `json:"App"`
-
-	// REQUIRED; 拉流域名，您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看直播流使用的拉流域名。
-	Domain string `json:"Domain"`
-
-	// REQUIRED; 回源地址列表，支持输入 RTMP、FLV、HLS 和 SRT 协议的直播推流地址。 :::tip
-	// * 当源站使用了非默认端口时，支持在回源地址中以域名:端口或IP:端口的形式配置端口。
-	// * 最多支持添加 10 个回源地址，回源失败时，将按照您添加的地址顺序轮循尝试。 :::
-	SrcAddrS []string `json:"SrcAddrS"`
-
-	// REQUIRED; 流名称，即直播流地址的StreamName字段取值，支持由大小写字母（A - Z、a - z）、数字（0 - 9）、字母、下划线（_）、短横线（-）和句点（.）组成，长度为 1 到 100 个字符。
-	Stream string `json:"Stream"`
-
-	// 回源结束时间，Unix 时间戳，单位为秒。 :::tip
-	// * 回源开始到结束最大时间跨度为 7 天；
-	// * 开始时间与结束时间同时缺省，表示永久回源。 :::
-	EndTime *int32 `json:"EndTime,omitempty"`
-
-	// 回源开始时间，Unix 时间戳，单位为秒。 :::tip
-	// * 回源开始到结束最大时间跨度为 7 天；
-	// * 开始时间与结束时间同时缺省，表示永久回源。 :::
-	StartTime *int32 `json:"StartTime,omitempty"`
-}
-
-type CreateRelaySourceV4Res struct {
-
-	// REQUIRED
-	ResponseMetadata CreateRelaySourceV4ResResponseMetadata `json:"ResponseMetadata"`
-	Result           *CreateRelaySourceV4ResResult          `json:"Result,omitempty"`
-}
-
-type CreateRelaySourceV4ResResponseMetadata struct {
-
-	// REQUIRED; 请求的接口名，属于请求的公共参数。
-	Action string `json:"Action"`
-
-	// REQUIRED; 请求的Region，例如：cn-north-1
-	Region string `json:"Region"`
-
-	// REQUIRED; RequestID为每次API请求的唯一标识。
-	RequestID string `json:"RequestId"`
-
-	// REQUIRED; 请求的服务，属于请求的公共参数。
-	Service string `json:"Service"`
-
-	// REQUIRED; 请求的版本号，属于请求的公共参数。
-	Version string                                       `json:"Version"`
-	Error   *CreateRelaySourceV4ResResponseMetadataError `json:"Error,omitempty"`
-}
-
-type CreateRelaySourceV4ResResponseMetadataError struct {
-
-	// 错误码
-	Code *string `json:"Code,omitempty"`
-
-	// 错误信息
-	Message *string `json:"Message,omitempty"`
-}
-
-type CreateRelaySourceV4ResResult struct {
-
-	// REQUIRED; 固定回源配置的 ID。
-	TaskID string `json:"TaskId"`
-}
-
 type CreateSnapshotPresetBody struct {
 
 	// REQUIRED; 应用名称，由 1 到 30 位数字、字母、下划线及"-"和"."组成。
@@ -1122,50 +1475,161 @@ type CreateSnapshotPresetResResponseMetadataError struct {
 	Message *string `json:"Message,omitempty"`
 }
 
-type CreateTimeShiftPresetV3Body struct {
+type CreateSubtitleTranscodePresetBody struct {
 
 	// REQUIRED; 应用名称，取值与直播流地址中 AppName 字段取值相同。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（_）、短横线（-）和句点（.）组成，长度为 1 到 30 个字符。
 	App string `json:"App"`
 
-	// REQUIRED; 最大时移时长，即允许用户回看的最长时间，单位为秒，支持的取值如下所示。
-	// * 86400：1 天；
-	// * 259200：3 天；
-	// * 604800：7 天；
-	// * 1296000：15 天。
-	MaxShiftTime int32 `json:"MaxShiftTime"`
+	// REQUIRED; 源语言参数
+	SourceLanguage CreateSubtitleTranscodePresetBodySourceLanguage `json:"SourceLanguage"`
 
-	// REQUIRED; 时移拉流域名。 :::tip 录制到 TOS 时，需配置直播流对应的拉流域名。录制到 VOD 时，需配置 VOD 的空间对应的分发域名。 :::
-	PullDomain string `json:"PullDomain"`
+	// REQUIRED; 关联的转码配置后缀，一个字幕配置支持关联多个转码配置后缀。
+	Suffixes []string `json:"Suffixes"`
 
-	// REQUIRED; 域名空间，即直播流地址的域名所属的域名空间。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看需要时移的直播流使用的域名所属的域名空间。
+	// REQUIRED; 域名空间，即直播流地址的域名所属的域名空间。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看直播流使用的域名所属的域名空间。
 	Vhost string `json:"Vhost"`
 
-	// 用于多码率时移的参数，为json字符串
-	MasterFormat *string `json:"MasterFormat,omitempty"`
+	// 字幕配置的描述信息。
+	Description *string `json:"Description,omitempty"`
 
-	// 0表示不需要 1表示需要
-	NeedTranscode *int32 `json:"NeedTranscode,omitempty"`
+	// 预设配置，使用预设配置是系统将自动对字体大小、字幕行数、每行最大字符数和边距参数（MarginVertical 和 MarginHorizontal）进行智能化适配。默认为空，表示不使用预设配置，支持的预设配置如下所示。
+	// * small ：小字幕。
+	// * medium：中字幕。
+	// * large：大字幕。 :::tip 使用预设配置时，字幕行数、每行最大字符数、左右边距和底部边距参数不生效，系统将使用预设配置自动进行计算。 :::
+	DisplayPreset *string `json:"DisplayPreset,omitempty"`
 
-	// 流名称，取值与直播流地址中 StreamName 字段取值相同，默认为空表示当前应用下的所有流都进行时移。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（_）、短横线（-）和句点（.）组成，长度为 1 到 100
-	// 个字符。 :::tip 流名称不为空时，表示只为此条流开启时移。通过流名称配置时移时，同一个 App 最多可指定 20 路流开启时移。 :::
-	Stream *string `json:"Stream,omitempty"`
+	// 原文翻译成译文时使用的热词词库，总长度不超过 10000 个字符，默认为空。
+	GlossaryWordList []*string `json:"GlossaryWordList,omitempty"`
 
-	// 时移类型。支持的取值如下所示。
-	// * 0：录制时移，即时移复用录制配置，需提前创建对应级别的录制配置；
-	// * 1：独立时移，即时移不复用录制配置。
-	TimeShiftType *int32 `json:"TimeShiftType,omitempty"`
+	// 原文字幕识别时使用的热词词库，总长度不超过为 10000 个字符，默认为空。
+	HotWordList []*string `json:"HotWordList,omitempty"`
+
+	// 设置在 16:9 分辨率场景下，每行字幕展示的最大字符数。 :::tip
+	// * 使用预设配置时，字幕每行最大字符数设置不生效。
+	// * 不使用预设配置时，字幕每行最大字符数必填。
+	// * 每个文字、字母、符号或数字均为一个字符。
+	// * 当屏幕分辨率改变时，屏幕上显示的每行文字数量会相应调整，以适应新的分辨率，确保文字的显示效果和阅读体验。 :::
+	MaxCharNumber *int32 `json:"MaxCharNumber,omitempty"`
+
+	// 字幕展示的行数，同时适用于原文字幕和译文字幕，支持的取值及含义如下所示。
+	// * 0：（默认值）根据字幕字数自动进行分行展示；
+	// * 1：每种字幕展示一行；
+	// * 2：每种字幕展示两行。 :::tip
+	// * 使用预设配置时，字幕行数为自动分行展示。
+	// * 超出行内字数限制时表示字幕将超过显示范围，此时字幕内容将被截断。 :::
+	MaxRowNumber *int32 `json:"MaxRowNumber,omitempty"`
+
+	// 字幕位置设置，通过设置字幕距离画面左右边距和底部边距来指定字幕位置。
+	// :::tip
+	// * 使用预设配置时，字幕位置设置不生效。
+	// * 不使用预设配置时，字幕位置设置必填。 :::
+	Position *CreateSubtitleTranscodePresetBodyPosition `json:"Position,omitempty"`
+
+	// 字幕配置的名称，不可以与其他已有的配置名称重复。默认为空，表示由系统将自动分配配置名称。
+	PresetName *string `json:"PresetName,omitempty"`
+
+	// 译文字幕展示参数配置列表，当前最多支持配置一种译文。
+	TargetLanguage []*CreateSubtitleTranscodePresetBodyTargetLanguageItem `json:"TargetLanguage,omitempty"`
 }
 
-type CreateTimeShiftPresetV3Res struct {
+// CreateSubtitleTranscodePresetBodyPosition - 字幕位置设置，通过设置字幕距离画面左右边距和底部边距来指定字幕位置。
+// :::tip
+// * 使用预设配置时，字幕位置设置不生效。
+// * 不使用预设配置时，字幕位置设置必填。 :::
+type CreateSubtitleTranscodePresetBodyPosition struct {
+
+	// 左右边距，[0,0.2]
+	MarginHorizontal *float32 `json:"MarginHorizontal,omitempty"`
+
+	// 上下边距
+	MarginVertical *float32 `json:"MarginVertical,omitempty"`
+
+	// MarginVertical是相对顶部或底部,默认底部
+	Relative *CreateSubtitleTranscodePresetBodyPositionRelative `json:"Relative,omitempty"`
+}
+
+// CreateSubtitleTranscodePresetBodySourceLanguage - 源语言参数
+type CreateSubtitleTranscodePresetBodySourceLanguage struct {
+
+	// REQUIRED; 是否展示源语言
+	Display bool `json:"Display"`
+
+	// REQUIRED; 字体
+	Font string `json:"Font"`
+
+	// REQUIRED; 字体颜色
+	FontColor string `json:"FontColor"`
+
+	// REQUIRED; 原文字幕的语言，取值及含义如下所示。
+	// * zh：中英混合；
+	// * en：英语；
+	// * ko：韩语；
+	// * ja：日语。
+	Language string `json:"Language"`
+
+	// 字幕阴影配置
+	Border *CreateSubtitleTranscodePresetBodySourceLanguageBorder `json:"Border,omitempty"`
+}
+
+// CreateSubtitleTranscodePresetBodySourceLanguageBorder - 字幕阴影配置
+type CreateSubtitleTranscodePresetBodySourceLanguageBorder struct {
+
+	// REQUIRED; 阴影颜色
+	Color string `json:"Color"`
+
+	// 填0的时候后端根据字体大小进行计算，字体大小/32*1.25
+	Width *int32 `json:"Width,omitempty"`
+}
+
+type CreateSubtitleTranscodePresetBodyTargetLanguageItem struct {
+
+	// REQUIRED; 字体，覆盖全局参数
+	Font string `json:"Font"`
+
+	// REQUIRED; 字体颜色，覆盖全局参数
+	FontColor string `json:"FontColor"`
+
+	// REQUIRED; 译文字幕的语言，取值及含义如下所示。
+	// * zh：中英混合；
+	// * zh-Hant：繁体中文；
+	// * en：英语；
+	// * ko：韩语；
+	// * ja：日语；
+	// * ar：阿拉伯语；
+	// * de：德语；
+	// * es：西班牙语；
+	// * fr：法语；
+	// * hi：印地语；
+	// * pt：葡萄牙语；
+	// * ru：俄语；
+	// * vi：越南语；
+	// * th：泰语。
+	Language string `json:"Language"`
+
+	// 字幕阴影配置
+	Border *CreateSubtitleTranscodePresetBodyTargetLanguageItemBorder `json:"Border,omitempty"`
+}
+
+// CreateSubtitleTranscodePresetBodyTargetLanguageItemBorder - 字幕阴影配置
+type CreateSubtitleTranscodePresetBodyTargetLanguageItemBorder struct {
+
+	// REQUIRED; 阴影颜色
+	Color string `json:"Color"`
+
+	// 填0的时候后端根据字体大小进行计算，字体大小/32*1.25
+	Width *int32 `json:"Width,omitempty"`
+}
+
+type CreateSubtitleTranscodePresetRes struct {
 
 	// REQUIRED
-	ResponseMetadata CreateTimeShiftPresetV3ResResponseMetadata `json:"ResponseMetadata"`
+	ResponseMetadata CreateSubtitleTranscodePresetResResponseMetadata `json:"ResponseMetadata"`
 
 	// 视请求的接口而定
 	Result interface{} `json:"Result,omitempty"`
 }
 
-type CreateTimeShiftPresetV3ResResponseMetadata struct {
+type CreateSubtitleTranscodePresetResResponseMetadata struct {
 
 	// REQUIRED; 请求的接口名，属于请求的公共参数。
 	Action string `json:"Action"`
@@ -1180,11 +1644,56 @@ type CreateTimeShiftPresetV3ResResponseMetadata struct {
 	Service string `json:"Service"`
 
 	// REQUIRED; 请求的版本号，属于请求的公共参数。
-	Version string                                           `json:"Version"`
-	Error   *CreateTimeShiftPresetV3ResResponseMetadataError `json:"Error,omitempty"`
+	Version string `json:"Version"`
 }
 
-type CreateTimeShiftPresetV3ResResponseMetadataError struct {
+type CreateTimeShiftPresetV2Body struct {
+
+	// REQUIRED
+	App string `json:"App"`
+
+	// REQUIRED
+	MaxShiftTime int32 `json:"MaxShiftTime"`
+
+	// REQUIRED
+	PullDomain string `json:"PullDomain"`
+
+	// REQUIRED
+	Type string `json:"Type"`
+
+	// REQUIRED
+	Vhost        string  `json:"Vhost"`
+	Bucket       *string `json:"Bucket,omitempty"`
+	MasterFormat *string `json:"MasterFormat,omitempty"`
+}
+
+type CreateTimeShiftPresetV2Res struct {
+
+	// REQUIRED
+	ResponseMetadata CreateTimeShiftPresetV2ResResponseMetadata `json:"ResponseMetadata"`
+
+	// Anything
+	Result interface{} `json:"Result,omitempty"`
+}
+
+type CreateTimeShiftPresetV2ResResponseMetadata struct {
+
+	// REQUIRED
+	Action string `json:"Action"`
+
+	// REQUIRED
+	Region string `json:"Region"`
+
+	// REQUIRED
+	Service string `json:"Service"`
+
+	// REQUIRED
+	Version   string                                           `json:"Version"`
+	Error     *CreateTimeShiftPresetV2ResResponseMetadataError `json:"Error,omitempty"`
+	RequestID *string                                          `json:"RequestID,omitempty"`
+}
+
+type CreateTimeShiftPresetV2ResResponseMetadataError struct {
 
 	// 错误码
 	Code *string `json:"Code,omitempty"`
@@ -1212,22 +1721,14 @@ type CreateTranscodePresetBody struct {
 
 	// REQUIRED; 域名空间，即直播流地址的域名所属的域名空间。您可以调用 ListDomainDetail [https://www.volcengine.com/docs/6469/1126815] 接口或在视频直播控制台的域名管理
 	// [https://console.volcengine.com/live/main/domain/list]页面，查看需要转码的直播流使用的域名所属的域名空间。
-	Vhost     string  `json:"Vhost"`
-	ALayout   *string `json:"ALayout,omitempty"`
-	AProfile  *string `json:"AProfile,omitempty"`
-	AR        *int32  `json:"AR,omitempty"`
-	AbrMode   *int32  `json:"AbrMode,omitempty"`
-	AccountID *string `json:"AccountID,omitempty"`
+	Vhost   string `json:"Vhost"`
+	AbrMode *int32 `json:"AbrMode,omitempty"`
 
 	// 音频编码格式，默认值为 aac，支持的取值及含义如下所示。
 	// * aac：使用 AAC 音频编码格式；
 	// * opus：使用 Opus 音频编码格式。
 	// * copy：不进行音频转码，所有音频编码参数不生效，音频编码参数包括音频码率（AudioBitrate）等。
-	Acodec         *string `json:"Acodec,omitempty"`
-	AdvancedParam  *string `json:"AdvancedParam,omitempty"`
-	AllowAudioCopy *int32  `json:"AllowAudioCopy,omitempty"`
-	AllowVideoCopy *int32  `json:"AllowVideoCopy,omitempty"`
-	An             *int32  `json:"An,omitempty"`
+	Acodec *string `json:"Acodec,omitempty"`
 
 	// 视频分辨率自适应模式开关，默认值为 0。支持的取值及含义如下。
 	// * 0：关闭视频分辨率自适应；
@@ -1238,9 +1739,6 @@ type CreateTranscodePresetBody struct {
 
 	// 音频码率，单位为 kbps，默认值为 128，取值范围为 [0,1000]；取值为 0 时，表示与源流的音频码率相同。
 	AudioBitrate *int32 `json:"AudioBitrate,omitempty"`
-	AutoTransAb  *int32 `json:"AutoTransAb,omitempty"`
-	AutoTransAl  *int32 `json:"AutoTransAl,omitempty"`
-	AutoTransAr  *int32 `json:"AutoTransAr,omitempty"`
 
 	// 是否开启转码视频分辨率不超过源流分辨率，默认值为 1 表示开启。开启后，当源流分辨率低于转码配置分辨率时（即源流宽低于转码配置宽且源流高低于转码配置高时），将按源流视频分辨率进行转码。
 	// * 0：关闭；
@@ -1256,24 +1754,12 @@ type CreateTranscodePresetBody struct {
 	// * 0：关闭；
 	// * 1：开启。
 	AutoTransVr *int32 `json:"AutoTransVr,omitempty"`
-	BCM         *int32 `json:"BCM,omitempty"`
 
 	// 转码输出视频中 2 个参考帧之间的最大 B 帧数量，默认值为 3，取值为 0 时表示去除 B 帧。
 	// 最大 B 帧数量的取值范围根据视频编码格式（Vcodec）的不同有所差异，取值范围如下所示。
 	// * 视频编码格式为 H.264 （Vcodec 取值为 h264）时取值范围为 [0,7]；
 	// * 视频编码格式为 H.265 或 H.266 （Vcodec 取值为 h265 或 h266）时取值范围为 [0,3]、7、15。
-	BFrames  *int32  `json:"BFrames,omitempty"`
-	Describe *string `json:"Describe,omitempty"`
-
-	// 动态范围，画质增强类型生效，ParamType=hvq时必填，并且h264只支持SDR
-	// * SDR：输出为SDR
-	// * HDR：输出为HDR
-	DynamicRange *string `json:"DynamicRange,omitempty"`
-
-	// 是否开启智能插帧，只对画质增强类型生效，不填默认为不开启
-	// * 0：不开启
-	// * 1：开启
-	FISwitch *int32 `json:"FISwitch,omitempty"`
+	BFrames *int32 `json:"BFrames,omitempty"`
 
 	// 视频帧率，单位为 fps，默认值为 25，取值为 0 时表示与源流视频帧率相同。
 	// 视频帧率的取值范围根据视频编码格式（Vcodec）的不同有所差异，视频码率的取值范围如下所示。
@@ -1282,9 +1768,7 @@ type CreateTranscodePresetBody struct {
 	FPS *int32 `json:"FPS,omitempty"`
 
 	// IDR 帧之间的最大间隔时间，单位为秒，默认值为 4，取值范围为 [1,20]。
-	GOP    *int32 `json:"GOP,omitempty"`
-	GopMin *int32 `json:"GopMin,omitempty"`
-	HVSPre *bool  `json:"HVSPre,omitempty"`
+	GOP *int32 `json:"GOP,omitempty"`
 
 	// 视频高度，默认值为 0。
 	// 视频高度的取值范围根据视频编码格式（Vcodec）的不同所有差异，视频高度取值如下所示。
@@ -1307,46 +1791,13 @@ type CreateTranscodePresetBody struct {
 	// :::tip
 	// * 当开启视频分辨率自适应模式时（As 取值为 1）时，参数生效，反之则不生效。
 	// * 当开启视频分辨率自适应模式时（As 取值为 1）时，如果 LongSide 、 ShortSide 、Width 、Height 同时取 0，表示保持源流尺寸。 :::
-	LongSide    *int32  `json:"LongSide,omitempty"`
-	LookAhead   *int32  `json:"LookAhead,omitempty"`
-	Modifier    *string `json:"Modifier,omitempty"`
-	NvBf        *int32  `json:"NvBf,omitempty"`
-	NvCodec     *string `json:"NvCodec,omitempty"`
-	NvGop       *int32  `json:"NvGop,omitempty"`
-	NvHVSPre    *bool   `json:"NvHVSPre,omitempty"`
-	NvLookahead *int32  `json:"NvLookahead,omitempty"`
-	NvPercent   *int32  `json:"NvPercent,omitempty"`
-	NvPreset    *string `json:"NvPreset,omitempty"`
-	NvPriority  *int32  `json:"NvPriority,omitempty"`
-	NvProfile   *string `json:"NvProfile,omitempty"`
-	NvRefs      *int32  `json:"NvRefs,omitempty"`
-	NvTempAQ    *int32  `json:"NvTempAQ,omitempty"`
-	Ocr         *bool   `json:"Ocr,omitempty"`
-
-	// 转码模板参数的类型
-	// * hvq：表示使用画质增强
-	// 选择画质增强时，转码类型默认为极智超清转码（Roi 默认值为 true）。
-	// 选择画质增强时，支持使用 shortside 来设置分辨率。
-	// * ParamType 取 hvq 时： * 视频编码方式为 H.264 （Vcodec 取值为 h264）时，shortside 取值范围为 0 和 [150,1280]；
-	// * 视频编码方式为 H.265 （Vcodec取值为h265）是，shortside 取值范围为 0 和 [150,1280]；
-	ParamType    *string `json:"ParamType,omitempty"`
-	Preset       *string `json:"Preset,omitempty"`
-	PresetKind   *int32  `json:"PresetKind,omitempty"`
-	PresetType   *int32  `json:"PresetType,omitempty"`
-	Qp           *int32  `json:"Qp,omitempty"`
-	RegionConfig *string `json:"RegionConfig,omitempty"`
-	Revision     *string `json:"Revision,omitempty"`
+	LongSide *int32 `json:"LongSide,omitempty"`
 
 	// 转码类型是否为极智超清转码，默认值为 false，取值及含义如下。
 	// * true：极智超清转码；
 	// * false：标准转码。
 	// :::tip 视频编码格式为 H.266 （Vcodec取值为h266）时，转码类型不支持极智超清转码。 :::
-	Roi  *bool `json:"Roi,omitempty"`
-	SITI *bool `json:"SITI,omitempty"`
-
-	// 使用场景，画质增强时生效，不填不生效
-	// * football：足球场景
-	SceneType *string `json:"SceneType,omitempty"`
+	Roi *bool `json:"Roi,omitempty"`
 
 	// 短边长度，默认值为 0。配置不同的转码类型（Roi）和视频编码方式（Vcodec）时，短边长度的取值范围存在如下。
 	// * 转码类型为标准转码（Roi 取值为 false）时： * 视频编码方式为 H.264 （Vcodec 取值为 h264）时取值范围为 0 和 [150,2160]；
@@ -1360,53 +1811,20 @@ type CreateTranscodePresetBody struct {
 	// * 当开启视频分辨率自适应模式（As 取值为 1）时，参数生效，反之则不生效。
 	// * 当开启视频分辨率自适应模式（As 取值为 1）时，如果 LongSide 、 ShortSide 、Width 、Height 同时取 0，表示保持源流尺寸。 :::
 	ShortSide *int32 `json:"ShortSide,omitempty"`
-	Status    *int32 `json:"Status,omitempty"`
 
 	// 转码停止时长，支持触发方式为拉流转码（TransType 取值为 Pull）时设置，表示断开拉流后转码停止的时长，单位为秒，取值范围为 -1 和 [0,300]，-1 表示不停止转码，默认值为 60。
 	StopInterval *int32 `json:"StopInterval,omitempty"`
-	Threads      *int32 `json:"Threads,omitempty"`
 
 	// 转码触发方式，默认值为 Pull，支持的取值及含义如下。
 	// * Push：推流转码，直播推流后会自动启动转码任务，生成转码流；
 	// * Pull：拉流转码，直播推流后，需要主动播放转码流才会启动转码任务，生成转码流。
-	TransType       *string                                   `json:"TransType,omitempty"`
-	TranscodeStruct *CreateTranscodePresetBodyTranscodeStruct `json:"TranscodeStruct,omitempty"`
-	VBRatio         *int32                                    `json:"VBRatio,omitempty"`
-	VBVBufSize      *int32                                    `json:"VBVBufSize,omitempty"`
-	VBVMaxRate      *int32                                    `json:"VBVMaxRate,omitempty"`
-	VLevel          *string                                   `json:"VLevel,omitempty"`
-	VPreset         *string                                   `json:"VPreset,omitempty"`
-	VProfile        *string                                   `json:"VProfile,omitempty"`
-	VR              *int32                                    `json:"VRVr,omitempty"`
-	VRBBframes      *int32                                    `json:"VRBBframes,omitempty"`
-	VRBHeightNum    *int32                                    `json:"VRBHeightNum,omitempty"`
-	VRBPreset       *string                                   `json:"VRBPreset,omitempty"`
-	VRBProfile      *string                                   `json:"VRBProfile,omitempty"`
-	VRBSuffix       *string                                   `json:"VRBSuffix,omitempty"`
-	VRBVb           *int32                                    `json:"VRBVb,omitempty"`
-	VRBWidthNum     *int32                                    `json:"VRBWidthNum,omitempty"`
-	VRGop           *int32                                    `json:"VRGop,omitempty"`
-	VRGopDen        *int32                                    `json:"VRGopDen,omitempty"`
-	VRHvspre        *string                                   `json:"VRHvspre,omitempty"`
-	VRProjection    *string                                   `json:"VRProjection,omitempty"`
-	VRRoi           *string                                   `json:"VRRoi,omitempty"`
-	VRTBframes      *int32                                    `json:"VRTBframes,omitempty"`
-	VRTPreset       *string                                   `json:"VRTPreset,omitempty"`
-	VRTProfile      *string                                   `json:"VRTProfile,omitempty"`
-	VRTSuffix       *string                                   `json:"VRTSuffix,omitempty"`
-	VRTVb           *int32                                    `json:"VRTVb,omitempty"`
-	VRTileMod       *int32                                    `json:"VRTileMod,omitempty"`
-	VRateCtrl       *string                                   `json:"VRateCtrl,omitempty"`
-	VbThreshold     *string                                   `json:"VbThreshold,omitempty"`
-	Vclass          *bool                                     `json:"Vclass,omitempty"`
+	TransType *string `json:"TransType,omitempty"`
 
 	// 视频码率，单位为 bps，默认值为 1000000；取值为 0 时，表示与源流的视频码率相同。
 	// 视频码率的取值范围根据视频编码格式（Vcodec）的不同有所差异，视频码率的取值范围如下所示。
 	// * 视频编码格式为 H.264 或 H.265 （Vcodec 取值为 h264 或 h265）时，视频码率取值范围为 [0,30000000]；
 	// * 视频编码格式为 H.266 （Vcodec 取值为 h266）时，视频码率取值范围为 [0,6000000]。
-	VideoBitrate *int32  `json:"VideoBitrate,omitempty"`
-	Vn           *int32  `json:"Vn,omitempty"`
-	Watermark    *string `json:"Watermark,omitempty"`
+	VideoBitrate *int32 `json:"VideoBitrate,omitempty"`
 
 	// 视频宽度，单位为 px，默认值为 0。
 	// 视频宽度的取值范围根据视频编码格式（Vcodec）的不同所有差异，视频宽度取值如下所示。
@@ -1416,17 +1834,6 @@ type CreateTranscodePresetBody struct {
 	// * 当关闭视频分辨率自适应（As 取值为 0）时，转码分辨率将取 Width 和 Height 的值对转码视频进行拉伸；
 	// * 当关闭视频分辨率自适应（As 取值为 0）时，Width 和 Height 任一取值为 0 时，转码视频将保持源流尺寸。 :::
 	Width *int32 `json:"Width,omitempty"`
-}
-
-type CreateTranscodePresetBodyTranscodeStruct struct {
-
-	// Dictionary of
-	ABTest       map[string]*ComponentsXsjbgcSchemasCreatetranscodepresetbodyPropertiesTranscodestructPropertiesAbtestAdditionalproperties `json:"ABTest,omitempty"`
-	Codec        *string                                                                                                                   `json:"Codec,omitempty"`
-	PresetName   *string                                                                                                                   `json:"PresetName,omitempty"`
-	StopInterval *int32                                                                                                                    `json:"StopInterval,omitempty"`
-	Suffix       *string                                                                                                                   `json:"Suffix,omitempty"`
-	Type         *string                                                                                                                   `json:"Type,omitempty"`
 }
 
 type CreateTranscodePresetRes struct {
@@ -1503,7 +1910,10 @@ type CreateWatermarkPresetBody struct {
 	// 水印相对宽度，水印宽度占直播转码流画面宽度的比例，取值范围为 [0,1]，水印高度会随宽度等比缩放。与水印相对高度字段冲突，请选择其中一个传参。
 	RelativeWidth *float32 `json:"RelativeWidth,omitempty"`
 
-	// 流名称。
+	// 流名称，取值与直播流地址中 StreamName 字段取值相同。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（_）、短横线（-）和句点（.）组成，长度为 1 到 100 个字符。
+	// :::tip
+	// * 默认为空，表示对指定的 AppName 下所有转码流均使用当前水印配置。
+	// * 指定流名称时，表示仅对 AppName 下指定流名称的转码流使用当前水印配置。 :::
 	Stream *string `json:"Stream,omitempty"`
 }
 
@@ -1678,6 +2088,42 @@ type DeleteCertResResponseMetadataError struct {
 	Message *string `json:"Message,omitempty"`
 }
 
+type DeleteCloudMixTaskBody struct {
+
+	// REQUIRED; 混流任务 ID，您可以通过 ListCloudMixTask [https://www.volcengine.com/docs/6469/1271157] 接口获取待结束的混流任务 ID。
+	TaskID string `json:"TaskID"`
+}
+
+type DeleteCloudMixTaskRes struct {
+
+	// REQUIRED
+	ResponseMetadata DeleteCloudMixTaskResResponseMetadata `json:"ResponseMetadata"`
+
+	// REQUIRED
+	Result DeleteCloudMixTaskResResult `json:"Result"`
+}
+
+type DeleteCloudMixTaskResResponseMetadata struct {
+
+	// REQUIRED
+	RequestID string `json:"RequestID"`
+}
+
+type DeleteCloudMixTaskResResult struct {
+
+	// REQUIRED; 请求响应码，取值及含义如下。
+	// * 0：请求成功；
+	// * 500：内部处理错误；
+	// * 400：请求异常。
+	Code int32 `json:"Code"`
+
+	// REQUIRED; 返回的数据。
+	Data string `json:"Data"`
+
+	// REQUIRED; 请求响应码对应的信息。
+	Message string `json:"Message"`
+}
+
 type DeleteClusterRateLimitBody struct {
 
 	// REQUIRED
@@ -1796,9 +2242,6 @@ type DeleteHLSConfigBody struct {
 
 	// 应用名称
 	App *string `json:"App,omitempty"`
-
-	// 服务类型
-	ServiceType *string `json:"ServiceType,omitempty"`
 }
 
 type DeleteHLSConfigRes struct {
@@ -1940,10 +2383,84 @@ type DeleteLatencyConfigResResponseMetadata struct {
 	Version string `json:"Version"`
 }
 
+type DeleteLiveVideoQualityAnalysisTaskBody struct {
+
+	// 任务ID，和任务名二选一
+	ID *string `json:"ID,omitempty"`
+
+	// 任务名，和任务ID二选一
+	Name *string `json:"Name,omitempty"`
+}
+
+type DeleteLiveVideoQualityAnalysisTaskRes struct {
+
+	// REQUIRED
+	ResponseMetadata DeleteLiveVideoQualityAnalysisTaskResResponseMetadata `json:"ResponseMetadata"`
+
+	// 视请求的接口而定
+	Result interface{} `json:"Result,omitempty"`
+}
+
+type DeleteLiveVideoQualityAnalysisTaskResResponseMetadata struct {
+
+	// REQUIRED; 请求的接口名，属于请求的公共参数。
+	Action string `json:"Action"`
+
+	// REQUIRED; 请求的Region，例如：cn-north-1
+	Region string `json:"Region"`
+
+	// REQUIRED; RequestID为每次API请求的唯一标识。
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED; 请求的服务，属于请求的公共参数。
+	Service string `json:"Service"`
+
+	// REQUIRED; 请求的版本号，属于请求的公共参数。
+	Version string `json:"Version"`
+}
+
+type DeletePullToPushGroupBody struct {
+
+	// REQUIRED; 拉流转推群组名称，您可以调用 ListPullToPushGroup [https://www.volcengine.com/docs/6469/1327382] 接口获取群组名称。
+	Name string `json:"Name"`
+}
+
+type DeletePullToPushGroupRes struct {
+
+	// REQUIRED
+	ResponseMetadata DeletePullToPushGroupResResponseMetadata `json:"ResponseMetadata"`
+
+	// 视请求的接口而定
+	Result interface{} `json:"Result,omitempty"`
+}
+
+type DeletePullToPushGroupResResponseMetadata struct {
+
+	// REQUIRED; 请求的接口名，属于请求的公共参数。
+	Action string `json:"Action"`
+
+	// REQUIRED; 请求的Region，例如：cn-north-1
+	Region string `json:"Region"`
+
+	// REQUIRED; RequestID为每次API请求的唯一标识。
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED; 请求的服务，属于请求的公共参数。
+	Service string `json:"Service"`
+
+	// REQUIRED; 请求的版本号，属于请求的公共参数。
+	Version string `json:"Version"`
+}
+
 type DeletePullToPushTaskBody struct {
 
 	// REQUIRED; 任务 ID，任务的唯一标识，您可以通过获取拉流转推任务列表 [https://www.volcengine.com/docs/6469/1126896]接口获取。
 	TaskID string `json:"TaskId"`
+
+	// 任务所属的群组名称，您可以通过获取拉流转推任务列表 [https://www.volcengine.com/docs/6469/1126896]接口获取。 :::tip
+	// * 使用主账号调用时，为非必填。
+	// * 使用子账号调用时，为必填。 :::
+	GroupName *string `json:"GroupName,omitempty"`
 }
 
 type DeletePullToPushTaskRes struct {
@@ -2207,55 +2724,6 @@ type DeleteRelaySourceV3ResResponseMetadataError struct {
 	Message *string `json:"Message,omitempty"`
 }
 
-type DeleteRelaySourceV4Body struct {
-
-	// REQUIRED; 应用名称，您可以调用ListRelaySourceV4 [https://www.volcengine.com/docs/6469/1126878]接口，获取待删除固定回源配置的 App 取值。
-	App string `json:"App"`
-
-	// REQUIRED; 拉流域名，您可以调用ListRelaySourceV4 [https://www.volcengine.com/docs/6469/1126878]接口，获取待删除固定回源配置的 Domain 取值。
-	Domain string `json:"Domain"`
-
-	// REQUIRED; 流名称，您可以调用ListRelaySourceV4 [https://www.volcengine.com/docs/6469/1126878]接口，获取待删除固定回源配置的 Stream 取值。
-	Stream string `json:"Stream"`
-}
-
-type DeleteRelaySourceV4Res struct {
-
-	// REQUIRED
-	ResponseMetadata DeleteRelaySourceV4ResResponseMetadata `json:"ResponseMetadata"`
-
-	// 视请求的接口而定
-	Result interface{} `json:"Result,omitempty"`
-}
-
-type DeleteRelaySourceV4ResResponseMetadata struct {
-
-	// REQUIRED; 请求的接口名，属于请求的公共参数。
-	Action string `json:"Action"`
-
-	// REQUIRED; 请求的Region，例如：cn-north-1
-	Region string `json:"Region"`
-
-	// REQUIRED; RequestID为每次API请求的唯一标识。
-	RequestID string `json:"RequestId"`
-
-	// REQUIRED; 请求的服务，属于请求的公共参数。
-	Service string `json:"Service"`
-
-	// REQUIRED; 请求的版本号，属于请求的公共参数。
-	Version string                                       `json:"Version"`
-	Error   *DeleteRelaySourceV4ResResponseMetadataError `json:"Error,omitempty"`
-}
-
-type DeleteRelaySourceV4ResResponseMetadataError struct {
-
-	// 错误码
-	Code *string `json:"Code,omitempty"`
-
-	// 错误信息
-	Message *string `json:"Message,omitempty"`
-}
-
 type DeleteSnapshotPresetBody struct {
 
 	// REQUIRED; 截图配置的名称，您可以调用 ListVhostSnapshotPresetV2 [https://www.volcengine.com/docs/6469/1208858] 接口获取，取值与 Name 字段取值相同。
@@ -2305,28 +2773,29 @@ type DeleteSnapshotPresetResResponseMetadataError struct {
 	Message *string `json:"Message,omitempty"`
 }
 
-type DeleteTimeShiftPresetV3Body struct {
+type DeleteSubtitleTranscodePresetBody struct {
 
-	// REQUIRED; 应用名称，您可以调用ListTimeShiftPresetV2 [https://www.volcengine.com/docs/6469/1126883]接口，获取待删除时移配置的App取值。
+	// REQUIRED; 火山必填
 	App string `json:"App"`
 
-	// REQUIRED; 域名空间名称，您可以调用ListTimeShiftPresetV2 [https://www.volcengine.com/docs/6469/1126883]接口，获取待删除时移配置的Vhost取值。
-	Vhost string `json:"Vhost"`
+	// REQUIRED; 截图配置的名称，您可以调用 ListVhostSubtitleTranscodePreset [https://www.volcengine.com/docs/6469/1288712] 接口，获取待删除字幕配置的 PresetName
+	// 取值。
+	PresetName string `json:"PresetName"`
 
-	// 流名
-	Stream *string `json:"Stream,omitempty"`
+	// REQUIRED; 火山必填
+	Vhost string `json:"Vhost"`
 }
 
-type DeleteTimeShiftPresetV3Res struct {
+type DeleteSubtitleTranscodePresetRes struct {
 
 	// REQUIRED
-	ResponseMetadata DeleteTimeShiftPresetV3ResResponseMetadata `json:"ResponseMetadata"`
+	ResponseMetadata DeleteSubtitleTranscodePresetResResponseMetadata `json:"ResponseMetadata"`
 
 	// 视请求的接口而定
 	Result interface{} `json:"Result,omitempty"`
 }
 
-type DeleteTimeShiftPresetV3ResResponseMetadata struct {
+type DeleteSubtitleTranscodePresetResResponseMetadata struct {
 
 	// REQUIRED; 请求的接口名，属于请求的公共参数。
 	Action string `json:"Action"`
@@ -2341,11 +2810,49 @@ type DeleteTimeShiftPresetV3ResResponseMetadata struct {
 	Service string `json:"Service"`
 
 	// REQUIRED; 请求的版本号，属于请求的公共参数。
-	Version string                                           `json:"Version"`
-	Error   *DeleteTimeShiftPresetV3ResResponseMetadataError `json:"Error,omitempty"`
+	Version string `json:"Version"`
 }
 
-type DeleteTimeShiftPresetV3ResResponseMetadataError struct {
+type DeleteTimeShiftPresetV2Body struct {
+
+	// REQUIRED
+	App string `json:"App"`
+
+	// REQUIRED
+	Preset string `json:"Preset"`
+
+	// REQUIRED
+	Vhost string  `json:"Vhost"`
+	Type  *string `json:"Type,omitempty"`
+}
+
+type DeleteTimeShiftPresetV2Res struct {
+
+	// REQUIRED
+	ResponseMetadata DeleteTimeShiftPresetV2ResResponseMetadata `json:"ResponseMetadata"`
+
+	// Anything
+	Result interface{} `json:"Result,omitempty"`
+}
+
+type DeleteTimeShiftPresetV2ResResponseMetadata struct {
+
+	// REQUIRED
+	Action string `json:"Action"`
+
+	// REQUIRED
+	Region string `json:"Region"`
+
+	// REQUIRED
+	Service string `json:"Service"`
+
+	// REQUIRED
+	Version   string                                           `json:"Version"`
+	Error     *DeleteTimeShiftPresetV2ResResponseMetadataError `json:"Error,omitempty"`
+	RequestID *string                                          `json:"RequestID,omitempty"`
+}
+
+type DeleteTimeShiftPresetV2ResResponseMetadataError struct {
 
 	// 错误码
 	Code *string `json:"Code,omitempty"`
@@ -2443,7 +2950,7 @@ type DeleteWatermarkPresetBody struct {
 	// REQUIRED; 域名空间，您可以调用 ListVhostWatermarkPreset [https://www.volcengine.com/docs/6469/1126889] 接口，查看待删除水印配置的 Vhost 取值。
 	Vhost string `json:"Vhost"`
 
-	// 直播地址流名。可选。
+	// 流名称，您可以调用ListVhostWatermarkPreset [https://www.volcengine.com/docs/6469/1126889]接口，查看待删除水印配置的 Stream 取值。
 	Stream *string `json:"Stream,omitempty"`
 }
 
@@ -2577,29 +3084,14 @@ type DescribeAuthResResultAuthListPropertiesItemsItem struct {
 	// 自定义推拉流地址中，鉴权参数volcSecret和volcTime的名称。
 	AuthField map[string]*string `json:"AuthField,omitempty"`
 
-	// 旁路鉴权时，授权服务器的地址
-	BypassAuthURL *string `json:"BypassAuthURL,omitempty"`
-
-	// 接收旁路鉴权失败消息的回调地址
-	BypassFailCallbackURL *string `json:"BypassFailCallbackURL,omitempty"`
-
 	// 生成加密字符串使用的加密字段。
 	EncryptField []*string `json:"EncryptField,omitempty"`
 
 	// 对称加密算法。
 	EncryptionAlgorithm *string `json:"EncryptionAlgorithm,omitempty"`
 
-	// 旁路鉴权重试时长，单位为 s
-	RetryInternalSecond *int32 `json:"RetryInternalSecond,omitempty"`
-
-	// 旁路鉴权重试次数
-	RetryTimes *int32 `json:"RetryTimes,omitempty"`
-
 	// 自定义鉴权密钥。
 	SecretKey *string `json:"SecretKey,omitempty"`
-
-	// 旁路鉴权超时时长，单位为 s
-	TimeoutSecond *int32 `json:"TimeoutSecond,omitempty"`
 }
 
 type DescribeCDNSnapshotHistoryBody struct {
@@ -2759,6 +3251,12 @@ type DescribeCMAFConfigResResult struct {
 }
 
 type DescribeCMAFConfigResResultCMAFConfigListItem struct {
+
+	// REQUIRED
+	CreateTime string `json:"CreateTime"`
+
+	// REQUIRED
+	UpdateTime        string   `json:"UpdateTime"`
 	App               *string  `json:"App,omitempty"`
 	DefaultLatency    *int32   `json:"DefaultLatency,omitempty"`
 	DisableLowLatency *bool    `json:"DisableLowLatency,omitempty"`
@@ -2950,10 +3448,10 @@ type DescribeCertDetailSecretV2Body struct {
 	// 账号ID
 	AccountID *string `json:"AccountID,omitempty"`
 
-	// 证书实例 ID，您可以通过ListCertV2 [https://www.volcengine.com/docs/6469/81242]接口获取证书示例 ID。 :::tip 参数ChainID与CertID传且仅传一个。 :::
+	// 证书 ID，您可以通过ListCertV2 [https://www.volcengine.com/docs/6469/1126823]接口获取证书 ID。 :::tip 参数ChainID与CertID传且仅传一个。 :::
 	CertID *string `json:"CertID,omitempty"`
 
-	// 证书链 ID，您可以通过ListcCertV2 [https://www.volcengine.com/docs/6469/81242]接口获取 证书链 ID。 :::tip 参数ChainID与CertID传且仅传一个。 :::
+	// 证书链 ID，您可以通过ListcCertV2 [https://www.volcengine.com/docs/6469/1126823]接口获取 证书链 ID。 :::tip 参数ChainID与CertID传且仅传一个。 :::
 	ChainID *string `json:"ChainID,omitempty"`
 }
 
@@ -3420,6 +3918,43 @@ type DescribeEncryptDRMResResultDRMItem struct {
 	PrivateKeyFileName string `json:"PrivateKeyFileName"`
 }
 
+type DescribeEncryptHLSRes struct {
+
+	// REQUIRED
+	ResponseMetadata DescribeEncryptHLSResResponseMetadata `json:"ResponseMetadata"`
+
+	// 视请求的接口而定
+	Result *DescribeEncryptHLSResResult `json:"Result,omitempty"`
+}
+
+type DescribeEncryptHLSResResponseMetadata struct {
+
+	// REQUIRED; 请求的接口名，属于请求的公共参数。
+	Action string `json:"Action"`
+
+	// REQUIRED; 请求的Region，例如：cn-north-1
+	Region string `json:"Region"`
+
+	// REQUIRED; RequestId为每次API请求的唯一标识。
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED; 请求的服务，属于请求的公共参数。
+	Service string `json:"Service"`
+
+	// REQUIRED; 请求的版本号，属于请求的公共参数。
+	Version string `json:"Version"`
+}
+
+// DescribeEncryptHLSResResult - 视请求的接口而定
+type DescribeEncryptHLSResResult struct {
+
+	// REQUIRED; 视频直播服务端生成密钥的更新周期，单位为秒，取值范围为 [60,604800]。
+	CycleTime float32 `json:"CycleTime"`
+
+	// REQUIRED; 客户自建密钥管理服务后，客户端向密钥管理服务请求获取密钥的地址。
+	URL string `json:"URL"`
+}
+
 type DescribeForbiddenStreamInfoByPageQuery struct {
 
 	// REQUIRED; 查询数据的页码，取值范围为正整数。
@@ -3640,7 +4175,13 @@ type DescribeHLSConfigResResultHLSConfigListItem struct {
 	FirstPlaylistLength int32 `json:"FirstPlaylistLength"`
 
 	// REQUIRED
+	InsertPDT bool `json:"InsertPDT"`
+
+	// REQUIRED
 	Interval float32 `json:"Interval"`
+
+	// REQUIRED
+	PDTInterval string `json:"PDTInterval"`
 
 	// REQUIRED
 	PartTargetDuration float32 `json:"PartTargetDuration"`
@@ -3657,9 +4198,7 @@ type DescribeHLSConfigResResultHLSConfigListItem struct {
 
 type DescribeHTTPHeaderConfigBody struct {
 
-	// REQUIRED; HTTP Header 的类型，支持的取值及含义如下所示。
-	// * 0：请求响应头；
-	// * 1：回源请求头。
+	// REQUIRED; 0: response 1: request
 	Phase int32 `json:"Phase"`
 
 	// REQUIRED; 域名空间，即直播流地址的域名所属的域名空间。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看需要域名所属的域名空间。
@@ -3816,76 +4355,6 @@ type DescribeIPAccessRuleResResultAccessRuleListsItemIPAccessRule struct {
 	Type string `json:"Type"`
 }
 
-type DescribeIPInfoBody struct {
-
-	// REQUIRED; 待查询的 IP 地址列表。支持 IPv4 和 IPv6 地址，一次最多查询 50 个 IP 地址。
-	IPs []string `json:"Ips"`
-}
-
-type DescribeIPInfoRes struct {
-
-	// REQUIRED
-	ResponseMetadata DescribeIPInfoResResponseMetadata `json:"ResponseMetadata"`
-	Result           *DescribeIPInfoResResult          `json:"Result,omitempty"`
-}
-
-type DescribeIPInfoResResponseMetadata struct {
-
-	// REQUIRED; 请求的接口名，属于请求的公共参数。
-	Action string `json:"Action"`
-
-	// REQUIRED; 请求的Region，例如：cn-north-1
-	Region string `json:"Region"`
-
-	// REQUIRED; RequestID为每次API请求的唯一标识。
-	RequestID string `json:"RequestId"`
-
-	// REQUIRED; 请求的服务，属于请求的公共参数。
-	Service string `json:"Service"`
-
-	// REQUIRED; 请求的版本号，属于请求的公共参数。
-	Version string                                  `json:"Version"`
-	Error   *DescribeIPInfoResResponseMetadataError `json:"Error,omitempty"`
-}
-
-type DescribeIPInfoResResponseMetadataError struct {
-
-	// 错误码
-	Code *string `json:"Code,omitempty"`
-
-	// 错误信息
-	Message *string `json:"Message,omitempty"`
-}
-
-type DescribeIPInfoResResult struct {
-
-	// REQUIRED; IP 详情列表。
-	List []DescribeIPInfoResResultListItem `json:"List"`
-}
-
-type DescribeIPInfoResResultListItem struct {
-
-	// REQUIRED; CDN 节点所属城市信息。非归属火山引擎的 CDN 节点 IP 时，返回“-”。
-	City string `json:"City"`
-
-	// REQUIRED; IP 地址。
-	IP string `json:"Ip"`
-
-	// REQUIRED; CDN 节点所属网络运营商。非归属火山引擎 CDN 节点的 IP 时，返回”-“。您可以通过DescribeLiveISPData [https://www.volcengine.com/docs/6469/1133974]接口查看运营商标识符对应的运营商名称。
-	Isp string `json:"Isp"`
-
-	// REQUIRED; 当前 IP 地址是否是归属于火山引擎的 CDN 节点 IP。
-	// * true：属于；
-	// * false：不属于。
-	LiveCdnIP bool `json:"LiveCdnIp"`
-
-	// REQUIRED; CDN 节点所属国家或地区信息。非归属火山引擎的 CDN 节点 IP 时，返回“-”。
-	Location string `json:"Location"`
-
-	// REQUIRED; CDN 节点所属省份信息。非归属火山引擎 CDN 节点的 IP 时，返回“-”。
-	Province string `json:"Province"`
-}
-
 type DescribeLatencyConfigBody struct {
 	Domain *string `json:"Domain,omitempty"`
 	Vhost  *string `json:"Vhost,omitempty"`
@@ -3928,10 +4397,16 @@ type DescribeLatencyConfigResResult struct {
 type DescribeLatencyConfigResResultLatencyConfigListItem struct {
 
 	// REQUIRED
+	CreateTime string `json:"CreateTime"`
+
+	// REQUIRED
 	Domain string `json:"Domain"`
 
 	// REQUIRED; 单位ms
 	GopCacheSize string `json:"GopCacheSize"`
+
+	// REQUIRED
+	UpdateTime string `json:"UpdateTime"`
 
 	// REQUIRED
 	Vhost string `json:"Vhost"`
@@ -3944,7 +4419,8 @@ type DescribeLicenseDRMQuery struct {
 
 	// REQUIRED; DRM 加密的类型，取值及含义如下所示。
 	// * fp：FairPlay 加密；
-	// * wv：Widevine 加密。
+	// * wv：Widevine 加密；
+	// * pr：PlayReady 加密。
 	DRMType string `json:"DRMType" query:"DRMType"`
 
 	// REQUIRED; 拉流域名，您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看直播流使用的拉流域名。
@@ -4344,6 +4820,167 @@ type DescribeLiveBandwidthDataResResultUserRegionListItem struct {
 
 	// The province identifier in the regional information.
 	Province *string `json:"Province,omitempty"`
+}
+
+type DescribeLiveBatchPushStreamMetricsBody struct {
+
+	// REQUIRED; 推流域名，您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看直播流使用的推流域名。
+	Domain string `json:"Domain"`
+
+	// REQUIRED; 请控制查询的数据量，如果查询速度较慢请缩短查询时间范围
+	EndTime string `json:"EndTime"`
+
+	// REQUIRED; 查询的开始时间，RFC3339 格式的时间戳，精度为秒。
+	// :::tip 单次查询最大时间跨度为 1 天，历史查询最大时间范围为 366 天。 :::
+	StartTime string `json:"StartTime"`
+
+	// 指标聚合算法，支持max:峰值聚合，avg：平均值，默认max
+	AggType *string `json:"AggType,omitempty"`
+
+	// 数据聚合的时间粒度，单位为秒，支持的时间粒度如下所示。
+	// * 5：5 秒；
+	// * 30：30 秒；
+	// * 60：（默认值）1 分钟。
+	Aggregation *int32 `json:"Aggregation,omitempty"`
+
+	// 应用名称，取值与直播流地址中的 AppName 字段取值相同，查询流粒度数据时必传，且需同时传入 Stream。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（_）、短横线（-）和句点（.）组成，长度为 1 到 30
+	// 个字符。 :::tip 查询流粒度的监控数据时，需同时指定 App 和 Stream 来指定直播流。 :::
+	App *string `json:"App,omitempty"`
+
+	// 流名称，预置与直播流地址中的 StreamName 字段取值相同，查询流粒度数据时必传，且需同时传入 Stream。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（_）、短横线（-）和句点（.）组成，长度为 1 到
+	// 100 个字符。 :::tip 查询流粒度的监控数据时，需同时指定 App 和 Stream 来指定直播流。 :::
+	Stream *string `json:"Stream,omitempty"`
+}
+
+type DescribeLiveBatchPushStreamMetricsRes struct {
+
+	// REQUIRED
+	ResponseMetadata DescribeLiveBatchPushStreamMetricsResResponseMetadata `json:"ResponseMetadata"`
+
+	// REQUIRED
+	Result DescribeLiveBatchPushStreamMetricsResResult `json:"Result"`
+}
+
+type DescribeLiveBatchPushStreamMetricsResResponseMetadata struct {
+
+	// REQUIRED
+	Action string `json:"Action"`
+
+	// REQUIRED
+	Region string `json:"Region"`
+
+	// REQUIRED
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED
+	Service string `json:"Service"`
+
+	// REQUIRED
+	Version string `json:"Version"`
+}
+
+type DescribeLiveBatchPushStreamMetricsResResult struct {
+
+	// REQUIRED; 数据聚合的时间粒度，单位为秒。
+	// * 5：5 秒；
+	// * 30：30 秒；
+	// * 60：1 分钟。
+	Aggregation int32 `json:"Aggregation"`
+
+	// REQUIRED; 推流域名。
+	Domain string `json:"Domain"`
+
+	// REQUIRED; 查询的结束时间，RFC3339 格式的时间戳，精度为秒。
+	EndTime string `json:"EndTime"`
+
+	// REQUIRED; 查询的开始时间，RFC3339 格式的时间戳，精度为秒。
+	StartTime string `json:"StartTime"`
+
+	// REQUIRED; 直推流的信息，包含域名、应用名称、流名称和监控数据。
+	StreamMetricList []DescribeLiveBatchPushStreamMetricsResResultStreamMetricListItem `json:"StreamMetricList"`
+
+	// 数据聚合时间粒度内，动态指标的聚合算法，取值及含义如下所示。
+	// * max：（默认值）计算聚合时间粒度内的最大值；
+	// * avg：计算聚合时间粒度内的平均值。
+	AggType *string `json:"AggType,omitempty"`
+
+	// 应用名称。
+	App *string `json:"App,omitempty"`
+
+	// 流名称。
+	Stream *string `json:"Stream,omitempty"`
+}
+
+type DescribeLiveBatchPushStreamMetricsResResultStreamMetricListItem struct {
+
+	// REQUIRED; 应用名称。
+	App string `json:"App"`
+
+	// REQUIRED; 推流域名。
+	Domain string `json:"Domain"`
+
+	// REQUIRED; 按指定时间粒度聚合的监控数据。
+	MetricList []DescribeLiveBatchPushStreamMetricsResResultStreamMetricListPropertiesItemsItem `json:"MetricList"`
+
+	// REQUIRED; 标记一路推流的唯一id
+	SessionID string `json:"SessionID"`
+
+	// REQUIRED; 流名称。
+	Stream string `json:"Stream"`
+}
+
+type DescribeLiveBatchPushStreamMetricsResResultStreamMetricListPropertiesItemsItem struct {
+
+	// REQUIRED; 音频编码格式。 Eg. ACC
+	ACodec string `json:"ACodec"`
+
+	// REQUIRED; 数据聚合时间粒度内，按聚合算法得出的音频码率，单位为 kbps。
+	AudioBitrate float32 `json:"AudioBitrate"`
+
+	// REQUIRED; 数据聚合时间粒度内，按聚合算法得出的相邻音频帧显示时间戳差值，单位为毫秒。
+	AudioFrameGap int32 `json:"AudioFrameGap"`
+
+	// REQUIRED; 数据聚合时间粒度内，按聚合算法得出的音频帧率（每秒传输的音频数据包个数）。
+	AudioFramerate float32 `json:"AudioFramerate"`
+
+	// REQUIRED; 数据聚合时间粒度内，最后一个音频帧的显示时间戳 PTS（Presentation Time Stamp），单位为毫秒。
+	AudioPts int32 `json:"AudioPts"`
+
+	// REQUIRED; 数据聚合时间粒度内，按聚合算法得出的视频码率，单位为 kbps。
+	Bitrate float32 `json:"Bitrate"`
+
+	// REQUIRED; 客户端ip
+	ClientIP string `json:"ClientIp"`
+
+	// REQUIRED; 收到首帧的时间，，单位毫秒
+	FirstFrameTime int32 `json:"FirstFrameTime"`
+
+	// REQUIRED; 数据聚合时间粒度内，按聚合算法得出的视频帧率，单位为 fps。
+	Framerate float32 `json:"Framerate"`
+
+	// REQUIRED; 数据聚合时间粒度内，按聚合算法得出的音视频帧显示时间戳差值，即所有 AudioPts 与 VideoPts 差值的最大值，单位为毫秒。
+	PtsDelta int32 `json:"PtsDelta"`
+
+	// REQUIRED; 分辨率
+	Resolution string `json:"Resolution"`
+
+	// REQUIRED; 服务端ip
+	ServerIP string `json:"ServerIp"`
+
+	// REQUIRED; 推流开始时间，单位毫秒
+	StreamBeginTime int64 `json:"StreamBeginTime"`
+
+	// REQUIRED; 数据按时间粒度聚合时，每个时间粒度的开始时间，RFC3339 格式的时间戳，精度为秒。
+	TimeStamp string `json:"TimeStamp"`
+
+	// REQUIRED; 视频编码格式。 Eg. H264
+	VCodec string `json:"VCodec"`
+
+	// REQUIRED; 数据聚合时间粒度内，按聚合算法得出的相邻视频帧显示时间戳差值，单位为毫秒。
+	VideoFrameGap int32 `json:"VideoFrameGap"`
+
+	// REQUIRED; 数据聚合时间粒度内，最后一个视频帧的显示时间戳 PTS（Presentation Time Stamp），单位为毫秒。
+	VideoPts int32 `json:"VideoPts"`
 }
 
 type DescribeLiveISPDataRes struct {
@@ -5501,15 +6138,11 @@ type DescribeLivePullToPushBandwidthDataBody struct {
 	// queries, the maximum time range is 366 days.
 	Aggregation *int32 `json:"Aggregation,omitempty"`
 
-	// 数据拆分的维度，默认为空表示不按维度进行数据拆分，支持的维度如下所示。
-	// * Domain：域名；
-	// * DstAddrType：推流地址类型。 :::tip 配置数据拆分的维度时，对应的维度参数传入多个值时才会返回按此维度拆分的数据。例如，配置按 Domain 进行数据拆分时， DomainList 传入多个 Domain 值时，才会返回按
-	// Domain 拆分的数据。 :::
+	// 支持域名拆分
 	DetailField []*string `json:"DetailField,omitempty"`
 
-	// 域名列表，默认为空，表示查询您视频直播产品下所有域名下的带宽用量数据。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理
-	// [https://console.volcengine.com/live/main/domain/list]页面，获取待查询的域名。
-	DomainList []*string `json:"DomainList,omitempty"`
+	// 拉流转推任务群组列表，默认为空，表示查询所有拉流转推任务群组的带宽用量。
+	GroupList []*string `json:"GroupList,omitempty"`
 }
 
 type DescribeLivePullToPushBandwidthDataRes struct {
@@ -5567,13 +6200,11 @@ type DescribeLivePullToPushBandwidthDataResResult struct {
 	// 按维度拆分后的数据。 :::tip 当配置了数据拆分的维度时，对应的维度参数传入多个值才会返回按维度拆分的数据。 :::
 	BandwidthDetailDataList []*DescribeLivePullToPushBandwidthDataResResultBandwidthDetailDataListItem `json:"BandwidthDetailDataList,omitempty"`
 
-	// 数据拆分的维度，维度说明如下。
-	// * Domain：域名；
-	// * DstAddrType：推流地址类型。
+	// 数据拆分的维度。
 	DetailField []*string `json:"DetailField,omitempty"`
 
-	// 域名列表。
-	DomainList []*string `json:"DomainList,omitempty"`
+	// 拉流转推任务群组列表。
+	GroupList []*string `json:"GroupList,omitempty"`
 }
 
 type DescribeLivePullToPushBandwidthDataResResultBandwidthDataListItem struct {
@@ -5594,11 +6225,11 @@ type DescribeLivePullToPushBandwidthDataResResultBandwidthDetailDataListItem str
 	// REQUIRED; 查询时间范围内的维度下的拉流转推峰值带宽，单位为 Mbps。
 	PeakUpBandwidth float32 `json:"PeakUpBandwidth"`
 
-	// 按域名维度进行数据拆分时的域名信息。
-	Domain *string `json:"Domain,omitempty"`
-
 	// 按推流地址类型维度进行数据拆分时的地址类型信息。
 	DstAddrType *string `json:"DstAddrType,omitempty"`
+
+	// 按任务群组维度进行数据拆分时的群组信息。
+	Group *string `json:"Group,omitempty"`
 }
 
 type DescribeLivePullToPushBandwidthDataResResultBandwidthDetailDataListPropertiesItemsItem struct {
@@ -5631,9 +6262,11 @@ type DescribeLivePullToPushDataBody struct {
 	// :::tip When querying stream granularity data, both the App and Stream parameters are required. :::
 	App *string `json:"App,omitempty"`
 
-	// 数据拆分的维度，默认为空表示不按维度进行数据拆分，当前接口仅支持填写 Domain 表示按查询的域名为维度进行数据拆分。 :::tip 配置数据拆分的维度时，对应的维度参数传入多个值时才会返回按此维度拆分的数据。例如，配置按 Domain
-	// 进行数据拆分时， DomainList 传入多个 Domain 值时，才会返回按 Domain 拆分的数据。 :::
+	// 支持群组拆分
 	DetailField []*string `json:"DetailField,omitempty"`
+
+	// 群组
+	GroupList []*string `json:"GroupList,omitempty"`
 
 	// The Stream Name must correspond to the value of the StreamName field in the live stream URL. It can include uppercase and
 	// lowercase letters (A-Z, a-z), numbers (0-9), underscores (_), hyphens (-), and
@@ -5697,11 +6330,14 @@ type DescribeLivePullToPushDataResResult struct {
 	// The application name when querying stream granularity data.
 	App *string `json:"App,omitempty"`
 
-	// 数据拆分的维度，当前接口仅支持按 Domain 即域名维度进行数据拆分。
+	// 数据拆分的维度，当前接口仅支持按 Group 即拉流转推任务群组维度进行数据拆分。
 	DetailField []*string `json:"DetailField,omitempty"`
 
 	// 域名列表。
 	DomainList []*string `json:"DomainList,omitempty"`
+
+	// 拉流转推任务群组。
+	GroupList []*string `json:"GroupList,omitempty"`
 
 	// 按维度拆分后的数据。
 	PullToPushDetailDataList []*DescribeLivePullToPushDataResResultPullToPushDetailDataListItem `json:"PullToPushDetailDataList,omitempty"`
@@ -5728,8 +6364,8 @@ type DescribeLivePullToPushDataResResultPullToPushDetailDataListItem struct {
 	// REQUIRED; 按维度进行数据拆分后，当前维度的拉流转推总时长，单位分钟。
 	TotalDuration float32 `json:"TotalDuration"`
 
-	// 按域名维度进行数据拆分时的域名信息。
-	Domain *string `json:"Domain,omitempty"`
+	// 按任务群组维度进行数据拆分时的群组信息。
+	Group *string `json:"Group,omitempty"`
 }
 
 type DescribeLivePullToPushDataResResultPullToPushDetailDataListPropertiesItemsItem struct {
@@ -7688,7 +8324,15 @@ type DescribeLiveTranscodeDataBody struct {
 	// :::tip When querying stream granularity data, both the App and Stream parameters must be provided. :::
 	Stream *string `json:"Stream,omitempty"`
 
-	// BytePlus 不支持 ByteQE（画质增强）
+	// 视频编码格式，默认为空表示不指定编码格式，支持的取值和含义如下所示。
+	// * Normal_H264：H.264 标准转码；
+	// * Normal_H265：H.265 标准转码；
+	// * Normal_H266：H.266 标准转码；
+	// * ByteHD_H264：H.264 极智超清；
+	// * ByteHD_H265：H.265 极智超清；
+	// * ByteHD_H266：H.266 极智超清；
+	// * ByteQE：画质增强；
+	// * Audio：纯音频流。
 	TranscodeType []*string `json:"TranscodeType,omitempty"`
 }
 
@@ -7773,6 +8417,148 @@ type DescribeLiveTranscodeDataResResultTranscodeDataListItem struct {
 	// REQUIRED; The start time of each time granularity when data is aggregated by time granularity, formatted in RFC3339 UTC
 	// time with second precision.
 	TimeStamp string `json:"TimeStamp"`
+
+	// REQUIRED; 视频编码格式，支持的取值和含义如下所示。- NormalH264：H.264 标准转码； - NormalH265：H.265 标准转码； - NormalH266：H.266 标准转码； - ByteHDH264：H.264
+	// 极智超清； - ByteHDH265：H.265 极智超清； - ByteHDH266：H.266 极智超清；- ByteQE：画质增强；- Audio：纯音频流；
+	TranscodeType string `json:"TranscodeType"`
+}
+
+type DescribeLiveTranscodeInfoDataBody struct {
+
+	// REQUIRED; 查询的结束时间，RFC3339 格式的时间戳，精度为秒。
+	EndTime string `json:"EndTime"`
+
+	// REQUIRED; 查询的开始时间，RFC3339 格式的时间戳，精度为秒。 :::tip 历史查询最大时间范围为 366 天。 :::
+	StartTime string `json:"StartTime"`
+
+	// 应用名称，取值与直播流地址中 AppName 字段取值相同。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（_）、短横线（-）和句点（.）组成，长度为 1 到 30 个字符。 :::tip 查询流粒度数据时，需同时传入App和Stream。
+	// :::
+	App *string `json:"App,omitempty"`
+
+	// 域名列表，默认为空，表示查询您视频直播产品下所有域名的转码用量数据。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理
+	// [https://console.volcengine.com/live/main/domain/list]页面，获取待查询的域名。
+	DomainList []*string `json:"DomainList,omitempty"`
+
+	// 分页页数，默认1
+	PageNum *int32 `json:"PageNum,omitempty"`
+
+	// 每页大小， 默认20，取值范围[1,100000]
+	PageSize *int32 `json:"PageSize,omitempty"`
+
+	// 分辨率。- 480P：640 × 480； - 720P：1280 × 720； - 1080P：1920 × 1088； - 2K：2560 × 1440； - 4K：4096 × 2160；- 8K：大于4K； - 0P：纯音频流；
+	Resolution []*string `json:"Resolution,omitempty"`
+
+	// 流名称，取值与直播流地址中 StreamName 字段取值相同。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（_）、短横线（-）和句点（.）组成，长度为 1 到 100 个字符。 :::tip 查询流粒度数据时，需同时传入App和Stream。
+	// :::
+	Stream *string `json:"Stream,omitempty"`
+
+	// 视频编码格式，支持的取值和含义如下所示。- NormalH264：H.264 标准转码； - NormalH265：H.265 标准转码； - NormalH266：H.266 标准转码； - ByteHDH264：H.264 极智超清；
+	// - ByteHDH265：H.265 极智超清； - ByteHDH266：H.266 极智超清；- ByteQE：画质增强；- Audio：纯音频流；
+	TranscodeType []*string `json:"TranscodeType,omitempty"`
+}
+
+type DescribeLiveTranscodeInfoDataRes struct {
+
+	// REQUIRED
+	ResponseMetadata DescribeLiveTranscodeInfoDataResResponseMetadata `json:"ResponseMetadata"`
+	Result           *DescribeLiveTranscodeInfoDataResResult          `json:"Result,omitempty"`
+}
+
+type DescribeLiveTranscodeInfoDataResResponseMetadata struct {
+
+	// REQUIRED
+	Action string `json:"Action"`
+
+	// REQUIRED
+	Region string `json:"Region"`
+
+	// REQUIRED
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED
+	Service string `json:"Service"`
+
+	// REQUIRED
+	Version string                                                 `json:"Version"`
+	Error   *DescribeLiveTranscodeInfoDataResResponseMetadataError `json:"Error,omitempty"`
+}
+
+type DescribeLiveTranscodeInfoDataResResponseMetadataError struct {
+
+	// 错误码
+	Code *string `json:"Code,omitempty"`
+
+	// 错误信息
+	Message *string `json:"Message,omitempty"`
+}
+
+type DescribeLiveTranscodeInfoDataResResult struct {
+
+	// REQUIRED; 查询的结束时间，RFC3339 格式的时间戳，精度为秒。
+	EndTime string `json:"EndTime"`
+
+	// REQUIRED; 分页信息
+	Pagination DescribeLiveTranscodeInfoDataResResultPagination `json:"Pagination"`
+
+	// REQUIRED; 查询的起始时间，RFC3339 格式的时间戳，精度为秒。
+	StartTime string `json:"StartTime"`
+
+	// REQUIRED; 所有时间粒度的数据。
+	TranscodeInfoDataList []DescribeLiveTranscodeInfoDataResResultTranscodeInfoDataListItem `json:"TranscodeInfoDataList"`
+
+	// 查询流粒度数据时的应用名称。
+	App *string `json:"App,omitempty"`
+
+	// 域名列表。
+	DomainList []*string `json:"DomainList,omitempty"`
+
+	// 分辨率。- 480P：640 × 480； - 720P：1280 × 720； - 1080P：1920 × 1088； - 2K：2560 × 1440； - 4K：4096 × 2160；- 8K：大于4K； - 0P：纯音频流；
+	Resolution []*string `json:"Resolution,omitempty"`
+
+	// 查询流粒度数据时的流名称。
+	Stream *string `json:"Stream,omitempty"`
+
+	// 视频编码格式，支持的取值和含义如下所示。- NormalH264：H.264 标准转码； - NormalH265：H.265 标准转码； - NormalH266：H.266 标准转码； - ByteHDH264：H.264 极智超清；
+	// - ByteHDH265：H.265 极智超清； - ByteHDH266：H.266 极智超清；- ByteQE：画质增强；- Audio：纯音频流；
+	TranscodeType []*string `json:"TranscodeType,omitempty"`
+}
+
+// DescribeLiveTranscodeInfoDataResResultPagination - 分页信息
+type DescribeLiveTranscodeInfoDataResResultPagination struct {
+
+	// REQUIRED; 当前页数
+	PageCur int32 `json:"PageCur"`
+
+	// REQUIRED; 每页大小
+	PageSize int32 `json:"PageSize"`
+
+	// REQUIRED; 总个数
+	TotalCount int32 `json:"TotalCount"`
+}
+
+type DescribeLiveTranscodeInfoDataResResultTranscodeInfoDataListItem struct {
+
+	// REQUIRED; 转码时长，单位分钟
+	Duration float32 `json:"Duration"`
+
+	// REQUIRED; 结束转码时间
+	EndTime string `json:"EndTime"`
+
+	// REQUIRED; 分辨率。- 480P：640 × 480； - 720P：1280 × 720； - 1080P：1920 × 1088； - 2K：2560 × 1440； - 4K：4096 × 2160；- 8K：大于4K； -
+	// 0P：纯音频流；
+	Resolution string `json:"Resolution"`
+
+	// REQUIRED; 开始转码时间
+	StartTime string `json:"StartTime"`
+
+	// REQUIRED; 流名
+	Stream string `json:"Stream"`
+
+	// REQUIRED; 转码任务ID
+	TaskID string `json:"TaskID"`
+
+	// REQUIRED; 转码后缀
+	TranscodeSuffix string `json:"TranscodeSuffix"`
 
 	// REQUIRED; 视频编码格式，支持的取值和含义如下所示。- NormalH264：H.264 标准转码； - NormalH265：H.265 标准转码； - NormalH266：H.266 标准转码； - ByteHDH264：H.264
 	// 极智超清； - ByteHDH265：H.265 极智超清； - ByteHDH266：H.266 极智超清；- ByteQE：画质增强；- Audio：纯音频流；
@@ -8381,8 +9167,7 @@ type EnableHTTPHeaderConfigBody struct {
 	// * false：禁用。
 	Enable bool `json:"Enable"`
 
-	// REQUIRED; HTTP Header 类型，您可以调用 DescribeHTTPHeaderConfig [https://www.volcengine.com/docs/6469/1232744] 接口查看 HTTP Header
-	// 配置的 Phase 取值。
+	// REQUIRED; 0: response 1: request
 	Phase int32 `json:"Phase"`
 
 	// REQUIRED; 域名空间，您可以调用 DescribeHTTPHeaderConfig [https://www.volcengine.com/docs/6469/1232744] 接口查看 HTTP Header 配置的 Vhost
@@ -8661,22 +9446,221 @@ type GeneratePushURLResResultPushURLListDetailItem struct {
 	URL string `json:"URL"`
 }
 
+type GetCloudMixTaskDetailBody struct {
+
+	// REQUIRED; 混流任务 ID，您可以通过 ListCloudMixTask [https://www.volcengine.com/docs/6469/1271157] 接口获取混流任务 ID。
+	TaskID string `json:"TaskID"`
+}
+
+type GetCloudMixTaskDetailRes struct {
+
+	// REQUIRED
+	ResponseMetadata GetCloudMixTaskDetailResResponseMetadata `json:"ResponseMetadata"`
+
+	// REQUIRED
+	Result GetCloudMixTaskDetailResResult `json:"Result"`
+}
+
+type GetCloudMixTaskDetailResResponseMetadata struct {
+
+	// REQUIRED
+	RequestID string `json:"RequestID"`
+}
+
+type GetCloudMixTaskDetailResResult struct {
+
+	// REQUIRED; 请求响应码，取值及含义如下。
+	// * 0：请求成功；
+	// * 500：内部处理错误；
+	// * 400：请求异常。
+	Code int32 `json:"Code"`
+
+	// REQUIRED; 返回的数据。
+	Data GetCloudMixTaskDetailResResultData `json:"Data"`
+
+	// REQUIRED; 请求响应码对应的信息。
+	Message string `json:"Message"`
+}
+
+// GetCloudMixTaskDetailResResultData - 返回的数据。
+type GetCloudMixTaskDetailResResultData struct {
+
+	// REQUIRED
+	AccountID string `json:"AccountID"`
+
+	// REQUIRED
+	LastOperationErrCode int32 `json:"LastOperationErrCode"`
+
+	// REQUIRED
+	LastOperationErrMsg string `json:"LastOperationErrMsg"`
+
+	// REQUIRED; 任务最近一次更新的版本标识。
+	LastOperationIndex int32 `json:"LastOperationIndex"`
+
+	// REQUIRED; 任务最近一次成功更新的版本标识。
+	LastSuccessOperationIndex int32 `json:"LastSuccessOperationIndex"`
+
+	// REQUIRED; 混流任务详细配置的 Json 字符串。
+	Rule string `json:"Rule"`
+
+	// REQUIRED; 混流任务状态，取值及含义如下所示。
+	// * pending：任务调度被阻塞。
+	// * prepare：正在准备任务资源。
+	// * runing：任务进行中。
+	// * prestop：正在清理任务资源。
+	// * done：任务已结束。
+	Status string `json:"Status"`
+
+	// REQUIRED
+	TaskErrCode int32 `json:"TaskErrCode"`
+
+	// REQUIRED
+	TaskErrMsg string `json:"TaskErrMsg"`
+
+	// REQUIRED
+	TaskErrSrcIDs string `json:"TaskErrSrcIDs"`
+
+	// REQUIRED; 混流任务 ID。
+	TaskID string `json:"TaskID"`
+}
+
+type GetHLSEncryptDataKeyQuery struct {
+
+	// REQUIRED; 视频直播服务端生成的 M3U8 文件中写入的每个 TS 分片的密钥 ID。
+	KeyID string `json:"KeyID" query:"KeyID"`
+}
+
+type GetHLSEncryptDataKeyRes struct {
+
+	// REQUIRED
+	ResponseMetadata GetHLSEncryptDataKeyResResponseMetadata `json:"ResponseMetadata"`
+
+	// 视请求的接口而定
+	Result *GetHLSEncryptDataKeyResResult `json:"Result,omitempty"`
+}
+
+type GetHLSEncryptDataKeyResResponseMetadata struct {
+
+	// REQUIRED; 请求的接口名，属于请求的公共参数。
+	Action string `json:"Action"`
+
+	// REQUIRED; 请求的Region，例如：cn-north-1
+	Region string `json:"Region"`
+
+	// REQUIRED; RequestId为每次API请求的唯一标识。
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED; 请求的服务，属于请求的公共参数。
+	Service string `json:"Service"`
+
+	// REQUIRED; 请求的版本号，属于请求的公共参数。
+	Version string `json:"Version"`
+}
+
+// GetHLSEncryptDataKeyResResult - 视请求的接口而定
+type GetHLSEncryptDataKeyResResult struct {
+
+	// REQUIRED; 密钥。
+	DataKey string `json:"DataKey"`
+}
+
+type GetLiveVideoQualityAnalysisTaskDetailBody struct {
+
+	// 查询的任务 ID。 :::tip Name 和 ID 二选一必填。 :::
+	ID *string `json:"ID,omitempty"`
+
+	// 查询的任务名称。 :::tip Name 和 ID 二选一必填。 :::
+	Name *string `json:"Name,omitempty"`
+}
+
+type GetLiveVideoQualityAnalysisTaskDetailRes struct {
+
+	// REQUIRED
+	ResponseMetadata GetLiveVideoQualityAnalysisTaskDetailResResponseMetadata `json:"ResponseMetadata"`
+
+	// REQUIRED
+	Result GetLiveVideoQualityAnalysisTaskDetailResResult `json:"Result"`
+}
+
+type GetLiveVideoQualityAnalysisTaskDetailResResponseMetadata struct {
+
+	// REQUIRED
+	Action string `json:"Action"`
+
+	// REQUIRED
+	Region string `json:"Region"`
+
+	// REQUIRED
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED
+	Service string `json:"Service"`
+
+	// REQUIRED
+	Version string `json:"Version"`
+}
+
+type GetLiveVideoQualityAnalysisTaskDetailResResult struct {
+
+	// REQUIRED; 测评任务详细信息。
+	Task GetLiveVideoQualityAnalysisTaskDetailResResultTask `json:"Task"`
+}
+
+// GetLiveVideoQualityAnalysisTaskDetailResResultTask - 测评任务详细信息。
+type GetLiveVideoQualityAnalysisTaskDetailResResultTask struct {
+
+	// REQUIRED; 测试任务的持续时长。
+	Duration int32 `json:"Duration"`
+
+	// REQUIRED; 画质测评的打点间隔。
+	Interval int32 `json:"Interval"`
+
+	// REQUIRED; 任务名称。
+	Name string `json:"Name"`
+
+	// REQUIRED; 画质测评结果。
+	ScoringResult GetLiveVideoQualityAnalysisTaskDetailResResultTaskScoringResult `json:"ScoringResult"`
+
+	// REQUIRED; 测试流的播放地址。
+	SrcURL string `json:"SrcURL"`
+
+	// REQUIRED; 任务 ID。
+	TaskID string `json:"TaskID"`
+}
+
+// GetLiveVideoQualityAnalysisTaskDetailResResultTaskScoringResult - 画质测评结果。
+type GetLiveVideoQualityAnalysisTaskDetailResResultTaskScoringResult struct {
+
+	// REQUIRED; 画质测评结果详细信息。
+	VQScoreLive []GetLiveVideoQualityAnalysisTaskDetailResResultTaskScoringResultVQScoreLiveItem `json:"VQScoreLive"`
+}
+
+type GetLiveVideoQualityAnalysisTaskDetailResResultTaskScoringResultVQScoreLiveItem struct {
+
+	// REQUIRED; 测试打点的时间，Unix 时间戳。
+	Timestamp int32 `json:"Timestamp"`
+
+	// REQUIRED; 测评点的画质得分。
+	Value float32 `json:"Value"`
+}
+
 type KillStreamBody struct {
 
-	// 直播流使用的应用名称。
-	App *string `json:"App,omitempty"`
+	// REQUIRED; 直播流使用的应用名称。
+	App string `json:"App"`
+
+	// REQUIRED; 直播流使用的流名称。
+	Stream string `json:"Stream"`
+
+	// REQUIRED; 域名空间，您可以调用 DescribeLiveStreamInfoByPage [https://www.volcengine.com/docs/6469/1126841] 接口，查看待断开的在线流的信息，包括 Vhost、APP
+	// 和 Stream。
+	Vhost string `json:"Vhost"`
 
 	// 推流域名。 参数 Domain 和 Vhost传且仅传一个。
 	Domain *string `json:"Domain,omitempty"`
 
 	// 禁推的结束时间，禁推有效期最长为 90 天，默认为当前时间加 90 天
 	EndTime *string `json:"EndTime,omitempty"`
-
-	// 直播流使用的流名称。
-	Stream *string `json:"Stream,omitempty"`
-
-	// 域名空间，您可以调用 DescribeLiveStreamInfoByPage [https://www.volcengine.com/docs/6469/1126841] 接口，查看待断开的在线流的信息，包括 Vhost、APP 和 Stream。
-	Vhost *string `json:"Vhost,omitempty"`
 }
 
 type KillStreamRes struct {
@@ -8759,16 +9743,31 @@ type ListBindEncryptDRMResResult struct {
 
 type ListBindEncryptDRMResResultDRMBindingListItem struct {
 
-	// REQUIRED; 账号
-	AccountID string `json:"AccountID"`
-
 	// REQUIRED; 应用名称。
 	App string `json:"App"`
+
+	// REQUIRED; 加密类型，支持的取值及含义如下所示。
+	// * FairPlay：使用 FairPlay 技术的商业 DRM 加密；
+	// * Widevine：使用 Widevine 技术的商业 DRM 加密；
+	// * PlayReady：使用 PlayReady 技术的商业 DRM 加密；
+	// * ClearKey：HLS 标准加密。
+	// :::tip DRM 加密与 HLS 标准加密不可同时配置。 :::
+	DRMSystems []string `json:"DRMSystems"`
 
 	// REQUIRED; 当前 DRM 配置是否开启，取值及含义如下所示。
 	// * true：开启；
 	// * false：关闭。
 	Enable bool `json:"Enable"`
+
+	// REQUIRED; 是否开启源流加密，取值及含义如下所示。
+	// * true：开启；
+	// * fasle：不开启。
+	EncryptOriginStream bool `json:"EncryptOriginStream"`
+
+	// REQUIRED; 是否开启转码流加密，取值及含义如下所示。
+	// * true：开启；
+	// * fasle：不开启。
+	EncryptTranscodeStream bool `json:"EncryptTranscodeStream"`
 
 	// REQUIRED; 进行 DRM 加密的转码流对应的转码流后缀配置。
 	EncryptTranscodeSuffix []string `json:"EncryptTranscodeSuffix"`
@@ -8843,7 +9842,7 @@ type ListCertV2ResResultCertListItem struct {
 	// REQUIRED; 与证书绑定的域名列表。
 	CertDomainList []string `json:"CertDomainList"`
 
-	// REQUIRED; 证书实例 ID。
+	// REQUIRED; 证书 ID。
 	CertID string `json:"CertID"`
 
 	// REQUIRED; 证书名称。
@@ -8872,6 +9871,120 @@ type ListCertV2ResResultCertListItem struct {
 	// * 7days：有效期剩余 7 天；
 	// * 1days：有效期剩余 1 天。
 	Status string `json:"Status"`
+}
+
+type ListCloudMixTaskBody struct {
+
+	// REQUIRED; 查询数据的页码。
+	Page int32 `json:"Page"`
+
+	// REQUIRED; 每页显示的数据条数，最大值为 100。
+	PageSize int32 `json:"PageSize"`
+}
+
+type ListCloudMixTaskRes struct {
+
+	// REQUIRED
+	ResponseMetadata ListCloudMixTaskResResponseMetadata `json:"ResponseMetadata"`
+
+	// REQUIRED
+	Result ListCloudMixTaskResResult `json:"Result"`
+}
+
+type ListCloudMixTaskResResponseMetadata struct {
+
+	// REQUIRED
+	RequestID string `json:"RequestID"`
+}
+
+type ListCloudMixTaskResResult struct {
+
+	// REQUIRED; 请求响应码，取值及含义如下。
+	// * 0：请求成功；
+	// * 500：内部处理错误；
+	// * 400：请求异常。
+	Code int32 `json:"Code"`
+
+	// REQUIRED; 返回的数据。
+	Data ListCloudMixTaskResResultData `json:"Data"`
+
+	// REQUIRED; 请求响应码对应的信息。
+	Message string `json:"Message"`
+}
+
+// ListCloudMixTaskResResultData - 返回的数据。
+type ListCloudMixTaskResResultData struct {
+
+	// REQUIRED; 查询结果的数据总条数。
+	Count int32 `json:"Count"`
+
+	// REQUIRED; 查询结果数据详细信息。
+	Result []ListCloudMixTaskResResultDataResultItem `json:"Result"`
+}
+
+type ListCloudMixTaskResResultDataResultItem struct {
+
+	// REQUIRED
+	AccountID string `json:"AccountID"`
+
+	// REQUIRED
+	CloudcastID string `json:"CloudcastID"`
+
+	// REQUIRED; 混流任务创建时间。
+	CreatedAt ListCloudMixTaskResResultDataResultItemCreatedAt `json:"CreatedAt"`
+
+	// REQUIRED
+	MesosID string `json:"MesosID"`
+
+	// REQUIRED; 混流任务名称。
+	Name string `json:"Name"`
+
+	// REQUIRED
+	Provider string `json:"Provider"`
+
+	// REQUIRED; 混流任务状态，取值及含义如下所示。
+	// * pending：任务调度被阻塞。
+	// * prepare：正在准备任务资源。
+	// * runing：任务进行中。
+	// * prestop：正在清理任务资源。
+	// * done：任务已结束。
+	Status string `json:"Status"`
+
+	// REQUIRED; 混流任务结束时间。
+	StoppedAt ListCloudMixTaskResResultDataResultItemStoppedAt `json:"StoppedAt"`
+
+	// REQUIRED; 混流任务 ID。
+	TaskID string `json:"TaskID"`
+
+	// REQUIRED
+	TaskType string `json:"TaskType"`
+
+	// REQUIRED
+	UID string `json:"UID"`
+
+	// REQUIRED; 混流任务更新时间。
+	UpdatedAt ListCloudMixTaskResResultDataResultItemUpdatedAt `json:"UpdatedAt"`
+}
+
+// ListCloudMixTaskResResultDataResultItemCreatedAt - 混流任务创建时间。
+type ListCloudMixTaskResResultDataResultItemCreatedAt struct {
+
+	// REQUIRED; 时间。
+	Time string `json:"Time"`
+}
+
+// ListCloudMixTaskResResultDataResultItemStoppedAt - 混流任务结束时间。
+type ListCloudMixTaskResResultDataResultItemStoppedAt struct {
+
+	// REQUIRED
+	Time string `json:"Time"`
+}
+
+// ListCloudMixTaskResResultDataResultItemUpdatedAt - 混流任务更新时间。
+type ListCloudMixTaskResResultDataResultItemUpdatedAt struct {
+
+	// REQUIRED
+	Time string `json:"Time"`
 }
 
 type ListCommonTransPresetDetailBody struct {
@@ -9354,7 +10467,169 @@ type ListDomainDetailResResultDomainListPropertiesItemsItem struct {
 	Value string `json:"Value"`
 }
 
+type ListLiveVideoQualityAnalysisTasksBody struct {
+
+	// REQUIRED; 分页参数
+	PageNum int32 `json:"PageNum"`
+
+	// REQUIRED; 分页参数
+	PageSize int32 `json:"PageSize"`
+
+	// 查询的任务ID列表， 和Names二选一
+	IDs []*string `json:"IDs,omitempty"`
+
+	// 查询的任务名称列表， 和TaskIDs二选一
+	Names []*string `json:"Names,omitempty"`
+}
+
+type ListLiveVideoQualityAnalysisTasksRes struct {
+
+	// REQUIRED
+	ResponseMetadata ListLiveVideoQualityAnalysisTasksResResponseMetadata `json:"ResponseMetadata"`
+
+	// REQUIRED
+	Result ListLiveVideoQualityAnalysisTasksResResult `json:"Result"`
+}
+
+type ListLiveVideoQualityAnalysisTasksResResponseMetadata struct {
+
+	// REQUIRED
+	Action string `json:"Action"`
+
+	// REQUIRED
+	Region string `json:"Region"`
+
+	// REQUIRED
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED
+	Service string `json:"Service"`
+
+	// REQUIRED
+	Version string `json:"Version"`
+}
+
+type ListLiveVideoQualityAnalysisTasksResResult struct {
+
+	// REQUIRED; 查询的数据的页码。
+	PageNum int32 `json:"PageNum"`
+
+	// REQUIRED; 每页显示的数据条数。
+	PageSize int32 `json:"PageSize"`
+
+	// REQUIRED; 画质测评任务列表。
+	Tasks []ListLiveVideoQualityAnalysisTasksResResultTasksItem `json:"Tasks"`
+}
+
+type ListLiveVideoQualityAnalysisTasksResResultTasksItem struct {
+
+	// 测评任务持续时长。
+	Duration *int32 `json:"Duration,omitempty"`
+
+	// 任务 ID。
+	ID *string `json:"ID,omitempty"`
+
+	// 画质测评的打点间隔。
+	Interval *int32 `json:"Interval,omitempty"`
+
+	// 任务名称。
+	Name *string `json:"Name,omitempty"`
+
+	// 进行画质测评的直播流地址。
+	SrcURL *string `json:"SrcURL,omitempty"`
+}
+
+type ListPullToPushGroupBody struct {
+
+	// REQUIRED; 查询数据的页码，取值范围为 [1,1000]。
+	PageNum int32 `json:"PageNum"`
+
+	// REQUIRED; 每页现实的数据条数，取值范围为 [1,1000]。
+	PageSize int32 `json:"PageSize"`
+
+	// 群组的状态，取值及含义如下所示。
+	// * 0: （默认值）可用;
+	// * 1: 已删除，不可用。
+	StatusList []*int32 `json:"StatusList,omitempty"`
+}
+
+type ListPullToPushGroupRes struct {
+
+	// REQUIRED
+	ResponseMetadata ListPullToPushGroupResResponseMetadata `json:"ResponseMetadata"`
+
+	// 视请求的接口而定
+	Result *ListPullToPushGroupResResult `json:"Result,omitempty"`
+}
+
+type ListPullToPushGroupResResponseMetadata struct {
+
+	// REQUIRED; 请求的接口名，属于请求的公共参数。
+	Action string `json:"Action"`
+
+	// REQUIRED; 请求的Region，例如：cn-north-1
+	Region string `json:"Region"`
+
+	// REQUIRED; RequestID为每次API请求的唯一标识。
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED; 请求的服务，属于请求的公共参数。
+	Service string `json:"Service"`
+
+	// REQUIRED; 请求的版本号，属于请求的公共参数。
+	Version string `json:"Version"`
+}
+
+// ListPullToPushGroupResResult - 视请求的接口而定
+type ListPullToPushGroupResResult struct {
+
+	// REQUIRED; 拉流转推群组列表。
+	List []ListPullToPushGroupResResultListItem `json:"List"`
+
+	// REQUIRED; 查询结果的数据条数。
+	Total int32 `json:"Total"`
+}
+
+type ListPullToPushGroupResResultListItem struct {
+
+	// REQUIRED; 账号。
+	AccountID string `json:"AccountID"`
+
+	// REQUIRED; 群组名称。
+	Name string `json:"Name"`
+
+	// REQUIRED; 群组所属的项目名称。
+	ProjectName string `json:"ProjectName"`
+
+	// REQUIRED; 群组的状态，取值及含义如下所示。
+	// * 0: 可用;
+	// * 1: 已删除，不可用。
+	Status float32 `json:"Status"`
+
+	// REQUIRED; 群组的标签信息。
+	Tags []ListPullToPushGroupResResultListPropertiesItemsItem `json:"Tags"`
+}
+
+type ListPullToPushGroupResResultListPropertiesItemsItem struct {
+
+	// REQUIRED; 标签类型，支持以下取值。
+	// * System：系统内置标签；
+	// * Custom：自定义标签。
+	Category string `json:"Category"`
+
+	// REQUIRED; 标签 Key 值。
+	Key string `json:"Key"`
+
+	// REQUIRED; 标签 Value 值。
+	Value string `json:"Value"`
+}
+
 type ListPullToPushTaskQuery struct {
+
+	// 群组名称。
+	// * 使用主账号调用时，为非必填，默认为空，表示查询所有群组的任务信息。
+	// * 使用子账号调用时，非必填。
+	GroupName *string `json:"GroupName,omitempty" query:"GroupName"`
 
 	// 查询数据的页码，默认为 1，表示查询第一页的数据。
 	Page *int32 `json:"Page,omitempty" query:"Page"`
@@ -9425,6 +10700,11 @@ type ListPullToPushTaskResResultListItem struct {
 	// 任务的结束时间，RFC3339 格式的 UTC 时间，单位为秒。
 	EndTime *string `json:"EndTime,omitempty"`
 
+	// 任务所属的群组名称，您可以调用 ListPullToPushGroup [https://www.volcengine.com/docs/6469/1327382] 获取可用的群组。 :::tip
+	// * 使用主账号调用时，为非必填，默认为空表示查询所有群组的任务列表。
+	// * 使用子账号调用时，为必填。 :::
+	GroupName *string `json:"GroupName,omitempty"`
+
 	// 点播文件启播时间偏移值，单位为秒，数量与拉流地址列表中地址数量相等，缺省情况下为空表示不进行偏移。拉流来源类型为点播视频时，参数生效。
 	OffsetS []*float32 `json:"OffsetS,omitempty"`
 
@@ -9462,6 +10742,11 @@ type ListPullToPushTaskResResultListItem struct {
 	// * 0：直播源；
 	// * 1：点播视频。
 	Type *int32 `json:"Type,omitempty"`
+
+	// 点播文件地址和开始播放、结束播放的时间设置。 :::tip
+	// * 当 Type 为点播类型时配置生效。
+	// * 与 SrcAddrS 和 OffsetS 字段不可同时填写。 :::
+	VodSrcAddrs []*ComponentsGg7M1TSchemasListpulltopushtaskresPropertiesResultPropertiesListItemsPropertiesVodsrcaddrsItems `json:"VodSrcAddrs,omitempty"`
 
 	// 为拉流转推视频添加的水印配置信息。
 	Watermark *ListPullToPushTaskResResultListItemWatermark `json:"Watermark,omitempty"`
@@ -9502,105 +10787,172 @@ type ListPullToPushTaskResResultPagination struct {
 	TotalCount *int32 `json:"TotalCount,omitempty"`
 }
 
-type ListRelaySourceV4Body struct {
+type ListPullToPushTaskV2Body struct {
 
-	// REQUIRED; 直播流使用的域名。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看直播流使用的域名。
-	Domain string `json:"Domain"`
+	// 群组名称。
+	GroupNames []*string `json:"GroupNames,omitempty"`
 
 	// 查询数据的页码，默认为 1，表示查询第一页的数据。
 	Page *int32 `json:"Page,omitempty"`
 
 	// 每页显示的数据条数，默认为 20，最大值为 500。
 	Size *int32 `json:"Size,omitempty"`
+
+	// 拉流转推任务的名称，不区分大小写，支持模糊查询。 例如，title取值为doc时，则返回任务名称为docspace、docs、DOC等 title 中包含doc关键词的所有任务列表。
+	Title *string `json:"Title,omitempty"`
 }
 
-type ListRelaySourceV4Res struct {
+type ListPullToPushTaskV2Res struct {
 
 	// REQUIRED
-	ResponseMetadata ListRelaySourceV4ResResponseMetadata `json:"ResponseMetadata"`
-	Result           *ListRelaySourceV4ResResult          `json:"Result,omitempty"`
+	ResponseMetadata ListPullToPushTaskV2ResResponseMetadata `json:"ResponseMetadata"`
+
+	// REQUIRED
+	Result ListPullToPushTaskV2ResResult `json:"Result"`
 }
 
-type ListRelaySourceV4ResResponseMetadata struct {
-
-	// REQUIRED; 请求的接口名，属于请求的公共参数。
-	Action string `json:"Action"`
-
-	// REQUIRED; 请求的Region，例如：cn-north-1
-	Region string `json:"Region"`
-
-	// REQUIRED; RequestID为每次API请求的唯一标识。
-	RequestID string `json:"RequestId"`
-
-	// REQUIRED; 请求的服务，属于请求的公共参数。
-	Service string `json:"Service"`
-
-	// REQUIRED; 请求的版本号，属于请求的公共参数。
-	Version string                                     `json:"Version"`
-	Error   *ListRelaySourceV4ResResponseMetadataError `json:"Error,omitempty"`
+type ListPullToPushTaskV2ResResponseMetadata struct {
+	Action    *string                                       `json:"Action,omitempty"`
+	Error     *ListPullToPushTaskV2ResResponseMetadataError `json:"Error,omitempty"`
+	Region    *string                                       `json:"Region,omitempty"`
+	RequestID *string                                       `json:"RequestId,omitempty"`
+	Service   *string                                       `json:"Service,omitempty"`
+	Version   *string                                       `json:"Version,omitempty"`
 }
 
-type ListRelaySourceV4ResResponseMetadataError struct {
-
-	// 错误码
-	Code *string `json:"Code,omitempty"`
-
-	// 错误信息
+type ListPullToPushTaskV2ResResponseMetadataError struct {
+	Code    *string `json:"Code,omitempty"`
 	Message *string `json:"Message,omitempty"`
 }
 
-type ListRelaySourceV4ResResult struct {
+type ListPullToPushTaskV2ResResult struct {
 
-	// REQUIRED; 配置列表。
-	List []ListRelaySourceV4ResResultListItem `json:"List"`
+	// 任务列表。
+	List []*ListPullToPushTaskV2ResResultListItem `json:"List,omitempty"`
 
-	// REQUIRED; 页码信息。
-	Pagination ListRelaySourceV4ResResultPagination `json:"Pagination"`
+	// 分页数量信息。
+	Pagination *ListPullToPushTaskV2ResResultPagination `json:"Pagination,omitempty"`
 }
 
-type ListRelaySourceV4ResResultListItem struct {
+type ListPullToPushTaskV2ResResultListItem struct {
 
-	// REQUIRED; 应用名称。
-	App string `json:"App"`
+	// 接收拉流转推任务状态回调的地址。
+	CallbackURL *string `json:"CallbackURL,omitempty"`
 
-	// REQUIRED; 直播流的使用的域名。
-	Domain string `json:"Domain"`
+	// 续播策略，续播策略指转推点播视频进行直播时出现断流并恢复后，如何继续播放的策略，拉流来源类型为点播视频时参数生效，支持的取值及含义如下。
+	// * 0：从断流处续播（默认值）；
+	// * 1：从断流处+自然流逝时长处续播。
+	ContinueStrategy *int32 `json:"ContinueStrategy,omitempty"`
 
-	// REQUIRED; 回源结束时间，StartTime 和 EndTime 同时缺省的情况下，表示永久回源。
-	EndTime int32 `json:"EndTime"`
+	// 点播视频文件循环播放模式，当拉流来源类型为点播视频（Type 为 1）时配置生效，参数取值及含义如下所示。
+	// * -1：无限循环，至任务结束；
+	// * 0：有限次循环，循环次数为 PlayTimes 取值为准。
+	CycleMode *int32 `json:"CycleMode,omitempty"`
 
-	// REQUIRED; 回源地址列表。
-	SrcAddrS []string `json:"SrcAddrS"`
+	// 推流地址，即直播源或点播视频转推的目标地址。
+	DstAddr *string `json:"DstAddr,omitempty"`
 
-	// REQUIRED; 回源开始时间，StartTime 和 EndTime 同时缺省的情况下，表示永久回源。
-	StartTime int32 `json:"StartTime"`
+	// 推流地址类型。
+	// * 1：非第三方，即推流地址域名已添加到视频直播。
+	// * 2：第三方，即推流地址域名未添加到视频直播。
+	DstAddrType *int32 `json:"DstAddrType,omitempty"`
 
-	// REQUIRED; 流名称。
-	Stream string `json:"Stream"`
+	// 任务的结束时间，RFC3339 格式的 UTC 时间，单位为秒。
+	EndTime *string `json:"EndTime,omitempty"`
+
+	// 任务所属的群组名称，您可以调用 ListPullToPushGroup [https://www.volcengine.com/docs/6469/1327382] 获取可用的群组。 :::tip
+	// * 使用主账号调用时，为非必填，默认为空表示查询所有群组的任务列表。
+	// * 使用子账号调用时，为必填。 :::
+	GroupName *string `json:"GroupName,omitempty"`
+
+	// 点播文件启播时间偏移值，单位为秒，数量与拉流地址列表中地址数量相等，缺省情况下为空表示不进行偏移。拉流来源类型为点播视频时，参数生效。
+	OffsetS []*float32 `json:"OffsetS,omitempty"`
+
+	// 点播视频文件循环播放次数，当循环播放模式为有限次循环（CycleMode为0）时配置生效。
+	PlayTimes *int32 `json:"PlayTimes,omitempty"`
+
+	// 是否开启点播预热，开启点播预热后，系统会自动将点播视频文件缓存到 CDN 节点上，当用户请求直播时，可以直播从 CDN 节点获取视频，从而提高直播流畅度。拉流来源类型为点播视频时，参数生效。
+	// * 0：不开启；
+	// * 1：开启。
+	PreDownload *int32 `json:"PreDownload,omitempty"`
+
+	// 直播源的拉流地址，拉流来源类型为直播源（Type 为 0）时返回此值。
+	SrcAddr *string `json:"SrcAddr,omitempty"`
+
+	// 点播视频播放地址列表，拉流来源类型为点播视频（type 为 1）时返回此值。
+	SrcAddrS []*string `json:"SrcAddrS,omitempty"`
+
+	// 任务的开始时间，RFC3339 格式的 UTC 时间，单位为秒。
+	StartTime *string `json:"StartTime,omitempty"`
+
+	// 拉流转推任务的状态，支持如下取值。
+	// * 停用；
+	// * 未开始；
+	// * 生效中；
+	// * 已结束。
+	Status *string `json:"Status,omitempty"`
+
+	// 任务 ID，任务的唯一标识。
+	TaskID *string `json:"TaskId,omitempty"`
+
+	// 拉流转推任务的名称。
+	Title *string `json:"Title,omitempty"`
+
+	// 拉流来源类型，支持的取值及含义如下。
+	// * 0：直播源；
+	// * 1：点播视频。
+	Type *int32 `json:"Type,omitempty"`
+
+	// 点播文件地址和开始播放、结束播放的时间设置。 :::tip
+	// * 当 Type 为点播类型时配置生效。
+	// * 与 SrcAddrS 和 OffsetS 字段不可同时填写。 :::
+	VodSrcAddrs []*Components1Nf1A8CSchemasListpulltopushtaskv2ResPropertiesResultPropertiesListItemsPropertiesVodsrcaddrsItems `json:"VodSrcAddrs,omitempty"`
+
+	// 为拉流转推视频添加的水印配置信息。
+	Watermark *ListPullToPushTaskV2ResResultListItemWatermark `json:"Watermark,omitempty"`
 }
 
-// ListRelaySourceV4ResResultPagination - 页码信息。
-type ListRelaySourceV4ResResultPagination struct {
+// ListPullToPushTaskV2ResResultListItemWatermark - 为拉流转推视频添加的水印配置信息。
+type ListPullToPushTaskV2ResResultListItemWatermark struct {
 
-	// REQUIRED; 当前查询的页码。
-	PageCur int32 `json:"PageCur"`
+	// REQUIRED; 水印图片字符串，图片最大 2MB，最小 100Bytes，最大分辨率为 1080×1080。图片 Data URL 格式为：data:image/<mediatype>;base64,<data>。
+	// * mediatype：图片类型，支持 png、jpg、jpeg 格式；
+	// * data：base64 编码的图片字符串。
+	// 例如，data:image/png;base64,iVBORw0KGg****mCC
+	Picture string `json:"Picture"`
 
-	// REQUIRED; 每页显示的数据条数。
-	PageSize int32 `json:"PageSize"`
+	// REQUIRED; 水印宽度占直播原始画面宽度百分比，支持精度为小数点后两位。
+	Ratio float32 `json:"Ratio"`
 
-	// REQUIRED; 查询结果的数据总页数。
-	PageTotal int32 `json:"PageTotal"`
+	// REQUIRED; 水平偏移，表示水印左侧边与转码流画面左侧边之间的距离，使用相对比率，取值范围为 [0,1)。
+	RelativePosX float32 `json:"RelativePosX"`
 
-	// REQUIRED; 查询结果的数据总条数。
-	TotalCount int32 `json:"TotalCount"`
+	// REQUIRED; 垂直偏移，表示水印顶部边与转码流画面顶部边之间的距离，使用相对比率，取值范围为 [0,1)。
+	RelativePosY float32 `json:"RelativePosY"`
+}
+
+// ListPullToPushTaskV2ResResultPagination - 分页数量信息。
+type ListPullToPushTaskV2ResResultPagination struct {
+
+	// 当前任务所在分页。
+	PageCur *int32 `json:"PageCur,omitempty"`
+
+	// 每页显示的数据条数。
+	PageSize *int32 `json:"PageSize,omitempty"`
+
+	// 查询结果的数据总页数。
+	PageTotal *int32 `json:"PageTotal,omitempty"`
+
+	// 查询结果的数据总条数。
+	TotalCount *int32 `json:"TotalCount,omitempty"`
 }
 
 type ListTimeShiftPresetV2Body struct {
 
-	// 时移类型，默认类型为 vod。
+	// REQUIRED; 时移类型，默认类型为 vod。
 	// * vod：点播时移，表示查询时移录制存储在 VOD 中的时移配置；
 	// * tos：直播时移，表示查询时移录制存储在 TOS 以及 fcdn-tos 中的时移配置。
-	Type *string `json:"Type,omitempty"`
+	Type string `json:"Type"`
 
 	// 域名空间，即直播流地址的域名所属的域名空间。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看需要时移的直播流使用的域名所属的域名空间。
 	Vhost *string `json:"Vhost,omitempty"`
@@ -9852,6 +11204,137 @@ type ListVhostSnapshotPresetResResultPresetListItemSlicePreset struct {
 	// * 1：开启
 	// * 0：关闭
 	Status *int32 `json:"Status,omitempty"`
+}
+
+type ListVhostSubtitleTranscodePresetBody struct {
+
+	// REQUIRED; 域名空间，即直播流地址的域名所属的域名空间。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看直播流使用的域名所属的域名空间。
+	Vhost string `json:"Vhost"`
+}
+
+type ListVhostSubtitleTranscodePresetRes struct {
+
+	// REQUIRED
+	ResponseMetadata ListVhostSubtitleTranscodePresetResResponseMetadata `json:"ResponseMetadata"`
+
+	// REQUIRED
+	Result ListVhostSubtitleTranscodePresetResResult `json:"Result"`
+}
+
+type ListVhostSubtitleTranscodePresetResResponseMetadata struct {
+
+	// REQUIRED
+	Action string `json:"Action"`
+
+	// REQUIRED
+	Region string `json:"Region"`
+
+	// REQUIRED
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED
+	Service string `json:"Service"`
+
+	// REQUIRED
+	Version string `json:"Version"`
+}
+
+type ListVhostSubtitleTranscodePresetResResult struct {
+
+	// REQUIRED; 字幕配置列表。
+	PresetList []ListVhostSubtitleTranscodePresetResResultPresetListItem `json:"PresetList"`
+}
+
+type ListVhostSubtitleTranscodePresetResResultPresetListItem struct {
+
+	// REQUIRED; 应用名称。
+	App string `json:"App"`
+
+	// REQUIRED
+	Stream string `json:"Stream"`
+
+	// REQUIRED; 转码后缀标识。
+	Suffixes []string `json:"Suffixes"`
+
+	// REQUIRED; 字幕配置详细参数。
+	TranscodePreset ListVhostSubtitleTranscodePresetResResultPresetListItemTranscodePreset `json:"TranscodePreset"`
+
+	// REQUIRED; 域名空间。
+	Vhost string `json:"Vhost"`
+}
+
+// ListVhostSubtitleTranscodePresetResResultPresetListItemTranscodePreset - 字幕配置详细参数。
+type ListVhostSubtitleTranscodePresetResResultPresetListItemTranscodePreset struct {
+
+	// REQUIRED
+	CreatedAt int32 `json:"CreatedAt"`
+
+	// REQUIRED
+	Delay int32 `json:"Delay"`
+
+	// REQUIRED; 字幕配置的描述信息。
+	Description string `json:"Description"`
+
+	// REQUIRED; 预设配置，使用预设配置是系统将自动对字体大小、字幕行数、每行最大字符数和边距参数（MarginVertical 和 MarginHorizontal）进行智能化适配。默认为空，表示不使用预设配置，支持的预设配置如下所示。
+	// * small ：小字幕。
+	// * medium：中字幕。
+	// * large：大字幕。 :::tip 使用预设配置时，字幕行数、每行最大字符数、左右边距和底部边距参数不生效，系统将使用预设配置自动进行计算。 :::
+	DisplayPreset string `json:"DisplayPreset"`
+
+	// REQUIRED; 原文翻译成译文时使用的热词词库。
+	GlossaryWordList []string `json:"GlossaryWordList"`
+
+	// REQUIRED; 原文字幕识别时使用的热词词库。
+	HotWordList []string `json:"HotWordList"`
+
+	// REQUIRED; 设置在 16:9 分辨率场景下，每行字幕展示的最大字符数。 :::tip
+	// * 使用预设配置时，字幕每行最大字符数设置不生效。
+	// * 不使用预设配置时，字幕每行最大字符数必填。
+	// * 每个文字、字母、符号或数字均为一个字符。
+	// * 当屏幕分辨率改变时，屏幕上显示的每行文字数量会相应调整，以适应新的分辨率，确保文字的显示效果和阅读体验。 :::
+	MaxCharNumber int32 `json:"MaxCharNumber"`
+
+	// REQUIRED; 字幕展示的行数，同时适用于原文字幕和译文字幕，支持的取值及含义如下所示。
+	// * 0：（默认值）根据字幕字数自动进行分行展示；
+	// * 1：每种字幕展示一行；
+	// * 2：每种字幕展示两行。 :::tip
+	// * 使用预设配置时，字幕行数为自动分行展示。
+	// * 超出行内字数限制时表示字幕将超过显示范围，此时字幕内容将被截断。 :::
+	MaxRowNumber int32 `json:"MaxRowNumber"`
+
+	// REQUIRED; 字幕位置设置，通过设置字幕距离画面左右边距和底部边距来指定字幕位置。
+	// :::tip
+	// * 使用预设配置时，字幕位置设置不生效。
+	// * 不使用预设配置时，字幕位置设置必填。 :::
+	Position ComponentsJ1MbxoSchemasListvhostsubtitletranscodepresetresPropertiesResultPropertiesPresetlistItemsPropertiesTranscodepresetPropertiesPosition `json:"Position"`
+
+	// REQUIRED; 字幕配置的名称。
+	PresetName string `json:"PresetName"`
+
+	// REQUIRED; 原文字幕展示参数配置。
+	SourceLanguage Components1523StvSchemasListvhostsubtitletranscodepresetresPropertiesResultPropertiesPresetlistItemsPropertiesTranscodepresetPropertiesSourcelanguage `json:"SourceLanguage"`
+
+	// REQUIRED
+	Status int32 `json:"Status"`
+
+	// REQUIRED
+	SuffixName string `json:"SuffixName"`
+
+	// REQUIRED; 译文字幕展示参数配置列表。
+	TargetLanguage []Components1C398ShSchemasListvhostsubtitletranscodepresetresPropertiesResultPropertiesPresetlistItemsPropertiesTranscodepresetPropertiesTargetlanguageItems `json:"TargetLanguage"`
+
+	// REQUIRED
+	UpdatedAt int32 `json:"UpdatedAt"`
+}
+
+// ListVhostSubtitleTranscodePresetResResultPresetListItemTranscodePresetTargetLanguageItemBorder - 译文字幕的字体描边配置。
+type ListVhostSubtitleTranscodePresetResResultPresetListItemTranscodePresetTargetLanguageItemBorder struct {
+
+	// REQUIRED
+	Color string `json:"Color"`
+
+	// REQUIRED
+	Width int32 `json:"Width"`
 }
 
 type ListVhostTransCodePresetBody struct {
@@ -10286,13 +11769,13 @@ type ListVhostWatermarkPresetResResponseMetadataError struct {
 
 type ListVhostWatermarkPresetResResult struct {
 
-	// 统计消息，提供查询成功和失败的数量。
+	// 统计消息，提供可用配置和不可用配置的数量。
 	StaticsMsg *string `json:"StaticsMsg,omitempty"`
 
-	// 获取配置失败的列表，返回获取失败的配置信息及获取失败的原因。
+	// 不可正常使用的水印配置列表，如水印图片获取失败等原因导致的配置不可用。返回不可正常使用的水印配置信息及配置不可用的原因。
 	WatermarkErrMsgList []*ListVhostWatermarkPresetResResultWatermarkErrMsgListItem `json:"WatermarkErrMsgList,omitempty"`
 
-	// 水印配置列表。
+	// 可正常使用的水印配置列表。
 	WatermarkPresetList []*ListVhostWatermarkPresetResResultWatermarkPresetListItem `json:"WatermarkPresetList,omitempty"`
 }
 
@@ -10307,7 +11790,7 @@ type ListVhostWatermarkPresetResResultWatermarkErrMsgListItem struct {
 	// 获取水印模板失败的具体错误信息。
 	ErrMsg *string `json:"ErrMsg,omitempty"`
 
-	// 域名空间名称。
+	// 域名空间。
 	Vhost *string `json:"Vhost,omitempty"`
 }
 
@@ -10369,7 +11852,10 @@ type ListWatermarkPresetBody struct {
 	// REQUIRED; 域名空间，即直播流地址的域名所属的域名空间。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看直播流使用的域名所属的域名空间。
 	Vhost string `json:"Vhost"`
 
-	// 直播流名。可选。
+	// 流名称，取值与直播流地址中 StreamName 字段取值相同。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（_）、短横线（-）和句点（.）组成，长度为 1 到 100 个字符。
+	// :::tip
+	// * 默认为空，表示查询的 AppName 级别对所有转码流生效的配置。
+	// * 指定流名称时，表示查询仅对 AppName 下指定流名称的转码流生效的配置。 :::
 	Stream *string `json:"Stream,omitempty"`
 }
 
@@ -10467,6 +11953,11 @@ type RestartPullToPushTaskBody struct {
 
 	// REQUIRED; 任务 ID，任务的唯一标识，您可以通过获取拉流转推任务列表 [https://www.volcengine.com/docs/6469/1126896]接口获取状态为停用的任务 ID。
 	TaskID string `json:"TaskId"`
+
+	// 任务所属的群组名称，您可以通过获取拉流转推任务列表 [https://www.volcengine.com/docs/6469/1126896]接口获取。 :::tip
+	// * 使用主账号调用时，为非必填。
+	// * 使用子账号调用时，为必填。 :::
+	GroupName *string `json:"GroupName,omitempty"`
 }
 
 type RestartPullToPushTaskRes struct {
@@ -10557,6 +12048,11 @@ type StopPullToPushTaskBody struct {
 
 	// REQUIRED; 任务 ID，任务的唯一标识，您可以通过获取拉流转推任务列表 [https://www.volcengine.com/docs/6469/1126896]接口获取状态为未开始或生效中的任务 ID。
 	TaskID string `json:"TaskId"`
+
+	// 任务所属的群组名称，您可以通过获取拉流转推任务列表 [https://www.volcengine.com/docs/6469/1126896]接口获取。 :::tip
+	// * 使用主账号调用时，为非必填。
+	// * 使用子账号调用时，为必填。 :::
+	GroupName *string `json:"GroupName,omitempty"`
 }
 
 type StopPullToPushTaskRes struct {
@@ -10833,28 +12329,14 @@ type UpdateCallbackBody struct {
 	Domain              *string   `json:"Domain,omitempty"`
 	EncryptField        []*string `json:"EncryptField,omitempty"`
 	EncryptionAlgorithm *string   `json:"EncryptionAlgorithm,omitempty"`
-
-	// 回调时的http方式，不填默认为post
-	// * post: POST方式
-	// * get: GET方式
-	HTTPMethod *string `json:"HttpMethod,omitempty"`
-
-	// 回调重试间隔，默认为3秒
-	RetryInternalSecond *int32 `json:"RetryInternalSecond,omitempty"`
-
-	// 回调重试次数，默认为3次
-	RetryTimes *int32 `json:"RetryTimes,omitempty"`
-
-	// 鉴权参数位置,该参数暂时没有做到通用，鉴权参数名称为 postauthparam 要经过低代码转换，不然不会生效。get 方式默认只能放在param里面，post 方式默认放在body，支持以下选择
-	// * param: 鉴权放在链接里面
-	// * body: 鉴权放在body里面
-	SecHandlerType *string `json:"SecHandlerType,omitempty"`
+	HTTPMethod          *string   `json:"HttpMethod,omitempty"`
+	RetryInternalSecond *int32    `json:"RetryInternalSecond,omitempty"`
+	RetryTimes          *int32    `json:"RetryTimes,omitempty"`
+	SecHandlerType      *string   `json:"SecHandlerType,omitempty"`
 
 	// 任务状态回调开关 0关闭 1开启
 	TaskStatusCallback *int32 `json:"TaskStatusCallback,omitempty"`
-
-	// 回调超时时间，默认为4秒
-	TimeoutSecond *int32 `json:"TimeoutSecond,omitempty"`
+	TimeoutSecond      *int32 `json:"TimeoutSecond,omitempty"`
 
 	// 是否开启转码流回调，默认为 0。取值及含义如下所示。
 	// * 0：false，不开启；
@@ -10911,6 +12393,203 @@ type UpdateCallbackResResponseMetadataError struct {
 
 	// 错误信息
 	Message *string `json:"Message,omitempty"`
+}
+
+type UpdateCloudMixTaskBody struct {
+
+	// REQUIRED; 混流任务详细配置。
+	MixedRules UpdateCloudMixTaskBodyMixedRules `json:"MixedRules"`
+
+	// REQUIRED; 混流任务 ID，您可以通过 ListCloudMixTask [https://www.volcengine.com/docs/6469/1271157] 接口获取运行中的混流任务 ID。
+	TaskID string `json:"TaskID"`
+}
+
+// UpdateCloudMixTaskBodyMixedRules - 混流任务详细配置。
+type UpdateCloudMixTaskBodyMixedRules struct {
+
+	// REQUIRED; 混流输出布局配置。
+	InputLayout UpdateCloudMixTaskBodyMixedRulesInputLayout `json:"InputLayout"`
+
+	// REQUIRED; 混流素材列表，最多支持配置 8 路输入源。
+	InputSource []UpdateCloudMixTaskBodyMixedRulesInputSourceItem `json:"InputSource"`
+
+	// REQUIRED; 混流输出流参数配置。 :::warning 更新云端混流任务时，Output 参数不支持变更，且必须传入与原混流任务一致的配置。 :::
+	Output UpdateCloudMixTaskBodyMixedRulesOutput `json:"Output"`
+}
+
+// UpdateCloudMixTaskBodyMixedRulesInputLayout - 混流输出布局配置。
+type UpdateCloudMixTaskBodyMixedRulesInputLayout struct {
+
+	// REQUIRED; 混流输出画布配置和素材布局配置。
+	Scene UpdateCloudMixTaskBodyMixedRulesInputLayoutScene `json:"Scene"`
+
+	// 混流输出视频中 Logo 布局配置。 :::tip 支持最多配置 4 个 Logo，展示层级以添加顺序为准。 :::
+	Logo []*UpdateCloudMixTaskBodyMixedRulesInputLayoutLogoItem `json:"Logo,omitempty"`
+}
+
+type UpdateCloudMixTaskBodyMixedRulesInputLayoutLogoItem struct {
+
+	// Logo 图片在混流输出整体画面中的布局配置。
+	Layout *UpdateCloudMixTaskBodyMixedRulesInputLayoutLogoItemLayout `json:"Layout,omitempty"`
+
+	// Logo 图片访问地址。
+	URL *string `json:"Url,omitempty"`
+}
+
+// UpdateCloudMixTaskBodyMixedRulesInputLayoutLogoItemLayout - Logo 图片在混流输出整体画面中的布局配置。
+type UpdateCloudMixTaskBodyMixedRulesInputLayoutLogoItemLayout struct {
+
+	// REQUIRED
+	H int32 `json:"H"`
+
+	// REQUIRED
+	W int32 `json:"W"`
+
+	// REQUIRED
+	X int32 `json:"X"`
+
+	// REQUIRED
+	Y int32 `json:"Y"`
+}
+
+// UpdateCloudMixTaskBodyMixedRulesInputLayoutScene - 混流输出画布配置和素材布局配置。
+type UpdateCloudMixTaskBodyMixedRulesInputLayoutScene struct {
+
+	// REQUIRED; 混流输出整体画布高度，单位为 px，取值范围为 [10,2160]。
+	Height int32 `json:"Height"`
+
+	// REQUIRED; 混流素材在混流输出整体画面中的布局配置。 :::tip 混流素材布局中需包含所有素材的配置，且需与通过 Layer 参数与混流素材一一匹配。 :::
+	Layout []UpdateCloudMixTaskBodyMixedRulesInputLayoutSceneLayoutItem `json:"Layout"`
+
+	// REQUIRED; 混流输出画布整体宽度，单位为 px，取值范围为 [10,2160]。
+	Width int32 `json:"Width"`
+}
+
+type UpdateCloudMixTaskBodyMixedRulesInputLayoutSceneLayoutItem struct {
+
+	// REQUIRED; 当前素材或 Logo 图片在混流输出画面中的限制高度，单位为 px，取值范围为 [10,2160]。
+	// :::tip 限制宽度和限制高度指定了素材展示的限制范围，当素材尺寸和限制值不一致时，素材将在限制范围内根据长边进行等比缩放，其余区域透明展示。 :::
+	H int32 `json:"H"`
+
+	// REQUIRED; 当配置素材布局时需要通过 Layer 参数与素材进行一一对应。 :::tip 配置 Logo 图片的布局时此参数不生效。 :::
+	Layer int32 `json:"Layer"`
+
+	// REQUIRED; 当前素材或 Logo 图片在混流输出画面中的限制宽度，单位为 px，取值范围为 [10,2160]。
+	W int32 `json:"W"`
+
+	// REQUIRED; 当前素材或 Logo 图片在输出画面中相对画面左上角的 X 偏移位置，单位为 px，取值范围为 0 到设置的画面宽度。
+	X int32 `json:"X"`
+
+	// REQUIRED; 当前素材或 Logo 图片在输出画面中相对画面左上角的 Y 偏移位置，单位为 px，取值范围为 0 到设置的画面高度。
+	Y int32 `json:"Y"`
+}
+
+type UpdateCloudMixTaskBodyMixedRulesInputSourceItem struct {
+
+	// REQUIRED; 混流素材 ID，一个任务中素材 ID 不能重复，此 ID 用于任务状态回调消息中标识素材。
+	ID string `json:"ID"`
+
+	// REQUIRED; 混流素材的叠放顺序，1 为最底层，2 层在 1 层之上，以此类推，取值范围为[1,9999]。 :::tip 当前准备使用某个素材作为布局背景时，其叠放顺序应设置为所有素材中的最小值。 :::
+	Layer int32 `json:"Layer"`
+
+	// REQUIRED; 混流素材类型，支持的取值及含义如下所示。
+	// * vod：视频点播中的素材，支持 MP4、FLV 格式素材；
+	// * live：直播源素材，支持 RTMP、FLV 协议拉流地址；
+	// * pic：图片素材，支持 png、jpg 格式图片。
+	Type string `json:"Type"`
+
+	// REQUIRED; 混流素材访问地址。
+	URL string `json:"Url"`
+}
+
+// UpdateCloudMixTaskBodyMixedRulesOutput - 混流输出流参数配置。 :::warning 更新云端混流任务时，Output 参数不支持变更，且必须传入与原混流任务一致的配置。 :::
+type UpdateCloudMixTaskBodyMixedRulesOutput struct {
+
+	// REQUIRED; 混流声音参数设置。
+	Audio UpdateCloudMixTaskBodyMixedRulesOutputAudio `json:"Audio"`
+
+	// REQUIRED; 混流视频的推流地址。
+	URL []string `json:"Url"`
+
+	// REQUIRED; 混流画面参数设置。
+	Video UpdateCloudMixTaskBodyMixedRulesOutputVideo `json:"Video"`
+}
+
+// UpdateCloudMixTaskBodyMixedRulesOutputAudio - 混流声音参数设置。
+type UpdateCloudMixTaskBodyMixedRulesOutputAudio struct {
+
+	// REQUIRED; 混流输出流的音频码率，单位为 bps，取值范围为 [128000,320000]，常见取值及含义如下所示。
+	// * 128000：128 kbps；
+	// * 144000：144 kbps；
+	// * 256000：256 kbps；
+	// * 320000：320 kbps。
+	BitRate int32 `json:"BitRate"`
+
+	// REQUIRED; 混流输出流的音频声道设置，取值及含义如下所示。
+	// * mono：单声道；
+	// * stereo：立体声。
+	ChannelLayout string `json:"ChannelLayout"`
+
+	// REQUIRED; 混流输出流的音频采样率，单位为 HZ，常见取值及含义如下所示。
+	// * 32000：32 kHZ；
+	// * 44100：44.1 kHZ；
+	// * 48000：48 kHZ。
+	SampleRate int32 `json:"SampleRate"`
+}
+
+// UpdateCloudMixTaskBodyMixedRulesOutputVideo - 混流画面参数设置。
+type UpdateCloudMixTaskBodyMixedRulesOutputVideo struct {
+
+	// REQUIRED; 混流输出视频码率，单位为 bps，取值范围为 [1000000,20000000]，输入值小于或大于取值范围时会进行自动修正至最小值和最大值。
+	BitRate int32 `json:"BitRate"`
+
+	// REQUIRED; 混流输出视频编码格式，支持的取值及含义如下所示。
+	// * h264：使用 H.264 编码格式；
+	// * h265：使用 H.265 编码格式。
+	Codec string `json:"Codec"`
+
+	// REQUIRED; 混流输出视频帧率，单位为 fps，取值范围为 [10,60]，输入值小于或大于取值范围时会进行自动修正至最小值和最大值。
+	FrameRate int32 `json:"FrameRate"`
+
+	// REQUIRED; IDR 帧之间的最大间隔时间，单位为秒，取值范围为 [1,10]。
+	GOP int32 `json:"GOP"`
+}
+
+type UpdateCloudMixTaskRes struct {
+
+	// REQUIRED
+	ResponseMetadata UpdateCloudMixTaskResResponseMetadata `json:"ResponseMetadata"`
+
+	// REQUIRED
+	Result UpdateCloudMixTaskResResult `json:"Result"`
+}
+
+type UpdateCloudMixTaskResResponseMetadata struct {
+
+	// REQUIRED
+	RequestID string `json:"RequestID"`
+}
+
+type UpdateCloudMixTaskResResult struct {
+
+	// REQUIRED; 请求响应码，取值及含义如下。
+	// * 0：请求成功；
+	// * 500：内部处理错误；
+	// * 400：请求异常。
+	Code int32 `json:"Code"`
+
+	// REQUIRED; 返回的数据。
+	Data UpdateCloudMixTaskResResultData `json:"Data"`
+
+	// REQUIRED; 请求响应码对应的信息。
+	Message string `json:"Message"`
+}
+
+// UpdateCloudMixTaskResResultData - 返回的数据。
+type UpdateCloudMixTaskResResultData struct {
+
+	// REQUIRED; 任务版本标识符，用来标识更新后的任务版本。
+	OptID int32 `json:"OptID"`
 }
 
 type UpdateClusterRateLimitBody struct {
@@ -11059,6 +12738,42 @@ type UpdateEncryptDRMResResponseMetadata struct {
 	Version string `json:"Version"`
 }
 
+type UpdateEncryptHLSBody struct {
+
+	// REQUIRED; 视频直播服务端生成密钥的更新周期，单位为秒，取值范围为 [60,604800]。
+	CycleTime string `json:"CycleTime"`
+
+	// REQUIRED; 客户自建密钥管理服务后，客户端向密钥管理服务请求获取密钥的地址。
+	URL string `json:"URL"`
+}
+
+type UpdateEncryptHLSRes struct {
+
+	// REQUIRED
+	ResponseMetadata UpdateEncryptHLSResResponseMetadata `json:"ResponseMetadata"`
+
+	// 视请求的接口而定
+	Result interface{} `json:"Result,omitempty"`
+}
+
+type UpdateEncryptHLSResResponseMetadata struct {
+
+	// REQUIRED; 请求的接口名，属于请求的公共参数。
+	Action string `json:"Action"`
+
+	// REQUIRED; 请求的Region，例如：cn-north-1
+	Region string `json:"Region"`
+
+	// REQUIRED; RequestId为每次API请求的唯一标识。
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED; 请求的服务，属于请求的公共参数。
+	Service string `json:"Service"`
+
+	// REQUIRED; 请求的版本号，属于请求的公共参数。
+	Version string `json:"Version"`
+}
+
 type UpdateFormatAccessRuleBody struct {
 
 	// REQUIRED
@@ -11112,9 +12827,6 @@ type UpdateFormatAccessRuleResResponseMetadata struct {
 
 type UpdateHLSConfigBody struct {
 
-	// REQUIRED; 服务类型
-	ServiceType string `json:"ServiceType"`
-
 	// REQUIRED; 域名空间
 	Vhost string `json:"Vhost"`
 
@@ -11144,10 +12856,12 @@ type UpdateHLSConfigBody struct {
 	MaxFrame *int32 `json:"MaxFrame,omitempty"`
 
 	// 切片最大大小，单位byte，默认 524288000
-	MaxSize *int32 `json:"MaxSize,omitempty"`
+	MaxSize     *int32   `json:"MaxSize,omitempty"`
+	PDTInterval *float32 `json:"PDTInterval,omitempty"`
 
 	// 可选枚举值 "audio_only" "video_only "video_keyframe_only" "video_single_keyframe_only"
-	PacketFilter *string `json:"PacketFilter,omitempty"`
+	PacketFilter       *string  `json:"PacketFilter,omitempty"`
+	PartTargetDuration *float32 `json:"PartTargetDuration,omitempty"`
 
 	// ts存储位置
 	Path *string `json:"Path,omitempty"`
@@ -11157,6 +12871,9 @@ type UpdateHLSConfigBody struct {
 
 	// 预取ts个数
 	PrefetchNum *int32 `json:"PrefetchNum,omitempty"`
+
+	// 服务类型
+	ServiceType *string `json:"ServiceType,omitempty"`
 
 	// ts文件后缀
 	Suffix *string `json:"Suffix,omitempty"`
@@ -11202,9 +12919,7 @@ type UpdateHTTPHeaderConfigBody struct {
 	// REQUIRED; Header 具体字段配置。
 	HeaderConfigList []UpdateHTTPHeaderConfigBodyHeaderConfigListItem `json:"HeaderConfigList"`
 
-	// REQUIRED; HTTP Header 的类型，支持的取值及含义如下所示。
-	// * 0：请求响应头；
-	// * 1：回源请求头。
+	// REQUIRED; 0: response 1: request
 	Phase int32 `json:"Phase"`
 
 	// REQUIRED; 域名空间，即直播流地址的域名所属的域名空间。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看需要域名所属的域名空间。
@@ -11331,12 +13046,12 @@ type UpdateIPAccessRuleResResponseMetadata struct {
 
 type UpdateLatencyConfigBody struct {
 
-	// REQUIRED; 单位毫秒，大于等于0
-	GopCacheSize int32 `json:"GopCacheSize"`
+	// REQUIRED; 与Vhost二选一
+	Domain string `json:"Domain"`
 
-	// 与Vhost二选一
-	Domain *string `json:"Domain,omitempty"`
-	Vhost  *string `json:"Vhost,omitempty"`
+	// REQUIRED; 单位毫秒，大于等于0
+	GopCacheSize int32   `json:"GopCacheSize"`
+	Vhost        *string `json:"Vhost,omitempty"`
 }
 
 type UpdateLatencyConfigRes struct {
@@ -11371,23 +13086,6 @@ type UpdatePullToPushTaskBody struct {
 	// REQUIRED; 任务等结束时间，Unix 时间戳，单位为秒。 :::tip 拉流转推任务持续时间最长为 7 天。 :::
 	EndTime int32 `json:"EndTime"`
 
-	// REQUIRED; 设置点播视频转推至第三方推流域名时是否使用推流优先级参数，缺省情况下表示不使用此参数，支持的取值及含义如下。
-	// * true：使用
-	//
-	//
-	// * false：不使用
-	//
-	//
-	// :::tip
-	// * 使用点播视频转推直播实现视频循环播放（轮播）时，支持使用带有推流优先级参数的推流地址进行推流，如在第一个点播视频的推流地址后添加 pri=10、在第二个点播视频的推流地址后添加 pri=11，可达到使用推流优先级高的流替换推流优先级低的流的目的。相比不使用推流优先级参数时可实现更平滑的轮播视频切换。
-	//
-	//
-	// * 推流至非第三方域名时，默认支持使用带有推流优先级参数的推流地址。
-	//
-	//
-	// * 推流至第三方域名时，如需使用推流优先级参数实现新流替换旧流时，需在创建拉流转推时为推流域名开启推流优先级参数配置开关。 :::
-	PushPriority bool `json:"PushPriority"`
-
 	// REQUIRED; 任务的开始时间，Unix 时间戳，单位为秒。 :::tip 拉流转推任务持续时间最长为 7 天。 :::
 	StartTime int32 `json:"StartTime"`
 
@@ -11402,7 +13100,7 @@ type UpdatePullToPushTaskBody struct {
 	// 推流应用名称，推流地址（DstAddr）为空时必传；反之，则该参数不生效
 	App *string `json:"App,omitempty"`
 
-	// 接收拉流转推任务状态回调的地址，最大长度为 2000 个字符。
+	// 接收拉流转推任务状态回调的地址，最大长度为 512 个字符。
 	CallbackURL *string `json:"CallbackURL,omitempty"`
 
 	// 续播策略，续播策略指转推点播视频进行直播时出现断流并恢复后，如何继续播放的策略，拉流来源类型为点播视频（Type 为 1）时参数生效，支持的取值及含义如下。
@@ -11421,6 +13119,12 @@ type UpdatePullToPushTaskBody struct {
 
 	// 推流地址，即直播源或点播视频转推的目标地址。
 	DstAddr *string `json:"DstAddr,omitempty"`
+
+	// 任务所属的群组名称，您可以通过获取拉流转推任务列表 [https://www.volcengine.com/docs/6469/1126896]接口获取。 :::tip
+	// * 群组名称不支持更新，仅做校验使用。
+	// * 使用主账号调用时，为非必填。
+	// * 使用子账号调用时，为必填。 :::
+	GroupName *string `json:"GroupName,omitempty"`
 
 	// 点播文件启播时间偏移值，单位为秒，仅当点播视频播放地址列表（SrcAddrS）只有一个地址，且未配置 Offsets 时生效，缺省情况下表示不进行偏移。
 	Offset *float32 `json:"Offset,omitempty"`
@@ -11449,8 +13153,25 @@ type UpdatePullToPushTaskBody struct {
 	// 拉流转推任务的名称，默认为空表示不配置任务名称。支持由中文、大小写字母（A - Z、a - z）和数字（0 - 9）组成，长度为 1 到 20 各字符。
 	Title *string `json:"Title,omitempty"`
 
+	// 点播文件地址和开始播放、结束播放的时间设置。 :::tip
+	// * 当 Type 为点播类型时配置生效。
+	// * 与 SrcAddrS 和 OffsetS 字段不可同时填写。 :::
+	VodSrcAddrs []*UpdatePullToPushTaskBodyVodSrcAddrsItem `json:"VodSrcAddrs,omitempty"`
+
 	// 为拉流转推视频添加的水印配置信息。
 	Watermark *UpdatePullToPushTaskBodyWatermark `json:"Watermark,omitempty"`
+}
+
+type UpdatePullToPushTaskBodyVodSrcAddrsItem struct {
+
+	// REQUIRED; 点播文件地址。
+	SrcAddr string `json:"SrcAddr"`
+
+	// 当前点播文件结束播放的时间偏移值，单位为秒，默认为空时表示结束播放时间不进行偏移。
+	EndOffset *float32 `json:"EndOffset,omitempty"`
+
+	// 当前点播文件开始播放的时间偏移值，单位为秒。默认为空时表示开始播放时间不进行偏移。
+	StartOffset *float32 `json:"StartOffset,omitempty"`
 }
 
 // UpdatePullToPushTaskBodyWatermark - 为拉流转推视频添加的水印配置信息。
@@ -11459,7 +13180,6 @@ type UpdatePullToPushTaskBodyWatermark struct {
 	// REQUIRED; 水印图片字符串，图片最大 2MB，最小 100Bytes，最大分辨率为 1080×1080。图片 Data URL 格式为：data:image/<mediatype>;base64,<data>。
 	// * mediatype：图片类型，支持 png、jpg、jpeg 格式；
 	// * data：base64 编码的图片字符串。
-	// 例如，data:image/png;base64,iVBORw0KGg****mCC
 	Picture string `json:"Picture"`
 
 	// REQUIRED; 水印宽度占直播原始画面宽度百分比，支持精度为小数点后两位。
@@ -11556,7 +13276,7 @@ type UpdateRecordPresetV2BodyRecordPresetConfig struct {
 	// :::tip 转码流和源流需至少选一个进行录制，即是否录制转码流（TranscodeRecord）和是否录制源流（OriginRecord）的取值至少一个不为 0。 :::
 	TranscodeRecord *int32 `json:"TranscodeRecord,omitempty"`
 
-	// 转码流后缀列表，转码流录制配置为根据转码流列表匹配（TranscodeRecord 取值为 2）时生效，TranscodeSuffixList 默认配置为空，效果等同于录制全部转码流。
+	// 转码流后缀列表，是否录制转码设置为根据转码流列表匹配（TranscodeRecord 取值为 2）时生效，TranscodeSuffixList 默认配置为空，效果等同于录制全部转码流。
 	TranscodeSuffixList []*string `json:"TranscodeSuffixList,omitempty"`
 }
 
@@ -11569,8 +13289,10 @@ type UpdateRecordPresetV2BodyRecordPresetConfigFlvParam struct {
 
 	// 断流录制场景下，单文件录制时长，单位为秒，默认值为 7200，取值范围为 -1 和 [300,86400]。
 	// * 取值为 -1 时，表示不限制录制时长，录制结束后生成一个完整的录制文件。
-	// * 取值为 [300,86400] 之间的值时，表示根据设置的录制文件时长分段生成录制文件，完成录制后一起上传。
-	// :::tip 断流录制场景仅在录制格式为 HLS 时生效，且断流录制和实时录制为二选一配置。 :::
+	// * 取值为 [300,86400] 之间的值时，表示根据设置的录制文件时长，到达时长立即生成录制文件，完成录制后一起上传。
+	// :::tip
+	// * 断流录制场景仅在录制格式为 HLS 时生效，且断流录制和实时录制为二选一配置。
+	// * 如录制过程中出现断流，对应生成的录制文件时长也会相应缩短。 :::
 	Duration *int32 `json:"Duration,omitempty"`
 
 	// 当前格式的录制是否开启，默认 false，取值及含义如下所示。
@@ -11578,7 +13300,8 @@ type UpdateRecordPresetV2BodyRecordPresetConfigFlvParam struct {
 	// * true：开启。
 	Enable *bool `json:"Enable,omitempty"`
 
-	// 实时录制场景下，单文件录制时长，单位为秒，默认值为 1800，取值范围为 [300,21600]。录制时间到达设置的单文件录制时长时，会立即生成录制文件实时上传存储。
+	// 实时录制场景下，单文件录制时长，单位为秒，默认值为 1800，取值范围为 [300,21600]。录制时间到达设置的单文件录制时长时，会立即生成录制文件实时上传存储。 :::tip 如录制过程中出现断流，对应生成的录制文件时长也会相应缩短。
+	// :::
 	RealtimeRecordDuration *int32 `json:"RealtimeRecordDuration,omitempty"`
 
 	// 断流录制场景下，断流拼接时长，单位为秒，默认值为 0，支持的取值及含义如下所示。
@@ -11954,8 +13677,12 @@ type UpdateRegionAccessRuleBodyRegionAccessRule struct {
 	Enable string `json:"Enable"`
 
 	// REQUIRED
-	Type         string    `json:"Type"`
-	CountryList  []*string `json:"CountryList,omitempty"`
+	Type string `json:"Type"`
+
+	// 限制国家列表，传入使用国家代码，遵循iso-3166
+	CountryList []*string `json:"CountryList,omitempty"`
+
+	// 限制省份列表，目前仅支持中国香港地区、中国澳门地区和中国台湾地区。分别对应代码为HK, MO, TW
 	ProvinceList []*string `json:"ProvinceList,omitempty"`
 }
 
@@ -12222,71 +13949,6 @@ type UpdateRelaySourceV3ResResponseMetadataError struct {
 	Message *string `json:"Message,omitempty"`
 }
 
-type UpdateRelaySourceV4Body struct {
-
-	// REQUIRED; 应用名称，拉流域名，您可以调用ListRelaySourceV4 [https://www.volcengine.com/docs/6469/1126878]接口，获取待更新固定回源配置的 App 取值。
-	App string `json:"App"`
-
-	// REQUIRED; 拉流域名，您可以调用ListRelaySourceV4 [https://www.volcengine.com/docs/6469/1126878]接口，获取待更新固定回源配置的 Domain 取值。
-	Domain string `json:"Domain"`
-
-	// REQUIRED; 回源地址列表，支持 RTMP、FLV、HLS 和 SRT 回源协议。
-	// :::tip
-	// * 当源站使用了非默认端口时，支持在回源地址中以域名:端口或IP:端口的形式配置端口。
-	// * 最多支持添加 10 个回源地址，回源失败时，将按照您添加的地址顺序轮循尝试。 :::
-	SrcAddrS []string `json:"SrcAddrS"`
-
-	// REQUIRED; 流名称，您可以调用ListRelaySourceV4 [https://www.volcengine.com/docs/6469/1126878]接口，获取待更新固定回源配置的 Domain 取值。
-	Stream string `json:"Stream"`
-
-	// 结束时间，Unix 时间戳，单位为秒。 :::tip
-	// * 回源开始到结束最大时间跨度为 7 天；
-	// * 开始时间与结束时间同时缺省，表示永久回源。 :::
-	EndTime *int32 `json:"EndTime,omitempty"`
-
-	// 开始时间，Unix 时间戳，单位为秒。 :::tip
-	// * 回源开始到结束最大时间跨度为 7 天；
-	// * 开始时间与结束时间同时缺省，表示永久回源。 :::
-	StartTime *int32 `json:"StartTime,omitempty"`
-}
-
-type UpdateRelaySourceV4Res struct {
-
-	// REQUIRED
-	ResponseMetadata UpdateRelaySourceV4ResResponseMetadata `json:"ResponseMetadata"`
-
-	// 视请求的接口而定
-	Result interface{} `json:"Result,omitempty"`
-}
-
-type UpdateRelaySourceV4ResResponseMetadata struct {
-
-	// REQUIRED; 请求的接口名，属于请求的公共参数。
-	Action string `json:"Action"`
-
-	// REQUIRED; 请求的Region，例如：cn-north-1
-	Region string `json:"Region"`
-
-	// REQUIRED; RequestID为每次API请求的唯一标识。
-	RequestID string `json:"RequestId"`
-
-	// REQUIRED; 请求的服务，属于请求的公共参数。
-	Service string `json:"Service"`
-
-	// REQUIRED; 请求的版本号，属于请求的公共参数。
-	Version string                                       `json:"Version"`
-	Error   *UpdateRelaySourceV4ResResponseMetadataError `json:"Error,omitempty"`
-}
-
-type UpdateRelaySourceV4ResResponseMetadataError struct {
-
-	// 错误码
-	Code *string `json:"Code,omitempty"`
-
-	// 错误信息
-	Message *string `json:"Message,omitempty"`
-}
-
 type UpdateSnapshotPresetBody struct {
 
 	// REQUIRED; 应用名称，由 1 到 30 位数字、字母、下划线及"-"和"."组成。
@@ -12374,52 +14036,218 @@ type UpdateSnapshotPresetResResponseMetadataError struct {
 	Message *string `json:"Message,omitempty"`
 }
 
-type UpdateTimeShiftPresetV3Body struct {
+type UpdateSubtitleTranscodePresetBody struct {
 
-	// REQUIRED; 应用名称，您可以调用ListTimeShiftPresetV2 [https://www.volcengine.com/docs/6469/1126883]接口，获取待更新时移配置的App取值。
+	// REQUIRED; 应用名称，您可以调用ListVhostSubtitleTranscodePreset [https://www.volcengine.com/docs/6469/1288712]接口，获取待更新字幕配置的 App 取值。
 	App string `json:"App"`
 
-	// REQUIRED; 最大时移时长，即允许用户回看的最长时间，单位为秒，支持的取值如下所示。
-	// * 86400：1 天；
-	// * 259200：3 天；
-	// * 604800：7 天；
-	// * 1296000：15 天。
-	MaxShiftTime int32 `json:"MaxShiftTime"`
+	// REQUIRED; 截图配置的名称，您可以调用ListVhostSubtitleTranscodePreset [https://www.volcengine.com/docs/6469/1288712]接口，获取待更新字幕配置的 PresetName
+	// 取值。
+	PresetName string `json:"PresetName"`
 
-	// REQUIRED; 域名空间名称，您可以调用ListTimeShiftPresetV2 [https://www.volcengine.com/docs/6469/1126883]接口，获取待更新时移配置的Vhost取值。
+	// REQUIRED; 原文字幕展示参数配置。
+	SourceLanguage UpdateSubtitleTranscodePresetBodySourceLanguage `json:"SourceLanguage"`
+
+	// REQUIRED; 关联转码配置后缀，一个字幕配置支持关联多个转码配置后缀。
+	Suffixes []string `json:"Suffixes"`
+
+	// REQUIRED; 域名空间，您可以调用 ListVhostSubtitleTranscodePreset [https://www.volcengine.com/docs/6469/1288712] 接口，获取待更新字幕配置的 Vhost
+	// 取值。
 	Vhost string `json:"Vhost"`
 
-	// 用于多码率时移的参数，为json字符串
-	MasterFormat *string `json:"MasterFormat,omitempty"`
+	// 字幕配置的描述信息。
+	Description *string `json:"Description,omitempty"`
 
-	// 0表示不需要 1表示需要
-	NeedTranscode *int32 `json:"NeedTranscode,omitempty"`
+	// 预设配置，使用预设配置是系统将自动对字体大小、字幕行数、每行最大字符数和边距参数（MarginVertical 和 MarginHorizontal）进行智能化适配。默认为空，表示不使用预设配置，支持的预设配置如下所示。
+	// * small ：小字幕。
+	// * medium：中字幕。
+	// * large：大字幕。 :::tip 使用预设配置时，字幕行数、每行最大字符数、左右边距和底部边距参数不生效，系统将使用预设配置自动进行计算。 :::
+	DisplayPreset *string `json:"DisplayPreset,omitempty"`
 
-	// nss配置
-	NssConfig *string `json:"NssConfig,omitempty"`
+	// 原文翻译成译文时使用的热词词库，总长度不超过 10000 个字符，默认为空。
+	GlossaryWordList []*string `json:"GlossaryWordList,omitempty"`
 
-	// 操作类型，不填默认更新关联，only_preset: 只更新模板配置，associate: 更新模板和关联
-	OperationType *string `json:"OperationType,omitempty"`
+	// 原文字幕识别时使用的热词词库，总长度不超过为 10000 个字符，默认为空。
+	HotWordList []*string `json:"HotWordList,omitempty"`
 
-	// 模板名称
-	PresetName   *string `json:"PresetName,omitempty"`
-	RecordObject *string `json:"RecordObject,omitempty"`
-	Status       *int32  `json:"Status,omitempty"`
+	// 设置在 16:9 分辨率场景下，每行字幕展示的最大字符数。 :::tip
+	// * 使用预设配置时，字幕每行最大字符数设置不生效。
+	// * 不使用预设配置时，字幕每行最大字符数必填。
+	// * 每个文字、字母、符号或数字均为一个字符。
+	// * 当屏幕分辨率改变时，屏幕上显示的每行文字数量会相应调整，以适应新的分辨率，确保文字的显示效果和阅读体验。 :::
+	MaxCharNumber *int32 `json:"MaxCharNumber,omitempty"`
 
-	// 开启时移的流名称，默认为空表示更新 App 级别的时移配置，不为空时表示更新 Stream 级别的时移配置。您可以调用ListTimeShiftPresetV2 [https://www.volcengine.com/docs/6469/1126883]接口，获取待更新时移配置的Stream取值并进行更新。
-	Stream *string `json:"Stream,omitempty"`
+	// 字幕展示的行数，同时适用于原文字幕和译文字幕，支持的取值及含义如下所示。
+	// * 0：（默认值）根据字幕字数自动进行分行展示；
+	// * 1：每种字幕展示一行；
+	// * 2：每种字幕展示两行。 :::tip
+	// * 使用预设配置时，字幕行数为自动分行展示。
+	// * 超出行内字数限制时表示字幕将超过显示范围，此时字幕内容将被截断。 :::
+	MaxRowNumber *int32 `json:"MaxRowNumber,omitempty"`
+
+	// 字幕位置设置，通过设置字幕距离画面左右边距和底部边距来指定字幕位置。
+	// :::tip
+	// * 使用预设配置时，字幕位置设置不生效。
+	// * 不使用预设配置时，字幕位置设置必填。 :::
+	Position *UpdateSubtitleTranscodePresetBodyPosition `json:"Position,omitempty"`
+
+	// 译文字幕展示参数配置列表，当前最多支持配置一种译文。
+	TargetLanguage []*UpdateSubtitleTranscodePresetBodyTargetLanguageItem `json:"TargetLanguage,omitempty"`
 }
 
-type UpdateTimeShiftPresetV3Res struct {
+// UpdateSubtitleTranscodePresetBodyPosition - 字幕位置设置，通过设置字幕距离画面左右边距和底部边距来指定字幕位置。
+// :::tip
+// * 使用预设配置时，字幕位置设置不生效。
+// * 不使用预设配置时，字幕位置设置必填。 :::
+type UpdateSubtitleTranscodePresetBodyPosition struct {
+
+	// 字幕距离画面两侧的边距与画面宽度的占比，使用归一化百分表示，取值范围为 [0,0.2]。
+	MarginHorizontal *float32 `json:"MarginHorizontal,omitempty"`
+
+	// 字幕距离画面底部的边距与画面高度的占比，使用归一化百分表示，取值范围为 [0,0.5]。
+	MarginVertical *float32 `json:"MarginVertical,omitempty"`
+	Relative       *string  `json:"Relative,omitempty"`
+}
+
+// UpdateSubtitleTranscodePresetBodySourceLanguage - 原文字幕展示参数配置。
+type UpdateSubtitleTranscodePresetBodySourceLanguage struct {
+
+	// REQUIRED; 是否展示原文字幕，取值及含义如下所示。
+	// * true：展示，此时将展示原文和译文双语字幕
+	// * false：不展示，此时将只展示译文字幕。
+	// :::tip 原文字幕语言和译文字幕语言相同时，仅展示译文字幕。 :::
+	Display bool `json:"Display"`
+
+	// REQUIRED; 原文字幕的字体，原文字幕字体根据原文字幕语言取值不同而不同，取值及含义如下所示。
+	// * 当原文字幕的语言是 zh 时，支持以下字体取值。 * siyuanheiti：思源黑体；
+	// * songtixi：宋体细；
+	// * songticu：宋体粗；
+	// * heitifan：黑体繁；
+	// * kaiti：楷体。
+	//
+	//
+	// * 当原文字幕的语言是 en 时，支持以下字体取值。 * inter：Inter；
+	// * roboto：Roboto；
+	// * opposans：OPPOSans；
+	// * siyuansongti：思源宋体；
+	// * montserrat：Montserrat。
+	//
+	//
+	// * 当原文字幕的语言是 ko 和 ja 时，支持 notosans(Noto Sans) 字体。
+	Font string `json:"Font"`
+
+	// REQUIRED; 原文字幕的字体颜色，支持以下几种方法进行定义。
+	// * 支持以 0x 或 # 开头，后面跟着十六进制颜色 RGB 值，再跟着 @+十六进制/百分比来表示的透明度值，来定义字幕的字体颜色。例如，设置 RGB 值为 FF0000，透明度为 5%的颜色时，您可以传入 0xFF0000@0x80、0xFF0000@0.5、#FF0000@0x80
+	// 或 #FF0000@0.5。
+	// * 支持使用前端框架 FFmpeg 规定的颜色关键字，来定义字幕的字体颜色。例如，AliceBlue 表示 0xF0F8FF、AntiqueWhite 表示 0xFAEBD7、Black 表示 0x000000 等。 :::tip 查看详细颜色定义方法及更多颜色关键字，请参考
+	// FFmpeg 的颜色定义语法
+	// [https://ffmpeg.org/ffmpeg-utils.html#color-syntax]。 :::
+	FontColor string `json:"FontColor"`
+
+	// REQUIRED; 原文字幕的语言，取值及含义如下所示。
+	// * zh：中英混合；
+	// * en：英语；
+	// * ko：韩语；
+	// * ja：日语。
+	Language string `json:"Language"`
+
+	// 原文字幕的阴影配置。
+	Border *UpdateSubtitleTranscodePresetBodySourceLanguageBorder `json:"Border,omitempty"`
+
+	// 原文字幕的字体大小，单位为 px，默认为空。 :::tip
+	// * 使用了预设配置时，字幕字体大小设置不生效。
+	// * 不使用预设配置时，字幕字体大小为必选参数。 :::
+	FontSize *int32 `json:"FontSize,omitempty"`
+}
+
+// UpdateSubtitleTranscodePresetBodySourceLanguageBorder - 原文字幕的阴影配置。
+type UpdateSubtitleTranscodePresetBodySourceLanguageBorder struct {
+
+	// REQUIRED; 描边的颜色，支持以下几种方法进行定义。
+	// * 支持以 0x 或 # 开头，后面跟着十六进制颜色 RGB 值，再跟着 @+十六进制/百分比来表示的透明度值，来定义字幕的字体颜色。例如，设置 RGB 值为 FF0000，透明度为 5%的颜色时，您可以传入 0xFF0000@0x80、0xFF0000@0.5、#FF0000@0x80
+	// 或 #FF0000@0.5。
+	// * 支持使用前端框架 FFmpeg 规定的颜色关键字，来定义字幕的字体颜色。例如，AliceBlue 表示 0xF0F8FF、AntiqueWhite 表示 0xFAEBD7、Black 表示 0x000000 等。 :::tip 查看详细颜色定义方法及更多颜色关键字，请参考
+	// FFmpeg 的颜色定义语法
+	// [https://ffmpeg.org/ffmpeg-utils.html#color-syntax]。 :::
+	Color string `json:"Color"`
+
+	// 填0的时候后端根据字体大小进行计算，字体大小/32*1.25
+	Width *int32 `json:"Width,omitempty"`
+}
+
+type UpdateSubtitleTranscodePresetBodyTargetLanguageItem struct {
+
+	// REQUIRED; 译文字幕的字体，译文字幕字体根据译文字幕语言取值不同而不同，取值及含义如下所示。
+	// * 当译文字幕的语言是 zh 时，支持以下字体取值。 * siyuanheiti：思源黑体；
+	// * songtixi：宋体细；
+	// * songticu：宋体粗；
+	// * heitifan：黑体繁；
+	// * kaiti：楷体。
+	//
+	//
+	// * 当译文字幕的语言是 zh-Hant 时，支持 siyuanheiti （思源黑体）字体。
+	// * 当译文字幕的语言是 en 时，支持以下字体取值。 * inter：Inter；
+	// * roboto：Roboto；
+	// * opposans：OPPOSans；
+	// * siyuansongti：思源宋体；
+	// * montserrat：Montserrat。
+	//
+	//
+	// * 当译文字幕的语言是 ko、ja、ar、de、es、fr、hi、pt、 ru、 vi、 th 时，支持 notosans(Noto Sans) 字体。
+	Font string `json:"Font"`
+
+	// REQUIRED; 译文字幕的字体颜色，支持以下几种方法进行定义。
+	// * 支持以 0x 或 # 开头，后面跟着十六进制颜色 RGB 值，再跟着 @+十六进制/百分比来表示的透明度值，来定义字幕的字体颜色。例如，设置 RGB 值为 FF0000，透明度为 5%的颜色时，您可以传入 0xFF0000@0x80、0xFF0000@0.5、#FF0000@0x80
+	// 或 #FF0000@0.5。
+	// * 支持使用前端框架 FFmpeg 规定的颜色关键字，来定义字幕的字体颜色。例如，AliceBlue 表示 0xF0F8FF、AntiqueWhite 表示 0xFAEBD7、Black 表示 0x000000 等。 :::tip 查看详细颜色定义方法及更多颜色关键字，请参考
+	// FFmpeg 的颜色定义语法
+	// [https://ffmpeg.org/ffmpeg-utils.html#color-syntax]。 :::
+	FontColor string `json:"FontColor"`
+
+	// REQUIRED; 译文字幕的语言，取值及含义如下所示。
+	// * zh：中英混合；
+	// * zh-Hant：繁体中文；
+	// * en：英语；
+	// * ko：韩语；
+	// * ja：日语；
+	// * ar：阿拉伯语；
+	// * de：德语；
+	// * es：西班牙语；
+	// * fr：法语；
+	// * hi：印地语；
+	// * pt：葡萄牙语；
+	// * ru：俄语；
+	// * vi：越南语；
+	// * th：泰语。
+	Language string `json:"Language"`
+
+	// 填0的时候后端根据字体大小进行计算，字体大小/32*1.25
+	Border *UpdateSubtitleTranscodePresetBodyTargetLanguageItemBorder `json:"Border,omitempty"`
+
+	// 译文字幕的字体大小，单位为 px，默认为空。 :::tip
+	// * 使用预设配置时，字幕字体大小设置不生效。
+	// * 不使用预设配置时，字幕字体大小为必选参数。 :::
+	FontSize *int32 `json:"FontSize,omitempty"`
+}
+
+// UpdateSubtitleTranscodePresetBodyTargetLanguageItemBorder - 填0的时候后端根据字体大小进行计算，字体大小/32*1.25
+type UpdateSubtitleTranscodePresetBodyTargetLanguageItemBorder struct {
 
 	// REQUIRED
-	ResponseMetadata UpdateTimeShiftPresetV3ResResponseMetadata `json:"ResponseMetadata"`
+	Color string `json:"Color"`
+	Width *int32 `json:"Width,omitempty"`
+}
+
+type UpdateSubtitleTranscodePresetRes struct {
+
+	// REQUIRED
+	ResponseMetadata UpdateSubtitleTranscodePresetResResponseMetadata `json:"ResponseMetadata"`
 
 	// 视请求的接口而定
 	Result interface{} `json:"Result,omitempty"`
 }
 
-type UpdateTimeShiftPresetV3ResResponseMetadata struct {
+type UpdateSubtitleTranscodePresetResResponseMetadata struct {
 
 	// REQUIRED; 请求的接口名，属于请求的公共参数。
 	Action string `json:"Action"`
@@ -12434,11 +14262,56 @@ type UpdateTimeShiftPresetV3ResResponseMetadata struct {
 	Service string `json:"Service"`
 
 	// REQUIRED; 请求的版本号，属于请求的公共参数。
-	Version string                                           `json:"Version"`
-	Error   *UpdateTimeShiftPresetV3ResResponseMetadataError `json:"Error,omitempty"`
+	Version string `json:"Version"`
 }
 
-type UpdateTimeShiftPresetV3ResResponseMetadataError struct {
+type UpdateTimeShiftPresetV2Body struct {
+
+	// REQUIRED
+	App string `json:"App"`
+
+	// REQUIRED
+	MaxShiftTime int32 `json:"MaxShiftTime"`
+
+	// REQUIRED
+	Preset string `json:"Preset"`
+
+	// REQUIRED
+	Type string `json:"Type"`
+
+	// REQUIRED
+	Vhost        string  `json:"Vhost"`
+	MasterFormat *string `json:"MasterFormat,omitempty"`
+	Status       *int32  `json:"Status,omitempty"`
+}
+
+type UpdateTimeShiftPresetV2Res struct {
+
+	// REQUIRED
+	ResponseMetadata UpdateTimeShiftPresetV2ResResponseMetadata `json:"ResponseMetadata"`
+
+	// Anything
+	Result interface{} `json:"Result,omitempty"`
+}
+
+type UpdateTimeShiftPresetV2ResResponseMetadata struct {
+
+	// REQUIRED
+	Action string `json:"Action"`
+
+	// REQUIRED
+	Region string `json:"Region"`
+
+	// REQUIRED
+	Service string `json:"Service"`
+
+	// REQUIRED
+	Version   string                                           `json:"Version"`
+	Error     *UpdateTimeShiftPresetV2ResResponseMetadataError `json:"Error,omitempty"`
+	RequestID *string                                          `json:"RequestID,omitempty"`
+}
+
+type UpdateTimeShiftPresetV2ResResponseMetadataError struct {
 
 	// 错误码
 	Code *string `json:"Code,omitempty"`
@@ -12811,7 +14684,7 @@ type UpdateWatermarkPresetBody struct {
 	// 水印相对宽度，水印宽度占直播转码流画面宽度的比例，取值范围为 [0,1]，水印高度会随宽度等比缩放。与水印相对高度字段冲突，请选择其中一个传参。
 	RelativeWidth *float32 `json:"RelativeWidth,omitempty"`
 
-	// 直播地址流名。
+	// 流名称，您可以调用ListVhostWatermarkPreset [https://www.volcengine.com/docs/6469/1126889]接口，查看待更新水印配置的 Stream 取值。
 	Stream *string `json:"Stream,omitempty"`
 }
 
@@ -12854,18 +14727,24 @@ type BindEncryptDRM struct{}
 type BindEncryptDRMQuery struct{}
 type CreateCert struct{}
 type CreateCertQuery struct{}
+type CreateCloudMixTask struct{}
+type CreateCloudMixTaskQuery struct{}
 type CreateDomainV2 struct{}
 type CreateDomainV2Query struct{}
+type CreateLiveVideoQualityAnalysisTask struct{}
+type CreateLiveVideoQualityAnalysisTaskQuery struct{}
+type CreatePullToPushGroup struct{}
+type CreatePullToPushGroupQuery struct{}
 type CreatePullToPushTask struct{}
 type CreatePullToPushTaskQuery struct{}
 type CreateRecordPresetV2 struct{}
 type CreateRecordPresetV2Query struct{}
-type CreateRelaySourceV4 struct{}
-type CreateRelaySourceV4Query struct{}
 type CreateSnapshotPreset struct{}
 type CreateSnapshotPresetQuery struct{}
-type CreateTimeShiftPresetV3 struct{}
-type CreateTimeShiftPresetV3Query struct{}
+type CreateSubtitleTranscodePreset struct{}
+type CreateSubtitleTranscodePresetQuery struct{}
+type CreateTimeShiftPresetV2 struct{}
+type CreateTimeShiftPresetV2Query struct{}
 type CreateTranscodePreset struct{}
 type CreateTranscodePresetQuery struct{}
 type CreateWatermarkPreset struct{}
@@ -12876,6 +14755,8 @@ type DeleteCallback struct{}
 type DeleteCallbackQuery struct{}
 type DeleteCert struct{}
 type DeleteCertQuery struct{}
+type DeleteCloudMixTask struct{}
+type DeleteCloudMixTaskQuery struct{}
 type DeleteClusterRateLimit struct{}
 type DeleteClusterRateLimitQuery struct{}
 type DeleteDomain struct{}
@@ -12890,6 +14771,10 @@ type DeleteIPAccessRule struct{}
 type DeleteIPAccessRuleQuery struct{}
 type DeleteLatencyConfig struct{}
 type DeleteLatencyConfigQuery struct{}
+type DeleteLiveVideoQualityAnalysisTask struct{}
+type DeleteLiveVideoQualityAnalysisTaskQuery struct{}
+type DeletePullToPushGroup struct{}
+type DeletePullToPushGroupQuery struct{}
 type DeletePullToPushTask struct{}
 type DeletePullToPushTaskQuery struct{}
 type DeleteRecordPreset struct{}
@@ -12902,12 +14787,12 @@ type DeleteRelaySourceRewrite struct{}
 type DeleteRelaySourceRewriteQuery struct{}
 type DeleteRelaySourceV3 struct{}
 type DeleteRelaySourceV3Query struct{}
-type DeleteRelaySourceV4 struct{}
-type DeleteRelaySourceV4Query struct{}
 type DeleteSnapshotPreset struct{}
 type DeleteSnapshotPresetQuery struct{}
-type DeleteTimeShiftPresetV3 struct{}
-type DeleteTimeShiftPresetV3Query struct{}
+type DeleteSubtitleTranscodePreset struct{}
+type DeleteSubtitleTranscodePresetQuery struct{}
+type DeleteTimeShiftPresetV2 struct{}
+type DeleteTimeShiftPresetV2Query struct{}
 type DeleteTranscodePreset struct{}
 type DeleteTranscodePresetQuery struct{}
 type DeleteUserAgentAccessRule struct{}
@@ -12935,6 +14820,9 @@ type DescribeDomainQuery struct{}
 type DescribeEncryptDRM struct{}
 type DescribeEncryptDRMBody struct{}
 type DescribeEncryptDRMQuery struct{}
+type DescribeEncryptHLS struct{}
+type DescribeEncryptHLSBody struct{}
+type DescribeEncryptHLSQuery struct{}
 type DescribeForbiddenStreamInfoByPage struct{}
 type DescribeForbiddenStreamInfoByPageBody struct{}
 type DescribeFormatAccessRule struct{}
@@ -12945,8 +14833,6 @@ type DescribeHTTPHeaderConfig struct{}
 type DescribeHTTPHeaderConfigQuery struct{}
 type DescribeIPAccessRule struct{}
 type DescribeIPAccessRuleQuery struct{}
-type DescribeIPInfo struct{}
-type DescribeIPInfoQuery struct{}
 type DescribeLatencyConfig struct{}
 type DescribeLatencyConfigQuery struct{}
 type DescribeLicenseDRM struct{}
@@ -12955,6 +14841,8 @@ type DescribeLiveASRDurationData struct{}
 type DescribeLiveASRDurationDataQuery struct{}
 type DescribeLiveBandwidthData struct{}
 type DescribeLiveBandwidthDataQuery struct{}
+type DescribeLiveBatchPushStreamMetrics struct{}
+type DescribeLiveBatchPushStreamMetricsQuery struct{}
 type DescribeLiveISPData struct{}
 type DescribeLiveISPDataBody struct{}
 type DescribeLiveISPDataQuery struct{}
@@ -13001,6 +14889,8 @@ type DescribeLiveTrafficData struct{}
 type DescribeLiveTrafficDataQuery struct{}
 type DescribeLiveTranscodeData struct{}
 type DescribeLiveTranscodeDataQuery struct{}
+type DescribeLiveTranscodeInfoData struct{}
+type DescribeLiveTranscodeInfoDataQuery struct{}
 type DescribeRecordTaskFileHistory struct{}
 type DescribeRecordTaskFileHistoryQuery struct{}
 type DescribeReferer struct{}
@@ -13025,26 +14915,40 @@ type GeneratePlayURL struct{}
 type GeneratePlayURLQuery struct{}
 type GeneratePushURL struct{}
 type GeneratePushURLQuery struct{}
+type GetCloudMixTaskDetail struct{}
+type GetCloudMixTaskDetailQuery struct{}
+type GetHLSEncryptDataKey struct{}
+type GetHLSEncryptDataKeyBody struct{}
+type GetLiveVideoQualityAnalysisTaskDetail struct{}
+type GetLiveVideoQualityAnalysisTaskDetailQuery struct{}
 type KillStream struct{}
 type KillStreamQuery struct{}
 type ListBindEncryptDRM struct{}
 type ListBindEncryptDRMQuery struct{}
 type ListCertV2 struct{}
 type ListCertV2Query struct{}
+type ListCloudMixTask struct{}
+type ListCloudMixTaskQuery struct{}
 type ListCommonTransPresetDetail struct{}
 type ListCommonTransPresetDetailQuery struct{}
 type ListDomainDetail struct{}
 type ListDomainDetailQuery struct{}
+type ListLiveVideoQualityAnalysisTasks struct{}
+type ListLiveVideoQualityAnalysisTasksQuery struct{}
+type ListPullToPushGroup struct{}
+type ListPullToPushGroupQuery struct{}
 type ListPullToPushTask struct{}
 type ListPullToPushTaskBody struct{}
-type ListRelaySourceV4 struct{}
-type ListRelaySourceV4Query struct{}
+type ListPullToPushTaskV2 struct{}
+type ListPullToPushTaskV2Query struct{}
 type ListTimeShiftPresetV2 struct{}
 type ListTimeShiftPresetV2Query struct{}
 type ListVhostRecordPresetV2 struct{}
 type ListVhostRecordPresetV2Query struct{}
 type ListVhostSnapshotPreset struct{}
 type ListVhostSnapshotPresetQuery struct{}
+type ListVhostSubtitleTranscodePreset struct{}
+type ListVhostSubtitleTranscodePresetQuery struct{}
 type ListVhostTransCodePreset struct{}
 type ListVhostTransCodePresetQuery struct{}
 type ListVhostWatermarkPreset struct{}
@@ -13067,12 +14971,16 @@ type UpdateCMAFConfig struct{}
 type UpdateCMAFConfigQuery struct{}
 type UpdateCallback struct{}
 type UpdateCallbackQuery struct{}
+type UpdateCloudMixTask struct{}
+type UpdateCloudMixTaskQuery struct{}
 type UpdateClusterRateLimit struct{}
 type UpdateClusterRateLimitQuery struct{}
 type UpdateDomainVhost struct{}
 type UpdateDomainVhostQuery struct{}
 type UpdateEncryptDRM struct{}
 type UpdateEncryptDRMQuery struct{}
+type UpdateEncryptHLS struct{}
+type UpdateEncryptHLSQuery struct{}
 type UpdateFormatAccessRule struct{}
 type UpdateFormatAccessRuleQuery struct{}
 type UpdateHLSConfig struct{}
@@ -13095,12 +15003,12 @@ type UpdateRelaySourceRewrite struct{}
 type UpdateRelaySourceRewriteQuery struct{}
 type UpdateRelaySourceV3 struct{}
 type UpdateRelaySourceV3Query struct{}
-type UpdateRelaySourceV4 struct{}
-type UpdateRelaySourceV4Query struct{}
 type UpdateSnapshotPreset struct{}
 type UpdateSnapshotPresetQuery struct{}
-type UpdateTimeShiftPresetV3 struct{}
-type UpdateTimeShiftPresetV3Query struct{}
+type UpdateSubtitleTranscodePreset struct{}
+type UpdateSubtitleTranscodePresetQuery struct{}
+type UpdateTimeShiftPresetV2 struct{}
+type UpdateTimeShiftPresetV2Query struct{}
 type UpdateTranscodePreset struct{}
 type UpdateTranscodePresetQuery struct{}
 type UpdateUserAgentAccessRule struct{}
@@ -13119,9 +15027,21 @@ type CreateCertReq struct {
 	*CreateCertQuery
 	*CreateCertBody
 }
+type CreateCloudMixTaskReq struct {
+	*CreateCloudMixTaskQuery
+	*CreateCloudMixTaskBody
+}
 type CreateDomainV2Req struct {
 	*CreateDomainV2Query
 	*CreateDomainV2Body
+}
+type CreateLiveVideoQualityAnalysisTaskReq struct {
+	*CreateLiveVideoQualityAnalysisTaskQuery
+	*CreateLiveVideoQualityAnalysisTaskBody
+}
+type CreatePullToPushGroupReq struct {
+	*CreatePullToPushGroupQuery
+	*CreatePullToPushGroupBody
 }
 type CreatePullToPushTaskReq struct {
 	*CreatePullToPushTaskQuery
@@ -13131,17 +15051,17 @@ type CreateRecordPresetV2Req struct {
 	*CreateRecordPresetV2Query
 	*CreateRecordPresetV2Body
 }
-type CreateRelaySourceV4Req struct {
-	*CreateRelaySourceV4Query
-	*CreateRelaySourceV4Body
-}
 type CreateSnapshotPresetReq struct {
 	*CreateSnapshotPresetQuery
 	*CreateSnapshotPresetBody
 }
-type CreateTimeShiftPresetV3Req struct {
-	*CreateTimeShiftPresetV3Query
-	*CreateTimeShiftPresetV3Body
+type CreateSubtitleTranscodePresetReq struct {
+	*CreateSubtitleTranscodePresetQuery
+	*CreateSubtitleTranscodePresetBody
+}
+type CreateTimeShiftPresetV2Req struct {
+	*CreateTimeShiftPresetV2Query
+	*CreateTimeShiftPresetV2Body
 }
 type CreateTranscodePresetReq struct {
 	*CreateTranscodePresetQuery
@@ -13162,6 +15082,10 @@ type DeleteCallbackReq struct {
 type DeleteCertReq struct {
 	*DeleteCertQuery
 	*DeleteCertBody
+}
+type DeleteCloudMixTaskReq struct {
+	*DeleteCloudMixTaskQuery
+	*DeleteCloudMixTaskBody
 }
 type DeleteClusterRateLimitReq struct {
 	*DeleteClusterRateLimitQuery
@@ -13191,6 +15115,14 @@ type DeleteLatencyConfigReq struct {
 	*DeleteLatencyConfigQuery
 	*DeleteLatencyConfigBody
 }
+type DeleteLiveVideoQualityAnalysisTaskReq struct {
+	*DeleteLiveVideoQualityAnalysisTaskQuery
+	*DeleteLiveVideoQualityAnalysisTaskBody
+}
+type DeletePullToPushGroupReq struct {
+	*DeletePullToPushGroupQuery
+	*DeletePullToPushGroupBody
+}
 type DeletePullToPushTaskReq struct {
 	*DeletePullToPushTaskQuery
 	*DeletePullToPushTaskBody
@@ -13215,17 +15147,17 @@ type DeleteRelaySourceV3Req struct {
 	*DeleteRelaySourceV3Query
 	*DeleteRelaySourceV3Body
 }
-type DeleteRelaySourceV4Req struct {
-	*DeleteRelaySourceV4Query
-	*DeleteRelaySourceV4Body
-}
 type DeleteSnapshotPresetReq struct {
 	*DeleteSnapshotPresetQuery
 	*DeleteSnapshotPresetBody
 }
-type DeleteTimeShiftPresetV3Req struct {
-	*DeleteTimeShiftPresetV3Query
-	*DeleteTimeShiftPresetV3Body
+type DeleteSubtitleTranscodePresetReq struct {
+	*DeleteSubtitleTranscodePresetQuery
+	*DeleteSubtitleTranscodePresetBody
+}
+type DeleteTimeShiftPresetV2Req struct {
+	*DeleteTimeShiftPresetV2Query
+	*DeleteTimeShiftPresetV2Body
 }
 type DeleteTranscodePresetReq struct {
 	*DeleteTranscodePresetQuery
@@ -13279,6 +15211,10 @@ type DescribeEncryptDRMReq struct {
 	*DescribeEncryptDRMQuery
 	*DescribeEncryptDRMBody
 }
+type DescribeEncryptHLSReq struct {
+	*DescribeEncryptHLSQuery
+	*DescribeEncryptHLSBody
+}
 type DescribeForbiddenStreamInfoByPageReq struct {
 	*DescribeForbiddenStreamInfoByPageQuery
 	*DescribeForbiddenStreamInfoByPageBody
@@ -13299,10 +15235,6 @@ type DescribeIPAccessRuleReq struct {
 	*DescribeIPAccessRuleQuery
 	*DescribeIPAccessRuleBody
 }
-type DescribeIPInfoReq struct {
-	*DescribeIPInfoQuery
-	*DescribeIPInfoBody
-}
 type DescribeLatencyConfigReq struct {
 	*DescribeLatencyConfigQuery
 	*DescribeLatencyConfigBody
@@ -13318,6 +15250,10 @@ type DescribeLiveASRDurationDataReq struct {
 type DescribeLiveBandwidthDataReq struct {
 	*DescribeLiveBandwidthDataQuery
 	*DescribeLiveBandwidthDataBody
+}
+type DescribeLiveBatchPushStreamMetricsReq struct {
+	*DescribeLiveBatchPushStreamMetricsQuery
+	*DescribeLiveBatchPushStreamMetricsBody
 }
 type DescribeLiveISPDataReq struct {
 	*DescribeLiveISPDataQuery
@@ -13407,6 +15343,10 @@ type DescribeLiveTranscodeDataReq struct {
 	*DescribeLiveTranscodeDataQuery
 	*DescribeLiveTranscodeDataBody
 }
+type DescribeLiveTranscodeInfoDataReq struct {
+	*DescribeLiveTranscodeInfoDataQuery
+	*DescribeLiveTranscodeInfoDataBody
+}
 type DescribeRecordTaskFileHistoryReq struct {
 	*DescribeRecordTaskFileHistoryQuery
 	*DescribeRecordTaskFileHistoryBody
@@ -13455,6 +15395,18 @@ type GeneratePushURLReq struct {
 	*GeneratePushURLQuery
 	*GeneratePushURLBody
 }
+type GetCloudMixTaskDetailReq struct {
+	*GetCloudMixTaskDetailQuery
+	*GetCloudMixTaskDetailBody
+}
+type GetHLSEncryptDataKeyReq struct {
+	*GetHLSEncryptDataKeyQuery
+	*GetHLSEncryptDataKeyBody
+}
+type GetLiveVideoQualityAnalysisTaskDetailReq struct {
+	*GetLiveVideoQualityAnalysisTaskDetailQuery
+	*GetLiveVideoQualityAnalysisTaskDetailBody
+}
 type KillStreamReq struct {
 	*KillStreamQuery
 	*KillStreamBody
@@ -13467,6 +15419,10 @@ type ListCertV2Req struct {
 	*ListCertV2Query
 	*ListCertV2Body
 }
+type ListCloudMixTaskReq struct {
+	*ListCloudMixTaskQuery
+	*ListCloudMixTaskBody
+}
 type ListCommonTransPresetDetailReq struct {
 	*ListCommonTransPresetDetailQuery
 	*ListCommonTransPresetDetailBody
@@ -13475,13 +15431,21 @@ type ListDomainDetailReq struct {
 	*ListDomainDetailQuery
 	*ListDomainDetailBody
 }
+type ListLiveVideoQualityAnalysisTasksReq struct {
+	*ListLiveVideoQualityAnalysisTasksQuery
+	*ListLiveVideoQualityAnalysisTasksBody
+}
+type ListPullToPushGroupReq struct {
+	*ListPullToPushGroupQuery
+	*ListPullToPushGroupBody
+}
 type ListPullToPushTaskReq struct {
 	*ListPullToPushTaskQuery
 	*ListPullToPushTaskBody
 }
-type ListRelaySourceV4Req struct {
-	*ListRelaySourceV4Query
-	*ListRelaySourceV4Body
+type ListPullToPushTaskV2Req struct {
+	*ListPullToPushTaskV2Query
+	*ListPullToPushTaskV2Body
 }
 type ListTimeShiftPresetV2Req struct {
 	*ListTimeShiftPresetV2Query
@@ -13494,6 +15458,10 @@ type ListVhostRecordPresetV2Req struct {
 type ListVhostSnapshotPresetReq struct {
 	*ListVhostSnapshotPresetQuery
 	*ListVhostSnapshotPresetBody
+}
+type ListVhostSubtitleTranscodePresetReq struct {
+	*ListVhostSubtitleTranscodePresetQuery
+	*ListVhostSubtitleTranscodePresetBody
 }
 type ListVhostTransCodePresetReq struct {
 	*ListVhostTransCodePresetQuery
@@ -13539,6 +15507,10 @@ type UpdateCallbackReq struct {
 	*UpdateCallbackQuery
 	*UpdateCallbackBody
 }
+type UpdateCloudMixTaskReq struct {
+	*UpdateCloudMixTaskQuery
+	*UpdateCloudMixTaskBody
+}
 type UpdateClusterRateLimitReq struct {
 	*UpdateClusterRateLimitQuery
 	*UpdateClusterRateLimitBody
@@ -13550,6 +15522,10 @@ type UpdateDomainVhostReq struct {
 type UpdateEncryptDRMReq struct {
 	*UpdateEncryptDRMQuery
 	*UpdateEncryptDRMBody
+}
+type UpdateEncryptHLSReq struct {
+	*UpdateEncryptHLSQuery
+	*UpdateEncryptHLSBody
 }
 type UpdateFormatAccessRuleReq struct {
 	*UpdateFormatAccessRuleQuery
@@ -13595,17 +15571,17 @@ type UpdateRelaySourceV3Req struct {
 	*UpdateRelaySourceV3Query
 	*UpdateRelaySourceV3Body
 }
-type UpdateRelaySourceV4Req struct {
-	*UpdateRelaySourceV4Query
-	*UpdateRelaySourceV4Body
-}
 type UpdateSnapshotPresetReq struct {
 	*UpdateSnapshotPresetQuery
 	*UpdateSnapshotPresetBody
 }
-type UpdateTimeShiftPresetV3Req struct {
-	*UpdateTimeShiftPresetV3Query
-	*UpdateTimeShiftPresetV3Body
+type UpdateSubtitleTranscodePresetReq struct {
+	*UpdateSubtitleTranscodePresetQuery
+	*UpdateSubtitleTranscodePresetBody
+}
+type UpdateTimeShiftPresetV2Req struct {
+	*UpdateTimeShiftPresetV2Query
+	*UpdateTimeShiftPresetV2Body
 }
 type UpdateTranscodePresetReq struct {
 	*UpdateTranscodePresetQuery

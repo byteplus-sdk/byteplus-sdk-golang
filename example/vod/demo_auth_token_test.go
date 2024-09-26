@@ -74,3 +74,16 @@ func TestVod_GetUploadAuthWithExpiredTime(t *testing.T) {
 	b2, _ := json.Marshal(ret2)
 	fmt.Println(string(b2))
 }
+func TestVod_GetSha1HlsDrmAuthToken(t *testing.T) {
+	instance := vod.NewInstance()
+	//instance.SetCredential(base.Credentials{
+	// AccessKeyID:     "your ak",
+	// SecretAccessKey: "your sk",
+	//})
+	// or set ak and ak as follow
+	instance.SetAccessKey("")
+	instance.SetSecretKey("")
+	expireDuration := int64(6000000) //change to your expire duration (s), no default duration
+	hlsToken, _ := instance.CreateSha1HlsDrmAuthToken(expireDuration)
+	fmt.Println(hlsToken)
+}

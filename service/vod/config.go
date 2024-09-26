@@ -78,6 +78,14 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
+		"GetHlsDecryptionKey": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"GetHlsDecryptionKey"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
 
 		// **********************************************************************
 		// 上传

@@ -9,7 +9,7 @@ import (
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/live/v20230101"
 )
 
-func Test_CreateTimeShiftPresetV3(t *testing.T) {
+func Test_ListLiveVideoQualityAnalysisTasks(t *testing.T) {
 	instance := live_v20230101.NewInstance()
 
 	instance.SetCredential(base.Credentials{
@@ -17,9 +17,9 @@ func Test_CreateTimeShiftPresetV3(t *testing.T) {
 		SecretAccessKey: "sk",
 	})
 
-	param := &live_v20230101.CreateTimeShiftPresetV3Body{}
+	param := &live_v20230101.ListLiveVideoQualityAnalysisTasksBody{}
 
-	resp, err := instance.CreateTimeShiftPresetV3(param)
+	resp, err := instance.ListLiveVideoQualityAnalysisTasks(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

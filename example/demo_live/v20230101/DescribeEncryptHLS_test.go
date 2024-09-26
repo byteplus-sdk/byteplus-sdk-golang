@@ -9,7 +9,7 @@ import (
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/live/v20230101"
 )
 
-func Test_ListRelaySourceV4(t *testing.T) {
+func Test_DescribeEncryptHLS(t *testing.T) {
 	instance := live_v20230101.NewInstance()
 
 	instance.SetCredential(base.Credentials{
@@ -17,9 +17,7 @@ func Test_ListRelaySourceV4(t *testing.T) {
 		SecretAccessKey: "sk",
 	})
 
-	param := &live_v20230101.ListRelaySourceV4Body{}
-
-	resp, err := instance.ListRelaySourceV4(param)
+	resp, err := instance.DescribeEncryptHLS()
 
 	if err != nil {
 		fmt.Printf("error %v", err)

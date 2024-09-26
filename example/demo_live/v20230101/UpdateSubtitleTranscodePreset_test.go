@@ -9,7 +9,7 @@ import (
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/live/v20230101"
 )
 
-func Test_CreateRelaySourceV4(t *testing.T) {
+func Test_UpdateSubtitleTranscodePreset(t *testing.T) {
 	instance := live_v20230101.NewInstance()
 
 	instance.SetCredential(base.Credentials{
@@ -17,9 +17,9 @@ func Test_CreateRelaySourceV4(t *testing.T) {
 		SecretAccessKey: "sk",
 	})
 
-	param := &live_v20230101.CreateRelaySourceV4Body{}
+	param := &live_v20230101.UpdateSubtitleTranscodePresetBody{}
 
-	resp, err := instance.CreateRelaySourceV4(param)
+	resp, err := instance.UpdateSubtitleTranscodePreset(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

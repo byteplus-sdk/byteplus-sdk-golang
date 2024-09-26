@@ -190,19 +190,27 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"DeleteTimeShiftPresetV3": {
+		"DeleteTimeShiftPresetV2": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{"DeleteTimeShiftPresetV3"},
+				"Action":  []string{"DeleteTimeShiftPresetV2"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"UpdateTimeShiftPresetV3": {
+		"CreateTimeShiftPresetV2": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{"UpdateTimeShiftPresetV3"},
+				"Action":  []string{"CreateTimeShiftPresetV2"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"UpdateTimeShiftPresetV2": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"UpdateTimeShiftPresetV2"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -211,14 +219,6 @@ var (
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"ListTimeShiftPresetV2"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"CreateTimeShiftPresetV3": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreateTimeShiftPresetV3"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -350,6 +350,38 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
+		"CreateLiveVideoQualityAnalysisTask": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"CreateLiveVideoQualityAnalysisTask"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DeleteLiveVideoQualityAnalysisTask": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DeleteLiveVideoQualityAnalysisTask"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"GetLiveVideoQualityAnalysisTaskDetail": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"GetLiveVideoQualityAnalysisTaskDetail"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"ListLiveVideoQualityAnalysisTasks": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"ListLiveVideoQualityAnalysisTasks"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
 		"StopPullToPushTask": {
 			Method: http.MethodPost,
 			Path:   "/",
@@ -366,11 +398,27 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
+		"CreatePullToPushGroup": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"CreatePullToPushGroup"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
 		"DeletePullToPushTask": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"DeletePullToPushTask"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DeletePullToPushGroup": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DeletePullToPushGroup"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -390,6 +438,14 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
+		"ListPullToPushGroup": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"ListPullToPushGroup"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
 		"ListPullToPushTask": {
 			Method: http.MethodGet,
 			Path:   "/",
@@ -398,19 +454,19 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
+		"ListPullToPushTaskV2": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"ListPullToPushTaskV2"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
 		"DeleteRelaySourceRewrite": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"DeleteRelaySourceRewrite"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"DeleteRelaySourceV4": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DeleteRelaySourceV4"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -430,14 +486,6 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"UpdateRelaySourceV4": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"UpdateRelaySourceV4"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
 		"DescribeRelaySourceRewrite": {
 			Method: http.MethodPost,
 			Path:   "/",
@@ -446,27 +494,11 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"ListRelaySourceV4": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"ListRelaySourceV4"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
 		"DescribeRelaySourceV3": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"DescribeRelaySourceV3"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
-		"CreateRelaySourceV4": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"CreateRelaySourceV4"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -550,14 +582,6 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"DescribeIpInfo": {
-			Method: http.MethodPost,
-			Path:   "/",
-			Query: url.Values{
-				"Action":  []string{"DescribeIpInfo"},
-				"Version": []string{"2023-01-01"},
-			},
-		},
 		"DescribeLiveRegionData": {
 			Method: http.MethodPost,
 			Path:   "/",
@@ -598,11 +622,27 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
+		"DescribeLiveBatchPushStreamMetrics": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeLiveBatchPushStreamMetrics"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
 		"DescribeLivePushStreamInfoData": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"DescribeLivePushStreamInfoData"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DescribeLiveTranscodeInfoData": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeLiveTranscodeInfoData"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -838,6 +878,30 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
+		"UpdateEncryptHLS": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"UpdateEncryptHLS"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"GetHLSEncryptDataKey": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"GetHLSEncryptDataKey"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DescribeEncryptHLS": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeEncryptHLS"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
 		"DescribeLicenseDRM": {
 			Method: http.MethodPost,
 			Path:   "/",
@@ -966,6 +1030,14 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
+		"DescribeLatencyConfig": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeLatencyConfig"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
 		"UpdateLatencyConfig": {
 			Method: http.MethodPost,
 			Path:   "/",
@@ -974,11 +1046,43 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"DescribeLatencyConfig": {
+		"CreateCloudMixTask": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{"DescribeLatencyConfig"},
+				"Action":  []string{"CreateCloudMixTask"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"UpdateCloudMixTask": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"UpdateCloudMixTask"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"GetCloudMixTaskDetail": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"GetCloudMixTaskDetail"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"ListCloudMixTask": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"ListCloudMixTask"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DeleteCloudMixTask": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DeleteCloudMixTask"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -1051,6 +1155,38 @@ var (
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"UpdateFormatAccessRule"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DeleteSubtitleTranscodePreset": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DeleteSubtitleTranscodePreset"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"UpdateSubtitleTranscodePreset": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"UpdateSubtitleTranscodePreset"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"ListVhostSubtitleTranscodePreset": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"ListVhostSubtitleTranscodePreset"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"CreateSubtitleTranscodePreset": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"CreateSubtitleTranscodePreset"},
 				"Version": []string{"2023-01-01"},
 			},
 		},

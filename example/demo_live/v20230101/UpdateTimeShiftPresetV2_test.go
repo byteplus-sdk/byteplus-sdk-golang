@@ -9,7 +9,7 @@ import (
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/live/v20230101"
 )
 
-func Test_DescribeIPInfo(t *testing.T) {
+func Test_UpdateTimeShiftPresetV2(t *testing.T) {
 	instance := live_v20230101.NewInstance()
 
 	instance.SetCredential(base.Credentials{
@@ -17,9 +17,9 @@ func Test_DescribeIPInfo(t *testing.T) {
 		SecretAccessKey: "sk",
 	})
 
-	param := &live_v20230101.DescribeIPInfoBody{}
+	param := &live_v20230101.UpdateTimeShiftPresetV2Body{}
 
-	resp, err := instance.DescribeIPInfo(param)
+	resp, err := instance.UpdateTimeShiftPresetV2(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)
