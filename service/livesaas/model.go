@@ -321,6 +321,8 @@ type Basic struct {
 	IsSDKPlayEnable           int32               `thrift:"IsSDKPlayEnable,68" json:"IsSDKPlayEnable"`
 	SDKPlayStatus             int32               `thrift:"SDKPlayStatus,69" json:"SDKPlayStatus"`
 	IsColorSync               int32               `thrift:"IsColorSync,70" json:"IsColorSync"`
+	VerticalCoverImageUrl     string              `thrift:"VerticalCoverImageUrl,21" json:"VerticalCoverImageUrl"`
+	CreateTime                int64               `thrift:"CreateTime,71" json:"CreateTime"`
 }
 
 type ActMediaForm struct {
@@ -532,4 +534,48 @@ type Products struct {
 	Product        []*ProductMsg `thrift:"Product,2" json:"Product"`
 	EnableUA       bool          `thrift:"EnableUA,3" json:"EnableUA"`
 	UAAddress      string        `thrift:"UAAddress,4" json:"UAAddress"`
+}
+
+type GetBusinessAccountInfoAPIResponse struct {
+	ResponseMetadata base.ResponseMetadata                  `json:"ResponseMetadata"`
+	Result           *GetBusinessAccountInfoAPIResponseBody `json:"Result"`
+}
+
+type GetBusinessAccountInfoAPIResponseBody struct {
+	IsBusinessAccountEnable int                        `json:"IsBusinessAccountEnable"`
+	BusinessAccountInfo     *BusinessAccountInfoDetail `json:"BusinessAccountInfo"`
+}
+
+type BusinessAccountInfoDetail struct {
+	AccountName            string `json:"AccountName"`
+	HostAccountID          int    `json:"HostAccountId"`
+	AccountHeadImage       string `json:"AccountHeadImage"`
+	AccountHeadRedirectURL string `json:"AccountHeadRedirectUrl"`
+	ExternalPlatformID     string `json:"ExternalPlatformId"`
+	ExtraInfo              string `json:"ExtraInfo"`
+}
+
+type ListActivityFeedInfosAPIResponse struct {
+	ResponseMetadata *base.ResponseMetadata
+	Result           *ListActivityFeedInfosAPIResponseBody `json:"Result,omitempty"`
+}
+
+type ListActivityFeedInfosAPIResponseBody struct {
+	PageNumber int32               `thrift:"PageNumber,1" frugal:"1,default,i32" json:"PageNumber"`
+	PageSize   int32               `thrift:"PageSize,2" frugal:"2,default,i32" json:"PageSize"`
+	TotalCount int32               `thrift:"TotalCount,3" frugal:"3,default,i32" json:"TotalCount"`
+	List       []*ActivityFeedInfo `thrift:"List,4" frugal:"4,default,list<ActivityFeedInfo>" json:"List"`
+}
+
+type ActivityFeedInfo struct {
+	ActivityId            int64  `thrift:"ActivityId,1" frugal:"1,default,i64" json:"ActivityId"`
+	ActivityName          string `thrift:"ActivityName,2" frugal:"2,default,string" json:"ActivityName"`
+	Status                int32  `thrift:"Status,3" frugal:"3,default,i32" json:"Status"`
+	CoverImageUrl         string `thrift:"CoverImageUrl,4" frugal:"4,default,string" json:"CoverImageUrl"`
+	VerticalCoverImageUrl string `thrift:"VerticalCoverImageUrl,5" frugal:"5,default,string" json:"VerticalCoverImageUrl"`
+	Token                 string `thrift:"Token,6" frugal:"6,default,string" json:"Token"`
+	VirtualPeopleCount    int64  `thrift:"VirtualPeopleCount,7" frugal:"7,default,i64" json:"VirtualPeopleCount"`
+	HostName              string `thrift:"HostName,8" frugal:"8,default,string" json:"HostName"`
+	HostAvatarImageUrl    string `thrift:"HostAvatarImageUrl,9" frugal:"9,default,string" json:"HostAvatarImageUrl"`
+	CreateTime            int64  `thrift:"CreateTime,10" frugal:"10,default,i64" json:"CreateTime"`
 }

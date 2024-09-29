@@ -81,3 +81,21 @@ func (p *LIVESAAS) ListActivityDetailInfoAPI(query url.Values) (*ListActivityDet
 	}
 	return resp, statesCode, nil
 }
+
+func (p *LIVESAAS) GetBusinessAccountInfoAPI(query url.Values) (*GetBusinessAccountInfoAPIResponse, int, error) {
+	resp := new(GetBusinessAccountInfoAPIResponse)
+	statesCode, err := p.commonHandler("GetBusinessAccountInfoAPI", query, resp)
+	if err != nil {
+		return nil, statesCode, err
+	}
+	return resp, statesCode, nil
+}
+
+func (p *LIVESAAS) ListActivityFeedInfosAPI(query url.Values) (*ListActivityFeedInfosAPIResponse, int, error) {
+	resp := new(ListActivityFeedInfosAPIResponse)
+	statesCode, err := p.commonHandler("ListActivityFeedInfosAPI", query, resp)
+	if err != nil {
+		return nil, statesCode, err
+	}
+	return resp, statesCode, nil
+}

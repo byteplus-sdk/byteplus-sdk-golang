@@ -73,6 +73,22 @@ var (
 				"Version": []string{ServiceVersion20230801},
 			},
 		},
+		"GetBusinessAccountInfoAPI": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"GetBusinessAccountInfoAPI"},
+				"Version": []string{ServiceVersion20230801},
+			},
+		},
+		"ListActivityFeedInfosAPI": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"ListActivityFeedInfosAPI"},
+				"Version": []string{ServiceVersion20230801},
+			},
+		},
 	}
 )
 
