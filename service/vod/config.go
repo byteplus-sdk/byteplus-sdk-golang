@@ -121,7 +121,6 @@ var (
 				"Action":  []string{"CommitUploadInfo"},
 				"Version": []string{"2023-01-01"},
 			},
-			Timeout: 8 * time.Second,
 		},
 
 		// **********************************************************************
