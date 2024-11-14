@@ -245,6 +245,28 @@ func (p *Vod) GetPlayAuthToken(req *request.VodGetPlayInfoRequest, tokenExpireTi
 	}
 }
 
+func (p *Vod) GetFairPlayCertSignUrl(certId string, expireTime int) (string, error) {
+	if len(certId) == 0 {
+		return "", errors.New("CertId is empty")
+	}
+	query := url.Values{}
+	query.Set("CertId", certId)
+	if expireTime > 0 {
+		query.Add("X-Expires", strconv.Itoa(expireTime))
+	}
+	rawQuery, err := p.GetSignUrl("GetFairPlayCert", query)
+	if err != nil {
+		return "", err
+	}
+	u := url.URL{
+		Scheme:   p.ServiceInfo.Scheme,
+		Host:     p.ServiceInfo.Host,
+		Path:     p.ApiInfoList["GetFairPlayCert"].Path,
+		RawQuery: rawQuery,
+	}
+	return u.String(), nil
+}
+
 func (p *Vod) UploadObjectWithCallback(filePath string, spaceName string, callbackArgs string, fileName, fileExtension string, funcs string) (*response.VodCommitUploadInfoResponse, int, error) {
 	file, err := os.Open(filepath.Clean(filePath))
 	if err != nil {

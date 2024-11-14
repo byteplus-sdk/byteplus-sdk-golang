@@ -525,5 +525,13 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
+		"GetFairPlayCert": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"GetFairPlayCert"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
 	}
 )

@@ -36,3 +36,24 @@ func Test_GetThirdPartyDrmAuthToken(t *testing.T) {
 	}
 	fmt.Println(newToken)
 }
+
+func Test_GetFairplayCertUrl(t *testing.T) {
+	certId := "your Cert Id"
+	expireTime := 600000 // Url Expire Duration（s）
+	instance := vod.NewInstance()
+
+	//instance.SetCredential(base.Credentials{
+	// AccessKeyID:     "your ak",
+	// SecretAccessKey: "your sk",
+	//})
+
+	// or set ak and ak as follow
+	instance.SetAccessKey("your ak")
+	instance.SetSecretKey("your sk")
+
+	certUrl, err := instance.GetFairPlayCertSignUrl(certId, expireTime)
+	if err != nil {
+		t.Fatal(err)
+	}
+	fmt.Println(certUrl)
+}
