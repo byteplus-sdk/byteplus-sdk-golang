@@ -128,6 +128,7 @@ type AddTemplateDomainRequest struct {
 	Project           *string `json:",omitempty"`
 	ServiceRegion     *string `json:",omitempty"`
 	ServiceTemplateId string
+	Tags              []ResourceTag
 }
 
 type AddTemplateDomainResponse struct {
@@ -363,6 +364,7 @@ type CdnTemplateDomain struct {
 	SparrowRules  []SparrowRule
 	SparrowSwitch string
 	Status        string
+	Tags          []ResourceTag
 	Templates     []CdnTemplate
 	WAFStatus     string
 }
@@ -2536,6 +2538,16 @@ type SubmitUnblockTaskResult struct {
 	TaskID string
 }
 
+type TagResourcesRequest struct {
+	ResourceIds  []string
+	ResourceType string
+	Tags         []ResourceTag
+}
+
+type TagResourcesResponse struct {
+	ResponseMetadata *ResponseMetadata `json:",omitempty"`
+}
+
 type TargetQueryComponents struct {
 	Action *string `json:",omitempty"`
 	Value  *string `json:",omitempty"`
@@ -2630,6 +2642,16 @@ type TosAuthInformation struct {
 type URLNormalize struct {
 	NormalizeObject []string
 	Switch          *bool `json:",omitempty"`
+}
+
+type UntagResourcesRequest struct {
+	ResourceIds  []string
+	ResourceType string
+	TagKeys      []string
+}
+
+type UntagResourcesResponse struct {
+	ResponseMetadata *ResponseMetadata `json:",omitempty"`
 }
 
 type UpdateCdnConfigRequest struct {

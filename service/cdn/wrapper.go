@@ -780,3 +780,25 @@ func (s *CDN) ListUsageReports(dto *ListUsageReportsRequest) (responseBody *List
 	}
 	return
 }
+
+func (s *CDN) TagResources(dto *TagResourcesRequest) (responseBody *TagResourcesResponse, err error) {
+	responseBody = new(TagResourcesResponse)
+	if err = s.post("TagResources", dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) UntagResources(dto *UntagResourcesRequest) (responseBody *UntagResourcesResponse, err error) {
+	responseBody = new(UntagResourcesResponse)
+	if err = s.post("UntagResources", dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}

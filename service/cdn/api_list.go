@@ -575,4 +575,20 @@ var ApiInfoList = map[string]*base.ApiInfo{
 			"Version": []string{ServiceVersion},
 		},
 	},
+	"TagResources": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"TagResources"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"UntagResources": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"UntagResources"},
+			"Version": []string{ServiceVersion},
+		},
+	},
 }
