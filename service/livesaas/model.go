@@ -567,15 +567,22 @@ type ListActivityFeedInfosAPIResponseBody struct {
 	List       []*ActivityFeedInfo `thrift:"List,4" frugal:"4,default,list<ActivityFeedInfo>" json:"List"`
 }
 
+type ActTagAPI struct {
+	Value string `thrift:"Value,1" frugal:"1,default,string" json:"Value"`
+	Index int32  `thrift:"Index,2" frugal:"2,default,i32" json:"Index"`
+	Name  string `thrift:"Name,3" frugal:"3,default,string" json:"Name"`
+}
+
 type ActivityFeedInfo struct {
-	ActivityId            int64  `thrift:"ActivityId,1" frugal:"1,default,i64" json:"ActivityId"`
-	ActivityName          string `thrift:"ActivityName,2" frugal:"2,default,string" json:"ActivityName"`
-	Status                int32  `thrift:"Status,3" frugal:"3,default,i32" json:"Status"`
-	CoverImageUrl         string `thrift:"CoverImageUrl,4" frugal:"4,default,string" json:"CoverImageUrl"`
-	VerticalCoverImageUrl string `thrift:"VerticalCoverImageUrl,5" frugal:"5,default,string" json:"VerticalCoverImageUrl"`
-	Token                 string `thrift:"Token,6" frugal:"6,default,string" json:"Token"`
-	VirtualPeopleCount    int64  `thrift:"VirtualPeopleCount,7" frugal:"7,default,i64" json:"VirtualPeopleCount"`
-	HostName              string `thrift:"HostName,8" frugal:"8,default,string" json:"HostName"`
-	HostAvatarImageUrl    string `thrift:"HostAvatarImageUrl,9" frugal:"9,default,string" json:"HostAvatarImageUrl"`
-	CreateTime            int64  `thrift:"CreateTime,10" frugal:"10,default,i64" json:"CreateTime"`
+	ActivityId            int64        `thrift:"ActivityId,1" frugal:"1,default,i64" json:"ActivityId"`
+	ActivityName          string       `thrift:"ActivityName,2" frugal:"2,default,string" json:"ActivityName"`
+	Status                int32        `thrift:"Status,3" frugal:"3,default,i32" json:"Status"`
+	CoverImageUrl         string       `thrift:"CoverImageUrl,4" frugal:"4,default,string" json:"CoverImageUrl"`
+	VerticalCoverImageUrl string       `thrift:"VerticalCoverImageUrl,5" frugal:"5,default,string" json:"VerticalCoverImageUrl"`
+	Token                 string       `thrift:"Token,6" frugal:"6,default,string" json:"Token"`
+	VirtualPeopleCount    int64        `thrift:"VirtualPeopleCount,7" frugal:"7,default,i64" json:"VirtualPeopleCount"`
+	HostName              string       `thrift:"HostName,8" frugal:"8,default,string" json:"HostName"`
+	HostAvatarImageUrl    string       `thrift:"HostAvatarImageUrl,9" frugal:"9,default,string" json:"HostAvatarImageUrl"`
+	CreateTime            int64        `thrift:"CreateTime,10" frugal:"10,default,i64" json:"CreateTime"`
+	SiteTags              []*ActTagAPI `thrift:"SiteTags,11" frugal:"11,default,list<ActTagAPI>" json:"SiteTags"`
 }
