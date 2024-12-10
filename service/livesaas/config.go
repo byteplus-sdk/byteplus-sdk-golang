@@ -89,6 +89,14 @@ var (
 				"Version": []string{ServiceVersion20230801},
 			},
 		},
+		"GetStreamsAPI": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"GetStreamsAPI"},
+				"Version": []string{ServiceVersion20200601},
+			},
+		},
 	}
 )
 
