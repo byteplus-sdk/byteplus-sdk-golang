@@ -514,6 +514,46 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
+		"DescribeVodEnhanceImageData": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeVodEnhanceImageData"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DescribeVodSpaceSubtitleStatisData": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeVodSpaceSubtitleStatisData"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DescribeVodPlayedStatisData": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeVodPlayedStatisData"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DescribeVodMostPlayedStatisData": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeVodMostPlayedStatisData"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DescribeVodRealtimeMediaData": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeVodRealtimeMediaData"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
 		// **********************************************************************
 		// 商业drm
 		// **********************************************************************
