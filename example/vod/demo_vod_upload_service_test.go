@@ -13,6 +13,24 @@ import (
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/vod/models/request"
 )
 
+func Test_UploadMediaByUrl(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodUrlUploadRequest{
+		SpaceName: "your SpaceName",
+		URLSets:   nil,
+	}
+
+	resp, status, err := instance.UploadMediaByUrl(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
 func Test_QueryUploadTaskInfo(t *testing.T) {
 	instance := vod.NewInstance()
 	instance.SetCredential(base.Credentials{
