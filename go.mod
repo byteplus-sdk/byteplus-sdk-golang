@@ -10,5 +10,3 @@ require (
 	github.com/stretchr/testify v1.8.2
 	google.golang.org/protobuf v1.30.0
 )
-
-replace github.com/byteplus-sdk/byteplus-sdk-golang => ../byteplus-sdk-golang

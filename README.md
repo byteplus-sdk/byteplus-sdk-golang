@@ -2,7 +2,7 @@
 
 ## Installing SDK
 
-Suggest to use go version >= 1.13.1
+Suggest to use go version >= 1.14
 
 ```go get -u github.com/byteplus-sdk/byteplus-sdk-golang```
 
