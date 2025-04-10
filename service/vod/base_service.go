@@ -342,11 +342,25 @@ func (p *Vod) UploadMediaInner(rd io.Reader, size int64, spaceName string, fileT
 		VodUploadSource: vodUploadSource,
 	}
 
-	commitResp, code, err := p.CommitUploadInfo(commitRequest)
-	if err != nil {
-		return commitResp, code, err
-	}
-	return commitResp, code, nil
+	var (
+		commitResp *response.VodCommitUploadInfoResponse
+	)
+	retry.Do(func() error {
+		commitResp, code, err = p.CommitUploadInfo(commitRequest)
+		if err != nil {
+			if code < http.StatusInternalServerError {
+				// 非5xx错误直接return
+				return nil
+			}
+			return err
+		}
+		if commitResp.GetResponseMetadata().GetError() != nil && commitResp.GetResponseMetadata().GetError().GetCode() != "0" {
+			return fmt.Errorf("%+v", *commitResp.GetResponseMetadata().GetError())
+		}
+		return nil
+	}, retry.Attempts(3))
+
+	return commitResp, code, err
 }
 
 func (p *Vod) GetUploadAuthWithExpiredTime(expiredTime time.Duration) (*base.SecurityToken2, error) {
