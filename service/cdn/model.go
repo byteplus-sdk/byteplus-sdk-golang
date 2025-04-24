@@ -416,6 +416,10 @@ type CommonGlobalConfig struct {
 	ConfigName *string `json:",omitempty"`
 }
 
+type CommonMatchList struct {
+	CommonType *GlobalRefererCommonType `json:",omitempty"`
+}
+
 type CommonReferType struct {
 	IgnoreCase   *bool `json:",omitempty"`
 	IgnoreScheme *bool `json:",omitempty"`
@@ -486,6 +490,7 @@ type ContentTask struct {
 	Region        string
 	Remark        string
 	Status        string
+	StatusCode    int64
 	SubArea       string
 	TaskID        string
 	TaskType      string
@@ -664,6 +669,14 @@ type DeleteResourceTagsRequest struct {
 }
 
 type DeleteResourceTagsResponse struct {
+	ResponseMetadata *ResponseMetadata `json:",omitempty"`
+}
+
+type DeleteSharedConfigRequest struct {
+	ConfigName string
+}
+
+type DeleteSharedConfigResponse struct {
 	ResponseMetadata *ResponseMetadata `json:",omitempty"`
 }
 
@@ -1001,6 +1014,7 @@ type DescribeContentTasksRequest struct {
 	TaskID     *string `json:",omitempty"`
 	TaskType   string
 	Url        *string `json:",omitempty"`
+	UrlList    []string
 }
 
 type DescribeContentTasksResponse struct {
@@ -1555,6 +1569,28 @@ type DescribeServiceTemplateResult struct {
 	Websocket           *Websocket           `json:",omitempty"`
 }
 
+type DescribeSharedConfigRequest struct {
+	ConfigName *string `json:",omitempty"`
+}
+
+type DescribeSharedConfigResponse struct {
+	ResponseMetadata *ResponseMetadata `json:",omitempty"`
+	Result           DescribeSharedConfigResult
+}
+
+type DescribeSharedConfigResult struct {
+	AllowIpAccessRule      GlobalIPAccessRule
+	AllowRefererAccessRule GlobalRefererAccessRule
+	CommonMatchList        CommonMatchList
+	ConfigName             string
+	ConfigType             string
+	DenyIpAccessRule       GlobalIPAccessRule
+	DenyRefererAccessRule  GlobalRefererAccessRule
+	ErrorPageRule          GlobalErrorPageRule
+	ExpiresInfo            []ExpireInfo
+	Project                string
+}
+
 type DescribeStatisticalRankingRequest struct {
 	Area      *string `json:",omitempty"`
 	Domain    string
@@ -1826,6 +1862,11 @@ type ErrorPageRule struct {
 	ErrorPageAction *ErrorPageAction `json:",omitempty"`
 }
 
+type ExpireInfo struct {
+	Rule      string
+	Timestamp int64
+}
+
 type FeatureConfig struct {
 	OriginV2 bool
 }
@@ -1839,6 +1880,26 @@ type Filter struct {
 type ForcedRedirect struct {
 	EnableForcedRedirect *bool   `json:",omitempty"`
 	StatusCode           *string `json:",omitempty"`
+}
+
+type GlobalErrorPageRule struct {
+	RuleContent string
+}
+
+type GlobalIPAccessRule struct {
+	Option *string `json:",omitempty"`
+	Rules  []string
+}
+
+type GlobalRefererAccessRule struct {
+	AllowEmpty *bool                    `json:",omitempty"`
+	CommonType *GlobalRefererCommonType `json:",omitempty"`
+}
+
+type GlobalRefererCommonType struct {
+	IgnoreCase *bool   `json:",omitempty"`
+	Option     *string `json:",omitempty"`
+	Rules      []string
 }
 
 type HTTPS struct {
@@ -2028,6 +2089,27 @@ type ListCertInfoResult struct {
 	PageNum       int64
 	PageSize      int64
 	Total         int64
+}
+
+type ListSharedConfigRequest struct {
+	ConfigName     *string `json:",omitempty"`
+	ConfigType     *string `json:",omitempty"`
+	ConfigTypeList []string
+	PageNum        *int64  `json:",omitempty"`
+	PageSize       *int64  `json:",omitempty"`
+	Project        *string `json:",omitempty"`
+}
+
+type ListSharedConfigResponse struct {
+	ResponseMetadata *ResponseMetadata `json:",omitempty"`
+	Result           ListSharedConfigResult
+}
+
+type ListSharedConfigResult struct {
+	ConfigData []SharedConfig
+	PageNum    int64
+	PageSize   int64
+	Total      int64
 }
 
 type ListUsageReportsRequest struct {
@@ -2413,6 +2495,14 @@ type RewriteM3u8Rule struct {
 	TransferEncoding *bool `json:",omitempty"`
 }
 
+type SharedConfig struct {
+	ConfigName  string
+	ConfigType  string
+	DomainCount int64
+	Project     string
+	UpdateTime  int64
+}
+
 type SignedOriginAuth struct {
 	SignedOriginAuthRules []SignedOriginAuthRule
 	Switch                *bool `json:",omitempty"`
@@ -2521,8 +2611,9 @@ type SubRecursionCondition struct {
 }
 
 type SubmitBlockTaskRequest struct {
-	Type *string `json:",omitempty"`
-	Urls string
+	Type    *string `json:",omitempty"`
+	UrlList []string
+	Urls    string
 }
 
 type SubmitBlockTaskResponse struct {
@@ -2543,6 +2634,7 @@ type SubmitPreloadTaskRequest struct {
 	Region                 *string `json:",omitempty"`
 	RequestHeaderInstances []PreloadHeader
 	SubArea                *string `json:",omitempty"`
+	UrlList                []string
 	Urls                   string
 }
 
@@ -2557,10 +2649,11 @@ type SubmitPreloadTaskResult struct {
 }
 
 type SubmitRefreshTaskRequest struct {
-	Delete *bool   `json:",omitempty"`
-	Prefix *bool   `json:",omitempty"`
-	Type   *string `json:",omitempty"`
-	Urls   string
+	Delete  *bool   `json:",omitempty"`
+	Prefix  *bool   `json:",omitempty"`
+	Type    *string `json:",omitempty"`
+	UrlList []string
+	Urls    string
 }
 
 type SubmitRefreshTaskResponse struct {
@@ -2573,8 +2666,9 @@ type SubmitRefreshTaskResult struct {
 }
 
 type SubmitUnblockTaskRequest struct {
-	Type *string `json:",omitempty"`
-	Urls string
+	Type    *string `json:",omitempty"`
+	UrlList []string
+	Urls    string
 }
 
 type SubmitUnblockTaskResponse struct {
@@ -2826,6 +2920,20 @@ type UpdateServiceTemplateRequest struct {
 }
 
 type UpdateServiceTemplateResponse struct {
+	ResponseMetadata *ResponseMetadata `json:",omitempty"`
+}
+
+type UpdateSharedConfigRequest struct {
+	AllowIpAccessRule      *GlobalIPAccessRule      `json:",omitempty"`
+	AllowRefererAccessRule *GlobalRefererAccessRule `json:",omitempty"`
+	CommonMatchList        *CommonMatchList         `json:",omitempty"`
+	ConfigName             string
+	DenyIpAccessRule       *GlobalIPAccessRule      `json:",omitempty"`
+	DenyRefererAccessRule  *GlobalRefererAccessRule `json:",omitempty"`
+	ExpireMinutes          *int64                   `json:",omitempty"`
+}
+
+type UpdateSharedConfigResponse struct {
 	ResponseMetadata *ResponseMetadata `json:",omitempty"`
 }
 
