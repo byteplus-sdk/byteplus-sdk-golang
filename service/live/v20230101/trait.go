@@ -1510,6 +1510,26 @@ func (c *Live) GeneratePushURL(arg *GeneratePushURLBody) (*GeneratePushURLRes, e
 	return result, nil
 }
 
+func (c *Live) DescribeLiveTopPlayData(arg *DescribeLiveTopPlayDataBody) (*DescribeLiveTopPlayDataRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("DescribeLiveTopPlayData", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(DescribeLiveTopPlayDataRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
 func (c *Live) DescribeLiveRegionData() (*DescribeLiveRegionDataRes, error) {
 
 	data, _, err := c.Client.Json("DescribeLiveRegionData", url.Values{}, "")
@@ -1738,6 +1758,26 @@ func (c *Live) DescribeLiveMetricTrafficData(arg *DescribeLiveMetricTrafficDataB
 	}
 
 	result := new(DescribeLiveMetricTrafficDataRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) DescribeLiveEdgeStatData(arg *DescribeLiveEdgeStatDataBody) (*DescribeLiveEdgeStatDataRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("DescribeLiveEdgeStatData", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(DescribeLiveEdgeStatDataRes)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err
@@ -2414,6 +2454,46 @@ func (c *Live) ListBindEncryptDRM(arg *ListBindEncryptDRMBody) (*ListBindEncrypt
 	return result, nil
 }
 
+func (c *Live) CreateTranscodePresetBatch(arg *CreateTranscodePresetBatchBody) (*CreateTranscodePresetBatchRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("CreateTranscodePresetBatch", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(CreateTranscodePresetBatchRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) DeleteTranscodePresetBatch(arg *DeleteTranscodePresetBatchBody) (*DeleteTranscodePresetBatchRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("DeleteTranscodePresetBatch", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(DeleteTranscodePresetBatchRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
 func (c *Live) DeleteIPAccessRule(arg *DeleteIPAccessRuleBody) (*DeleteIPAccessRuleRes, error) {
 	body, err := marshalToJson(arg)
 	if err != nil {
@@ -3006,6 +3086,126 @@ func (c *Live) CreateSubtitleTranscodePreset(arg *CreateSubtitleTranscodePresetB
 	}
 
 	result := new(CreateSubtitleTranscodePresetRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) CreateLivePadPreset(arg *CreateLivePadPresetBody) (*CreateLivePadPresetRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("CreateLivePadPreset", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(CreateLivePadPresetRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) DeleteLivePadPreset(arg *DeleteLivePadPresetBody) (*DeleteLivePadPresetRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("DeleteLivePadPreset", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(DeleteLivePadPresetRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) StopLivePadStream(arg *StopLivePadStreamBody) (*StopLivePadStreamRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("StopLivePadStream", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(StopLivePadStreamRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) UpdateLivePadPreset(arg *UpdateLivePadPresetBody) (*UpdateLivePadPresetRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("UpdateLivePadPreset", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(UpdateLivePadPresetRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) DescribeLivePadStreamList(arg *DescribeLivePadStreamListBody) (*DescribeLivePadStreamListRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("DescribeLivePadStreamList", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(DescribeLivePadStreamListRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) DescribeLivePadPresetDetail(arg *DescribeLivePadPresetDetailBody) (*DescribeLivePadPresetDetailRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("DescribeLivePadPresetDetail", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(DescribeLivePadPresetDetailRes)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err

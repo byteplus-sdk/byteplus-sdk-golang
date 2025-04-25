@@ -582,6 +582,14 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
+		"DescribeLiveTopPlayData": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeLiveTopPlayData"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
 		"DescribeLiveRegionData": {
 			Method: http.MethodPost,
 			Path:   "/",
@@ -675,6 +683,14 @@ var (
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"DescribeLiveMetricTrafficData"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DescribeLiveEdgeStatData": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeLiveEdgeStatData"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -950,6 +966,22 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
+		"CreateTranscodePresetBatch": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"CreateTranscodePresetBatch"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DeleteTranscodePresetBatch": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DeleteTranscodePresetBatch"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
 		"DeleteIPAccessRule": {
 			Method: http.MethodPost,
 			Path:   "/",
@@ -1187,6 +1219,54 @@ var (
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"CreateSubtitleTranscodePreset"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"CreateLivePadPreset": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"CreateLivePadPreset"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DeleteLivePadPreset": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DeleteLivePadPreset"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"StopLivePadStream": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"StopLivePadStream"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"UpdateLivePadPreset": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"UpdateLivePadPreset"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DescribeLivePadStreamList": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeLivePadStreamList"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DescribeLivePadPresetDetail": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeLivePadPresetDetail"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
