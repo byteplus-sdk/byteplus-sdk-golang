@@ -444,7 +444,7 @@ func (p *Vod) Upload(rd io.Reader, size int64, spaceName string, fileType string
 
 func (p *Vod) directUpload(tosHost string, oid string, auth string, fileBytes []byte, client *http.Client, storageClass int32) error {
 	checkSum := fmt.Sprintf("%08x", crc32.ChecksumIEEE(fileBytes))
-	url := fmt.Sprintf("http://%s/%s", tosHost, oid)
+	url := fmt.Sprintf("https://%s/%s", tosHost, oid)
 	req, err := http.NewRequest("PUT", url, bytes.NewReader(fileBytes))
 	if err != nil {
 		return err
@@ -538,7 +538,7 @@ func (p *Vod) chunkUpload(rd io.Reader, uploadPart model.UploadPartCommon, clien
 }
 
 func (p *Vod) initUploadPart(tosHost string, oid string, auth string, client *http.Client, isLargeFile bool, storageClass int32) (string, error) {
-	url := fmt.Sprintf("http://%s/%s?uploads", tosHost, oid)
+	url := fmt.Sprintf("https://%s/%s?uploads", tosHost, oid)
 	req, err := http.NewRequest("PUT", url, nil)
 	if err != nil {
 		return "", err
@@ -570,7 +570,7 @@ func (p *Vod) initUploadPart(tosHost string, oid string, auth string, client *ht
 }
 
 func (p *Vod) uploadPart(uploadPart model.UploadPartCommon, uploadID string, partNumber int, data []byte, client *http.Client, isLargeFile bool, storageClass int32) (string, string, error) {
-	url := fmt.Sprintf("http://%s/%s?partNumber=%d&uploadID=%s", uploadPart.TosHost, uploadPart.Oid, partNumber, uploadID)
+	url := fmt.Sprintf("https://%s/%s?partNumber=%d&uploadID=%s", uploadPart.TosHost, uploadPart.Oid, partNumber, uploadID)
 	checkSum := fmt.Sprintf("%08x", crc32.ChecksumIEEE(data))
 	req, err := http.NewRequest("PUT", url, bytes.NewReader(data))
 	if err != nil {
@@ -605,7 +605,7 @@ func (p *Vod) uploadPart(uploadPart model.UploadPartCommon, uploadID string, par
 }
 
 func (p *Vod) uploadMergePart(uploadPart model.UploadPartCommon, uploadID string, checkSum []string, client *http.Client, isLargeFile bool, storageClass int32) error {
-	url := fmt.Sprintf("http://%s/%s?uploadID=%s", uploadPart.TosHost, uploadPart.Oid, uploadID)
+	url := fmt.Sprintf("https://%s/%s?uploadID=%s", uploadPart.TosHost, uploadPart.Oid, uploadID)
 	body, err := p.genMergeBody(checkSum)
 	if err != nil {
 		return err

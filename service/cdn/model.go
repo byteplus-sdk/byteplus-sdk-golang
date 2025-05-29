@@ -148,6 +148,17 @@ type AreaAccessRule struct {
 	Switch   *bool   `json:",omitempty"`
 }
 
+type ArgSegment struct {
+	Level       *int64  `json:",omitempty"`
+	SplitSymbol *string `json:",omitempty"`
+	Switch      *bool   `json:",omitempty"`
+}
+
+type ArgumentRule struct {
+	GeneralParamRule *GeneralParamRule `json:",omitempty"`
+	KeepOriginArg    *bool             `json:",omitempty"`
+}
+
 type AuthCacheAction struct {
 	Action     *string `json:",omitempty"`
 	CacheKey   []string
@@ -176,9 +187,44 @@ type AuthResponseConfig struct {
 	TimeOutAction    *AuthTimeoutAction `json:",omitempty"`
 }
 
+type AuthRewriteM3U8Rule struct {
+	RewriteM3U8Tag *RewriteM3U8TagExtend `json:",omitempty"`
+	Switch         *bool                 `json:",omitempty"`
+}
+
+type AuthRewriteMPDRule struct {
+	MpdVarExpand *bool `json:",omitempty"`
+	Switch       *bool `json:",omitempty"`
+}
+
+type AuthRulesF struct {
+	ArgumentRule     *ArgumentRule        `json:",omitempty"`
+	AuthTokenCalRule *AuthTokenCalRule    `json:",omitempty"`
+	CustomRewrite    *CustomRewrite       `json:",omitempty"`
+	ExpireTimeRule   *ExpireTimeRule      `json:",omitempty"`
+	RewriteFormat    *string              `json:",omitempty"`
+	RewriteM3U8      *AuthRewriteM3U8Rule `json:",omitempty"`
+	RewriteMPD       *AuthRewriteMPDRule  `json:",omitempty"`
+	SecretKey        *AuthSecretKey       `json:",omitempty"`
+	SignCapRule      *ParamCapRule        `json:",omitempty"`
+	Condition        *Condition           `json:",omitempty"`
+	RuleName         *string              `json:",omitempty"`
+}
+
+type AuthSecretKey struct {
+	BackupSecretKey *string `json:",omitempty"`
+	MasterSecretKey *string `json:",omitempty"`
+}
+
 type AuthTimeoutAction struct {
 	Action *string `json:",omitempty"`
 	Time   *int64  `json:",omitempty"`
+}
+
+type AuthTokenCalRule struct {
+	ParamCalRules  []string
+	SignJoinSymbol *string `json:",omitempty"`
+	SignParam      []CustomSignedUrlParam
 }
 
 type BandwidthLimit struct {
@@ -602,7 +648,29 @@ type CustomErrorPage struct {
 	Switch        *bool `json:",omitempty"`
 }
 
+type CustomRewrite struct {
+	RewriteParam   []CustomRewriteParam
+	RewriteRule    *CustomRewriteRule `json:",omitempty"`
+	SignJoinSymbol *string            `json:",omitempty"`
+	Switch         *bool              `json:",omitempty"`
+}
+
+type CustomRewriteParam struct {
+	ParamType             *string       `json:",omitempty"`
+	ParentLinkUriParamSup *UriParamSup  `json:",omitempty"`
+	ParentLinkUrlParam    *ParamCapRule `json:",omitempty"`
+	SupContent            *string       `json:",omitempty"`
+}
+
+type CustomRewriteRule struct {
+	CapMode   *string `json:",omitempty"`
+	ParamName *string `json:",omitempty"`
+	UriLevel  *int64  `json:",omitempty"`
+}
+
 type CustomSignedUrlParam struct {
+	CookieToken   *string       `json:",omitempty"`
+	ParamSource   *string       `json:",omitempty"`
 	ParamType     *string       `json:",omitempty"`
 	RequestHeader *string       `json:",omitempty"`
 	SupContent    *string       `json:",omitempty"`
@@ -1867,6 +1935,12 @@ type ExpireInfo struct {
 	Timestamp int64
 }
 
+type ExpireTimeRule struct {
+	Duration       *int64        `json:",omitempty"`
+	ExpTimeCapRule *ParamCapRule `json:",omitempty"`
+	TimeFormat     *string       `json:",omitempty"`
+}
+
 type FeatureConfig struct {
 	OriginV2 bool
 }
@@ -1880,6 +1954,11 @@ type Filter struct {
 type ForcedRedirect struct {
 	EnableForcedRedirect *bool   `json:",omitempty"`
 	StatusCode           *string `json:",omitempty"`
+}
+
+type GeneralParamRule struct {
+	ParentLinkParamInherit *string           `json:",omitempty"`
+	SubLinkParamRule       *SubLinkParamRule `json:",omitempty"`
 }
 
 type GlobalErrorPageRule struct {
@@ -2296,9 +2375,11 @@ type PageOptimization struct {
 }
 
 type ParamCapRule struct {
-	CapMode   *string `json:",omitempty"`
-	ParamName *string `json:",omitempty"`
-	UriLevel  *int64  `json:",omitempty"`
+	ArgSegment  *ArgSegment `json:",omitempty"`
+	CapMode     *string     `json:",omitempty"`
+	CustomValue *string     `json:",omitempty"`
+	ParamName   *string     `json:",omitempty"`
+	UriLevel    *int64      `json:",omitempty"`
 }
 
 type PreloadHeader struct {
@@ -2489,6 +2570,11 @@ type RewriteHLS struct {
 	Switch   *bool   `json:",omitempty"`
 }
 
+type RewriteM3U8TagExtend struct {
+	Switch *bool `json:",omitempty"`
+	Tags   []string
+}
+
 type RewriteM3u8Rule struct {
 	DeleteParam      *bool `json:",omitempty"`
 	KeepM3u8Param    *bool `json:",omitempty"`
@@ -2525,6 +2611,7 @@ type SignedOriginAuthRule struct {
 }
 
 type SignedUrlAuth struct {
+	AuthRulesF         []AuthRulesF
 	SignedUrlAuthRules []SignedUrlAuthRule
 	Switch             *bool `json:",omitempty"`
 }
@@ -2542,9 +2629,10 @@ type SignedUrlAuthAction struct {
 	RewriteMpd          *bool                `json:",omitempty"`
 	SignName            *string              `json:",omitempty"`
 	SignatureRule       []string
-	TimeFormat          *string `json:",omitempty"`
-	TimeName            *string `json:",omitempty"`
-	URLAuthType         *string `json:",omitempty"`
+	TimeFormat          *string              `json:",omitempty"`
+	TimeName            *string              `json:",omitempty"`
+	URLAuthType         *string              `json:",omitempty"`
+	UrlAuthCustomAction *UrlAuthCustomAction `json:",omitempty"`
 }
 
 type SignedUrlAuthRule struct {
@@ -2603,6 +2691,11 @@ type StopCdnDomainRequest struct {
 
 type StopCdnDomainResponse struct {
 	ResponseMetadata *ResponseMetadata `json:",omitempty"`
+}
+
+type SubLinkParamRule struct {
+	InheritMode    *string `json:",omitempty"`
+	KeepSubLinkArg *string `json:",omitempty"`
 }
 
 type SubRecursionCondition struct {
