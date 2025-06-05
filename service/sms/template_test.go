@@ -32,6 +32,7 @@ func TestApplySmsTemplate(t *testing.T) {
 		ShortUrlConfig: &ShortUrlConfig{
 			IsEnabled:          EnableStatusEnabled,
 			IsNeedClickDetails: EnableStatusNotEnabled,
+			UACheckStrategy:    1, // Short link accessible to all devices
 		},
 	}
 	result, statusCode, err := i18nInstance.ApplySmsTemplate(req)

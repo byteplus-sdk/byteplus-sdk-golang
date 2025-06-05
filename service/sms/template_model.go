@@ -48,7 +48,7 @@ type SmsTemplateInfo struct {
 type ShortUrlConfig struct {
 	IsEnabled          ShortUrlEnableStatus `json:"isEnabled"`
 	IsNeedClickDetails ShortUrlEnableStatus `json:"isNeedClickDetails"`
-	RawUrl             string               `json:"rawUrl"`
+	UACheckStrategy    int                  `json:"uaCheckStrategy"`
 }
 
 type ApplySmsTemplateRequest struct {
