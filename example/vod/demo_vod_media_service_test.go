@@ -251,6 +251,7 @@ func Test_CreatePlaylist(t *testing.T) {
 	})
 
 	query := &request.VodCreatePlaylistRequest{
+		SpaceName:  "your SpaceName",
 		Name:       "your Name",
 		Format:     "your Format",
 		Codec:      "your Codec",
@@ -275,9 +276,11 @@ func Test_GetPlaylists(t *testing.T) {
 	})
 
 	query := &request.VodGetPlaylistsRequest{
-		Ids:    "your Ids",
-		Limit:  0,
-		Offset: 0,
+		SpaceName: "your SpaceName",
+		Ids:       "your Ids",
+		Name:      "your Name",
+		Limit:     0,
+		Offset:    0,
 	}
 
 	resp, status, err := instance.GetPlaylists(query)
@@ -294,6 +297,7 @@ func Test_UpdatePlaylist(t *testing.T) {
 	})
 
 	query := &request.VodUpdatePlaylistRequest{
+		SpaceName:  "your SpaceName",
 		Id:         "your Id",
 		Name:       nil,
 		Format:     nil,
@@ -319,7 +323,8 @@ func Test_DeletePlaylist(t *testing.T) {
 	})
 
 	query := &request.VodDeletePlaylistRequest{
-		Id: "your Id",
+		SpaceName: "your SpaceName",
+		Id:        "your Id",
 	}
 
 	resp, status, err := instance.DeletePlaylist(query)
