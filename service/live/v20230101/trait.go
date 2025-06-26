@@ -1110,18 +1110,18 @@ func (c *Live) DeletePullToPushGroup(arg *DeletePullToPushGroupBody) (*DeletePul
 	return result, nil
 }
 
-func (c *Live) RestartPullToPushTask(arg *RestartPullToPushTaskBody) (*RestartPullToPushTaskRes, error) {
+func (c *Live) ContinuePullToPushTask(arg *ContinuePullToPushTaskBody) (*ContinuePullToPushTaskRes, error) {
 	body, err := marshalToJson(arg)
 	if err != nil {
 		return nil, err
 	}
 
-	data, _, err := c.Client.Json("RestartPullToPushTask", url.Values{}, string(body))
+	data, _, err := c.Client.Json("ContinuePullToPushTask", url.Values{}, string(body))
 	if err != nil {
 		return nil, err
 	}
 
-	result := new(RestartPullToPushTaskRes)
+	result := new(ContinuePullToPushTaskRes)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err
@@ -1202,6 +1202,26 @@ func (c *Live) ListPullToPushTaskV2(arg *ListPullToPushTaskV2Body) (*ListPullToP
 	}
 
 	result := new(ListPullToPushTaskV2Res)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) RelaunchPullToPushTask(arg *RelaunchPullToPushTaskBody) (*RelaunchPullToPushTaskRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("RelaunchPullToPushTask", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(RelaunchPullToPushTaskRes)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err
@@ -1586,6 +1606,26 @@ func (c *Live) DescribeLivePushStreamMetrics(arg *DescribeLivePushStreamMetricsB
 	return result, nil
 }
 
+func (c *Live) DescribeLiveCallbackData(arg *DescribeLiveCallbackDataBody) (*DescribeLiveCallbackDataRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("DescribeLiveCallbackData", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(DescribeLiveCallbackDataRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
 func (c *Live) DescribeLiveStreamSessionData(arg *DescribeLiveStreamSessionDataBody) (*DescribeLiveStreamSessionDataRes, error) {
 	body, err := marshalToJson(arg)
 	if err != nil {
@@ -1638,6 +1678,26 @@ func (c *Live) DescribeLiveBatchPushStreamMetrics(arg *DescribeLiveBatchPushStre
 	}
 
 	result := new(DescribeLiveBatchPushStreamMetricsRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) DescribeLiveBatchStreamTranscodeData(arg *DescribeLiveBatchStreamTranscodeDataBody) (*DescribeLiveBatchStreamTranscodeDataRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("DescribeLiveBatchStreamTranscodeData", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(DescribeLiveBatchStreamTranscodeDataRes)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err
@@ -3094,18 +3154,18 @@ func (c *Live) CreateSubtitleTranscodePreset(arg *CreateSubtitleTranscodePresetB
 	return result, nil
 }
 
-func (c *Live) CreateLivePadPreset(arg *CreateLivePadPresetBody) (*CreateLivePadPresetRes, error) {
+func (c *Live) CreateCarouselTask(arg *CreateCarouselTaskBody) (*CreateCarouselTaskRes, error) {
 	body, err := marshalToJson(arg)
 	if err != nil {
 		return nil, err
 	}
 
-	data, _, err := c.Client.Json("CreateLivePadPreset", url.Values{}, string(body))
+	data, _, err := c.Client.Json("CreateCarouselTask", url.Values{}, string(body))
 	if err != nil {
 		return nil, err
 	}
 
-	result := new(CreateLivePadPresetRes)
+	result := new(CreateCarouselTaskRes)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err
@@ -3114,18 +3174,18 @@ func (c *Live) CreateLivePadPreset(arg *CreateLivePadPresetBody) (*CreateLivePad
 	return result, nil
 }
 
-func (c *Live) DeleteLivePadPreset(arg *DeleteLivePadPresetBody) (*DeleteLivePadPresetRes, error) {
+func (c *Live) DeleteCarouselTask(arg *DeleteCarouselTaskBody) (*DeleteCarouselTaskRes, error) {
 	body, err := marshalToJson(arg)
 	if err != nil {
 		return nil, err
 	}
 
-	data, _, err := c.Client.Json("DeleteLivePadPreset", url.Values{}, string(body))
+	data, _, err := c.Client.Json("DeleteCarouselTask", url.Values{}, string(body))
 	if err != nil {
 		return nil, err
 	}
 
-	result := new(DeleteLivePadPresetRes)
+	result := new(DeleteCarouselTaskRes)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err
@@ -3134,18 +3194,18 @@ func (c *Live) DeleteLivePadPreset(arg *DeleteLivePadPresetBody) (*DeleteLivePad
 	return result, nil
 }
 
-func (c *Live) StopLivePadStream(arg *StopLivePadStreamBody) (*StopLivePadStreamRes, error) {
+func (c *Live) UpdateCarouselTask(arg *UpdateCarouselTaskBody) (*UpdateCarouselTaskRes, error) {
 	body, err := marshalToJson(arg)
 	if err != nil {
 		return nil, err
 	}
 
-	data, _, err := c.Client.Json("StopLivePadStream", url.Values{}, string(body))
+	data, _, err := c.Client.Json("UpdateCarouselTask", url.Values{}, string(body))
 	if err != nil {
 		return nil, err
 	}
 
-	result := new(StopLivePadStreamRes)
+	result := new(UpdateCarouselTaskRes)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err
@@ -3154,18 +3214,18 @@ func (c *Live) StopLivePadStream(arg *StopLivePadStreamBody) (*StopLivePadStream
 	return result, nil
 }
 
-func (c *Live) UpdateLivePadPreset(arg *UpdateLivePadPresetBody) (*UpdateLivePadPresetRes, error) {
+func (c *Live) GetCarouselDetail(arg *GetCarouselDetailBody) (*GetCarouselDetailRes, error) {
 	body, err := marshalToJson(arg)
 	if err != nil {
 		return nil, err
 	}
 
-	data, _, err := c.Client.Json("UpdateLivePadPreset", url.Values{}, string(body))
+	data, _, err := c.Client.Json("GetCarouselDetail", url.Values{}, string(body))
 	if err != nil {
 		return nil, err
 	}
 
-	result := new(UpdateLivePadPresetRes)
+	result := new(GetCarouselDetailRes)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err
@@ -3174,18 +3234,18 @@ func (c *Live) UpdateLivePadPreset(arg *UpdateLivePadPresetBody) (*UpdateLivePad
 	return result, nil
 }
 
-func (c *Live) DescribeLivePadStreamList(arg *DescribeLivePadStreamListBody) (*DescribeLivePadStreamListRes, error) {
+func (c *Live) ListCarouselTask(arg *ListCarouselTaskBody) (*ListCarouselTaskRes, error) {
 	body, err := marshalToJson(arg)
 	if err != nil {
 		return nil, err
 	}
 
-	data, _, err := c.Client.Json("DescribeLivePadStreamList", url.Values{}, string(body))
+	data, _, err := c.Client.Json("ListCarouselTask", url.Values{}, string(body))
 	if err != nil {
 		return nil, err
 	}
 
-	result := new(DescribeLivePadStreamListRes)
+	result := new(ListCarouselTaskRes)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err
@@ -3194,18 +3254,78 @@ func (c *Live) DescribeLivePadStreamList(arg *DescribeLivePadStreamListBody) (*D
 	return result, nil
 }
 
-func (c *Live) DescribeLivePadPresetDetail(arg *DescribeLivePadPresetDetailBody) (*DescribeLivePadPresetDetailRes, error) {
+func (c *Live) DeleteRemoteAuth(arg *DeleteRemoteAuthBody) (*DeleteRemoteAuthRes, error) {
 	body, err := marshalToJson(arg)
 	if err != nil {
 		return nil, err
 	}
 
-	data, _, err := c.Client.Json("DescribeLivePadPresetDetail", url.Values{}, string(body))
+	data, _, err := c.Client.Json("DeleteRemoteAuth", url.Values{}, string(body))
 	if err != nil {
 		return nil, err
 	}
 
-	result := new(DescribeLivePadPresetDetailRes)
+	result := new(DeleteRemoteAuthRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) DescribeRemoteAuth(arg *DescribeRemoteAuthBody) (*DescribeRemoteAuthRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("DescribeRemoteAuth", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(DescribeRemoteAuthRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) ListVhostRemoteAuth(arg *ListVhostRemoteAuthBody) (*ListVhostRemoteAuthRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("ListVhostRemoteAuth", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(ListVhostRemoteAuthRes)
+	err = unmarshalResultInto(data, result)
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+func (c *Live) UpdateRemoteAuth(arg *UpdateRemoteAuthBody) (*UpdateRemoteAuthRes, error) {
+	body, err := marshalToJson(arg)
+	if err != nil {
+		return nil, err
+	}
+
+	data, _, err := c.Client.Json("UpdateRemoteAuth", url.Values{}, string(body))
+	if err != nil {
+		return nil, err
+	}
+
+	result := new(UpdateRemoteAuthRes)
 	err = unmarshalResultInto(data, result)
 	if err != nil {
 		return nil, err

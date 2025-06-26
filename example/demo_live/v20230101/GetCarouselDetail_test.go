@@ -9,7 +9,7 @@ import (
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/live/v20230101"
 )
 
-func Test_DescribeLivePadStreamList(t *testing.T) {
+func Test_GetCarouselDetail(t *testing.T) {
 	instance := live_v20230101.NewInstance()
 
 	instance.SetCredential(base.Credentials{
@@ -17,9 +17,9 @@ func Test_DescribeLivePadStreamList(t *testing.T) {
 		SecretAccessKey: "sk",
 	})
 
-	param := &live_v20230101.DescribeLivePadStreamListBody{}
+	param := &live_v20230101.GetCarouselDetailBody{}
 
-	resp, err := instance.DescribeLivePadStreamList(param)
+	resp, err := instance.GetCarouselDetail(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

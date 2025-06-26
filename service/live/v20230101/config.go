@@ -422,11 +422,11 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"RestartPullToPushTask": {
+		"ContinuePullToPushTask": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{"RestartPullToPushTask"},
+				"Action":  []string{"ContinuePullToPushTask"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -459,6 +459,14 @@ var (
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"ListPullToPushTaskV2"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"RelaunchPullToPushTask": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"RelaunchPullToPushTask"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -614,6 +622,14 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
+		"DescribeLiveCallbackData": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeLiveCallbackData"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
 		"DescribeLiveStreamSessionData": {
 			Method: http.MethodPost,
 			Path:   "/",
@@ -635,6 +651,14 @@ var (
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"DescribeLiveBatchPushStreamMetrics"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DescribeLiveBatchStreamTranscodeData": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeLiveBatchStreamTranscodeData"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
@@ -1222,51 +1246,75 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"CreateLivePadPreset": {
+		"CreateCarouselTask": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{"CreateLivePadPreset"},
+				"Action":  []string{"CreateCarouselTask"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"DeleteLivePadPreset": {
+		"DeleteCarouselTask": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{"DeleteLivePadPreset"},
+				"Action":  []string{"DeleteCarouselTask"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"StopLivePadStream": {
+		"UpdateCarouselTask": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{"StopLivePadStream"},
+				"Action":  []string{"UpdateCarouselTask"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"UpdateLivePadPreset": {
+		"GetCarouselDetail": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{"UpdateLivePadPreset"},
+				"Action":  []string{"GetCarouselDetail"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"DescribeLivePadStreamList": {
+		"ListCarouselTask": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{"DescribeLivePadStreamList"},
+				"Action":  []string{"ListCarouselTask"},
 				"Version": []string{"2023-01-01"},
 			},
 		},
-		"DescribeLivePadPresetDetail": {
+		"DeleteRemoteAuth": {
 			Method: http.MethodPost,
 			Path:   "/",
 			Query: url.Values{
-				"Action":  []string{"DescribeLivePadPresetDetail"},
+				"Action":  []string{"DeleteRemoteAuth"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"DescribeRemoteAuth": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"DescribeRemoteAuth"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"ListVhostRemoteAuth": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"ListVhostRemoteAuth"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
+		"UpdateRemoteAuth": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"UpdateRemoteAuth"},
 				"Version": []string{"2023-01-01"},
 			},
 		},

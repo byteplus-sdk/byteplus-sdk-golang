@@ -9,7 +9,7 @@ import (
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/live/v20230101"
 )
 
-func Test_DeleteLivePadPreset(t *testing.T) {
+func Test_RelaunchPullToPushTask(t *testing.T) {
 	instance := live_v20230101.NewInstance()
 
 	instance.SetCredential(base.Credentials{
@@ -17,9 +17,9 @@ func Test_DeleteLivePadPreset(t *testing.T) {
 		SecretAccessKey: "sk",
 	})
 
-	param := &live_v20230101.DeleteLivePadPresetBody{}
+	param := &live_v20230101.RelaunchPullToPushTaskBody{}
 
-	resp, err := instance.DeleteLivePadPreset(param)
+	resp, err := instance.RelaunchPullToPushTask(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

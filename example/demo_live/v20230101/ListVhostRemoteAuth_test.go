@@ -9,7 +9,7 @@ import (
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/live/v20230101"
 )
 
-func Test_StopLivePadStream(t *testing.T) {
+func Test_ListVhostRemoteAuth(t *testing.T) {
 	instance := live_v20230101.NewInstance()
 
 	instance.SetCredential(base.Credentials{
@@ -17,9 +17,9 @@ func Test_StopLivePadStream(t *testing.T) {
 		SecretAccessKey: "sk",
 	})
 
-	param := &live_v20230101.StopLivePadStreamBody{}
+	param := &live_v20230101.ListVhostRemoteAuthBody{}
 
-	resp, err := instance.StopLivePadStream(param)
+	resp, err := instance.ListVhostRemoteAuth(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)

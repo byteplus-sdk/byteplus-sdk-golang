@@ -244,6 +244,13 @@ type Components44Na0KSchemasListvhostrecordpresetv2ResPropertiesResultProperties
 	VODParam *ComponentsKovkk9SchemasListvhostrecordpresetv2ResPropertiesResultPropertiesPresetlistItemsPropertiesSlicepresetv2PropertiesRecordpresetconfigPropertiesFlvparamPropertiesVodparam `json:"VODParam,omitempty"`
 }
 
+type Components6Aa5KwSchemasListvhostremoteauthresPropertiesResultPropertiesRemoteauthconfiglistItemsPropertiesHeaderparamconfigPropertiesParamsItems struct {
+	Type      string  `json:"Type"`
+	ParamName *string `json:"ParamName,omitempty"`
+	ToName    *string `json:"ToName,omitempty"`
+	Value     *string `json:"Value,omitempty"`
+}
+
 // ComponentsAoysk3SchemasListvhostrecordpresetv2ResPropertiesResultPropertiesPresetlistItemsPropertiesSlicepresetv2PropertiesRecordpresetconfigPropertiesHlsparam
 // - 录制为 HLS 格式时的录制参数。
 type ComponentsAoysk3SchemasListvhostrecordpresetv2ResPropertiesResultPropertiesPresetlistItemsPropertiesSlicepresetv2PropertiesRecordpresetconfigPropertiesHlsparam struct {
@@ -343,6 +350,14 @@ type ComponentsKqy98ZSchemasListvhostrecordpresetv2ResPropertiesResultProperties
 	VODParam *ComponentsQms0JiSchemasListvhostrecordpresetv2ResPropertiesResultPropertiesPresetlistItemsPropertiesSlicepresetv2PropertiesRecordpresetconfigPropertiesMp4ParamPropertiesVodparam `json:"VODParam,omitempty"`
 }
 
+// ComponentsNopwcvSchemasListvhostremoteauthresPropertiesResultPropertiesRemoteauthconfiglistItemsPropertiesCacheconfigPropertiesDenykeys
+// - 生成鉴权失败结果缓存 Key 使用的参数配置，最多支持配置 50 个参数。
+// :::tip 鉴权成功与鉴权失败不使用相同配置，即 UseSameCache 配置 false 时生效。 :::
+type ComponentsNopwcvSchemasListvhostremoteauthresPropertiesResultPropertiesRemoteauthconfiglistItemsPropertiesCacheconfigPropertiesDenykeys struct {
+	Type      string  `json:"Type"`
+	ParamName *string `json:"ParamName,omitempty"`
+}
+
 // ComponentsQms0JiSchemasListvhostrecordpresetv2ResPropertiesResultPropertiesPresetlistItemsPropertiesSlicepresetv2PropertiesRecordpresetconfigPropertiesMp4ParamPropertiesVodparam
 // - VOD 存储相关配置
 // 说明
@@ -377,6 +392,196 @@ type ComponentsS0Ofr3SchemasListvhostrecordpresetv2ResPropertiesResultProperties
 	VodNamespace *string `json:"VodNamespace,omitempty"`
 
 	WorkflowID *string `json:"WorkflowID,omitempty"`
+}
+
+// ComponentsTmguxbSchemasListvhostremoteauthresPropertiesResultPropertiesRemoteauthconfiglistItemsPropertiesCacheconfigPropertiesCachekeys
+// - 生成鉴权结果缓存 Key 使用的参数配置，最多支持配置 50 个参数。 :::tip
+// * 鉴权成功与鉴权失败使用相同配置时，表示鉴权结果缓存 Key 配置；
+// * 鉴权成功与鉴权失败不使用相同配置时，表示鉴权成功缓存的过期时间。 :::
+type ComponentsTmguxbSchemasListvhostremoteauthresPropertiesResultPropertiesRemoteauthconfiglistItemsPropertiesCacheconfigPropertiesCachekeys struct {
+	Type string `json:"Type"`
+
+	ParamName *string `json:"ParamName,omitempty"`
+}
+
+type ContinuePullToPushTaskBody struct {
+
+	// REQUIRED; 任务 ID，任务的唯一标识，您可以通过获取拉流转推任务列表 [https://www.volcengine.com/docs/6469/1126896]接口获取状态为停用的任务 ID。
+	TaskID string `json:"TaskId"`
+
+	// 任务所属的群组名称，您可以通过获取拉流转推任务列表 [https://www.volcengine.com/docs/6469/1126896]接口获取。 :::tip
+	// * 使用主账号调用时，为非必填。
+	// * 使用子账号调用时，为必填。 :::
+	GroupName *string `json:"GroupName,omitempty"`
+}
+
+type ContinuePullToPushTaskRes struct {
+
+	// REQUIRED
+	ResponseMetadata ContinuePullToPushTaskResResponseMetadata `json:"ResponseMetadata"`
+}
+
+type ContinuePullToPushTaskResResponseMetadata struct {
+
+	// REQUIRED
+	Action string `json:"Action"`
+
+	// REQUIRED
+	Region string `json:"Region"`
+
+	// REQUIRED
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED
+	Service string `json:"Service"`
+
+	// REQUIRED
+	Version string                                          `json:"Version"`
+	Error   *ContinuePullToPushTaskResResponseMetadataError `json:"Error,omitempty"`
+}
+
+type ContinuePullToPushTaskResResponseMetadataError struct {
+
+	// 错误码
+	Code *string `json:"Code,omitempty"`
+
+	// 错误信息
+	Message *string `json:"Message,omitempty"`
+}
+
+type CreateCarouselTaskBody struct {
+
+	// REQUIRED; 轮播任务名称，运行中的任务，名称不能重复
+	Name string `json:"Name"`
+
+	// REQUIRED; 轮播规则，用于指定轮播播放的素材和行为等。
+	Rule CreateCarouselTaskBodyRule `json:"Rule"`
+}
+
+// CreateCarouselTaskBodyRule - 轮播规则，用于指定轮播播放的素材和行为等。
+type CreateCarouselTaskBodyRule struct {
+
+	// REQUIRED; -1代表无限循环，最终停止由StopTime字段控制，或者系统默认的停止时间（3天）
+	Loop int32 `json:"Loop"`
+
+	// REQUIRED; 0为普通模式，此模式下系统会根据前后两个点播素材的头信息来判断是否能不断流拼接，如果不满足拼接条件，在进行素材切换时会断流。 2为转码模式，此模式下系统会将所有素材格式化为固定参数，用户可以配置这个音视频参数，如果不配置默认参数跟随第一个素材，在进行素材切换时不会断流
+	Mode int32 `json:"Mode"`
+
+	// REQUIRED; 轮播任务的推流参数，包括视频、音频、推流地址及回调信息。
+	Output CreateCarouselTaskBodyRuleOutput `json:"Output"`
+
+	// REQUIRED; 轮播素材列表，用于指定在轮播过程中播放的素材资源。
+	Source []CreateCarouselTaskBodyRuleSourceItem `json:"Source"`
+
+	// 播放时间，选填，默认会等待第一个视频缓存完毕，如果系统时间大于此值，则开始播放
+	PlayTime *int32 `json:"PlayTime,omitempty"`
+
+	// 停止时间，选填，当此字段被设置时，系统会遵循此时间设置关闭任务
+	StopTime *int32 `json:"StopTime,omitempty"`
+}
+
+// CreateCarouselTaskBodyRuleOutput - 轮播任务的推流参数，包括视频、音频、推流地址及回调信息。
+type CreateCarouselTaskBodyRuleOutput struct {
+
+	// REQUIRED; 推流rtmp地址或者rtmps地址，支持多推，最多填写8条地址，最少1条地址
+	URL []string `json:"Url"`
+
+	// 转码模式下有效，可选配置推流的音频参数
+	Audio *CreateCarouselTaskBodyRuleOutputAudio `json:"Audio,omitempty"`
+
+	// 回调函数。
+	Callback *CreateCarouselTaskBodyRuleOutputCallback `json:"Callback,omitempty"`
+
+	// 转码模式下有效，可选配置推流的视频参数
+	Video *CreateCarouselTaskBodyRuleOutputVideo `json:"Video,omitempty"`
+}
+
+// CreateCarouselTaskBodyRuleOutputAudio - 转码模式下有效，可选配置推流的音频参数
+type CreateCarouselTaskBodyRuleOutputAudio struct {
+
+	// 音频码率设置
+	BitRate *int32 `json:"BitRate,omitempty"`
+
+	// mono：单声道；stereo：双声道
+	ChannelLayout *string `json:"ChannelLayout,omitempty"`
+
+	// 采样率，可选：22000、32000、44100、48000
+	SampleRate *int32 `json:"SampleRate,omitempty"`
+}
+
+// CreateCarouselTaskBodyRuleOutputCallback - 回调函数。
+type CreateCarouselTaskBodyRuleOutputCallback struct {
+
+	// REQUIRED; 回调地址，系统会将部分信息回调出去
+	URL string `json:"Url"`
+}
+
+// CreateCarouselTaskBodyRuleOutputVideo - 转码模式下有效，可选配置推流的视频参数
+type CreateCarouselTaskBodyRuleOutputVideo struct {
+
+	// 视频码率，单位是bit
+	BitRate *int32 `json:"BitRate,omitempty"`
+
+	// 视频帧率取值[10,60]
+	FrameRate *int32 `json:"FrameRate,omitempty"`
+
+	// 取值[1,10]
+	GOP *int32 `json:"GOP,omitempty"`
+
+	// 取值范围[10,2160]
+	Height *int32 `json:"Height,omitempty"`
+
+	// 编码档位，可选：faster、medium、veryfast
+	Preset *string `json:"Preset,omitempty"`
+
+	// 取值范围[10,2160]
+	Width *int32 `json:"Width,omitempty"`
+}
+
+type CreateCarouselTaskBodyRuleSourceItem struct {
+
+	// REQUIRED; 播放列表内不允许重复
+	ID string `json:"ID"`
+
+	// REQUIRED; vod：点播文件；m3u8：m3u8文件
+	Type string `json:"Type"`
+
+	// REQUIRED; 轮播素材的公网可访问地址。确保提供的地址能够被公网正常访问，以便正确加载轮播素材内容。
+	URL string `json:"Url"`
+
+	// 此素材连续播放几次，字段必须大于等于0
+	Loop *int32 `json:"Loop,omitempty"`
+
+	// 可以控制当前素材跳过开头进行播放，单位是秒，注意此字段如果小于等于0或者大于视频长度不生效，只在素材type为vod时生效
+	Seek *int32 `json:"Seek,omitempty"`
+}
+
+type CreateCarouselTaskRes struct {
+
+	// REQUIRED
+	ResponseMetadata CreateCarouselTaskResResponseMetadata `json:"ResponseMetadata"`
+
+	// REQUIRED
+	Result CreateCarouselTaskResResult `json:"Result"`
+}
+
+type CreateCarouselTaskResResponseMetadata struct {
+
+	// REQUIRED
+	RequestID string `json:"RequestID"`
+}
+
+type CreateCarouselTaskResResult struct {
+
+	// REQUIRED; 轮播任务数据对象。
+	Data CreateCarouselTaskResResultData `json:"Data"`
+}
+
+// CreateCarouselTaskResResultData - 轮播任务数据对象。
+type CreateCarouselTaskResResultData struct {
+
+	// REQUIRED; 任务唯一标识
+	TaskID string `json:"TaskID"`
 }
 
 type CreateCertBody struct {
@@ -771,60 +976,6 @@ type CreateDomainV2ResResponseMetadataError struct {
 
 	// 错误信息
 	Message *string `json:"Message,omitempty"`
-}
-
-type CreateLivePadPresetBody struct {
-
-	// REQUIRED; 垫片时长。取值范围：>=1000。单位ms
-	MaxDuration int64 `json:"MaxDuration"`
-
-	// REQUIRED; 垫片类型，1: 图片、2: 视频、3: 源流最后一帧
-	PadType int32 `json:"PadType"`
-
-	// REQUIRED; 域名空间
-	Vhost string `json:"Vhost"`
-
-	// REQUIRED; 断流等待时间。断流等待时间。 取值范围：0-6000。 单位：ms。
-	WaitDuration int64 `json:"WaitDuration"`
-
-	// app
-	App *string `json:"App,omitempty"`
-
-	// 模板描述，长度上限：1024字节。
-	Description *string `json:"Description,omitempty"`
-
-	// 流名称。
-	Stream *string `json:"Stream,omitempty"`
-
-	// 垫片素材地址。对 源流最后一帧类型无效。
-	URL *string `json:"Url,omitempty"`
-}
-
-type CreateLivePadPresetRes struct {
-
-	// REQUIRED
-	ResponseMetadata CreateLivePadPresetResResponseMetadata `json:"ResponseMetadata"`
-
-	// 视请求的接口而定
-	Result interface{} `json:"Result,omitempty"`
-}
-
-type CreateLivePadPresetResResponseMetadata struct {
-
-	// REQUIRED; 请求的接口名，属于请求的公共参数。
-	Action string `json:"Action"`
-
-	// REQUIRED; 请求的Region，例如：cn-north-1
-	Region string `json:"Region"`
-
-	// REQUIRED; RequestId为每次API请求的唯一标识。
-	RequestID string `json:"RequestId"`
-
-	// REQUIRED; 请求的服务，属于请求的公共参数。
-	Service string `json:"Service"`
-
-	// REQUIRED; 请求的版本号，属于请求的公共参数。
-	Version string `json:"Version"`
 }
 
 type CreateLiveVideoQualityAnalysisTaskBody struct {
@@ -2207,6 +2358,33 @@ type DeleteCallbackResResponseMetadataError struct {
 	Message *string `json:"Message,omitempty"`
 }
 
+type DeleteCarouselTaskBody struct {
+
+	// REQUIRED; 待删除的轮播任务 ID，任务的唯一标识。调用 CreateCarouselTask 接口创建轮播任务时返回。
+	TaskID string `json:"TaskID"`
+}
+
+type DeleteCarouselTaskRes struct {
+
+	// REQUIRED
+	ResponseMetadata DeleteCarouselTaskResResponseMetadata `json:"ResponseMetadata"`
+
+	// REQUIRED
+	Result DeleteCarouselTaskResResult `json:"Result"`
+}
+
+type DeleteCarouselTaskResResponseMetadata struct {
+
+	// REQUIRED
+	RequestID string `json:"RequestID"`
+}
+
+type DeleteCarouselTaskResResult struct {
+
+	// REQUIRED; 删除任务的操作结果信息，返回任务是否成功删除以及相关的 Mesos ID 和操作影响记录数。
+	Data string `json:"Data"`
+}
+
 type DeleteCertBody struct {
 
 	// REQUIRED; 待删除的 HTTPS 证书的证书链 ID，可以通过查询证书列表 [https://www.volcengine.com/docs/6469/1126822]接口获取。
@@ -2536,48 +2714,6 @@ type DeleteLatencyConfigResResponseMetadata struct {
 	Region string `json:"Region"`
 
 	// REQUIRED; RequestID为每次API请求的唯一标识。
-	RequestID string `json:"RequestId"`
-
-	// REQUIRED; 请求的服务，属于请求的公共参数。
-	Service string `json:"Service"`
-
-	// REQUIRED; 请求的版本号，属于请求的公共参数。
-	Version string `json:"Version"`
-}
-
-type DeleteLivePadPresetBody struct {
-
-	// REQUIRED; 预设名称。
-	PresetName string `json:"PresetName"`
-
-	// REQUIRED; 域名空间
-	Vhost string `json:"Vhost"`
-
-	// 应用名称。
-	App *string `json:"App,omitempty"`
-
-	// 流名称。
-	Stream *string `json:"Stream,omitempty"`
-}
-
-type DeleteLivePadPresetRes struct {
-
-	// REQUIRED
-	ResponseMetadata DeleteLivePadPresetResResponseMetadata `json:"ResponseMetadata"`
-
-	// 视请求的接口而定
-	Result interface{} `json:"Result,omitempty"`
-}
-
-type DeleteLivePadPresetResResponseMetadata struct {
-
-	// REQUIRED; 请求的接口名，属于请求的公共参数。
-	Action string `json:"Action"`
-
-	// REQUIRED; 请求的Region，例如：cn-north-1
-	Region string `json:"Region"`
-
-	// REQUIRED; RequestId为每次API请求的唯一标识。
 	RequestID string `json:"RequestId"`
 
 	// REQUIRED; 请求的服务，属于请求的公共参数。
@@ -2928,6 +3064,43 @@ type DeleteRelaySourceV3ResResponseMetadataError struct {
 	Message *string `json:"Message,omitempty"`
 }
 
+type DeleteRemoteAuthBody struct {
+
+	// REQUIRED; 拉流域名，您可以调用ListVhostRemoteAuth [https://www.volcengine.com/docs/6469/1250148]接口查看远程鉴权配置的 Domain 取值。
+	Domain string `json:"Domain"`
+
+	// REQUIRED; 域名空间，您可以调用ListVhostRemoteAuth [https://www.volcengine.com/docs/6469/1250148]接口查看远程鉴权配置的 Vhost 取值。
+	Vhost string  `json:"Vhost"`
+	App   *string `json:"App,omitempty"`
+}
+
+type DeleteRemoteAuthRes struct {
+
+	// REQUIRED
+	ResponseMetadata DeleteRemoteAuthResResponseMetadata `json:"ResponseMetadata"`
+
+	// 视请求的接口而定
+	Result *string `json:"Result,omitempty"`
+}
+
+type DeleteRemoteAuthResResponseMetadata struct {
+
+	// REQUIRED; 请求的接口名，属于请求的公共参数。
+	Action string `json:"Action"`
+
+	// REQUIRED; 请求的Region，例如：cn-north-1
+	Region string `json:"Region"`
+
+	// REQUIRED; RequestID为每次API请求的唯一标识。
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED; 请求的服务，属于请求的公共参数。
+	Service string `json:"Service"`
+
+	// REQUIRED; 请求的版本号，属于请求的公共参数。
+	Version string `json:"Version"`
+}
+
 type DeleteSnapshotPresetBody struct {
 
 	// REQUIRED; 截图配置的名称，您可以调用 ListVhostSnapshotPresetV2 [https://www.volcengine.com/docs/6469/1208858] 接口获取，取值与 Name 字段取值相同。
@@ -3025,7 +3198,8 @@ type DeleteTimeShiftPresetV2Body struct {
 	// REQUIRED
 	Preset string `json:"Preset"`
 
-	// REQUIRED
+	// REQUIRED; 域名空间，即直播流地址的域名所属的域名空间。您可以调用 ListDomainDetail [https://www.volcengine.com/docs/6469/1126815] 接口或在视频直播控制台的域名管理
+	// [https://console.volcengine.com/live/main/domain/list]页面，查看直播流使用的域名所属的域名空间。
 	Vhost string  `json:"Vhost"`
 	Type  *string `json:"Type,omitempty"`
 }
@@ -5217,6 +5391,260 @@ type DescribeLiveBatchPushStreamMetricsResResultStreamMetricListPropertiesItemsI
 	VideoPts float64 `json:"VideoPts"`
 }
 
+type DescribeLiveBatchStreamTranscodeDataBody struct {
+
+	// REQUIRED; 查询的结束时间，RFC3339 格式的时间戳，精度为秒。
+	EndTime string `json:"EndTime"`
+
+	// REQUIRED; 查询的开始时间，RFC3339 格式的时间戳，精度为秒。 :::tip 查询历史数据的时间范围为 366 天。 :::
+	StartTime string `json:"StartTime"`
+
+	// 域名列表，默认为空表示全部域名。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，获取直播流使用的域名信息。
+	DomainList []*string `json:"DomainList,omitempty"`
+
+	// 查询数据的页码，默认值为 1，表示查询第一页的数据。
+	PageNum *int32 `json:"PageNum,omitempty"`
+
+	// 每页显示的数据条数，默认值为 1000，取值范围为 [100,1000]。
+	PageSize *int32 `json:"PageSize,omitempty"`
+}
+
+type DescribeLiveBatchStreamTranscodeDataRes struct {
+
+	// REQUIRED
+	ResponseMetadata DescribeLiveBatchStreamTranscodeDataResResponseMetadata `json:"ResponseMetadata"`
+
+	// REQUIRED
+	Result DescribeLiveBatchStreamTranscodeDataResResult `json:"Result"`
+}
+
+type DescribeLiveBatchStreamTranscodeDataResResponseMetadata struct {
+
+	// REQUIRED
+	Action string `json:"Action"`
+
+	// REQUIRED
+	Region string `json:"Region"`
+
+	// REQUIRED
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED
+	Service string `json:"Service"`
+
+	// REQUIRED
+	Version string `json:"Version"`
+}
+
+type DescribeLiveBatchStreamTranscodeDataResResult struct {
+
+	// REQUIRED; 查询的结束时间，RFC3339 格式的时间戳，精度为秒。
+	EndTime string `json:"EndTime"`
+
+	// REQUIRED; 数据分页的信息。
+	Pagination DescribeLiveBatchStreamTranscodeDataResResultPagination `json:"Pagination"`
+
+	// REQUIRED; 查询的开始时间，RFC3339 格式的时间戳，精度为秒。
+	StartTime string `json:"StartTime"`
+
+	// REQUIRED; 流维度的转码用量信息详情。
+	StreamInfoList []DescribeLiveBatchStreamTranscodeDataResResultStreamInfoListItem `json:"StreamInfoList"`
+
+	// REQUIRED; 当前查询条件下，所有流的转码总时长，单位为分钟。
+	TotalDuration float32 `json:"TotalDuration"`
+
+	// 域名列表。
+	DomainList []*string `json:"DomainList,omitempty"`
+}
+
+// DescribeLiveBatchStreamTranscodeDataResResultPagination - 数据分页的信息。
+type DescribeLiveBatchStreamTranscodeDataResResultPagination struct {
+
+	// REQUIRED; 当前所在分页的页码。
+	PageNum int32 `json:"PageNum"`
+
+	// REQUIRED; 每页展示的数据条数。
+	PageSize int32 `json:"PageSize"`
+
+	// REQUIRED; 查询结果的数据总条数。
+	TotalCount int32 `json:"TotalCount"`
+}
+
+type DescribeLiveBatchStreamTranscodeDataResResultStreamInfoListItem struct {
+
+	// REQUIRED; 应用名称。
+	App string `json:"App"`
+
+	// REQUIRED; 当前流的转码码率，单位为 kbps。
+	Coderate int32 `json:"Coderate"`
+
+	// REQUIRED; 域名。
+	Domain string `json:"Domain"`
+
+	// REQUIRED; 当前流在查询时间内的转码总时长，单位为分钟。
+	Duration float32 `json:"Duration"`
+
+	// REQUIRED; 分辨率。- 480P：640 × 480； - 720P：1280 × 720； - 1080P：1920 × 1088； - 2K：2560 × 1440； - 4K：4096 × 2160；- 8K：大于4K； -
+	// 0：纯音频流；
+	Resolution string `json:"Resolution"`
+
+	// REQUIRED; 流名称。
+	Stream string `json:"Stream"`
+
+	// REQUIRED; 视频编码格式，支持的取值和含义如下所示。- NormalH264：H.264 标准转码； - NormalH265：H.265 标准转码； - NormalH266：H.266 标准转码； - ByteHDH264：H.264
+	// 极智超清； - ByteHDH265：H.265 极智超清； - ByteHDH266：H.266 极智超清；- ByteQE：画质增强；- Audio：纯音频流；
+	VCodec string `json:"VCodec"`
+}
+
+type DescribeLiveCallbackDataBody struct {
+
+	// REQUIRED; 结束时间，单次查询31天，历史366天
+	EndTime string `json:"EndTime"`
+
+	// REQUIRED; 开始时间
+	StartTime string `json:"StartTime"`
+
+	// 应用名称。
+	App *string `json:"App,omitempty"`
+
+	// 回调事件类型 推流开始-push_start 推流结束-push_end 截图回调-snapshot_event 录制回调-record_event
+	CallbackEventType []*string `json:"CallbackEventType,omitempty"`
+
+	// 回调状态 成功-success 失败-fail
+	CallbackStatus []*string `json:"CallbackStatus,omitempty"`
+
+	// 需查询的域名列表，缺省情况下表示当前账号下的所有域名。
+	DomainList []*string `json:"DomainList,omitempty"`
+
+	// 分页页码，默认是1，取值范围[1，10000]
+	PageNum *int32 `json:"PageNum,omitempty"`
+
+	// 每页的大小，默认100，取值范围[1, 1000]
+	PageSize *int32 `json:"PageSize,omitempty"`
+
+	// 流名称，用于精确定位某一路直播流。
+	Stream *string `json:"Stream,omitempty"`
+}
+
+type DescribeLiveCallbackDataRes struct {
+
+	// REQUIRED
+	ResponseMetadata DescribeLiveCallbackDataResResponseMetadata `json:"ResponseMetadata"`
+
+	// 视请求的接口而定
+	Result *DescribeLiveCallbackDataResResult `json:"Result,omitempty"`
+}
+
+type DescribeLiveCallbackDataResResponseMetadata struct {
+
+	// REQUIRED; 请求的接口名，属于请求的公共参数。
+	Action string `json:"Action"`
+
+	// REQUIRED; 请求的Region，例如：cn-north-1
+	Region string `json:"Region"`
+
+	// REQUIRED; RequestId为每次API请求的唯一标识。
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED; 请求的服务，属于请求的公共参数。
+	Service string `json:"Service"`
+
+	// REQUIRED; 请求的版本号，属于请求的公共参数。
+	Version string `json:"Version"`
+}
+
+// DescribeLiveCallbackDataResResult - 视请求的接口而定
+type DescribeLiveCallbackDataResResult struct {
+
+	// REQUIRED; 查询的结束时间，RFC3339 格式的 UTC 时间，精度为秒。
+	EndTime string `json:"EndTime"`
+
+	// REQUIRED; 查询的开始时间，RFC3339 格式的 UTC 时间，精度为秒。
+	StartTime string `json:"StartTime"`
+
+	// 应用名称。
+	App *string `json:"App,omitempty"`
+
+	// 回调事件类型
+	CallbackEventType []*string `json:"CallbackEventType,omitempty"`
+
+	// 回调事件详情
+	CallbackInfoList []*DescribeLiveCallbackDataResResultCallbackInfoListItem `json:"CallbackInfoList,omitempty"`
+
+	// 回调状态
+	CallbackStatus []*string `json:"CallbackStatus,omitempty"`
+
+	// 域名列表。
+	DomainList []*string `json:"DomainList,omitempty"`
+
+	// 查询结果的分页信息。
+	Pagination *DescribeLiveCallbackDataResResultPagination `json:"Pagination,omitempty"`
+
+	// 流名称。
+	Stream *string `json:"Stream,omitempty"`
+}
+
+type DescribeLiveCallbackDataResResultCallbackInfoListItem struct {
+
+	// REQUIRED; 应用名称。
+	App string `json:"App"`
+
+	// REQUIRED; 回调地址。
+	CallbackAddress string `json:"CallbackAddress"`
+
+	// REQUIRED; 回调请求体。
+	CallbackBody string `json:"CallbackBody"`
+
+	// REQUIRED; 回调错误说明。
+	CallbackErrorCode string `json:"CallbackErrorCode"`
+
+	// REQUIRED; 错误信息，当回调失败时返回。
+	CallbackErrorMessage string `json:"CallbackErrorMessage"`
+
+	// REQUIRED; 回调事件类型。
+	CallbackEventType string `json:"CallbackEventType"`
+
+	// REQUIRED; 回调请求方式。
+	CallbackMethod string `json:"CallbackMethod"`
+
+	// REQUIRED; 回调响应体。
+	CallbackResponseBody string `json:"CallbackResponseBody"`
+
+	// REQUIRED; 回调响应码。
+	CallbackResponseCode string `json:"CallbackResponseCode"`
+
+	// REQUIRED; 回调响应头信息。
+	CallbackResponseHeader string `json:"CallbackResponseHeader"`
+
+	// REQUIRED; 回调响应时间。
+	CallbackResponseTime string `json:"CallbackResponseTime"`
+
+	// REQUIRED; 回调状态
+	CallbackStatus string `json:"CallbackStatus"`
+
+	// REQUIRED; 回调发生时间。
+	CallbackTime string `json:"CallbackTime"`
+
+	// REQUIRED; 域名。
+	Domain string `json:"Domain"`
+
+	// REQUIRED; 流名称。
+	Stream string `json:"Stream"`
+}
+
+// DescribeLiveCallbackDataResResultPagination - 查询结果的分页信息。
+type DescribeLiveCallbackDataResResultPagination struct {
+
+	// REQUIRED; 当前所在分页的页码。
+	PageNum int32 `json:"PageNum"`
+
+	// REQUIRED; 每页显示的数据条数。
+	PageSize int32 `json:"PageSize"`
+
+	// REQUIRED; 查询结果的数据总条数。
+	TotalCount int32 `json:"TotalCount"`
+}
+
 type DescribeLiveEdgeStatDataBody struct {
 
 	// REQUIRED; 查询的结束时间，RFC3339 格式的时间戳，精度为秒。
@@ -6283,150 +6711,6 @@ type DescribeLiveP95PeakBandwidthDataResResultUserRegionListItem struct {
 	Area     *string `json:"Area,omitempty"`
 	Country  *string `json:"Country,omitempty"`
 	Province *string `json:"Province,omitempty"`
-}
-
-type DescribeLivePadPresetDetailBody struct {
-
-	// 应用名称
-	App *string `json:"App,omitempty"`
-
-	// 流名称。
-	Stream *string `json:"Stream,omitempty"`
-
-	// 域名空间
-	Vhost *string `json:"Vhost,omitempty"`
-}
-
-type DescribeLivePadPresetDetailRes struct {
-
-	// REQUIRED
-	ResponseMetadata DescribeLivePadPresetDetailResResponseMetadata `json:"ResponseMetadata"`
-
-	// 视请求的接口而定
-	Result *DescribeLivePadPresetDetailResResult `json:"Result,omitempty"`
-}
-
-type DescribeLivePadPresetDetailResResponseMetadata struct {
-
-	// REQUIRED; 请求的接口名，属于请求的公共参数。
-	Action string `json:"Action"`
-
-	// REQUIRED; 请求的Region，例如：cn-north-1
-	Region string `json:"Region"`
-
-	// REQUIRED; RequestId为每次API请求的唯一标识。
-	RequestID string `json:"RequestId"`
-
-	// REQUIRED; 请求的服务，属于请求的公共参数。
-	Service string `json:"Service"`
-
-	// REQUIRED; 请求的版本号，属于请求的公共参数。
-	Version string `json:"Version"`
-}
-
-// DescribeLivePadPresetDetailResResult - 视请求的接口而定
-type DescribeLivePadPresetDetailResResult struct {
-
-	// REQUIRED; 模板列表
-	PresetList []DescribeLivePadPresetDetailResResultPresetListItem `json:"PresetList"`
-}
-
-type DescribeLivePadPresetDetailResResultPresetListItem struct {
-
-	// REQUIRED; 应用名称
-	App string `json:"App"`
-
-	// REQUIRED; 模板详情。
-	PresetDetail DescribeLivePadPresetDetailResResultPresetListItemPresetDetail `json:"PresetDetail"`
-
-	// REQUIRED; 流名称。
-	Stream string `json:"Stream"`
-
-	// REQUIRED; 域名空间
-	Vhost string `json:"Vhost"`
-}
-
-// DescribeLivePadPresetDetailResResultPresetListItemPresetDetail - 模板详情。
-type DescribeLivePadPresetDetailResResultPresetListItemPresetDetail struct {
-
-	// REQUIRED; 描述
-	Description string `json:"Description"`
-
-	// REQUIRED; 最大持续时间。
-	MaxDuration int64 `json:"MaxDuration"`
-
-	// REQUIRED; 垫片类型，1: 图片、2: 视频、3: 源流最后一帧
-	PadType int32 `json:"PadType"`
-
-	// REQUIRED; 预设名称。
-	PresetName string `json:"PresetName"`
-
-	// REQUIRED; 垫片内容URL。
-	URL string `json:"Url"`
-
-	// REQUIRED; 等待持续时间。
-	WaitDuration int64 `json:"WaitDuration"`
-}
-
-type DescribeLivePadStreamListBody struct {
-
-	// REQUIRED; 页码。
-	PageNum int64 `json:"PageNum"`
-
-	// REQUIRED; 分页大小。
-	PageSize int64 `json:"PageSize"`
-
-	// REQUIRED; 域名空间
-	Vhost string `json:"Vhost"`
-
-	// 应用名称。
-	App *string `json:"App,omitempty"`
-}
-
-type DescribeLivePadStreamListRes struct {
-
-	// REQUIRED
-	ResponseMetadata DescribeLivePadStreamListResResponseMetadata `json:"ResponseMetadata"`
-
-	// 视请求的接口而定
-	Result *DescribeLivePadStreamListResResult `json:"Result,omitempty"`
-}
-
-type DescribeLivePadStreamListResResponseMetadata struct {
-
-	// REQUIRED; 请求的接口名，属于请求的公共参数。
-	Action string `json:"Action"`
-
-	// REQUIRED; 请求的Region，例如：cn-north-1
-	Region string `json:"Region"`
-
-	// REQUIRED; RequestId为每次API请求的唯一标识。
-	RequestID string `json:"RequestId"`
-
-	// REQUIRED; 请求的服务，属于请求的公共参数。
-	Service string `json:"Service"`
-
-	// REQUIRED; 请求的版本号，属于请求的公共参数。
-	Version string `json:"Version"`
-}
-
-// DescribeLivePadStreamListResResult - 视请求的接口而定
-type DescribeLivePadStreamListResResult struct {
-
-	// REQUIRED; 流列表。
-	StreamList []DescribeLivePadStreamListResResultStreamListItem `json:"StreamList"`
-}
-
-type DescribeLivePadStreamListResResultStreamListItem struct {
-
-	// REQUIRED; 应用程序的名称。
-	App string `json:"App"`
-
-	// REQUIRED; 流名称。
-	Stream string `json:"Stream"`
-
-	// REQUIRED
-	Vhost string `json:"Vhost"`
 }
 
 type DescribeLivePlayStatusCodeDataBody struct {
@@ -9618,6 +9902,243 @@ type DescribeRelaySourceV3ResResultRelaySourceConfigListPropertiesItemsServersIt
 	RelaySourceProtocol string `json:"RelaySourceProtocol"`
 }
 
+type DescribeRemoteAuthBody struct {
+
+	// REQUIRED; 需要配置远程鉴权的拉流域名。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看拉流域名信息。
+	Domain string `json:"Domain"`
+
+	// REQUIRED; 需要配置远程鉴权的拉流域名所属的域名空间。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看拉流域名的域名空间信息。
+	Vhost string  `json:"Vhost"`
+	App   *string `json:"App,omitempty"`
+}
+
+type DescribeRemoteAuthRes struct {
+
+	// REQUIRED
+	ResponseMetadata DescribeRemoteAuthResResponseMetadata `json:"ResponseMetadata"`
+
+	// REQUIRED
+	Result DescribeRemoteAuthResResult `json:"Result"`
+}
+
+type DescribeRemoteAuthResResponseMetadata struct {
+
+	// REQUIRED
+	Action string `json:"Action"`
+
+	// REQUIRED
+	Region string `json:"Region"`
+
+	// REQUIRED
+	RequestID string `json:"RequestID"`
+
+	// REQUIRED
+	Service string `json:"Service"`
+
+	// REQUIRED
+	Version string `json:"Version"`
+}
+
+type DescribeRemoteAuthResResult struct {
+
+	// REQUIRED; 鉴权成功状态码，所有状态码范围在[200,499]间
+	AllowStatus []int32 `json:"AllowStatus"`
+
+	// REQUIRED; 远程鉴权地址
+	AuthURL string `json:"AuthURL"`
+
+	// REQUIRED; 鉴权缓存配置，配置均为空时表示不使用缓存来判断鉴权结果。
+	CacheConfig DescribeRemoteAuthResResultCacheConfig `json:"CacheConfig"`
+
+	// REQUIRED; 鉴权异常时是否返回鉴权失败
+	DenyOnFailed bool `json:"DenyOnFailed"`
+
+	// REQUIRED; 返回状态码不在成功失败中时是否返回失败
+	DenyOtherStatus bool `json:"DenyOtherStatus"`
+
+	// REQUIRED; 鉴权失败时返回的状态码，范围在[400,699]内
+	DenyReturnCode float32 `json:"DenyReturnCode"`
+
+	// REQUIRED; 鉴权失败时鉴权服务器返回的状态码，所有状态码范围应在 [200,499] 之间，且和 AllowStatus 不重复。
+	DenyRule DescribeRemoteAuthResResultDenyRule `json:"DenyRule"`
+
+	// REQUIRED; 远程鉴权配置是否打开
+	Enable bool `json:"Enable"`
+
+	// REQUIRED; 参数在50个以内
+	HeaderParamConfig DescribeRemoteAuthResResultHeaderParamConfig `json:"HeaderParamConfig"`
+
+	// REQUIRED; 鉴权请求方法，返回包括POST或GET
+	Method string `json:"Method"`
+
+	// REQUIRED; 参数在50个以内
+	QueryParamConfig DescribeRemoteAuthResResultQueryParamConfig `json:"QueryParamConfig"`
+
+	// 远程鉴权路径，UseUserRequest为true时忽略此字段
+	AuthURLPath *string `json:"AuthURLPath,omitempty"`
+
+	// 鉴权请求 Body 参数。 :::tip 鉴权请求方法为 POST 时 Body 参数配置生效。 :::
+	BodyParams []*DescribeRemoteAuthResResultBodyParamsItem `json:"BodyParams,omitempty"`
+
+	// 是否开启对 HLS 协议拉流请求的鉴权开关，取值及含义如下所示。
+	// * true：开启。
+	// * false：（默认值）关闭。
+	EnableHLSAuth *bool `json:"EnableHLSAuth,omitempty"`
+
+	// 是否开启对 HLS 协议流的 TS 分片进行远程鉴权，取值及含义如下所示。
+	// * true：开启。
+	// * false：（默认值）关闭。
+	// :::tip 开启 HLS 协议拉流请求的远程鉴权开关时，必须开启对 TS 分片的远程鉴权。 :::
+	EnableHLSTSAuth *bool `json:"EnableHLSTSAuth,omitempty"`
+
+	// 请求头是否保留大小写信息，true为原样请求，false转换为mime格式
+	HeaderCaseSensitivity *bool `json:"HeaderCaseSensitivity,omitempty"`
+
+	// 长度不超过1024
+	HeaderHost *string `json:"HeaderHost,omitempty"`
+
+	// 鉴权失败重试间隔，单位为秒，范围[1,30]
+	RetryInterval *float32 `json:"RetryInterval,omitempty"`
+
+	// 鉴权失败重试次数，范围[0,10]
+	RetryTimes *float32 `json:"RetryTimes,omitempty"`
+
+	// 鉴权超时时间，单位为秒。范围[0, 600]
+	Timeout *float32 `json:"Timeout,omitempty"`
+
+	// 是否使用用户请求的路径拼接到鉴权地址上
+	UseUserRequest *bool `json:"UseUserRequest,omitempty"`
+}
+
+type DescribeRemoteAuthResResultBodyParamsItem struct {
+
+	// REQUIRED; 参数类型，取值及含义如下所示。
+	// * const_string：常量；
+	// * header：用户请求的 Header 参数；
+	// * query：用户请求的 URL 参数；
+	// * vhost：参数值为变量 vhost 的参数，表示拉流请求中拉流域名所属的域名空间；
+	// * domain：参数值为变量 domain 的参数，表示拉流请求中使用的拉流域名；
+	// * app：参数值为变量 app 的参数，表示拉流请求中使用的 AppName；
+	// * stream：参数值为变量 stream 的参数，表示拉流请求中使用的 StreamName；
+	// * client_ip：参数值为变量 client_ip 的参数，表示拉流客户端 IP 地址；
+	// * server_ip：参数值为变量 server_ip 的参数，表示响应拉流请求的 CDN 节点IP地址；
+	// * request_uri：参数值为变量 request_uri 的参数，拉流请求地址的 URI。
+	Type string `json:"Type"`
+
+	// 参数名，最大长度为 100 个字符，不支持输入空格。 :::tip
+	// * 参数类型为常量时表示常量参数的参数名；
+	// * 参数类型为用户请求的 Header 参数或用户请求的 URL 参数时，表示指定用户请求中对应的参数名作为此处的参数名；
+	// * 参数类型为变量时不生效。 :::
+	ParamName *string `json:"ParamName,omitempty"`
+
+	// 参数名的映射参数名，最大长度为 100 个字符，不支持输入空格。 :::tip
+	// * 参数类型为常量时不生效；
+	// * 参数类型为用户请求的 Header 参数或用户请求的 URL 参数时，表示鉴权请求时使用 ToName 值代替用户请求中对应的参数名；
+	// * 参数类型为变量时，表示使用 ToName 取值作为此变量的参数名。 :::
+	ToName *string `json:"ToName,omitempty"`
+
+	// 参数类型为常量时的参数值，最大长度为 100 个字符，不支持输入空格。
+	Value *string `json:"Value,omitempty"`
+}
+
+// DescribeRemoteAuthResResultCacheConfig - 鉴权缓存配置，配置均为空时表示不使用缓存来判断鉴权结果。
+type DescribeRemoteAuthResResultCacheConfig struct {
+
+	// REQUIRED; 生成鉴权结果缓存 Key 使用的参数配置，最多支持配置 50 个参数。 :::tip
+	// * 鉴权成功与鉴权失败使用相同配置时，表示鉴权结果缓存 Key 配置；
+	// * 鉴权成功与鉴权失败不使用相同配置时，表示鉴权成功缓存的过期时间。 :::
+	CacheKeys DescribeRemoteAuthResResultCacheConfigCacheKeys `json:"CacheKeys"`
+
+	// REQUIRED; 鉴权成功和鉴权失败是否使用相同的配置（包括缓存的 key 值和缓存过期时间）。
+	// * true：使用相同配置；
+	// * false：不使用相同配置。
+	UseSameCache bool `json:"UseSameCache"`
+
+	// 缓存过期时间，范围为[0,3600]
+	CacheExpireSecond *float32 `json:"CacheExpireSecond,omitempty"`
+
+	// 鉴权失败缓存的过期时间，默认值为 0 时表示不缓存，单位为秒，取值范围为 [0,3600]。 :::tip 鉴权成功与鉴权失败不使用相同配置，即 UseSameCache 配置 false 时生效。 :::
+	DenyExpireSecond *float32 `json:"DenyExpireSecond,omitempty"`
+
+	// 生成鉴权失败结果缓存 Key 使用的参数配置，最多支持配置 50 个参数。
+	// :::tip 鉴权成功与鉴权失败不使用相同配置，即 UseSameCache 配置 false 时生效。 :::
+	DenyKeys *DescribeRemoteAuthResResultCacheConfigDenyKeys `json:"DenyKeys,omitempty"`
+}
+
+// DescribeRemoteAuthResResultCacheConfigCacheKeys - 生成鉴权结果缓存 Key 使用的参数配置，最多支持配置 50 个参数。 :::tip
+// * 鉴权成功与鉴权失败使用相同配置时，表示鉴权结果缓存 Key 配置；
+// * 鉴权成功与鉴权失败不使用相同配置时，表示鉴权成功缓存的过期时间。 :::
+type DescribeRemoteAuthResResultCacheConfigCacheKeys struct {
+
+	// REQUIRED; 生成缓存 Key 使用的参数的类型，取值及含义如下所示。
+	// * query：用户拉流请求 URL 参数；
+	// * header：用户拉流请求 Header 参数；
+	// * vhost：使用用户拉流域名所属的 vhost 值作为参数；
+	// * domain：使用用户拉流域名值作为参数；
+	// * app：使用用户拉流请求中的 AppName 值作为参数；
+	// * stream：使用用户拉流请求中的 StreamName 值作为参数；
+	// * client_ip：使用拉流用户客户端的 IP 地址作为参数；
+	// * request_uri：使用拉流请求地址的 URI 做为参数。
+	Type string `json:"Type"`
+
+	// 参数名，当参数类型为 query 或 Header 时生效且必填，表示指定拉流请求中的参数名对应的参数值作为生成缓存 Key 的参数。
+	ParamName *string `json:"ParamName,omitempty"`
+}
+
+// DescribeRemoteAuthResResultCacheConfigDenyKeys - 生成鉴权失败结果缓存 Key 使用的参数配置，最多支持配置 50 个参数。
+// :::tip 鉴权成功与鉴权失败不使用相同配置，即 UseSameCache 配置 false 时生效。 :::
+type DescribeRemoteAuthResResultCacheConfigDenyKeys struct {
+
+	// REQUIRED
+	Type      string  `json:"Type"`
+	ParamName *string `json:"ParamName,omitempty"`
+}
+
+// DescribeRemoteAuthResResultDenyRule - 鉴权失败时鉴权服务器返回的状态码，所有状态码范围应在 [200,499] 之间，且和 AllowStatus 不重复。
+type DescribeRemoteAuthResResultDenyRule struct {
+
+	// REQUIRED; 鉴权失败状态码，所有状态码范围在[200,499]内
+	DenyStatus []float32 `json:"DenyStatus"`
+}
+
+// DescribeRemoteAuthResResultHeaderParamConfig - 参数在50个以内
+type DescribeRemoteAuthResResultHeaderParamConfig struct {
+
+	// REQUIRED
+	UseUserParam bool                                                      `json:"UseUserParam"`
+	Params       []*DescribeRemoteAuthResResultHeaderParamConfigParamsItem `json:"Params,omitempty"`
+}
+
+type DescribeRemoteAuthResResultHeaderParamConfigParamsItem struct {
+
+	// REQUIRED
+	Type      string  `json:"Type"`
+	ParamName *string `json:"ParamName,omitempty"`
+	ToName    *string `json:"ToName,omitempty"`
+	Value     *string `json:"Value,omitempty"`
+}
+
+// DescribeRemoteAuthResResultQueryParamConfig - 参数在50个以内
+type DescribeRemoteAuthResResultQueryParamConfig struct {
+
+	// REQUIRED; 远程鉴权请求的 URL 或 Header 参数使用用户请求参数还是自定义参数，取值及含义如下所示。
+	// * true：使用用户请求参数；
+	// * false：自定义参数。
+	UseUserParam bool `json:"UseUserParam"`
+
+	// 自定义参数时的参数配置。
+	Params []*DescribeRemoteAuthResResultQueryParamConfigParamsItem `json:"Params,omitempty"`
+}
+
+type DescribeRemoteAuthResResultQueryParamConfigParamsItem struct {
+
+	// REQUIRED
+	Type      string  `json:"Type"`
+	ParamName *string `json:"ParamName,omitempty"`
+	ToName    *string `json:"ToName,omitempty"`
+	Value     *string `json:"Value,omitempty"`
+}
+
 type DescribeUserAgentAccessRuleBody struct {
 
 	// REQUIRED
@@ -10062,6 +10583,52 @@ type GeneratePushURLResResultPushURLListDetailItem struct {
 	URL string `json:"URL"`
 }
 
+type GetCarouselDetailBody struct {
+
+	// REQUIRED; 待查询的轮播任务 ID，任务的唯一标识。调用 CreateCarouselTask 接口创建轮播任务时返回。
+	TaskID string `json:"TaskID"`
+}
+
+type GetCarouselDetailRes struct {
+
+	// REQUIRED
+	ResponseMetadata GetCarouselDetailResResponseMetadata `json:"ResponseMetadata"`
+
+	// REQUIRED
+	Result GetCarouselDetailResResult `json:"Result"`
+}
+
+type GetCarouselDetailResResponseMetadata struct {
+
+	// REQUIRED
+	RequestID string `json:"RequestID"`
+}
+
+type GetCarouselDetailResResult struct {
+
+	// REQUIRED; 包含轮播任务相关信息的数据对象。
+	Data GetCarouselDetailResResultData `json:"Data"`
+}
+
+// GetCarouselDetailResResultData - 包含轮播任务相关信息的数据对象。
+type GetCarouselDetailResResultData struct {
+
+	// REQUIRED; 最新的播放列表序列号
+	LastOperationIndex int32 `json:"LastOperationIndex"`
+
+	// REQUIRED; 当前播放列表序列号
+	LastSuccessOperationIndex int32 `json:"LastSuccessOperationIndex"`
+
+	// REQUIRED; 当前的播放信息，json字符串
+	PlayInfo string `json:"PlayInfo"`
+
+	// REQUIRED; 当前的播单信息
+	Rule string `json:"Rule"`
+
+	// REQUIRED; 任务状态： pending：任务等待调度中 prepare：任务初始化中 running：任务运行中 prestop：任务停止中 done：任务已经停止
+	Status string `json:"Status"`
+}
+
 type GetCloudMixTaskDetailBody struct {
 
 	// REQUIRED; 混流任务 ID，您可以通过 ListCloudMixTask [https://www.volcengine.com/docs/6469/1271157] 接口获取混流任务 ID。
@@ -10388,6 +10955,93 @@ type ListBindEncryptDRMResResultDRMBindingListItem struct {
 
 	// REQUIRED; 域名空间。
 	Vhost string `json:"Vhost"`
+}
+
+type ListCarouselTaskBody struct {
+
+	// REQUIRED; 分页功能，展示第几页
+	Page int32 `json:"Page"`
+
+	// REQUIRED; 分页功能，页大小
+	PageSize int32 `json:"PageSize"`
+}
+
+type ListCarouselTaskRes struct {
+
+	// REQUIRED
+	ResponseMetadata ListCarouselTaskResResponseMetadata `json:"ResponseMetadata"`
+
+	// REQUIRED
+	Result ListCarouselTaskResResult `json:"Result"`
+}
+
+type ListCarouselTaskResResponseMetadata struct {
+
+	// REQUIRED
+	RequestID string `json:"RequestID"`
+}
+
+type ListCarouselTaskResResult struct {
+
+	// REQUIRED; 轮播任务数据对象。
+	Data ListCarouselTaskResResultData `json:"Data"`
+}
+
+// ListCarouselTaskResResultData - 轮播任务数据对象。
+type ListCarouselTaskResResultData struct {
+
+	// REQUIRED; 满足查询条件的轮播任务总数。
+	Count int32 `json:"Count"`
+
+	// REQUIRED; 轮播任务的数组，每个元素表示一个任务的详细信息。
+	Result []ListCarouselTaskResResultDataResultItem `json:"Result"`
+}
+
+type ListCarouselTaskResResultDataResultItem struct {
+
+	// REQUIRED; 任务的创建时间，RFC3339 格式的时间戳，精度为秒。
+	CreatedAt ListCarouselTaskResResultDataResultItemCreatedAt `json:"CreatedAt"`
+
+	// REQUIRED; 轮播任务名称。
+	Name string `json:"Name"`
+
+	// REQUIRED; 轮播任务的当前状态。取值和含义如下：
+	// * pending：任务等待调度中；
+	// * prepare：任务初始化中；
+	// * running：任务运行中；
+	// * prestop：任务停止中；
+	// * done：任务已经停止。
+	Status string `json:"Status"`
+
+	// REQUIRED; 任务的结束时间，RFC3339 格式的时间戳，精度为秒。
+	StoppedAt ListCarouselTaskResResultDataResultItemStoppedAt `json:"StoppedAt"`
+
+	// REQUIRED; 轮播任务的唯一标识。
+	TaskID string `json:"TaskID"`
+
+	// REQUIRED; 任务的更新时间，RFC3339 格式的时间戳，精度为秒。
+	UpdatedAt ListCarouselTaskResResultDataResultItemUpdatedAt `json:"UpdatedAt"`
+}
+
+// ListCarouselTaskResResultDataResultItemCreatedAt - 任务的创建时间，RFC3339 格式的时间戳，精度为秒。
+type ListCarouselTaskResResultDataResultItemCreatedAt struct {
+
+	// REQUIRED; 任务的创建时间，RFC3339 格式的时间戳，精度为秒。
+	Time string `json:"Time"`
+}
+
+// ListCarouselTaskResResultDataResultItemStoppedAt - 任务的结束时间，RFC3339 格式的时间戳，精度为秒。
+type ListCarouselTaskResResultDataResultItemStoppedAt struct {
+
+	// REQUIRED; 任务的结束时间，RFC3339 格式的时间戳，精度为秒。
+	Time string `json:"Time"`
+}
+
+// ListCarouselTaskResResultDataResultItemUpdatedAt - 任务的更新时间，RFC3339 格式的时间戳，精度为秒。
+type ListCarouselTaskResResultDataResultItemUpdatedAt struct {
+
+	// REQUIRED; 任务的更新时间，RFC3339 格式的时间戳，精度为秒。
+	Time string `json:"Time"`
 }
 
 type ListCertV2Body struct {
@@ -11780,6 +12434,216 @@ type ListVhostRecordPresetV2ResResultPresetListItemSlicePresetV2 struct {
 	RecordPresetConfig *ComponentsFuamuzSchemasListvhostrecordpresetv2ResPropertiesResultPropertiesPresetlistItemsPropertiesSlicepresetv2PropertiesRecordpresetconfig `json:"RecordPresetConfig,omitempty"`
 }
 
+type ListVhostRemoteAuthBody struct {
+
+	// REQUIRED; 需要配置远程鉴权的拉流域名所属的域名空间。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看拉流域名的域名空间信息。
+	Vhost string `json:"Vhost"`
+}
+
+type ListVhostRemoteAuthRes struct {
+
+	// REQUIRED
+	ResponseMetadata ListVhostRemoteAuthResResponseMetadata `json:"ResponseMetadata"`
+
+	// REQUIRED
+	Result ListVhostRemoteAuthResResult `json:"Result"`
+}
+
+type ListVhostRemoteAuthResResponseMetadata struct {
+
+	// REQUIRED
+	Action string `json:"Action"`
+
+	// REQUIRED
+	Region string `json:"Region"`
+
+	// REQUIRED
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED
+	Service string `json:"Service"`
+
+	// REQUIRED
+	Version string `json:"Version"`
+}
+
+type ListVhostRemoteAuthResResult struct {
+
+	// REQUIRED; Vhost 下所有拉流域名的远程鉴权配置信息。
+	RemoteAuthConfigList []ListVhostRemoteAuthResResultRemoteAuthConfigListItem `json:"RemoteAuthConfigList"`
+}
+
+type ListVhostRemoteAuthResResultRemoteAuthConfigListItem struct {
+
+	// REQUIRED; 鉴权成功状态码，所有状态码范围在[200,499]间
+	AllowStatus []int32 `json:"AllowStatus"`
+
+	// REQUIRED; 配置所属的app
+	App string `json:"App"`
+
+	// REQUIRED; 远程鉴权地址
+	AuthURL string `json:"AuthURL"`
+
+	// REQUIRED; 鉴权缓存配置，配置均为空时表示不使用缓存来判断鉴权结果。
+	CacheConfig ListVhostRemoteAuthResResultRemoteAuthConfigListItemCacheConfig `json:"CacheConfig"`
+
+	// REQUIRED; 鉴权异常时是否返回鉴权失败
+	DenyOnFailed bool `json:"DenyOnFailed"`
+
+	// REQUIRED; 返回状态码不在成功失败中时是否返回失败
+	DenyOtherStatus bool `json:"DenyOtherStatus"`
+
+	// REQUIRED; 鉴权失败时返回的状态码，范围在[400,699]内
+	DenyReturnCode float32 `json:"DenyReturnCode"`
+
+	// REQUIRED; 鉴权失败时鉴权服务器返回的状态码，所有状态码范围应在 [200,499] 之间，且和 AllowStatus 不重复。
+	DenyRule ListVhostRemoteAuthResResultRemoteAuthConfigListItemDenyRule `json:"DenyRule"`
+
+	// REQUIRED; 配置所属的domain
+	Domain string `json:"Domain"`
+
+	// REQUIRED; 远程鉴权配置是否打开
+	Enable bool `json:"Enable"`
+
+	// REQUIRED; 参数在50个以内
+	HeaderParamConfig ListVhostRemoteAuthResResultRemoteAuthConfigListItemHeaderParamConfig `json:"HeaderParamConfig"`
+
+	// REQUIRED; 鉴权请求方法，返回包括POST或GET
+	Method string `json:"Method"`
+
+	// REQUIRED; 参数在50个以内
+	QueryParamConfig ListVhostRemoteAuthResResultRemoteAuthConfigListItemQueryParamConfig `json:"QueryParamConfig"`
+
+	// REQUIRED; 配置所属的vhost
+	Vhost string `json:"Vhost"`
+
+	// 远程鉴权路径，UseUserRequest为true时忽略此字段
+	AuthURLPath *string `json:"AuthURLPath,omitempty"`
+
+	// 鉴权请求 Body 参数，最多配置 50 个 Body 参数。 :::tip 鉴权请求方法为 POST 时 Body 参数配置生效。 :::
+	BodyParams []*ListVhostRemoteAuthResResultRemoteAuthConfigListPropertiesItemsItem `json:"BodyParams,omitempty"`
+
+	// 是否开启对 HLS 协议拉流请求的鉴权开关，取值及含义如下所示。
+	// * true：开启。
+	// * false：（默认值）关闭。
+	EnableHLSAuth *bool `json:"EnableHLSAuth,omitempty"`
+
+	// 是否开启对 HLS 协议流的 TS 分片进行远程鉴权，取值及含义如下所示。
+	// * true：开启。
+	// * false：（默认值）关闭。
+	// :::tip 开启 HLS 协议拉流请求的远程鉴权开关时，必须开启对 TS 分片的远程鉴权。 :::
+	EnableHLSTSAuth *bool `json:"EnableHLSTSAuth,omitempty"`
+
+	// 请求头是否保留大小写信息，true为原样请求，false转换为mime格式
+	HeaderCaseSensitivity *bool `json:"HeaderCaseSensitivity,omitempty"`
+
+	// 长度不超过1024
+	HeaderHost *string `json:"HeaderHost,omitempty"`
+
+	// 鉴权失败重试间隔，单位为秒，范围[1,30]
+	RetryInterval *float32 `json:"RetryInterval,omitempty"`
+
+	// 鉴权失败重试次数，范围[0,10]
+	RetryTimes *float32 `json:"RetryTimes,omitempty"`
+
+	// 鉴权超时时间，单位为秒。范围[0, 600]
+	Timeout *float32 `json:"Timeout,omitempty"`
+
+	// 是否使用用户请求的路径拼接到鉴权地址上
+	UseUserRequest *bool `json:"UseUserRequest,omitempty"`
+}
+
+// ListVhostRemoteAuthResResultRemoteAuthConfigListItemCacheConfig - 鉴权缓存配置，配置均为空时表示不使用缓存来判断鉴权结果。
+type ListVhostRemoteAuthResResultRemoteAuthConfigListItemCacheConfig struct {
+
+	// REQUIRED; 生成鉴权结果缓存 Key 使用的参数配置，最多支持配置 50 个参数。 :::tip
+	// * 鉴权成功与鉴权失败使用相同配置时，表示鉴权结果缓存 Key 配置；
+	// * 鉴权成功与鉴权失败不使用相同配置时，表示鉴权成功缓存的过期时间。 :::
+	CacheKeys ComponentsTmguxbSchemasListvhostremoteauthresPropertiesResultPropertiesRemoteauthconfiglistItemsPropertiesCacheconfigPropertiesCachekeys `json:"CacheKeys"`
+
+	// REQUIRED; 鉴权成功和鉴权失败是否使用相同的配置（包括缓存的 key 值和缓存过期时间）。
+	// * true：使用相同配置；
+	// * false：不使用相同配置。
+	UseSameCache bool `json:"UseSameCache"`
+
+	// 缓存过期时间，范围为[0,3600]
+	CacheExpireSecond *float32 `json:"CacheExpireSecond,omitempty"`
+
+	// 鉴权失败缓存的过期时间，默认值为 0 时表示不缓存，单位为秒，取值范围为 [0,3600]。 :::tip 鉴权成功与鉴权失败不使用相同配置，即 UseSameCache 配置 false 时生效。 :::
+	DenyExpireSecond *float32 `json:"DenyExpireSecond,omitempty"`
+
+	// 生成鉴权失败结果缓存 Key 使用的参数配置，最多支持配置 50 个参数。
+	// :::tip 鉴权成功与鉴权失败不使用相同配置，即 UseSameCache 配置 false 时生效。 :::
+	DenyKeys *ComponentsNopwcvSchemasListvhostremoteauthresPropertiesResultPropertiesRemoteauthconfiglistItemsPropertiesCacheconfigPropertiesDenykeys `json:"DenyKeys,omitempty"`
+}
+
+// ListVhostRemoteAuthResResultRemoteAuthConfigListItemDenyRule - 鉴权失败时鉴权服务器返回的状态码，所有状态码范围应在 [200,499] 之间，且和 AllowStatus 不重复。
+type ListVhostRemoteAuthResResultRemoteAuthConfigListItemDenyRule struct {
+
+	// REQUIRED; 鉴权失败状态码，所有状态码范围在[200,499]内
+	DenyStatus []float32 `json:"DenyStatus"`
+}
+
+// ListVhostRemoteAuthResResultRemoteAuthConfigListItemHeaderParamConfig - 参数在50个以内
+type ListVhostRemoteAuthResResultRemoteAuthConfigListItemHeaderParamConfig struct {
+
+	// REQUIRED
+	UseUserParam bool                                                                                                                                                `json:"UseUserParam"`
+	Params       []*Components6Aa5KwSchemasListvhostremoteauthresPropertiesResultPropertiesRemoteauthconfiglistItemsPropertiesHeaderparamconfigPropertiesParamsItems `json:"Params,omitempty"`
+}
+
+// ListVhostRemoteAuthResResultRemoteAuthConfigListItemQueryParamConfig - 参数在50个以内
+type ListVhostRemoteAuthResResultRemoteAuthConfigListItemQueryParamConfig struct {
+
+	// REQUIRED; 远程鉴权请求的 URL 或 Header 参数使用用户请求参数还是自定义参数，取值及含义如下所示。
+	// * true：使用用户请求参数；
+	// * false：自定义参数。
+	UseUserParam bool `json:"UseUserParam"`
+
+	// 自定义参数时的参数配置。
+	Params []*ListVhostRemoteAuthResResultRemoteAuthConfigListPropertiesPropertiesItemsItem `json:"Params,omitempty"`
+}
+
+type ListVhostRemoteAuthResResultRemoteAuthConfigListPropertiesItemsItem struct {
+
+	// REQUIRED; 参数类型，取值及含义如下所示。
+	// * const_string：常量；
+	// * header：用户请求的 Header 参数；
+	// * query：用户请求的 URL 参数；
+	// * vhost：参数值为变量 vhost 的参数，表示拉流请求中拉流域名所属的域名空间；
+	// * domain：参数值为变量 domain 的参数，表示拉流请求中使用的拉流域名；
+	// * app：参数值为变量 app 的参数，表示拉流请求中使用的 AppName；
+	// * stream：参数值为变量 stream 的参数，表示拉流请求中使用的 StreamName；
+	// * client_ip：参数值为变量 client_ip 的参数，表示拉流客户端 IP 地址；
+	// * server_ip：参数值为变量 server_ip 的参数，表示响应拉流请求的 CDN 节点IP地址；
+	// * request_uri：参数值为变量 request_uri 的参数，拉流请求地址的 URI。
+	Type string `json:"Type"`
+
+	// 参数名，最大长度为 100 个字符，不支持输入空格。 :::tip
+	// * 参数类型为常量时表示常量参数的参数名；
+	// * 参数类型为用户请求的 Header 参数或用户请求的 URL 参数时，表示指定用户请求中对应的参数名作为此处的参数名；
+	// * 参数类型为变量时不生效。 :::
+	ParamName *string `json:"ParamName,omitempty"`
+
+	// 参数名的映射参数名，最大长度为 100 个字符，不支持输入空格。 :::tip
+	// * 参数类型为常量时不生效；
+	// * 参数类型为用户请求的 Header 参数或用户请求的 URL 参数时，表示鉴权请求时使用 ToName 值代替用户请求中对应的参数名；
+	// * 参数类型为变量时，表示使用 ToName 取值作为此变量的参数名。 :::
+	ToName *string `json:"ToName,omitempty"`
+
+	// 参数类型为常量时的参数值，最大长度为 100 个字符，不支持输入空格。
+	Value *string `json:"Value,omitempty"`
+}
+
+type ListVhostRemoteAuthResResultRemoteAuthConfigListPropertiesPropertiesItemsItem struct {
+
+	// REQUIRED
+	Type      string  `json:"Type"`
+	ParamName *string `json:"ParamName,omitempty"`
+	ToName    *string `json:"ToName,omitempty"`
+	Value     *string `json:"Value,omitempty"`
+}
+
 type ListVhostSnapshotPresetBody struct {
 
 	// REQUIRED; 域名空间名称。
@@ -12611,7 +13475,7 @@ type ListWatermarkPresetResResultPreset struct {
 	Vhost *string `json:"Vhost,omitempty"`
 }
 
-type RestartPullToPushTaskBody struct {
+type RelaunchPullToPushTaskBody struct {
 
 	// REQUIRED; 任务 ID，任务的唯一标识，您可以通过获取拉流转推任务列表 [https://www.volcengine.com/docs/6469/1126896]接口获取状态为停用的任务 ID。
 	TaskID string `json:"TaskId"`
@@ -12622,13 +13486,13 @@ type RestartPullToPushTaskBody struct {
 	GroupName *string `json:"GroupName,omitempty"`
 }
 
-type RestartPullToPushTaskRes struct {
+type RelaunchPullToPushTaskRes struct {
 
 	// REQUIRED
-	ResponseMetadata RestartPullToPushTaskResResponseMetadata `json:"ResponseMetadata"`
+	ResponseMetadata RelaunchPullToPushTaskResResponseMetadata `json:"ResponseMetadata"`
 }
 
-type RestartPullToPushTaskResResponseMetadata struct {
+type RelaunchPullToPushTaskResResponseMetadata struct {
 
 	// REQUIRED
 	Action string `json:"Action"`
@@ -12643,11 +13507,11 @@ type RestartPullToPushTaskResResponseMetadata struct {
 	Service string `json:"Service"`
 
 	// REQUIRED
-	Version string                                         `json:"Version"`
-	Error   *RestartPullToPushTaskResResponseMetadataError `json:"Error,omitempty"`
+	Version string                                          `json:"Version"`
+	Error   *RelaunchPullToPushTaskResResponseMetadataError `json:"Error,omitempty"`
 }
 
-type RestartPullToPushTaskResResponseMetadataError struct {
+type RelaunchPullToPushTaskResResponseMetadataError struct {
 
 	// 错误码
 	Code *string `json:"Code,omitempty"`
@@ -12704,45 +13568,6 @@ type ResumeStreamResResponseMetadataError struct {
 
 	// 错误信息
 	Message *string `json:"Message,omitempty"`
-}
-
-type StopLivePadStreamBody struct {
-
-	// REQUIRED; 应用名称。
-	App string `json:"App"`
-
-	// REQUIRED; 流名称。
-	Stream string `json:"Stream"`
-
-	// REQUIRED; 域名空间
-	Vhost string `json:"Vhost"`
-}
-
-type StopLivePadStreamRes struct {
-
-	// REQUIRED
-	ResponseMetadata StopLivePadStreamResResponseMetadata `json:"ResponseMetadata"`
-
-	// 视请求的接口而定
-	Result interface{} `json:"Result,omitempty"`
-}
-
-type StopLivePadStreamResResponseMetadata struct {
-
-	// REQUIRED; 请求的接口名，属于请求的公共参数。
-	Action string `json:"Action"`
-
-	// REQUIRED; 请求的Region，例如：cn-north-1
-	Region string `json:"Region"`
-
-	// REQUIRED; RequestId为每次API请求的唯一标识。
-	RequestID string `json:"RequestId"`
-
-	// REQUIRED; 请求的服务，属于请求的公共参数。
-	Service string `json:"Service"`
-
-	// REQUIRED; 请求的版本号，属于请求的公共参数。
-	Version string `json:"Version"`
 }
 
 type StopPullToPushTaskBody struct {
@@ -13108,6 +13933,94 @@ type UpdateCallbackResResponseMetadataError struct {
 
 	// 错误信息
 	Message *string `json:"Message,omitempty"`
+}
+
+type UpdateCarouselTaskBody struct {
+
+	// REQUIRED; 轮播规则，用于指定轮播播放的素材和行为等。
+	Rule UpdateCarouselTaskBodyRule `json:"Rule"`
+
+	// REQUIRED; 待更新的轮播任务 ID，任务的唯一标识。调用 CreateCarouselTask 接口创建轮播任务时返回。
+	TaskID string `json:"TaskID"`
+}
+
+// UpdateCarouselTaskBodyRule - 轮播规则，用于指定轮播播放的素材和行为等。
+type UpdateCarouselTaskBodyRule struct {
+
+	// REQUIRED; 轮播素材列表，用于指定在轮播过程中播放的素材资源。
+	Source []UpdateCarouselTaskBodyRuleSourceItem `json:"Source"`
+
+	// 循环次数。取值范围为 [ ]，单位为，默认值为``。
+	Loop *int32 `json:"Loop,omitempty"`
+
+	// 对素材更新后的播放行为进行控制
+	SeekInfo *UpdateCarouselTaskBodyRuleSeekInfo `json:"SeekInfo,omitempty"`
+}
+
+// UpdateCarouselTaskBodyRuleSeekInfo - 对素材更新后的播放行为进行控制
+type UpdateCarouselTaskBodyRuleSeekInfo struct {
+
+	// 0 表示推完当前播放的素材后再进行素材切换；1 表示立刻切换到指定的素材、指定的进度
+	Immediate *int64 `json:"Immediate,omitempty"`
+
+	// 更新后播放的素材ID，为空代表不指定。
+	SourceID *string `json:"SourceID,omitempty"`
+
+	// 切换素材后，素材播放的位置。
+	SourceSeek *int64 `json:"SourceSeek,omitempty"`
+}
+
+type UpdateCarouselTaskBodyRuleSourceItem struct {
+
+	// REQUIRED; 注意，如果ID相同，此结构的其余字段也需要保证相同
+	ID string `json:"ID"`
+
+	// REQUIRED; 轮播素材的文件类型，用于指定素材的文件来源类型。支持以下取值：
+	// * vod：点播 MP4 或 FLV 文件；
+	// * m3u8：点播 M3U8 文件。
+	// :::tip 如果素材的 ID 没有变化（即更新的 ID 与原素材的 ID 相同），Type 取值要和元素材保持一致。 :::
+	Type string `json:"Type"`
+
+	// REQUIRED; 轮播素材的公网可访问地址。确保提供的地址能够被公网正常访问，以便正确加载轮播素材内容。 :::tip 如果素材的 ID 没有变化（即更新的 ID 与原素材的 ID 相同），Url 取值要和元素材保持一致。 :::
+	URL string `json:"Url"`
+
+	// 指定此素材连续播放的次数。该字段值必须大于等于 0，不传时，将保持原有轮播配置。支持的取值及含义如下：
+	// * 0：不循环播放；
+	// * 其他正整数：按照指定次数循环播放。
+	Loop *int32 `json:"Loop,omitempty"`
+
+	// 用于控制当前素材播放时跳过开头的一段时间，例如，跳过片头，单位为秒。该字段仅在素材类型为视频点播（type=vod）时有效。以下是该字段的使用规则：
+	// * 如果 Seek 的取值小于等于 0 或大于视频的实际时长，则该字段不生效。
+	// * 确保根据点播素材的实际长度设置合适的值，以实现跳过片头的效果。
+	Seek *int32 `json:"Seek,omitempty"`
+}
+
+type UpdateCarouselTaskRes struct {
+
+	// REQUIRED
+	ResponseMetadata UpdateCarouselTaskResResponseMetadata `json:"ResponseMetadata"`
+
+	// REQUIRED
+	Result UpdateCarouselTaskResResult `json:"Result"`
+}
+
+type UpdateCarouselTaskResResponseMetadata struct {
+
+	// REQUIRED
+	RequestID string `json:"RequestID"`
+}
+
+type UpdateCarouselTaskResResult struct {
+
+	// REQUIRED; 包含任务更新相关信息的数据对象。
+	Data UpdateCarouselTaskResResultData `json:"Data"`
+}
+
+// UpdateCarouselTaskResResultData - 包含任务更新相关信息的数据对象。
+type UpdateCarouselTaskResResultData struct {
+
+	// REQUIRED; 当前生效的序列号
+	OptID int32 `json:"OptID"`
 }
 
 type UpdateCloudMixTaskBody struct {
@@ -13787,54 +14700,6 @@ type UpdateLatencyConfigResResponseMetadata struct {
 	Region string `json:"Region"`
 
 	// REQUIRED; RequestID为每次API请求的唯一标识。
-	RequestID string `json:"RequestId"`
-
-	// REQUIRED; 请求的服务，属于请求的公共参数。
-	Service string `json:"Service"`
-
-	// REQUIRED; 请求的版本号，属于请求的公共参数。
-	Version string `json:"Version"`
-}
-
-type UpdateLivePadPresetBody struct {
-
-	// REQUIRED; 垫片时长。取值范围：>=1000。单位ms
-	MaxDuration int64 `json:"MaxDuration"`
-
-	// REQUIRED; 垫片类型，1: 图片、2: 视频、3: 源流最后一帧
-	PadType int32 `json:"PadType"`
-
-	// REQUIRED; 模板名称
-	PresetName string `json:"PresetName"`
-
-	// REQUIRED; 断流等待时间。断流等待时间。 取值范围：0-6000。 单位：ms。
-	WaitDuration int64 `json:"WaitDuration"`
-
-	// 模板描述，长度上限：1024字节。
-	Description *string `json:"Description,omitempty"`
-
-	// 垫片素材地址。对 源流最后一帧类型无效。
-	URL *string `json:"Url,omitempty"`
-}
-
-type UpdateLivePadPresetRes struct {
-
-	// REQUIRED
-	ResponseMetadata UpdateLivePadPresetResResponseMetadata `json:"ResponseMetadata"`
-
-	// 视请求的接口而定
-	Result interface{} `json:"Result,omitempty"`
-}
-
-type UpdateLivePadPresetResResponseMetadata struct {
-
-	// REQUIRED; 请求的接口名，属于请求的公共参数。
-	Action string `json:"Action"`
-
-	// REQUIRED; 请求的Region，例如：cn-north-1
-	Region string `json:"Region"`
-
-	// REQUIRED; RequestId为每次API请求的唯一标识。
 	RequestID string `json:"RequestId"`
 
 	// REQUIRED; 请求的服务，属于请求的公共参数。
@@ -14646,9 +15511,7 @@ type UpdateRelaySourceV3BodyGroupDetailsPropertiesItemsItem struct {
 	// * 最多支持添加 10 个回源地址，回源失败时，将按照您添加的地址顺序轮循尝试。 :::
 	RelaySourceDomain string `json:"RelaySourceDomain"`
 
-	// REQUIRED; 回源协议，支持两种回源协议。
-	// * rtmp：RTMP 回源协议；
-	// * flv：FLV 回源协议。
+	// REQUIRED; volcengine可以传入rtmp/flv, byteplus可以传入rtmp\flv\dash\hls
 	RelaySourceProtocol string `json:"RelaySourceProtocol"`
 
 	// 回源Host
@@ -14718,6 +15581,231 @@ type UpdateRelaySourceV3ResResponseMetadataError struct {
 
 	// 错误信息
 	Message *string `json:"Message,omitempty"`
+}
+
+type UpdateRemoteAuthBody struct {
+
+	// REQUIRED; 鉴权成功状态码，所有状态码范围应在[200,499]间，和DenyCode不能有交集
+	AllowStatus []int32 `json:"AllowStatus"`
+
+	// REQUIRED; 远程鉴权地址
+	AuthURL string `json:"AuthURL"`
+
+	// REQUIRED; 鉴权异常时是否返回鉴权失败
+	DenyOnFailed bool `json:"DenyOnFailed"`
+
+	// REQUIRED; 返回状态码不在成功失败中时是否返回失败
+	DenyOtherStatus bool `json:"DenyOtherStatus"`
+
+	// REQUIRED; 鉴权失败时返回的状态码，范围应在[400,699]内
+	DenyReturnCode float32 `json:"DenyReturnCode"`
+
+	// REQUIRED; 鉴权失败时鉴权服务器返回的状态码，所有状态码范围应在 [200,499] 之间，且和 AllowStatus 不重复。
+	DenyRule UpdateRemoteAuthBodyDenyRule `json:"DenyRule"`
+
+	// REQUIRED; 需要配置远程鉴权的拉流域名。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看拉流域名信息。
+	Domain string `json:"Domain"`
+
+	// REQUIRED; 远程鉴权配置是否打开
+	Enable bool `json:"Enable"`
+
+	// REQUIRED; 鉴权请求头参数，参数应在50个以内
+	HeaderParamConfig UpdateRemoteAuthBodyHeaderParamConfig `json:"HeaderParamConfig"`
+
+	// REQUIRED; 鉴权请求方法，支持传入POST或GET
+	Method string `json:"Method"`
+
+	// REQUIRED; 鉴权请求参数配置，参数应在50个以内
+	QueryParamConfig UpdateRemoteAuthBodyQueryParamConfig `json:"QueryParamConfig"`
+
+	// REQUIRED; 是否使用用户请求的路径拼接到鉴权地址上
+	UseUserRequest bool `json:"UseUserRequest"`
+
+	// REQUIRED; 需要配置远程鉴权的拉流域名所属的域名空间。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看拉流域名的域名空间信息。
+	Vhost string `json:"Vhost"`
+
+	// 远程鉴权路径，UseUserRequest为true时忽略此字段
+	AuthURLPath *string `json:"AuthURLPath,omitempty"`
+
+	// 鉴权请求body参数，参数不能超过50个
+	BodyParams []*UpdateRemoteAuthBodyParamsItem `json:"BodyParams,omitempty"`
+
+	// 鉴权缓存配置
+	CacheConfig *UpdateRemoteAuthBodyCacheConfig `json:"CacheConfig,omitempty"`
+
+	// hls鉴权开关
+	EnableHLSAuth *bool `json:"EnableHLSAuth,omitempty"`
+
+	// hls的ts片鉴权开关
+	EnableHLSTSAuth *bool `json:"EnableHLSTSAuth,omitempty"`
+
+	// 请求头是否保留大小写信息，true为原样请求，false转换为mime格式，不传默认为false
+	HeaderCaseSensitivity *bool `json:"HeaderCaseSensitivity,omitempty"`
+
+	// 长度不超过1024
+	HeaderHost *string `json:"HeaderHost,omitempty"`
+
+	// 鉴权失败重试间隔，单位为秒，范围[1,30]，不传入默认为10
+	RetryInterval *float32 `json:"RetryInterval,omitempty"`
+
+	// 鉴权失败重试次数，范围[0,10]，不传入默认为3
+	RetryTimes *float32 `json:"RetryTimes,omitempty"`
+
+	// 鉴权超时时间，单位为秒。范围[0, 600]，不填默认为1
+	Timeout *float32 `json:"Timeout,omitempty"`
+}
+
+// UpdateRemoteAuthBodyCacheConfig - 鉴权缓存配置
+type UpdateRemoteAuthBodyCacheConfig struct {
+
+	// REQUIRED; 生成鉴权结果缓存 Key 使用的参数配置，最多支持配置 50 个参数。 :::tip
+	// * 鉴权成功与鉴权失败使用相同配置时，表示鉴权结果缓存 Key 配置；
+	// * 鉴权成功与鉴权失败不使用相同配置时，表示鉴权成功缓存的过期时间。 :::
+	CacheKeys UpdateRemoteAuthBodyCacheConfigCacheKeys `json:"CacheKeys"`
+
+	// REQUIRED; 鉴权成功失败是否使用相同的配置
+	UseSameCache bool `json:"UseSameCache"`
+
+	// 缓存过期时间，范围为[0,3600]，不传入默认为0
+	CacheExpireSecond *float32 `json:"CacheExpireSecond,omitempty"`
+
+	// 鉴权失败缓存的过期时间，范围为[0,3600]，不传入默认为0
+	DenyExpireSecond *float32 `json:"DenyExpireSecond,omitempty"`
+
+	// 生成鉴权失败结果缓存 Key 使用的参数配置，最多支持配置 50 个参数。
+	// :::tip 鉴权成功与鉴权失败不使用相同配置，即 UseSameCache 配置 false 时生效。 :::
+	DenyKeys *UpdateRemoteAuthBodyCacheConfigDenyKeys `json:"DenyKeys,omitempty"`
+}
+
+// UpdateRemoteAuthBodyCacheConfigCacheKeys - 生成鉴权结果缓存 Key 使用的参数配置，最多支持配置 50 个参数。 :::tip
+// * 鉴权成功与鉴权失败使用相同配置时，表示鉴权结果缓存 Key 配置；
+// * 鉴权成功与鉴权失败不使用相同配置时，表示鉴权成功缓存的过期时间。 :::
+type UpdateRemoteAuthBodyCacheConfigCacheKeys struct {
+
+	// REQUIRED; 缓存key的类型，包括query, header, vhost, domain, app, stream, client_ip, request_uri
+	Type string `json:"Type"`
+
+	// 缓存具体的key
+	ParamName *string `json:"ParamName,omitempty"`
+}
+
+// UpdateRemoteAuthBodyCacheConfigDenyKeys - 生成鉴权失败结果缓存 Key 使用的参数配置，最多支持配置 50 个参数。
+// :::tip 鉴权成功与鉴权失败不使用相同配置，即 UseSameCache 配置 false 时生效。 :::
+type UpdateRemoteAuthBodyCacheConfigDenyKeys struct {
+
+	// REQUIRED; 缓存key的类型，包括query, header, vhost, domain, app, stream, client_ip, request_uri
+	Type string `json:"Type"`
+
+	// 缓存具体的key
+	ParamName *string `json:"ParamName,omitempty"`
+}
+
+// UpdateRemoteAuthBodyDenyRule - 鉴权失败时鉴权服务器返回的状态码，所有状态码范围应在 [200,499] 之间，且和 AllowStatus 不重复。
+type UpdateRemoteAuthBodyDenyRule struct {
+
+	// REQUIRED; 鉴权失败状态码，所有状态码范围应在[200,499]内，和SuccessCode不能有交集
+	DenyStatus []float32 `json:"DenyStatus"`
+}
+
+// UpdateRemoteAuthBodyHeaderParamConfig - 鉴权请求头参数，参数应在50个以内
+type UpdateRemoteAuthBodyHeaderParamConfig struct {
+
+	// REQUIRED; 是否直接使用用户的请求头
+	UseUserParam bool `json:"UseUserParam"`
+
+	// 自定义鉴权请求的 Header 参数时的参数配置。
+	Params []*UpdateRemoteAuthBodyHeaderParamConfigParamsItem `json:"Params,omitempty"`
+}
+
+type UpdateRemoteAuthBodyHeaderParamConfigParamsItem struct {
+
+	// REQUIRED
+	Type      string  `json:"Type"`
+	ParamName *string `json:"ParamName,omitempty"`
+	ToName    *string `json:"ToName,omitempty"`
+	Value     *string `json:"Value,omitempty"`
+}
+
+type UpdateRemoteAuthBodyParamsItem struct {
+
+	// REQUIRED; 参数类型，取值及含义如下所示。
+	// * const_string：常量；
+	// * header：用户请求的 Header 参数；
+	// * query：用户请求的 URL 参数；
+	// * vhost：参数值为变量 vhost 的参数，表示拉流请求中拉流域名所属的域名空间；
+	// * domain：参数值为变量 domain 的参数，表示拉流请求中使用的拉流域名；
+	// * app：参数值为变量 app 的参数，表示拉流请求中使用的 AppName；
+	// * stream：参数值为变量 stream 的参数，表示拉流请求中使用的 StreamName；
+	// * client_ip：参数值为变量 client_ip 的参数，表示拉流客户端 IP 地址；
+	// * server_ip：参数值为变量 server_ip 的参数，表示响应拉流请求的 CDN 节点IP地址；
+	// * request_uri：参数值为变量 request_uri 的参数，拉流请求地址的 URI。
+	Type string `json:"Type"`
+
+	// 参数名，最大长度为 100 个字符，不支持输入空格。
+	// :::tip
+	// * 参数类型为常量时表示常量参数的参数名；
+	// * 参数类型为用户请求的 Header 参数或用户请求的 URL 参数时，表示指定用户请求中对应的参数名作为此处的参数名；
+	// * 参数类型为变量时不生效。 :::
+	ParamName *string `json:"ParamName,omitempty"`
+
+	// 参数名的映射参数名，最大长度为 100 个字符，不支持输入空格。 :::tip
+	// * 参数类型为常量时不生效；
+	// * 参数类型为用户请求的 Header 参数或用户请求的 URL 参数时，表示鉴权请求时使用 ToName 值代替用户请求中对应的参数名；
+	// * 参数类型为变量时，表示使用 ToName 取值作为此变量的参数名。 :::
+	ToName *string `json:"ToName,omitempty"`
+
+	// 参数类型为常量时的参数值，最大长度为 100 个字符，不支持输入空格。
+	Value *string `json:"Value,omitempty"`
+}
+
+// UpdateRemoteAuthBodyQueryParamConfig - 鉴权请求参数配置，参数应在50个以内
+type UpdateRemoteAuthBodyQueryParamConfig struct {
+
+	// REQUIRED; 是否直接使用用户请求参数
+	UseUserParam bool `json:"UseUserParam"`
+
+	// 自定义参数时的参数配置，支持配置常量参数和变量参数总和最多不超过 25 个，提取用户请求参数最多不超过 25 个。
+	Params []*UpdateRemoteAuthBodyQueryParamConfigParamsItem `json:"Params,omitempty"`
+}
+
+type UpdateRemoteAuthBodyQueryParamConfigParamsItem struct {
+
+	// REQUIRED; 参数类型，可以传入const_string,header,query,vhost,domain,app,stream,client_ip,server_ip,request_uri
+	Type string `json:"Type"`
+
+	// 原query/header/body/变量的参数名，长度在100字符内，type为header、query、const_string时必传
+	ParamName *string `json:"ParamName,omitempty"`
+
+	// 鉴权请求中的query/header/body名，长度在100字符内，当不传入ToName时，新的参数名默认为原参数名
+	ToName *string `json:"ToName,omitempty"`
+
+	// 仅type=const_string时传入，常量的值，长度在100字符内
+	Value *string `json:"Value,omitempty"`
+}
+
+type UpdateRemoteAuthRes struct {
+
+	// REQUIRED
+	ResponseMetadata UpdateRemoteAuthResResponseMetadata `json:"ResponseMetadata"`
+	Result           *string                             `json:"Result,omitempty"`
+}
+
+type UpdateRemoteAuthResResponseMetadata struct {
+
+	// REQUIRED; 请求的接口名，属于请求的公共参数。
+	Action string `json:"Action"`
+
+	// REQUIRED; 请求的Region，例如：cn-north-1
+	Region string `json:"Region"`
+
+	// REQUIRED; RequestID为每次API请求的唯一标识。
+	RequestID string `json:"RequestId"`
+
+	// REQUIRED; 请求的服务，属于请求的公共参数。
+	Service string `json:"Service"`
+
+	// REQUIRED; 请求的版本号，属于请求的公共参数。
+	Version string `json:"Version"`
 }
 
 type UpdateSnapshotPresetBody struct {
@@ -15497,14 +16585,16 @@ type BindCert struct{}
 type BindCertQuery struct{}
 type BindEncryptDRM struct{}
 type BindEncryptDRMQuery struct{}
+type ContinuePullToPushTask struct{}
+type ContinuePullToPushTaskQuery struct{}
+type CreateCarouselTask struct{}
+type CreateCarouselTaskQuery struct{}
 type CreateCert struct{}
 type CreateCertQuery struct{}
 type CreateCloudMixTask struct{}
 type CreateCloudMixTaskQuery struct{}
 type CreateDomainV2 struct{}
 type CreateDomainV2Query struct{}
-type CreateLivePadPreset struct{}
-type CreateLivePadPresetQuery struct{}
 type CreateLiveVideoQualityAnalysisTask struct{}
 type CreateLiveVideoQualityAnalysisTaskQuery struct{}
 type CreatePullToPushGroup struct{}
@@ -15529,6 +16619,8 @@ type DeleteCMAFConfig struct{}
 type DeleteCMAFConfigQuery struct{}
 type DeleteCallback struct{}
 type DeleteCallbackQuery struct{}
+type DeleteCarouselTask struct{}
+type DeleteCarouselTaskQuery struct{}
 type DeleteCert struct{}
 type DeleteCertQuery struct{}
 type DeleteCloudMixTask struct{}
@@ -15547,8 +16639,6 @@ type DeleteIPAccessRule struct{}
 type DeleteIPAccessRuleQuery struct{}
 type DeleteLatencyConfig struct{}
 type DeleteLatencyConfigQuery struct{}
-type DeleteLivePadPreset struct{}
-type DeleteLivePadPresetQuery struct{}
 type DeleteLiveVideoQualityAnalysisTask struct{}
 type DeleteLiveVideoQualityAnalysisTaskQuery struct{}
 type DeletePullToPushGroup struct{}
@@ -15565,6 +16655,8 @@ type DeleteRelaySourceRewrite struct{}
 type DeleteRelaySourceRewriteQuery struct{}
 type DeleteRelaySourceV3 struct{}
 type DeleteRelaySourceV3Query struct{}
+type DeleteRemoteAuth struct{}
+type DeleteRemoteAuthQuery struct{}
 type DeleteSnapshotPreset struct{}
 type DeleteSnapshotPresetQuery struct{}
 type DeleteSubtitleTranscodePreset struct{}
@@ -15623,6 +16715,10 @@ type DescribeLiveBandwidthData struct{}
 type DescribeLiveBandwidthDataQuery struct{}
 type DescribeLiveBatchPushStreamMetrics struct{}
 type DescribeLiveBatchPushStreamMetricsQuery struct{}
+type DescribeLiveBatchStreamTranscodeData struct{}
+type DescribeLiveBatchStreamTranscodeDataQuery struct{}
+type DescribeLiveCallbackData struct{}
+type DescribeLiveCallbackDataQuery struct{}
 type DescribeLiveEdgeStatData struct{}
 type DescribeLiveEdgeStatDataQuery struct{}
 type DescribeLiveISPData struct{}
@@ -15636,10 +16732,6 @@ type DescribeLiveMetricTrafficData struct{}
 type DescribeLiveMetricTrafficDataQuery struct{}
 type DescribeLiveP95PeakBandwidthData struct{}
 type DescribeLiveP95PeakBandwidthDataQuery struct{}
-type DescribeLivePadPresetDetail struct{}
-type DescribeLivePadPresetDetailQuery struct{}
-type DescribeLivePadStreamList struct{}
-type DescribeLivePadStreamListQuery struct{}
 type DescribeLivePlayStatusCodeData struct{}
 type DescribeLivePlayStatusCodeDataQuery struct{}
 type DescribeLivePullToPushBandwidthData struct{}
@@ -15689,6 +16781,8 @@ type DescribeRelaySourceRewrite struct{}
 type DescribeRelaySourceRewriteQuery struct{}
 type DescribeRelaySourceV3 struct{}
 type DescribeRelaySourceV3Query struct{}
+type DescribeRemoteAuth struct{}
+type DescribeRemoteAuthQuery struct{}
 type DescribeUserAgentAccessRule struct{}
 type DescribeUserAgentAccessRuleQuery struct{}
 type DisableDomain struct{}
@@ -15703,6 +16797,8 @@ type GeneratePlayURL struct{}
 type GeneratePlayURLQuery struct{}
 type GeneratePushURL struct{}
 type GeneratePushURLQuery struct{}
+type GetCarouselDetail struct{}
+type GetCarouselDetailQuery struct{}
 type GetCloudMixTaskDetail struct{}
 type GetCloudMixTaskDetailQuery struct{}
 type GetHLSEncryptDataKey struct{}
@@ -15713,6 +16809,8 @@ type KillStream struct{}
 type KillStreamQuery struct{}
 type ListBindEncryptDRM struct{}
 type ListBindEncryptDRMQuery struct{}
+type ListCarouselTask struct{}
+type ListCarouselTaskQuery struct{}
 type ListCertV2 struct{}
 type ListCertV2Query struct{}
 type ListCloudMixTask struct{}
@@ -15733,6 +16831,8 @@ type ListTimeShiftPresetV2 struct{}
 type ListTimeShiftPresetV2Query struct{}
 type ListVhostRecordPresetV2 struct{}
 type ListVhostRecordPresetV2Query struct{}
+type ListVhostRemoteAuth struct{}
+type ListVhostRemoteAuthQuery struct{}
 type ListVhostSnapshotPreset struct{}
 type ListVhostSnapshotPresetQuery struct{}
 type ListVhostSubtitleTranscodePreset struct{}
@@ -15743,12 +16843,10 @@ type ListVhostWatermarkPreset struct{}
 type ListVhostWatermarkPresetQuery struct{}
 type ListWatermarkPreset struct{}
 type ListWatermarkPresetQuery struct{}
-type RestartPullToPushTask struct{}
-type RestartPullToPushTaskQuery struct{}
+type RelaunchPullToPushTask struct{}
+type RelaunchPullToPushTaskQuery struct{}
 type ResumeStream struct{}
 type ResumeStreamQuery struct{}
-type StopLivePadStream struct{}
-type StopLivePadStreamQuery struct{}
 type StopPullToPushTask struct{}
 type StopPullToPushTaskQuery struct{}
 type UnBindEncryptDRM struct{}
@@ -15761,6 +16859,8 @@ type UpdateCMAFConfig struct{}
 type UpdateCMAFConfigQuery struct{}
 type UpdateCallback struct{}
 type UpdateCallbackQuery struct{}
+type UpdateCarouselTask struct{}
+type UpdateCarouselTaskQuery struct{}
 type UpdateCloudMixTask struct{}
 type UpdateCloudMixTaskQuery struct{}
 type UpdateClusterRateLimit struct{}
@@ -15781,8 +16881,6 @@ type UpdateIPAccessRule struct{}
 type UpdateIPAccessRuleQuery struct{}
 type UpdateLatencyConfig struct{}
 type UpdateLatencyConfigQuery struct{}
-type UpdateLivePadPreset struct{}
-type UpdateLivePadPresetQuery struct{}
 type UpdatePullToPushTask struct{}
 type UpdatePullToPushTaskQuery struct{}
 type UpdateRecordPresetV2 struct{}
@@ -15795,6 +16893,8 @@ type UpdateRelaySourceRewrite struct{}
 type UpdateRelaySourceRewriteQuery struct{}
 type UpdateRelaySourceV3 struct{}
 type UpdateRelaySourceV3Query struct{}
+type UpdateRemoteAuth struct{}
+type UpdateRemoteAuthQuery struct{}
 type UpdateSnapshotPreset struct{}
 type UpdateSnapshotPresetQuery struct{}
 type UpdateSubtitleTranscodePreset struct{}
@@ -15815,6 +16915,14 @@ type BindEncryptDRMReq struct {
 	*BindEncryptDRMQuery
 	*BindEncryptDRMBody
 }
+type ContinuePullToPushTaskReq struct {
+	*ContinuePullToPushTaskQuery
+	*ContinuePullToPushTaskBody
+}
+type CreateCarouselTaskReq struct {
+	*CreateCarouselTaskQuery
+	*CreateCarouselTaskBody
+}
 type CreateCertReq struct {
 	*CreateCertQuery
 	*CreateCertBody
@@ -15826,10 +16934,6 @@ type CreateCloudMixTaskReq struct {
 type CreateDomainV2Req struct {
 	*CreateDomainV2Query
 	*CreateDomainV2Body
-}
-type CreateLivePadPresetReq struct {
-	*CreateLivePadPresetQuery
-	*CreateLivePadPresetBody
 }
 type CreateLiveVideoQualityAnalysisTaskReq struct {
 	*CreateLiveVideoQualityAnalysisTaskQuery
@@ -15879,6 +16983,10 @@ type DeleteCallbackReq struct {
 	*DeleteCallbackQuery
 	*DeleteCallbackBody
 }
+type DeleteCarouselTaskReq struct {
+	*DeleteCarouselTaskQuery
+	*DeleteCarouselTaskBody
+}
 type DeleteCertReq struct {
 	*DeleteCertQuery
 	*DeleteCertBody
@@ -15915,10 +17023,6 @@ type DeleteLatencyConfigReq struct {
 	*DeleteLatencyConfigQuery
 	*DeleteLatencyConfigBody
 }
-type DeleteLivePadPresetReq struct {
-	*DeleteLivePadPresetQuery
-	*DeleteLivePadPresetBody
-}
 type DeleteLiveVideoQualityAnalysisTaskReq struct {
 	*DeleteLiveVideoQualityAnalysisTaskQuery
 	*DeleteLiveVideoQualityAnalysisTaskBody
@@ -15950,6 +17054,10 @@ type DeleteRelaySourceRewriteReq struct {
 type DeleteRelaySourceV3Req struct {
 	*DeleteRelaySourceV3Query
 	*DeleteRelaySourceV3Body
+}
+type DeleteRemoteAuthReq struct {
+	*DeleteRemoteAuthQuery
+	*DeleteRemoteAuthBody
 }
 type DeleteSnapshotPresetReq struct {
 	*DeleteSnapshotPresetQuery
@@ -16063,6 +17171,14 @@ type DescribeLiveBatchPushStreamMetricsReq struct {
 	*DescribeLiveBatchPushStreamMetricsQuery
 	*DescribeLiveBatchPushStreamMetricsBody
 }
+type DescribeLiveBatchStreamTranscodeDataReq struct {
+	*DescribeLiveBatchStreamTranscodeDataQuery
+	*DescribeLiveBatchStreamTranscodeDataBody
+}
+type DescribeLiveCallbackDataReq struct {
+	*DescribeLiveCallbackDataQuery
+	*DescribeLiveCallbackDataBody
+}
 type DescribeLiveEdgeStatDataReq struct {
 	*DescribeLiveEdgeStatDataQuery
 	*DescribeLiveEdgeStatDataBody
@@ -16086,14 +17202,6 @@ type DescribeLiveMetricTrafficDataReq struct {
 type DescribeLiveP95PeakBandwidthDataReq struct {
 	*DescribeLiveP95PeakBandwidthDataQuery
 	*DescribeLiveP95PeakBandwidthDataBody
-}
-type DescribeLivePadPresetDetailReq struct {
-	*DescribeLivePadPresetDetailQuery
-	*DescribeLivePadPresetDetailBody
-}
-type DescribeLivePadStreamListReq struct {
-	*DescribeLivePadStreamListQuery
-	*DescribeLivePadStreamListBody
 }
 type DescribeLivePlayStatusCodeDataReq struct {
 	*DescribeLivePlayStatusCodeDataQuery
@@ -16191,6 +17299,10 @@ type DescribeRelaySourceV3Req struct {
 	*DescribeRelaySourceV3Query
 	*DescribeRelaySourceV3Body
 }
+type DescribeRemoteAuthReq struct {
+	*DescribeRemoteAuthQuery
+	*DescribeRemoteAuthBody
+}
 type DescribeUserAgentAccessRuleReq struct {
 	*DescribeUserAgentAccessRuleQuery
 	*DescribeUserAgentAccessRuleBody
@@ -16219,6 +17331,10 @@ type GeneratePushURLReq struct {
 	*GeneratePushURLQuery
 	*GeneratePushURLBody
 }
+type GetCarouselDetailReq struct {
+	*GetCarouselDetailQuery
+	*GetCarouselDetailBody
+}
 type GetCloudMixTaskDetailReq struct {
 	*GetCloudMixTaskDetailQuery
 	*GetCloudMixTaskDetailBody
@@ -16238,6 +17354,10 @@ type KillStreamReq struct {
 type ListBindEncryptDRMReq struct {
 	*ListBindEncryptDRMQuery
 	*ListBindEncryptDRMBody
+}
+type ListCarouselTaskReq struct {
+	*ListCarouselTaskQuery
+	*ListCarouselTaskBody
 }
 type ListCertV2Req struct {
 	*ListCertV2Query
@@ -16279,6 +17399,10 @@ type ListVhostRecordPresetV2Req struct {
 	*ListVhostRecordPresetV2Query
 	*ListVhostRecordPresetV2Body
 }
+type ListVhostRemoteAuthReq struct {
+	*ListVhostRemoteAuthQuery
+	*ListVhostRemoteAuthBody
+}
 type ListVhostSnapshotPresetReq struct {
 	*ListVhostSnapshotPresetQuery
 	*ListVhostSnapshotPresetBody
@@ -16299,17 +17423,13 @@ type ListWatermarkPresetReq struct {
 	*ListWatermarkPresetQuery
 	*ListWatermarkPresetBody
 }
-type RestartPullToPushTaskReq struct {
-	*RestartPullToPushTaskQuery
-	*RestartPullToPushTaskBody
+type RelaunchPullToPushTaskReq struct {
+	*RelaunchPullToPushTaskQuery
+	*RelaunchPullToPushTaskBody
 }
 type ResumeStreamReq struct {
 	*ResumeStreamQuery
 	*ResumeStreamBody
-}
-type StopLivePadStreamReq struct {
-	*StopLivePadStreamQuery
-	*StopLivePadStreamBody
 }
 type StopPullToPushTaskReq struct {
 	*StopPullToPushTaskQuery
@@ -16334,6 +17454,10 @@ type UpdateCMAFConfigReq struct {
 type UpdateCallbackReq struct {
 	*UpdateCallbackQuery
 	*UpdateCallbackBody
+}
+type UpdateCarouselTaskReq struct {
+	*UpdateCarouselTaskQuery
+	*UpdateCarouselTaskBody
 }
 type UpdateCloudMixTaskReq struct {
 	*UpdateCloudMixTaskQuery
@@ -16375,10 +17499,6 @@ type UpdateLatencyConfigReq struct {
 	*UpdateLatencyConfigQuery
 	*UpdateLatencyConfigBody
 }
-type UpdateLivePadPresetReq struct {
-	*UpdateLivePadPresetQuery
-	*UpdateLivePadPresetBody
-}
 type UpdatePullToPushTaskReq struct {
 	*UpdatePullToPushTaskQuery
 	*UpdatePullToPushTaskBody
@@ -16402,6 +17522,10 @@ type UpdateRelaySourceRewriteReq struct {
 type UpdateRelaySourceV3Req struct {
 	*UpdateRelaySourceV3Query
 	*UpdateRelaySourceV3Body
+}
+type UpdateRemoteAuthReq struct {
+	*UpdateRemoteAuthQuery
+	*UpdateRemoteAuthBody
 }
 type UpdateSnapshotPresetReq struct {
 	*UpdateSnapshotPresetQuery

@@ -9,7 +9,7 @@ import (
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/live/v20230101"
 )
 
-func Test_RestartPullToPushTask(t *testing.T) {
+func Test_DescribeLiveCallbackData(t *testing.T) {
 	instance := live_v20230101.NewInstance()
 
 	instance.SetCredential(base.Credentials{
@@ -17,9 +17,9 @@ func Test_RestartPullToPushTask(t *testing.T) {
 		SecretAccessKey: "sk",
 	})
 
-	param := &live_v20230101.RestartPullToPushTaskBody{}
+	param := &live_v20230101.DescribeLiveCallbackDataBody{}
 
-	resp, err := instance.RestartPullToPushTask(param)
+	resp, err := instance.DescribeLiveCallbackData(param)
 
 	if err != nil {
 		fmt.Printf("error %v", err)
