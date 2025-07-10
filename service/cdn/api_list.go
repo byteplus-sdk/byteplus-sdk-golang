@@ -623,4 +623,36 @@ var ApiInfoList = map[string]*base.ApiInfo{
 			"Version": []string{ServiceVersion},
 		},
 	},
+	"ReleaseTemplate": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"ReleaseTemplate"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"CreateRuleEngineTemplate": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"CreateRuleEngineTemplate"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"UpdateRuleEngineTemplate": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"UpdateRuleEngineTemplate"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"DescribeRuleEngineTemplate": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"DescribeRuleEngineTemplate"},
+			"Version": []string{ServiceVersion},
+		},
+	},
 }

@@ -846,3 +846,47 @@ func (s *CDN) UntagResources(dto *UntagResourcesRequest) (responseBody *UntagRes
 	}
 	return
 }
+
+func (s *CDN) ReleaseTemplate(dto *ReleaseTemplateRequest) (responseBody *ReleaseTemplateResponse, err error) {
+	responseBody = new(ReleaseTemplateResponse)
+	if err = s.post("ReleaseTemplate", dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) CreateRuleEngineTemplate(dto *CreateRuleEngineTemplateRequest) (responseBody *CreateRuleEngineTemplateResponse, err error) {
+	responseBody = new(CreateRuleEngineTemplateResponse)
+	if err = s.post("CreateRuleEngineTemplate", dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) UpdateRuleEngineTemplate(dto *UpdateRuleEngineTemplateRequest) (responseBody *UpdateRuleEngineTemplateResponse, err error) {
+	responseBody = new(UpdateRuleEngineTemplateResponse)
+	if err = s.post("UpdateRuleEngineTemplate", dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) DescribeRuleEngineTemplate(dto *DescribeRuleEngineTemplateRequest) (responseBody *DescribeRuleEngineTemplateResponse, err error) {
+	responseBody = new(DescribeRuleEngineTemplateResponse)
+	if err = s.post("DescribeRuleEngineTemplate", dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
