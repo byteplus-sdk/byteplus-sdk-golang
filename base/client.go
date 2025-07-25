@@ -37,6 +37,10 @@ func NewClient(info *ServiceInfo, apiInfoList map[string]*ApiInfo) *Client {
 		IdleConnTimeout:     10 * time.Second,
 	}
 
+	if info.Proxy != nil && info.Proxy.String() != "" {
+		transport.Proxy = http.ProxyURL(info.Proxy)
+	}
+
 	c := http.Client{Transport: transport}
 	client := &Client{Client: c, ServiceInfo: info.Clone(), ApiInfoList: apiInfoList}
 

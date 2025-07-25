@@ -20,6 +20,7 @@ type ServiceInfo struct {
 	Host        string
 	Header      http.Header
 	Credentials Credentials
+	Proxy       *url.URL
 }
 
 type ApiInfo struct {
