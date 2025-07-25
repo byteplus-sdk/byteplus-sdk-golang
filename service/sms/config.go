@@ -153,6 +153,17 @@ func NewInstanceI18n(region string) *SMS {
 	return instance
 }
 
+func NewInstanceI18nWithProxy(region string, proxy *url.URL) *SMS {
+	serviceInfo := ServiceInfo[base.RegionApSingapore]
+	serviceInfo.Proxy = proxy
+
+	instance := &SMS{}
+	instance.Client = base.NewClient(serviceInfo, ApiInfoList)
+	instance.Client.ServiceInfo.Credentials.Service = ServiceName
+	instance.Client.ServiceInfo.Credentials.Region = region
+	return instance
+}
+
 // GetServiceInfo interface
 func (p *SMS) GetServiceInfo(region string) *base.ServiceInfo {
 	if serviceInfo, ok := ServiceInfo[region]; ok {
