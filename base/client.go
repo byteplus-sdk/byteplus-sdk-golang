@@ -153,6 +153,10 @@ func (client *Client) SetTimeout(timeout time.Duration) {
 	}
 }
 
+func (client *Client) SetHTTPClient(httpClient http.Client) {
+	client.Client = httpClient
+}
+
 // GetSignUrl 获取签名字符串
 func (client *Client) GetSignUrl(api string, query url.Values) (string, error) {
 	apiInfo := client.ApiInfoList[api]
