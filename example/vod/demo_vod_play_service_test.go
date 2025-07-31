@@ -38,6 +38,10 @@ func Test_GetPlayInfo(t *testing.T) {
 		DrmExpireTimestamp: "your DrmExpireTimestamp",
 		Quality:            "your Quality",
 		PlayConfig:         "your PlayConfig",
+		ForceExpire:        "your ForceExpire",
+		DashMode:           "your DashMode",
+		DrmKEK:             "your DrmKEK",
+		JSPlayer:           "your JSPlayer",
 	}
 
 	resp, status, err := instance.GetPlayInfo(query)
@@ -80,6 +84,23 @@ func Test_GetHlsDecryptionKey(t *testing.T) {
 	}
 
 	resp, status, err := instance.GetHlsDecryptionKey(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
+func Test_CreateHlsDecryptionKey(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodCreateHlsDecryptionKeyRequest{
+		SpaceName: "your SpaceName",
+	}
+
+	resp, status, err := instance.CreateHlsDecryptionKey(query)
 	fmt.Println(status)
 	fmt.Println(err)
 	fmt.Println(resp.String())

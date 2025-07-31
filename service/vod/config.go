@@ -104,7 +104,14 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-
+		"CreateHlsDecryptionKey": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"CreateHlsDecryptionKey"},
+				"Version": []string{"2023-07-01"},
+			},
+		},
 		// **********************************************************************
 		// 上传
 		// **********************************************************************
@@ -629,7 +636,14 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
-
+		"CreateHlsDecryptionKey": {
+			Method: http.MethodGet,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"CreateHlsDecryptionKey"},
+				"Version": []string{"2023-07-01"},
+			},
+		},
 		// **********************************************************************
 		// 上传
 		// **********************************************************************
