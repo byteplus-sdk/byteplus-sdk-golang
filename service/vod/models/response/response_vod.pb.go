@@ -693,6 +693,63 @@ func (x *VodCommitUploadInfoResponse) GetResult() *business.VodCommitUploadInfoR
 	return nil
 }
 
+type VodListFileMetaInfosByFileNamesResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	// 通用返回结构
+	ResponseMetadata *base.ResponseMetadata `protobuf:"bytes,1,opt,name=ResponseMetadata,proto3" json:"ResponseMetadata,omitempty"`
+	// 响应结果
+	Result *business.VodListFileMetaInfosByFileNamesResult `protobuf:"bytes,2,opt,name=Result,proto3" json:"Result,omitempty"`
+}
+
+func (x *VodListFileMetaInfosByFileNamesResponse) Reset() {
+	*x = VodListFileMetaInfosByFileNamesResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[12]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *VodListFileMetaInfosByFileNamesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*VodListFileMetaInfosByFileNamesResponse) ProtoMessage() {}
+
+func (x *VodListFileMetaInfosByFileNamesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[12]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use VodListFileMetaInfosByFileNamesResponse.ProtoReflect.Descriptor instead.
+func (*VodListFileMetaInfosByFileNamesResponse) Descriptor() ([]byte, []int) {
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *VodListFileMetaInfosByFileNamesResponse) GetResponseMetadata() *base.ResponseMetadata {
+	if x != nil {
+		return x.ResponseMetadata
+	}
+	return nil
+}
+
+func (x *VodListFileMetaInfosByFileNamesResponse) GetResult() *business.VodListFileMetaInfosByFileNamesResult {
+	if x != nil {
+		return x.Result
+	}
+	return nil
+}
+
 type VodGetMediaInfosResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -705,7 +762,7 @@ type VodGetMediaInfosResponse struct {
 func (x *VodGetMediaInfosResponse) Reset() {
 	*x = VodGetMediaInfosResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[12]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -718,7 +775,7 @@ func (x *VodGetMediaInfosResponse) String() string {
 func (*VodGetMediaInfosResponse) ProtoMessage() {}
 
 func (x *VodGetMediaInfosResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[12]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -731,7 +788,7 @@ func (x *VodGetMediaInfosResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodGetMediaInfosResponse.ProtoReflect.Descriptor instead.
 func (*VodGetMediaInfosResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{12}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *VodGetMediaInfosResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -759,7 +816,7 @@ type VodUpdateMediaInfoResponse struct {
 func (x *VodUpdateMediaInfoResponse) Reset() {
 	*x = VodUpdateMediaInfoResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[13]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -772,7 +829,7 @@ func (x *VodUpdateMediaInfoResponse) String() string {
 func (*VodUpdateMediaInfoResponse) ProtoMessage() {}
 
 func (x *VodUpdateMediaInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[13]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -785,7 +842,7 @@ func (x *VodUpdateMediaInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodUpdateMediaInfoResponse.ProtoReflect.Descriptor instead.
 func (*VodUpdateMediaInfoResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{13}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *VodUpdateMediaInfoResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -807,7 +864,7 @@ type VodGetRecommendedPosterResponse struct {
 func (x *VodGetRecommendedPosterResponse) Reset() {
 	*x = VodGetRecommendedPosterResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[14]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -820,7 +877,7 @@ func (x *VodGetRecommendedPosterResponse) String() string {
 func (*VodGetRecommendedPosterResponse) ProtoMessage() {}
 
 func (x *VodGetRecommendedPosterResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[14]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -833,7 +890,7 @@ func (x *VodGetRecommendedPosterResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodGetRecommendedPosterResponse.ProtoReflect.Descriptor instead.
 func (*VodGetRecommendedPosterResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{14}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *VodGetRecommendedPosterResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -861,7 +918,7 @@ type VodUpdateMediaPublishStatusResponse struct {
 func (x *VodUpdateMediaPublishStatusResponse) Reset() {
 	*x = VodUpdateMediaPublishStatusResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[15]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -874,7 +931,7 @@ func (x *VodUpdateMediaPublishStatusResponse) String() string {
 func (*VodUpdateMediaPublishStatusResponse) ProtoMessage() {}
 
 func (x *VodUpdateMediaPublishStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[15]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -887,7 +944,7 @@ func (x *VodUpdateMediaPublishStatusResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use VodUpdateMediaPublishStatusResponse.ProtoReflect.Descriptor instead.
 func (*VodUpdateMediaPublishStatusResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{15}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *VodUpdateMediaPublishStatusResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -909,7 +966,7 @@ type VodUpdateMediaStorageClassResponse struct {
 func (x *VodUpdateMediaStorageClassResponse) Reset() {
 	*x = VodUpdateMediaStorageClassResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[16]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -922,7 +979,7 @@ func (x *VodUpdateMediaStorageClassResponse) String() string {
 func (*VodUpdateMediaStorageClassResponse) ProtoMessage() {}
 
 func (x *VodUpdateMediaStorageClassResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[16]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -935,7 +992,7 @@ func (x *VodUpdateMediaStorageClassResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use VodUpdateMediaStorageClassResponse.ProtoReflect.Descriptor instead.
 func (*VodUpdateMediaStorageClassResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{16}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *VodUpdateMediaStorageClassResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -964,7 +1021,7 @@ type VodDeleteMediaResponse struct {
 func (x *VodDeleteMediaResponse) Reset() {
 	*x = VodDeleteMediaResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[17]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[18]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -977,7 +1034,7 @@ func (x *VodDeleteMediaResponse) String() string {
 func (*VodDeleteMediaResponse) ProtoMessage() {}
 
 func (x *VodDeleteMediaResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[17]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[18]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -990,7 +1047,7 @@ func (x *VodDeleteMediaResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodDeleteMediaResponse.ProtoReflect.Descriptor instead.
 func (*VodDeleteMediaResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{17}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *VodDeleteMediaResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -1019,7 +1076,7 @@ type VodDeleteTranscodesResponse struct {
 func (x *VodDeleteTranscodesResponse) Reset() {
 	*x = VodDeleteTranscodesResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[18]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[19]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1032,7 +1089,7 @@ func (x *VodDeleteTranscodesResponse) String() string {
 func (*VodDeleteTranscodesResponse) ProtoMessage() {}
 
 func (x *VodDeleteTranscodesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[18]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[19]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1045,7 +1102,7 @@ func (x *VodDeleteTranscodesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodDeleteTranscodesResponse.ProtoReflect.Descriptor instead.
 func (*VodDeleteTranscodesResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{18}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *VodDeleteTranscodesResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -1056,6 +1113,61 @@ func (x *VodDeleteTranscodesResponse) GetResponseMetadata() *base.ResponseMetada
 }
 
 func (x *VodDeleteTranscodesResponse) GetResult() *business.VodDeleteTranscodesData {
+	if x != nil {
+		return x.Result
+	}
+	return nil
+}
+
+type VodDeleteMediaTosFileResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ResponseMetadata *base.ResponseMetadata              `protobuf:"bytes,1,opt,name=ResponseMetadata,proto3" json:"ResponseMetadata,omitempty"` //响应通用信息
+	Result           *business.VodDeleteMediaTosFileData `protobuf:"bytes,2,opt,name=Result,proto3" json:"Result,omitempty"`                     //响应结果
+}
+
+func (x *VodDeleteMediaTosFileResponse) Reset() {
+	*x = VodDeleteMediaTosFileResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[20]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *VodDeleteMediaTosFileResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*VodDeleteMediaTosFileResponse) ProtoMessage() {}
+
+func (x *VodDeleteMediaTosFileResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[20]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use VodDeleteMediaTosFileResponse.ProtoReflect.Descriptor instead.
+func (*VodDeleteMediaTosFileResponse) Descriptor() ([]byte, []int) {
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *VodDeleteMediaTosFileResponse) GetResponseMetadata() *base.ResponseMetadata {
+	if x != nil {
+		return x.ResponseMetadata
+	}
+	return nil
+}
+
+func (x *VodDeleteMediaTosFileResponse) GetResult() *business.VodDeleteMediaTosFileData {
 	if x != nil {
 		return x.Result
 	}
@@ -1074,7 +1186,7 @@ type VodGetMediaListResponse struct {
 func (x *VodGetMediaListResponse) Reset() {
 	*x = VodGetMediaListResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[19]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[21]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1087,7 +1199,7 @@ func (x *VodGetMediaListResponse) String() string {
 func (*VodGetMediaListResponse) ProtoMessage() {}
 
 func (x *VodGetMediaListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[19]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[21]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1100,7 +1212,7 @@ func (x *VodGetMediaListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodGetMediaListResponse.ProtoReflect.Descriptor instead.
 func (*VodGetMediaListResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{19}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *VodGetMediaListResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -1129,7 +1241,7 @@ type VodGetSubtitleInfoListResponse struct {
 func (x *VodGetSubtitleInfoListResponse) Reset() {
 	*x = VodGetSubtitleInfoListResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[20]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[22]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1142,7 +1254,7 @@ func (x *VodGetSubtitleInfoListResponse) String() string {
 func (*VodGetSubtitleInfoListResponse) ProtoMessage() {}
 
 func (x *VodGetSubtitleInfoListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[20]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[22]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1155,7 +1267,7 @@ func (x *VodGetSubtitleInfoListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodGetSubtitleInfoListResponse.ProtoReflect.Descriptor instead.
 func (*VodGetSubtitleInfoListResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{20}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *VodGetSubtitleInfoListResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -1184,7 +1296,7 @@ type VodUpdateSubtitleStatusResponse struct {
 func (x *VodUpdateSubtitleStatusResponse) Reset() {
 	*x = VodUpdateSubtitleStatusResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[21]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[23]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1197,7 +1309,7 @@ func (x *VodUpdateSubtitleStatusResponse) String() string {
 func (*VodUpdateSubtitleStatusResponse) ProtoMessage() {}
 
 func (x *VodUpdateSubtitleStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[21]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[23]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1210,7 +1322,7 @@ func (x *VodUpdateSubtitleStatusResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodUpdateSubtitleStatusResponse.ProtoReflect.Descriptor instead.
 func (*VodUpdateSubtitleStatusResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{21}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *VodUpdateSubtitleStatusResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -1238,7 +1350,7 @@ type VodUpdateSubtitleInfoResponse struct {
 func (x *VodUpdateSubtitleInfoResponse) Reset() {
 	*x = VodUpdateSubtitleInfoResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[22]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[24]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1251,7 +1363,7 @@ func (x *VodUpdateSubtitleInfoResponse) String() string {
 func (*VodUpdateSubtitleInfoResponse) ProtoMessage() {}
 
 func (x *VodUpdateSubtitleInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[22]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[24]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1264,7 +1376,7 @@ func (x *VodUpdateSubtitleInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodUpdateSubtitleInfoResponse.ProtoReflect.Descriptor instead.
 func (*VodUpdateSubtitleInfoResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{22}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *VodUpdateSubtitleInfoResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -1286,7 +1398,7 @@ type VodGetAuditFramesForAuditResponse struct {
 func (x *VodGetAuditFramesForAuditResponse) Reset() {
 	*x = VodGetAuditFramesForAuditResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[23]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[25]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1299,7 +1411,7 @@ func (x *VodGetAuditFramesForAuditResponse) String() string {
 func (*VodGetAuditFramesForAuditResponse) ProtoMessage() {}
 
 func (x *VodGetAuditFramesForAuditResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[23]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[25]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1312,7 +1424,7 @@ func (x *VodGetAuditFramesForAuditResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use VodGetAuditFramesForAuditResponse.ProtoReflect.Descriptor instead.
 func (*VodGetAuditFramesForAuditResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{23}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *VodGetAuditFramesForAuditResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -1341,7 +1453,7 @@ type VodGetMLFramesForAuditResponse struct {
 func (x *VodGetMLFramesForAuditResponse) Reset() {
 	*x = VodGetMLFramesForAuditResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[24]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[26]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1354,7 +1466,7 @@ func (x *VodGetMLFramesForAuditResponse) String() string {
 func (*VodGetMLFramesForAuditResponse) ProtoMessage() {}
 
 func (x *VodGetMLFramesForAuditResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[24]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[26]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1367,7 +1479,7 @@ func (x *VodGetMLFramesForAuditResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodGetMLFramesForAuditResponse.ProtoReflect.Descriptor instead.
 func (*VodGetMLFramesForAuditResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{24}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *VodGetMLFramesForAuditResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -1396,7 +1508,7 @@ type VodGetBetterFramesForAuditResponse struct {
 func (x *VodGetBetterFramesForAuditResponse) Reset() {
 	*x = VodGetBetterFramesForAuditResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[25]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[27]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1409,7 +1521,7 @@ func (x *VodGetBetterFramesForAuditResponse) String() string {
 func (*VodGetBetterFramesForAuditResponse) ProtoMessage() {}
 
 func (x *VodGetBetterFramesForAuditResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[25]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[27]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1422,7 +1534,7 @@ func (x *VodGetBetterFramesForAuditResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use VodGetBetterFramesForAuditResponse.ProtoReflect.Descriptor instead.
 func (*VodGetBetterFramesForAuditResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{25}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *VodGetBetterFramesForAuditResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -1451,7 +1563,7 @@ type VodGetAudioInfoForAuditResponse struct {
 func (x *VodGetAudioInfoForAuditResponse) Reset() {
 	*x = VodGetAudioInfoForAuditResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[26]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[28]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1464,7 +1576,7 @@ func (x *VodGetAudioInfoForAuditResponse) String() string {
 func (*VodGetAudioInfoForAuditResponse) ProtoMessage() {}
 
 func (x *VodGetAudioInfoForAuditResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[26]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[28]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1477,7 +1589,7 @@ func (x *VodGetAudioInfoForAuditResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodGetAudioInfoForAuditResponse.ProtoReflect.Descriptor instead.
 func (*VodGetAudioInfoForAuditResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{26}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *VodGetAudioInfoForAuditResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -1506,7 +1618,7 @@ type VodGetAutomaticSpeechRecognitionForAuditResponse struct {
 func (x *VodGetAutomaticSpeechRecognitionForAuditResponse) Reset() {
 	*x = VodGetAutomaticSpeechRecognitionForAuditResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[27]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[29]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1519,7 +1631,7 @@ func (x *VodGetAutomaticSpeechRecognitionForAuditResponse) String() string {
 func (*VodGetAutomaticSpeechRecognitionForAuditResponse) ProtoMessage() {}
 
 func (x *VodGetAutomaticSpeechRecognitionForAuditResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[27]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[29]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1532,7 +1644,7 @@ func (x *VodGetAutomaticSpeechRecognitionForAuditResponse) ProtoReflect() protor
 
 // Deprecated: Use VodGetAutomaticSpeechRecognitionForAuditResponse.ProtoReflect.Descriptor instead.
 func (*VodGetAutomaticSpeechRecognitionForAuditResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{27}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *VodGetAutomaticSpeechRecognitionForAuditResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -1561,7 +1673,7 @@ type VodGetAudioEventDetectionForAuditResponse struct {
 func (x *VodGetAudioEventDetectionForAuditResponse) Reset() {
 	*x = VodGetAudioEventDetectionForAuditResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[28]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[30]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1574,7 +1686,7 @@ func (x *VodGetAudioEventDetectionForAuditResponse) String() string {
 func (*VodGetAudioEventDetectionForAuditResponse) ProtoMessage() {}
 
 func (x *VodGetAudioEventDetectionForAuditResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[28]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[30]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1587,7 +1699,7 @@ func (x *VodGetAudioEventDetectionForAuditResponse) ProtoReflect() protoreflect.
 
 // Deprecated: Use VodGetAudioEventDetectionForAuditResponse.ProtoReflect.Descriptor instead.
 func (*VodGetAudioEventDetectionForAuditResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{28}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *VodGetAudioEventDetectionForAuditResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -1616,7 +1728,7 @@ type VodCreateVideoClassificationResponse struct {
 func (x *VodCreateVideoClassificationResponse) Reset() {
 	*x = VodCreateVideoClassificationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[29]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[31]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1629,7 +1741,7 @@ func (x *VodCreateVideoClassificationResponse) String() string {
 func (*VodCreateVideoClassificationResponse) ProtoMessage() {}
 
 func (x *VodCreateVideoClassificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[29]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[31]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1642,7 +1754,7 @@ func (x *VodCreateVideoClassificationResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use VodCreateVideoClassificationResponse.ProtoReflect.Descriptor instead.
 func (*VodCreateVideoClassificationResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{29}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *VodCreateVideoClassificationResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -1670,7 +1782,7 @@ type VodUpdateVideoClassificationResponse struct {
 func (x *VodUpdateVideoClassificationResponse) Reset() {
 	*x = VodUpdateVideoClassificationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[30]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[32]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1683,7 +1795,7 @@ func (x *VodUpdateVideoClassificationResponse) String() string {
 func (*VodUpdateVideoClassificationResponse) ProtoMessage() {}
 
 func (x *VodUpdateVideoClassificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[30]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[32]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1696,7 +1808,7 @@ func (x *VodUpdateVideoClassificationResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use VodUpdateVideoClassificationResponse.ProtoReflect.Descriptor instead.
 func (*VodUpdateVideoClassificationResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{30}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *VodUpdateVideoClassificationResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -1717,7 +1829,7 @@ type VodDeleteVideoClassificationResponse struct {
 func (x *VodDeleteVideoClassificationResponse) Reset() {
 	*x = VodDeleteVideoClassificationResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[31]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[33]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1730,7 +1842,7 @@ func (x *VodDeleteVideoClassificationResponse) String() string {
 func (*VodDeleteVideoClassificationResponse) ProtoMessage() {}
 
 func (x *VodDeleteVideoClassificationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[31]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[33]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1743,7 +1855,7 @@ func (x *VodDeleteVideoClassificationResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use VodDeleteVideoClassificationResponse.ProtoReflect.Descriptor instead.
 func (*VodDeleteVideoClassificationResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{31}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *VodDeleteVideoClassificationResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -1765,7 +1877,7 @@ type VodListVideoClassificationsResponse struct {
 func (x *VodListVideoClassificationsResponse) Reset() {
 	*x = VodListVideoClassificationsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[32]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[34]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1778,7 +1890,7 @@ func (x *VodListVideoClassificationsResponse) String() string {
 func (*VodListVideoClassificationsResponse) ProtoMessage() {}
 
 func (x *VodListVideoClassificationsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[32]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[34]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1791,7 +1903,7 @@ func (x *VodListVideoClassificationsResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use VodListVideoClassificationsResponse.ProtoReflect.Descriptor instead.
 func (*VodListVideoClassificationsResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{32}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *VodListVideoClassificationsResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -1820,7 +1932,7 @@ type VodListSnapshotsResponse struct {
 func (x *VodListSnapshotsResponse) Reset() {
 	*x = VodListSnapshotsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[33]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[35]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1833,7 +1945,7 @@ func (x *VodListSnapshotsResponse) String() string {
 func (*VodListSnapshotsResponse) ProtoMessage() {}
 
 func (x *VodListSnapshotsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[33]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[35]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1846,7 +1958,7 @@ func (x *VodListSnapshotsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodListSnapshotsResponse.ProtoReflect.Descriptor instead.
 func (*VodListSnapshotsResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{33}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *VodListSnapshotsResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -1875,7 +1987,7 @@ type VodGetFileListResponse struct {
 func (x *VodGetFileListResponse) Reset() {
 	*x = VodGetFileListResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[34]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[36]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1888,7 +2000,7 @@ func (x *VodGetFileListResponse) String() string {
 func (*VodGetFileListResponse) ProtoMessage() {}
 
 func (x *VodGetFileListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[34]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[36]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1901,7 +2013,7 @@ func (x *VodGetFileListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodGetFileListResponse.ProtoReflect.Descriptor instead.
 func (*VodGetFileListResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{34}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *VodGetFileListResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -1912,6 +2024,61 @@ func (x *VodGetFileListResponse) GetResponseMetadata() *base.ResponseMetadata {
 }
 
 func (x *VodGetFileListResponse) GetResult() *business.VodGetMediaInfosData {
+	if x != nil {
+		return x.Result
+	}
+	return nil
+}
+
+type VodGetFileInfosResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ResponseMetadata *base.ResponseMetadata        `protobuf:"bytes,1,opt,name=ResponseMetadata,proto3" json:"ResponseMetadata,omitempty"` //响应通用信息
+	Result           *business.VodGetFileInfosData `protobuf:"bytes,2,opt,name=Result,proto3" json:"Result,omitempty"`                     //响应结果
+}
+
+func (x *VodGetFileInfosResponse) Reset() {
+	*x = VodGetFileInfosResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[37]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *VodGetFileInfosResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*VodGetFileInfosResponse) ProtoMessage() {}
+
+func (x *VodGetFileInfosResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[37]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use VodGetFileInfosResponse.ProtoReflect.Descriptor instead.
+func (*VodGetFileInfosResponse) Descriptor() ([]byte, []int) {
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *VodGetFileInfosResponse) GetResponseMetadata() *base.ResponseMetadata {
+	if x != nil {
+		return x.ResponseMetadata
+	}
+	return nil
+}
+
+func (x *VodGetFileInfosResponse) GetResult() *business.VodGetFileInfosData {
 	if x != nil {
 		return x.Result
 	}
@@ -1929,7 +2096,7 @@ type VodExtractMediaMetaTaskResponse struct {
 func (x *VodExtractMediaMetaTaskResponse) Reset() {
 	*x = VodExtractMediaMetaTaskResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[35]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[38]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1942,7 +2109,7 @@ func (x *VodExtractMediaMetaTaskResponse) String() string {
 func (*VodExtractMediaMetaTaskResponse) ProtoMessage() {}
 
 func (x *VodExtractMediaMetaTaskResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[35]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[38]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1955,7 +2122,7 @@ func (x *VodExtractMediaMetaTaskResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodExtractMediaMetaTaskResponse.ProtoReflect.Descriptor instead.
 func (*VodExtractMediaMetaTaskResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{35}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *VodExtractMediaMetaTaskResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -1980,7 +2147,7 @@ type VodStartWorkflowResponse struct {
 func (x *VodStartWorkflowResponse) Reset() {
 	*x = VodStartWorkflowResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[36]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[39]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1993,7 +2160,7 @@ func (x *VodStartWorkflowResponse) String() string {
 func (*VodStartWorkflowResponse) ProtoMessage() {}
 
 func (x *VodStartWorkflowResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[36]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[39]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2006,7 +2173,7 @@ func (x *VodStartWorkflowResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodStartWorkflowResponse.ProtoReflect.Descriptor instead.
 func (*VodStartWorkflowResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{36}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *VodStartWorkflowResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -2035,7 +2202,7 @@ type VodRetrieveTranscodeResultResponse struct {
 func (x *VodRetrieveTranscodeResultResponse) Reset() {
 	*x = VodRetrieveTranscodeResultResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[37]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[40]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2048,7 +2215,7 @@ func (x *VodRetrieveTranscodeResultResponse) String() string {
 func (*VodRetrieveTranscodeResultResponse) ProtoMessage() {}
 
 func (x *VodRetrieveTranscodeResultResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[37]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[40]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2061,7 +2228,7 @@ func (x *VodRetrieveTranscodeResultResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use VodRetrieveTranscodeResultResponse.ProtoReflect.Descriptor instead.
 func (*VodRetrieveTranscodeResultResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{37}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *VodRetrieveTranscodeResultResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -2090,7 +2257,7 @@ type VodListWorkflowExecutionResponse struct {
 func (x *VodListWorkflowExecutionResponse) Reset() {
 	*x = VodListWorkflowExecutionResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[38]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[41]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2103,7 +2270,7 @@ func (x *VodListWorkflowExecutionResponse) String() string {
 func (*VodListWorkflowExecutionResponse) ProtoMessage() {}
 
 func (x *VodListWorkflowExecutionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[38]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[41]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2116,7 +2283,7 @@ func (x *VodListWorkflowExecutionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodListWorkflowExecutionResponse.ProtoReflect.Descriptor instead.
 func (*VodListWorkflowExecutionResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{38}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *VodListWorkflowExecutionResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -2145,7 +2312,7 @@ type VodGetWorkflowExecutionDetailResponse struct {
 func (x *VodGetWorkflowExecutionDetailResponse) Reset() {
 	*x = VodGetWorkflowExecutionDetailResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[39]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[42]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2158,7 +2325,7 @@ func (x *VodGetWorkflowExecutionDetailResponse) String() string {
 func (*VodGetWorkflowExecutionDetailResponse) ProtoMessage() {}
 
 func (x *VodGetWorkflowExecutionDetailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[39]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[42]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2171,7 +2338,7 @@ func (x *VodGetWorkflowExecutionDetailResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use VodGetWorkflowExecutionDetailResponse.ProtoReflect.Descriptor instead.
 func (*VodGetWorkflowExecutionDetailResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{39}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *VodGetWorkflowExecutionDetailResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -2200,7 +2367,7 @@ type VodGetWorkflowExecutionStatusResponse struct {
 func (x *VodGetWorkflowExecutionStatusResponse) Reset() {
 	*x = VodGetWorkflowExecutionStatusResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[40]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[43]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2213,7 +2380,7 @@ func (x *VodGetWorkflowExecutionStatusResponse) String() string {
 func (*VodGetWorkflowExecutionStatusResponse) ProtoMessage() {}
 
 func (x *VodGetWorkflowExecutionStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[40]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[43]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2226,7 +2393,7 @@ func (x *VodGetWorkflowExecutionStatusResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use VodGetWorkflowExecutionStatusResponse.ProtoReflect.Descriptor instead.
 func (*VodGetWorkflowExecutionStatusResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{40}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *VodGetWorkflowExecutionStatusResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -2255,7 +2422,7 @@ type VodGetWorkflowResultResponse struct {
 func (x *VodGetWorkflowResultResponse) Reset() {
 	*x = VodGetWorkflowResultResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[41]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[44]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2268,7 +2435,7 @@ func (x *VodGetWorkflowResultResponse) String() string {
 func (*VodGetWorkflowResultResponse) ProtoMessage() {}
 
 func (x *VodGetWorkflowResultResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[41]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[44]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2281,7 +2448,7 @@ func (x *VodGetWorkflowResultResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodGetWorkflowResultResponse.ProtoReflect.Descriptor instead.
 func (*VodGetWorkflowResultResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{41}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *VodGetWorkflowResultResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -2313,7 +2480,7 @@ type VodSubmitDirectEditTaskAsyncResponse struct {
 func (x *VodSubmitDirectEditTaskAsyncResponse) Reset() {
 	*x = VodSubmitDirectEditTaskAsyncResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[42]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[45]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2326,7 +2493,7 @@ func (x *VodSubmitDirectEditTaskAsyncResponse) String() string {
 func (*VodSubmitDirectEditTaskAsyncResponse) ProtoMessage() {}
 
 func (x *VodSubmitDirectEditTaskAsyncResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[42]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[45]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2339,7 +2506,7 @@ func (x *VodSubmitDirectEditTaskAsyncResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use VodSubmitDirectEditTaskAsyncResponse.ProtoReflect.Descriptor instead.
 func (*VodSubmitDirectEditTaskAsyncResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{42}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *VodSubmitDirectEditTaskAsyncResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -2368,7 +2535,7 @@ type VodGetDirectEditProgressResponse struct {
 func (x *VodGetDirectEditProgressResponse) Reset() {
 	*x = VodGetDirectEditProgressResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[43]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[46]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2381,7 +2548,7 @@ func (x *VodGetDirectEditProgressResponse) String() string {
 func (*VodGetDirectEditProgressResponse) ProtoMessage() {}
 
 func (x *VodGetDirectEditProgressResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[43]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[46]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2394,7 +2561,7 @@ func (x *VodGetDirectEditProgressResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodGetDirectEditProgressResponse.ProtoReflect.Descriptor instead.
 func (*VodGetDirectEditProgressResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{43}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *VodGetDirectEditProgressResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -2423,7 +2590,7 @@ type VodGetDirectEditResultResponse struct {
 func (x *VodGetDirectEditResultResponse) Reset() {
 	*x = VodGetDirectEditResultResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[44]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[47]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2436,7 +2603,7 @@ func (x *VodGetDirectEditResultResponse) String() string {
 func (*VodGetDirectEditResultResponse) ProtoMessage() {}
 
 func (x *VodGetDirectEditResultResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[44]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[47]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2449,7 +2616,7 @@ func (x *VodGetDirectEditResultResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodGetDirectEditResultResponse.ProtoReflect.Descriptor instead.
 func (*VodGetDirectEditResultResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{44}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *VodGetDirectEditResultResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -2480,7 +2647,7 @@ type VodCreateSpaceResponse struct {
 func (x *VodCreateSpaceResponse) Reset() {
 	*x = VodCreateSpaceResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[45]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[48]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2493,7 +2660,7 @@ func (x *VodCreateSpaceResponse) String() string {
 func (*VodCreateSpaceResponse) ProtoMessage() {}
 
 func (x *VodCreateSpaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[45]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[48]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2506,7 +2673,7 @@ func (x *VodCreateSpaceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodCreateSpaceResponse.ProtoReflect.Descriptor instead.
 func (*VodCreateSpaceResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{45}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *VodCreateSpaceResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -2528,7 +2695,7 @@ type VodListSpaceResponse struct {
 func (x *VodListSpaceResponse) Reset() {
 	*x = VodListSpaceResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[46]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[49]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2541,7 +2708,7 @@ func (x *VodListSpaceResponse) String() string {
 func (*VodListSpaceResponse) ProtoMessage() {}
 
 func (x *VodListSpaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[46]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[49]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2554,7 +2721,7 @@ func (x *VodListSpaceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodListSpaceResponse.ProtoReflect.Descriptor instead.
 func (*VodListSpaceResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{46}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *VodListSpaceResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -2583,7 +2750,7 @@ type VodGetSpaceDetailResponse struct {
 func (x *VodGetSpaceDetailResponse) Reset() {
 	*x = VodGetSpaceDetailResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[47]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[50]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2596,7 +2763,7 @@ func (x *VodGetSpaceDetailResponse) String() string {
 func (*VodGetSpaceDetailResponse) ProtoMessage() {}
 
 func (x *VodGetSpaceDetailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[47]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[50]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2609,7 +2776,7 @@ func (x *VodGetSpaceDetailResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodGetSpaceDetailResponse.ProtoReflect.Descriptor instead.
 func (*VodGetSpaceDetailResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{47}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *VodGetSpaceDetailResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -2637,7 +2804,7 @@ type VodUpdateSpaceResponse struct {
 func (x *VodUpdateSpaceResponse) Reset() {
 	*x = VodUpdateSpaceResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[48]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[51]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2650,7 +2817,7 @@ func (x *VodUpdateSpaceResponse) String() string {
 func (*VodUpdateSpaceResponse) ProtoMessage() {}
 
 func (x *VodUpdateSpaceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[48]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[51]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2663,7 +2830,7 @@ func (x *VodUpdateSpaceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodUpdateSpaceResponse.ProtoReflect.Descriptor instead.
 func (*VodUpdateSpaceResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{48}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *VodUpdateSpaceResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -2684,7 +2851,7 @@ type VodUpdateSpaceUploadConfigResponse struct {
 func (x *VodUpdateSpaceUploadConfigResponse) Reset() {
 	*x = VodUpdateSpaceUploadConfigResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[49]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[52]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2697,7 +2864,7 @@ func (x *VodUpdateSpaceUploadConfigResponse) String() string {
 func (*VodUpdateSpaceUploadConfigResponse) ProtoMessage() {}
 
 func (x *VodUpdateSpaceUploadConfigResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[49]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[52]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2710,7 +2877,7 @@ func (x *VodUpdateSpaceUploadConfigResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use VodUpdateSpaceUploadConfigResponse.ProtoReflect.Descriptor instead.
 func (*VodUpdateSpaceUploadConfigResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{49}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *VodUpdateSpaceUploadConfigResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -2732,7 +2899,7 @@ type VodDescribeVodSpaceStorageDataResponse struct {
 func (x *VodDescribeVodSpaceStorageDataResponse) Reset() {
 	*x = VodDescribeVodSpaceStorageDataResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[50]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[53]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2745,7 +2912,7 @@ func (x *VodDescribeVodSpaceStorageDataResponse) String() string {
 func (*VodDescribeVodSpaceStorageDataResponse) ProtoMessage() {}
 
 func (x *VodDescribeVodSpaceStorageDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[50]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[53]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2758,7 +2925,7 @@ func (x *VodDescribeVodSpaceStorageDataResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use VodDescribeVodSpaceStorageDataResponse.ProtoReflect.Descriptor instead.
 func (*VodDescribeVodSpaceStorageDataResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{50}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *VodDescribeVodSpaceStorageDataResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -2789,7 +2956,7 @@ type VodStartDomainResponse struct {
 func (x *VodStartDomainResponse) Reset() {
 	*x = VodStartDomainResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[51]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[54]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2802,7 +2969,7 @@ func (x *VodStartDomainResponse) String() string {
 func (*VodStartDomainResponse) ProtoMessage() {}
 
 func (x *VodStartDomainResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[51]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[54]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2815,7 +2982,7 @@ func (x *VodStartDomainResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodStartDomainResponse.ProtoReflect.Descriptor instead.
 func (*VodStartDomainResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{51}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *VodStartDomainResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -2836,7 +3003,7 @@ type VodStopDomainResponse struct {
 func (x *VodStopDomainResponse) Reset() {
 	*x = VodStopDomainResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[52]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[55]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2849,7 +3016,7 @@ func (x *VodStopDomainResponse) String() string {
 func (*VodStopDomainResponse) ProtoMessage() {}
 
 func (x *VodStopDomainResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[52]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[55]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2862,7 +3029,7 @@ func (x *VodStopDomainResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodStopDomainResponse.ProtoReflect.Descriptor instead.
 func (*VodStopDomainResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{52}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *VodStopDomainResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -2883,7 +3050,7 @@ type VodUpdateDomainPlayRuleResponse struct {
 func (x *VodUpdateDomainPlayRuleResponse) Reset() {
 	*x = VodUpdateDomainPlayRuleResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[53]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[56]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2896,7 +3063,7 @@ func (x *VodUpdateDomainPlayRuleResponse) String() string {
 func (*VodUpdateDomainPlayRuleResponse) ProtoMessage() {}
 
 func (x *VodUpdateDomainPlayRuleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[53]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[56]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2909,7 +3076,7 @@ func (x *VodUpdateDomainPlayRuleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodUpdateDomainPlayRuleResponse.ProtoReflect.Descriptor instead.
 func (*VodUpdateDomainPlayRuleResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{53}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *VodUpdateDomainPlayRuleResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -2930,7 +3097,7 @@ type VodAddDomainToSchedulerResponse struct {
 func (x *VodAddDomainToSchedulerResponse) Reset() {
 	*x = VodAddDomainToSchedulerResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[54]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[57]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2943,7 +3110,7 @@ func (x *VodAddDomainToSchedulerResponse) String() string {
 func (*VodAddDomainToSchedulerResponse) ProtoMessage() {}
 
 func (x *VodAddDomainToSchedulerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[54]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[57]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2956,7 +3123,7 @@ func (x *VodAddDomainToSchedulerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodAddDomainToSchedulerResponse.ProtoReflect.Descriptor instead.
 func (*VodAddDomainToSchedulerResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{54}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{57}
 }
 
 func (x *VodAddDomainToSchedulerResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -2977,7 +3144,7 @@ type VodRemoveDomainFromSchedulerResponse struct {
 func (x *VodRemoveDomainFromSchedulerResponse) Reset() {
 	*x = VodRemoveDomainFromSchedulerResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[55]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[58]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -2990,7 +3157,7 @@ func (x *VodRemoveDomainFromSchedulerResponse) String() string {
 func (*VodRemoveDomainFromSchedulerResponse) ProtoMessage() {}
 
 func (x *VodRemoveDomainFromSchedulerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[55]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[58]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3003,7 +3170,7 @@ func (x *VodRemoveDomainFromSchedulerResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use VodRemoveDomainFromSchedulerResponse.ProtoReflect.Descriptor instead.
 func (*VodRemoveDomainFromSchedulerResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{55}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{58}
 }
 
 func (x *VodRemoveDomainFromSchedulerResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -3025,7 +3192,7 @@ type VodListDomainResponse struct {
 func (x *VodListDomainResponse) Reset() {
 	*x = VodListDomainResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[56]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[59]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3038,7 +3205,7 @@ func (x *VodListDomainResponse) String() string {
 func (*VodListDomainResponse) ProtoMessage() {}
 
 func (x *VodListDomainResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[56]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[59]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3051,7 +3218,7 @@ func (x *VodListDomainResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodListDomainResponse.ProtoReflect.Descriptor instead.
 func (*VodListDomainResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{56}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{59}
 }
 
 func (x *VodListDomainResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -3080,7 +3247,7 @@ type VodCreateCdnRefreshTaskResponse struct {
 func (x *VodCreateCdnRefreshTaskResponse) Reset() {
 	*x = VodCreateCdnRefreshTaskResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[57]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[60]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3093,7 +3260,7 @@ func (x *VodCreateCdnRefreshTaskResponse) String() string {
 func (*VodCreateCdnRefreshTaskResponse) ProtoMessage() {}
 
 func (x *VodCreateCdnRefreshTaskResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[57]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[60]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3106,7 +3273,7 @@ func (x *VodCreateCdnRefreshTaskResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodCreateCdnRefreshTaskResponse.ProtoReflect.Descriptor instead.
 func (*VodCreateCdnRefreshTaskResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{57}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{60}
 }
 
 func (x *VodCreateCdnRefreshTaskResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -3135,7 +3302,7 @@ type VodCreateCdnPreloadTaskResponse struct {
 func (x *VodCreateCdnPreloadTaskResponse) Reset() {
 	*x = VodCreateCdnPreloadTaskResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[58]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[61]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3148,7 +3315,7 @@ func (x *VodCreateCdnPreloadTaskResponse) String() string {
 func (*VodCreateCdnPreloadTaskResponse) ProtoMessage() {}
 
 func (x *VodCreateCdnPreloadTaskResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[58]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[61]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3161,7 +3328,7 @@ func (x *VodCreateCdnPreloadTaskResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodCreateCdnPreloadTaskResponse.ProtoReflect.Descriptor instead.
 func (*VodCreateCdnPreloadTaskResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{58}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{61}
 }
 
 func (x *VodCreateCdnPreloadTaskResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -3190,7 +3357,7 @@ type VodListCdnTasksResponse struct {
 func (x *VodListCdnTasksResponse) Reset() {
 	*x = VodListCdnTasksResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[59]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[62]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3203,7 +3370,7 @@ func (x *VodListCdnTasksResponse) String() string {
 func (*VodListCdnTasksResponse) ProtoMessage() {}
 
 func (x *VodListCdnTasksResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[59]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[62]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3216,7 +3383,7 @@ func (x *VodListCdnTasksResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodListCdnTasksResponse.ProtoReflect.Descriptor instead.
 func (*VodListCdnTasksResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{59}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{62}
 }
 
 func (x *VodListCdnTasksResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -3245,7 +3412,7 @@ type VodListCdnAccessLogResponse struct {
 func (x *VodListCdnAccessLogResponse) Reset() {
 	*x = VodListCdnAccessLogResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[60]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[63]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3258,7 +3425,7 @@ func (x *VodListCdnAccessLogResponse) String() string {
 func (*VodListCdnAccessLogResponse) ProtoMessage() {}
 
 func (x *VodListCdnAccessLogResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[60]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[63]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3271,7 +3438,7 @@ func (x *VodListCdnAccessLogResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodListCdnAccessLogResponse.ProtoReflect.Descriptor instead.
 func (*VodListCdnAccessLogResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{60}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{63}
 }
 
 func (x *VodListCdnAccessLogResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -3300,7 +3467,7 @@ type VodListCdnTopAccessUrlResponse struct {
 func (x *VodListCdnTopAccessUrlResponse) Reset() {
 	*x = VodListCdnTopAccessUrlResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[61]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[64]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3313,7 +3480,7 @@ func (x *VodListCdnTopAccessUrlResponse) String() string {
 func (*VodListCdnTopAccessUrlResponse) ProtoMessage() {}
 
 func (x *VodListCdnTopAccessUrlResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[61]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[64]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3326,7 +3493,7 @@ func (x *VodListCdnTopAccessUrlResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodListCdnTopAccessUrlResponse.ProtoReflect.Descriptor instead.
 func (*VodListCdnTopAccessUrlResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{61}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{64}
 }
 
 func (x *VodListCdnTopAccessUrlResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -3355,7 +3522,7 @@ type VodListCdnTopAccessResponse struct {
 func (x *VodListCdnTopAccessResponse) Reset() {
 	*x = VodListCdnTopAccessResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[62]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[65]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3368,7 +3535,7 @@ func (x *VodListCdnTopAccessResponse) String() string {
 func (*VodListCdnTopAccessResponse) ProtoMessage() {}
 
 func (x *VodListCdnTopAccessResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[62]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[65]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3381,7 +3548,7 @@ func (x *VodListCdnTopAccessResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodListCdnTopAccessResponse.ProtoReflect.Descriptor instead.
 func (*VodListCdnTopAccessResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{62}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{65}
 }
 
 func (x *VodListCdnTopAccessResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -3410,7 +3577,7 @@ type VodDescribeVodDomainBandwidthDataResponse struct {
 func (x *VodDescribeVodDomainBandwidthDataResponse) Reset() {
 	*x = VodDescribeVodDomainBandwidthDataResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[63]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[66]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3423,7 +3590,7 @@ func (x *VodDescribeVodDomainBandwidthDataResponse) String() string {
 func (*VodDescribeVodDomainBandwidthDataResponse) ProtoMessage() {}
 
 func (x *VodDescribeVodDomainBandwidthDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[63]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[66]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3436,7 +3603,7 @@ func (x *VodDescribeVodDomainBandwidthDataResponse) ProtoReflect() protoreflect.
 
 // Deprecated: Use VodDescribeVodDomainBandwidthDataResponse.ProtoReflect.Descriptor instead.
 func (*VodDescribeVodDomainBandwidthDataResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{63}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{66}
 }
 
 func (x *VodDescribeVodDomainBandwidthDataResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -3465,7 +3632,7 @@ type VodCdnStatisticsCommonResponse struct {
 func (x *VodCdnStatisticsCommonResponse) Reset() {
 	*x = VodCdnStatisticsCommonResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[64]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[67]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3478,7 +3645,7 @@ func (x *VodCdnStatisticsCommonResponse) String() string {
 func (*VodCdnStatisticsCommonResponse) ProtoMessage() {}
 
 func (x *VodCdnStatisticsCommonResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[64]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[67]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3491,7 +3658,7 @@ func (x *VodCdnStatisticsCommonResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodCdnStatisticsCommonResponse.ProtoReflect.Descriptor instead.
 func (*VodCdnStatisticsCommonResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{64}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{67}
 }
 
 func (x *VodCdnStatisticsCommonResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -3520,7 +3687,7 @@ type VodListCdnUsageDataDetailResponse struct {
 func (x *VodListCdnUsageDataDetailResponse) Reset() {
 	*x = VodListCdnUsageDataDetailResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[65]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[68]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3533,7 +3700,7 @@ func (x *VodListCdnUsageDataDetailResponse) String() string {
 func (*VodListCdnUsageDataDetailResponse) ProtoMessage() {}
 
 func (x *VodListCdnUsageDataDetailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[65]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[68]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3546,7 +3713,7 @@ func (x *VodListCdnUsageDataDetailResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use VodListCdnUsageDataDetailResponse.ProtoReflect.Descriptor instead.
 func (*VodListCdnUsageDataDetailResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{65}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{68}
 }
 
 func (x *VodListCdnUsageDataDetailResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -3575,7 +3742,7 @@ type VodListCdnStatusDataDetailResponse struct {
 func (x *VodListCdnStatusDataDetailResponse) Reset() {
 	*x = VodListCdnStatusDataDetailResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[66]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[69]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3588,7 +3755,7 @@ func (x *VodListCdnStatusDataDetailResponse) String() string {
 func (*VodListCdnStatusDataDetailResponse) ProtoMessage() {}
 
 func (x *VodListCdnStatusDataDetailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[66]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[69]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3601,7 +3768,7 @@ func (x *VodListCdnStatusDataDetailResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use VodListCdnStatusDataDetailResponse.ProtoReflect.Descriptor instead.
 func (*VodListCdnStatusDataDetailResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{66}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{69}
 }
 
 func (x *VodListCdnStatusDataDetailResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -3630,7 +3797,7 @@ type VodDescribeIPInfoResponse struct {
 func (x *VodDescribeIPInfoResponse) Reset() {
 	*x = VodDescribeIPInfoResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[67]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[70]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3643,7 +3810,7 @@ func (x *VodDescribeIPInfoResponse) String() string {
 func (*VodDescribeIPInfoResponse) ProtoMessage() {}
 
 func (x *VodDescribeIPInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[67]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[70]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3656,7 +3823,7 @@ func (x *VodDescribeIPInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodDescribeIPInfoResponse.ProtoReflect.Descriptor instead.
 func (*VodDescribeIPInfoResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{67}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{70}
 }
 
 func (x *VodDescribeIPInfoResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -3685,7 +3852,7 @@ type VodDescribeVodDomainTrafficDataResponse struct {
 func (x *VodDescribeVodDomainTrafficDataResponse) Reset() {
 	*x = VodDescribeVodDomainTrafficDataResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[68]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[71]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3698,7 +3865,7 @@ func (x *VodDescribeVodDomainTrafficDataResponse) String() string {
 func (*VodDescribeVodDomainTrafficDataResponse) ProtoMessage() {}
 
 func (x *VodDescribeVodDomainTrafficDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[68]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[71]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3711,7 +3878,7 @@ func (x *VodDescribeVodDomainTrafficDataResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use VodDescribeVodDomainTrafficDataResponse.ProtoReflect.Descriptor instead.
 func (*VodDescribeVodDomainTrafficDataResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{68}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{71}
 }
 
 func (x *VodDescribeVodDomainTrafficDataResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -3740,7 +3907,7 @@ type VodSubmitBlockTasksResponse struct {
 func (x *VodSubmitBlockTasksResponse) Reset() {
 	*x = VodSubmitBlockTasksResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[69]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[72]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3753,7 +3920,7 @@ func (x *VodSubmitBlockTasksResponse) String() string {
 func (*VodSubmitBlockTasksResponse) ProtoMessage() {}
 
 func (x *VodSubmitBlockTasksResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[69]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[72]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3766,7 +3933,7 @@ func (x *VodSubmitBlockTasksResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodSubmitBlockTasksResponse.ProtoReflect.Descriptor instead.
 func (*VodSubmitBlockTasksResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{69}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{72}
 }
 
 func (x *VodSubmitBlockTasksResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -3795,7 +3962,7 @@ type VodGetContentBlockTasksResponse struct {
 func (x *VodGetContentBlockTasksResponse) Reset() {
 	*x = VodGetContentBlockTasksResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[70]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[73]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3808,7 +3975,7 @@ func (x *VodGetContentBlockTasksResponse) String() string {
 func (*VodGetContentBlockTasksResponse) ProtoMessage() {}
 
 func (x *VodGetContentBlockTasksResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[70]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[73]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3821,7 +3988,7 @@ func (x *VodGetContentBlockTasksResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodGetContentBlockTasksResponse.ProtoReflect.Descriptor instead.
 func (*VodGetContentBlockTasksResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{70}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{73}
 }
 
 func (x *VodGetContentBlockTasksResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -3849,7 +4016,7 @@ type VodCreateDomainV2Response struct {
 func (x *VodCreateDomainV2Response) Reset() {
 	*x = VodCreateDomainV2Response{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[71]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[74]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3862,7 +4029,7 @@ func (x *VodCreateDomainV2Response) String() string {
 func (*VodCreateDomainV2Response) ProtoMessage() {}
 
 func (x *VodCreateDomainV2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[71]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[74]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3875,7 +4042,7 @@ func (x *VodCreateDomainV2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodCreateDomainV2Response.ProtoReflect.Descriptor instead.
 func (*VodCreateDomainV2Response) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{71}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{74}
 }
 
 func (x *VodCreateDomainV2Response) GetResponseMetadata() *base.ResponseMetadata {
@@ -3896,7 +4063,7 @@ type VodUpdateDomainExpireV2Response struct {
 func (x *VodUpdateDomainExpireV2Response) Reset() {
 	*x = VodUpdateDomainExpireV2Response{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[72]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[75]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3909,7 +4076,7 @@ func (x *VodUpdateDomainExpireV2Response) String() string {
 func (*VodUpdateDomainExpireV2Response) ProtoMessage() {}
 
 func (x *VodUpdateDomainExpireV2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[72]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[75]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3922,7 +4089,7 @@ func (x *VodUpdateDomainExpireV2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodUpdateDomainExpireV2Response.ProtoReflect.Descriptor instead.
 func (*VodUpdateDomainExpireV2Response) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{72}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{75}
 }
 
 func (x *VodUpdateDomainExpireV2Response) GetResponseMetadata() *base.ResponseMetadata {
@@ -3943,7 +4110,7 @@ type VodUpdateDomainAuthConfigV2Response struct {
 func (x *VodUpdateDomainAuthConfigV2Response) Reset() {
 	*x = VodUpdateDomainAuthConfigV2Response{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[73]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[76]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -3956,7 +4123,7 @@ func (x *VodUpdateDomainAuthConfigV2Response) String() string {
 func (*VodUpdateDomainAuthConfigV2Response) ProtoMessage() {}
 
 func (x *VodUpdateDomainAuthConfigV2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[73]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[76]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3969,7 +4136,7 @@ func (x *VodUpdateDomainAuthConfigV2Response) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use VodUpdateDomainAuthConfigV2Response.ProtoReflect.Descriptor instead.
 func (*VodUpdateDomainAuthConfigV2Response) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{73}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{76}
 }
 
 func (x *VodUpdateDomainAuthConfigV2Response) GetResponseMetadata() *base.ResponseMetadata {
@@ -3990,7 +4157,7 @@ type AddOrUpdateCertificateV2Response struct {
 func (x *AddOrUpdateCertificateV2Response) Reset() {
 	*x = AddOrUpdateCertificateV2Response{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[74]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[77]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4003,7 +4170,7 @@ func (x *AddOrUpdateCertificateV2Response) String() string {
 func (*AddOrUpdateCertificateV2Response) ProtoMessage() {}
 
 func (x *AddOrUpdateCertificateV2Response) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[74]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[77]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4016,7 +4183,7 @@ func (x *AddOrUpdateCertificateV2Response) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddOrUpdateCertificateV2Response.ProtoReflect.Descriptor instead.
 func (*AddOrUpdateCertificateV2Response) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{74}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{77}
 }
 
 func (x *AddOrUpdateCertificateV2Response) GetResponseMetadata() *base.ResponseMetadata {
@@ -4040,7 +4207,7 @@ type VodAddCallbackSubscriptionResponse struct {
 func (x *VodAddCallbackSubscriptionResponse) Reset() {
 	*x = VodAddCallbackSubscriptionResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[75]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[78]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4053,7 +4220,7 @@ func (x *VodAddCallbackSubscriptionResponse) String() string {
 func (*VodAddCallbackSubscriptionResponse) ProtoMessage() {}
 
 func (x *VodAddCallbackSubscriptionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[75]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[78]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4066,7 +4233,7 @@ func (x *VodAddCallbackSubscriptionResponse) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use VodAddCallbackSubscriptionResponse.ProtoReflect.Descriptor instead.
 func (*VodAddCallbackSubscriptionResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{75}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{78}
 }
 
 func (x *VodAddCallbackSubscriptionResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -4087,7 +4254,7 @@ type VodSetCallbackEventResponse struct {
 func (x *VodSetCallbackEventResponse) Reset() {
 	*x = VodSetCallbackEventResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[76]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[79]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4100,7 +4267,7 @@ func (x *VodSetCallbackEventResponse) String() string {
 func (*VodSetCallbackEventResponse) ProtoMessage() {}
 
 func (x *VodSetCallbackEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[76]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[79]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4113,7 +4280,7 @@ func (x *VodSetCallbackEventResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodSetCallbackEventResponse.ProtoReflect.Descriptor instead.
 func (*VodSetCallbackEventResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{76}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{79}
 }
 
 func (x *VodSetCallbackEventResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -4138,7 +4305,7 @@ type VodGetSmartStrategyLitePlayInfoResponse struct {
 func (x *VodGetSmartStrategyLitePlayInfoResponse) Reset() {
 	*x = VodGetSmartStrategyLitePlayInfoResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[77]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[80]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4151,7 +4318,7 @@ func (x *VodGetSmartStrategyLitePlayInfoResponse) String() string {
 func (*VodGetSmartStrategyLitePlayInfoResponse) ProtoMessage() {}
 
 func (x *VodGetSmartStrategyLitePlayInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[77]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[80]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4164,7 +4331,7 @@ func (x *VodGetSmartStrategyLitePlayInfoResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use VodGetSmartStrategyLitePlayInfoResponse.ProtoReflect.Descriptor instead.
 func (*VodGetSmartStrategyLitePlayInfoResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{77}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{80}
 }
 
 func (x *VodGetSmartStrategyLitePlayInfoResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -4196,7 +4363,7 @@ type VodGetAppInfoResponse struct {
 func (x *VodGetAppInfoResponse) Reset() {
 	*x = VodGetAppInfoResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[78]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[81]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4209,7 +4376,7 @@ func (x *VodGetAppInfoResponse) String() string {
 func (*VodGetAppInfoResponse) ProtoMessage() {}
 
 func (x *VodGetAppInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[78]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[81]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4222,7 +4389,7 @@ func (x *VodGetAppInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodGetAppInfoResponse.ProtoReflect.Descriptor instead.
 func (*VodGetAppInfoResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{78}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{81}
 }
 
 func (x *VodGetAppInfoResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -4255,7 +4422,7 @@ type DescribeVodSpaceTranscodeDataResponse struct {
 func (x *DescribeVodSpaceTranscodeDataResponse) Reset() {
 	*x = DescribeVodSpaceTranscodeDataResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[79]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[82]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4268,7 +4435,7 @@ func (x *DescribeVodSpaceTranscodeDataResponse) String() string {
 func (*DescribeVodSpaceTranscodeDataResponse) ProtoMessage() {}
 
 func (x *DescribeVodSpaceTranscodeDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[79]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[82]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4281,7 +4448,7 @@ func (x *DescribeVodSpaceTranscodeDataResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use DescribeVodSpaceTranscodeDataResponse.ProtoReflect.Descriptor instead.
 func (*DescribeVodSpaceTranscodeDataResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{79}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{82}
 }
 
 func (x *DescribeVodSpaceTranscodeDataResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -4311,7 +4478,7 @@ type DescribeVodSpaceAIStatisDataResponse struct {
 func (x *DescribeVodSpaceAIStatisDataResponse) Reset() {
 	*x = DescribeVodSpaceAIStatisDataResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[80]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[83]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4324,7 +4491,7 @@ func (x *DescribeVodSpaceAIStatisDataResponse) String() string {
 func (*DescribeVodSpaceAIStatisDataResponse) ProtoMessage() {}
 
 func (x *DescribeVodSpaceAIStatisDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[80]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[83]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4337,7 +4504,7 @@ func (x *DescribeVodSpaceAIStatisDataResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use DescribeVodSpaceAIStatisDataResponse.ProtoReflect.Descriptor instead.
 func (*DescribeVodSpaceAIStatisDataResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{80}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{83}
 }
 
 func (x *DescribeVodSpaceAIStatisDataResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -4367,7 +4534,7 @@ type DescribeVodSpaceSubtitleStatisDataResponse struct {
 func (x *DescribeVodSpaceSubtitleStatisDataResponse) Reset() {
 	*x = DescribeVodSpaceSubtitleStatisDataResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[81]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[84]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4380,7 +4547,7 @@ func (x *DescribeVodSpaceSubtitleStatisDataResponse) String() string {
 func (*DescribeVodSpaceSubtitleStatisDataResponse) ProtoMessage() {}
 
 func (x *DescribeVodSpaceSubtitleStatisDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[81]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[84]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4393,7 +4560,7 @@ func (x *DescribeVodSpaceSubtitleStatisDataResponse) ProtoReflect() protoreflect
 
 // Deprecated: Use DescribeVodSpaceSubtitleStatisDataResponse.ProtoReflect.Descriptor instead.
 func (*DescribeVodSpaceSubtitleStatisDataResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{81}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{84}
 }
 
 func (x *DescribeVodSpaceSubtitleStatisDataResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -4423,7 +4590,7 @@ type DescribeVodSpaceDetectStatisDataResponse struct {
 func (x *DescribeVodSpaceDetectStatisDataResponse) Reset() {
 	*x = DescribeVodSpaceDetectStatisDataResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[82]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[85]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4436,7 +4603,7 @@ func (x *DescribeVodSpaceDetectStatisDataResponse) String() string {
 func (*DescribeVodSpaceDetectStatisDataResponse) ProtoMessage() {}
 
 func (x *DescribeVodSpaceDetectStatisDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[82]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[85]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4449,7 +4616,7 @@ func (x *DescribeVodSpaceDetectStatisDataResponse) ProtoReflect() protoreflect.M
 
 // Deprecated: Use DescribeVodSpaceDetectStatisDataResponse.ProtoReflect.Descriptor instead.
 func (*DescribeVodSpaceDetectStatisDataResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{82}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{85}
 }
 
 func (x *DescribeVodSpaceDetectStatisDataResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -4479,7 +4646,7 @@ type DescribeVodSnapshotDataResponse struct {
 func (x *DescribeVodSnapshotDataResponse) Reset() {
 	*x = DescribeVodSnapshotDataResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[83]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[86]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4492,7 +4659,7 @@ func (x *DescribeVodSnapshotDataResponse) String() string {
 func (*DescribeVodSnapshotDataResponse) ProtoMessage() {}
 
 func (x *DescribeVodSnapshotDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[83]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[86]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4505,7 +4672,7 @@ func (x *DescribeVodSnapshotDataResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescribeVodSnapshotDataResponse.ProtoReflect.Descriptor instead.
 func (*DescribeVodSnapshotDataResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{83}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{86}
 }
 
 func (x *DescribeVodSnapshotDataResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -4535,7 +4702,7 @@ type DescribeVodSpaceWorkflowDetailDataResponse struct {
 func (x *DescribeVodSpaceWorkflowDetailDataResponse) Reset() {
 	*x = DescribeVodSpaceWorkflowDetailDataResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[84]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[87]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4548,7 +4715,7 @@ func (x *DescribeVodSpaceWorkflowDetailDataResponse) String() string {
 func (*DescribeVodSpaceWorkflowDetailDataResponse) ProtoMessage() {}
 
 func (x *DescribeVodSpaceWorkflowDetailDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[84]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[87]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4561,7 +4728,7 @@ func (x *DescribeVodSpaceWorkflowDetailDataResponse) ProtoReflect() protoreflect
 
 // Deprecated: Use DescribeVodSpaceWorkflowDetailDataResponse.ProtoReflect.Descriptor instead.
 func (*DescribeVodSpaceWorkflowDetailDataResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{84}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{87}
 }
 
 func (x *DescribeVodSpaceWorkflowDetailDataResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -4591,7 +4758,7 @@ type DescribeVodSpaceEditDetailDataResponse struct {
 func (x *DescribeVodSpaceEditDetailDataResponse) Reset() {
 	*x = DescribeVodSpaceEditDetailDataResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[85]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[88]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4604,7 +4771,7 @@ func (x *DescribeVodSpaceEditDetailDataResponse) String() string {
 func (*DescribeVodSpaceEditDetailDataResponse) ProtoMessage() {}
 
 func (x *DescribeVodSpaceEditDetailDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[85]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[88]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4617,7 +4784,7 @@ func (x *DescribeVodSpaceEditDetailDataResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use DescribeVodSpaceEditDetailDataResponse.ProtoReflect.Descriptor instead.
 func (*DescribeVodSpaceEditDetailDataResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{85}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{88}
 }
 
 func (x *DescribeVodSpaceEditDetailDataResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -4647,7 +4814,7 @@ type DescribeVodPlayFileLogByDomainResponse struct {
 func (x *DescribeVodPlayFileLogByDomainResponse) Reset() {
 	*x = DescribeVodPlayFileLogByDomainResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[86]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[89]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4660,7 +4827,7 @@ func (x *DescribeVodPlayFileLogByDomainResponse) String() string {
 func (*DescribeVodPlayFileLogByDomainResponse) ProtoMessage() {}
 
 func (x *DescribeVodPlayFileLogByDomainResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[86]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[89]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4673,7 +4840,7 @@ func (x *DescribeVodPlayFileLogByDomainResponse) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use DescribeVodPlayFileLogByDomainResponse.ProtoReflect.Descriptor instead.
 func (*DescribeVodPlayFileLogByDomainResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{86}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{89}
 }
 
 func (x *DescribeVodPlayFileLogByDomainResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -4703,7 +4870,7 @@ type DescribeVodSpaceStorageDataFDResponse struct {
 func (x *DescribeVodSpaceStorageDataFDResponse) Reset() {
 	*x = DescribeVodSpaceStorageDataFDResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[87]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[90]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4716,7 +4883,7 @@ func (x *DescribeVodSpaceStorageDataFDResponse) String() string {
 func (*DescribeVodSpaceStorageDataFDResponse) ProtoMessage() {}
 
 func (x *DescribeVodSpaceStorageDataFDResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[87]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[90]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4729,7 +4896,7 @@ func (x *DescribeVodSpaceStorageDataFDResponse) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use DescribeVodSpaceStorageDataFDResponse.ProtoReflect.Descriptor instead.
 func (*DescribeVodSpaceStorageDataFDResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{87}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{90}
 }
 
 func (x *DescribeVodSpaceStorageDataFDResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -4759,7 +4926,7 @@ type DescribeVodEnhanceImageDataResponse struct {
 func (x *DescribeVodEnhanceImageDataResponse) Reset() {
 	*x = DescribeVodEnhanceImageDataResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[88]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[91]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4772,7 +4939,7 @@ func (x *DescribeVodEnhanceImageDataResponse) String() string {
 func (*DescribeVodEnhanceImageDataResponse) ProtoMessage() {}
 
 func (x *DescribeVodEnhanceImageDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[88]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[91]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4785,7 +4952,7 @@ func (x *DescribeVodEnhanceImageDataResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use DescribeVodEnhanceImageDataResponse.ProtoReflect.Descriptor instead.
 func (*DescribeVodEnhanceImageDataResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{88}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{91}
 }
 
 func (x *DescribeVodEnhanceImageDataResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -4815,7 +4982,7 @@ type DescribeVodPlayedStatisDataResponse struct {
 func (x *DescribeVodPlayedStatisDataResponse) Reset() {
 	*x = DescribeVodPlayedStatisDataResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[89]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[92]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4828,7 +4995,7 @@ func (x *DescribeVodPlayedStatisDataResponse) String() string {
 func (*DescribeVodPlayedStatisDataResponse) ProtoMessage() {}
 
 func (x *DescribeVodPlayedStatisDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[89]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[92]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4841,7 +5008,7 @@ func (x *DescribeVodPlayedStatisDataResponse) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use DescribeVodPlayedStatisDataResponse.ProtoReflect.Descriptor instead.
 func (*DescribeVodPlayedStatisDataResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{89}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{92}
 }
 
 func (x *DescribeVodPlayedStatisDataResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -4871,7 +5038,7 @@ type DescribeVodMostPlayedStatisDataResponse struct {
 func (x *DescribeVodMostPlayedStatisDataResponse) Reset() {
 	*x = DescribeVodMostPlayedStatisDataResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[90]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[93]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4884,7 +5051,7 @@ func (x *DescribeVodMostPlayedStatisDataResponse) String() string {
 func (*DescribeVodMostPlayedStatisDataResponse) ProtoMessage() {}
 
 func (x *DescribeVodMostPlayedStatisDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[90]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[93]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4897,7 +5064,7 @@ func (x *DescribeVodMostPlayedStatisDataResponse) ProtoReflect() protoreflect.Me
 
 // Deprecated: Use DescribeVodMostPlayedStatisDataResponse.ProtoReflect.Descriptor instead.
 func (*DescribeVodMostPlayedStatisDataResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{90}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{93}
 }
 
 func (x *DescribeVodMostPlayedStatisDataResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -4927,7 +5094,7 @@ type DescribeVodRealtimeMediaDataResponse struct {
 func (x *DescribeVodRealtimeMediaDataResponse) Reset() {
 	*x = DescribeVodRealtimeMediaDataResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[91]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[94]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4940,7 +5107,7 @@ func (x *DescribeVodRealtimeMediaDataResponse) String() string {
 func (*DescribeVodRealtimeMediaDataResponse) ProtoMessage() {}
 
 func (x *DescribeVodRealtimeMediaDataResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[91]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[94]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -4953,7 +5120,7 @@ func (x *DescribeVodRealtimeMediaDataResponse) ProtoReflect() protoreflect.Messa
 
 // Deprecated: Use DescribeVodRealtimeMediaDataResponse.ProtoReflect.Descriptor instead.
 func (*DescribeVodRealtimeMediaDataResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{91}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{94}
 }
 
 func (x *DescribeVodRealtimeMediaDataResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -4983,7 +5150,7 @@ type VodSubmitBlockMediaTaskResponse struct {
 func (x *VodSubmitBlockMediaTaskResponse) Reset() {
 	*x = VodSubmitBlockMediaTaskResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[92]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[95]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -4996,7 +5163,7 @@ func (x *VodSubmitBlockMediaTaskResponse) String() string {
 func (*VodSubmitBlockMediaTaskResponse) ProtoMessage() {}
 
 func (x *VodSubmitBlockMediaTaskResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[92]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[95]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5009,7 +5176,7 @@ func (x *VodSubmitBlockMediaTaskResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodSubmitBlockMediaTaskResponse.ProtoReflect.Descriptor instead.
 func (*VodSubmitBlockMediaTaskResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{92}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{95}
 }
 
 func (x *VodSubmitBlockMediaTaskResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -5038,7 +5205,7 @@ type VodSubmitUnblockMediaTaskResponse struct {
 func (x *VodSubmitUnblockMediaTaskResponse) Reset() {
 	*x = VodSubmitUnblockMediaTaskResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[93]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[96]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5051,7 +5218,7 @@ func (x *VodSubmitUnblockMediaTaskResponse) String() string {
 func (*VodSubmitUnblockMediaTaskResponse) ProtoMessage() {}
 
 func (x *VodSubmitUnblockMediaTaskResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[93]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[96]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5064,7 +5231,7 @@ func (x *VodSubmitUnblockMediaTaskResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use VodSubmitUnblockMediaTaskResponse.ProtoReflect.Descriptor instead.
 func (*VodSubmitUnblockMediaTaskResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{93}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{96}
 }
 
 func (x *VodSubmitUnblockMediaTaskResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -5093,7 +5260,7 @@ type VodQueryMediaBlockStatusResponse struct {
 func (x *VodQueryMediaBlockStatusResponse) Reset() {
 	*x = VodQueryMediaBlockStatusResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[94]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[97]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5106,7 +5273,7 @@ func (x *VodQueryMediaBlockStatusResponse) String() string {
 func (*VodQueryMediaBlockStatusResponse) ProtoMessage() {}
 
 func (x *VodQueryMediaBlockStatusResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[94]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[97]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5119,7 +5286,7 @@ func (x *VodQueryMediaBlockStatusResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodQueryMediaBlockStatusResponse.ProtoReflect.Descriptor instead.
 func (*VodQueryMediaBlockStatusResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{94}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{97}
 }
 
 func (x *VodQueryMediaBlockStatusResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -5151,7 +5318,7 @@ type VodCreatePlaylistResponse struct {
 func (x *VodCreatePlaylistResponse) Reset() {
 	*x = VodCreatePlaylistResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[95]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[98]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5164,7 +5331,7 @@ func (x *VodCreatePlaylistResponse) String() string {
 func (*VodCreatePlaylistResponse) ProtoMessage() {}
 
 func (x *VodCreatePlaylistResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[95]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[98]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5177,7 +5344,7 @@ func (x *VodCreatePlaylistResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodCreatePlaylistResponse.ProtoReflect.Descriptor instead.
 func (*VodCreatePlaylistResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{95}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{98}
 }
 
 func (x *VodCreatePlaylistResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -5206,7 +5373,7 @@ type VodGetPlaylistsResponse struct {
 func (x *VodGetPlaylistsResponse) Reset() {
 	*x = VodGetPlaylistsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[96]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[99]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5219,7 +5386,7 @@ func (x *VodGetPlaylistsResponse) String() string {
 func (*VodGetPlaylistsResponse) ProtoMessage() {}
 
 func (x *VodGetPlaylistsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[96]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[99]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5232,7 +5399,7 @@ func (x *VodGetPlaylistsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodGetPlaylistsResponse.ProtoReflect.Descriptor instead.
 func (*VodGetPlaylistsResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{96}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{99}
 }
 
 func (x *VodGetPlaylistsResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -5260,7 +5427,7 @@ type VodUpdatePlaylistResponse struct {
 func (x *VodUpdatePlaylistResponse) Reset() {
 	*x = VodUpdatePlaylistResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[97]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[100]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5273,7 +5440,7 @@ func (x *VodUpdatePlaylistResponse) String() string {
 func (*VodUpdatePlaylistResponse) ProtoMessage() {}
 
 func (x *VodUpdatePlaylistResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[97]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[100]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5286,7 +5453,7 @@ func (x *VodUpdatePlaylistResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodUpdatePlaylistResponse.ProtoReflect.Descriptor instead.
 func (*VodUpdatePlaylistResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{97}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{100}
 }
 
 func (x *VodUpdatePlaylistResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -5307,7 +5474,7 @@ type VodDeletePlaylistResponse struct {
 func (x *VodDeletePlaylistResponse) Reset() {
 	*x = VodDeletePlaylistResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[98]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[101]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5320,7 +5487,7 @@ func (x *VodDeletePlaylistResponse) String() string {
 func (*VodDeletePlaylistResponse) ProtoMessage() {}
 
 func (x *VodDeletePlaylistResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[98]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[101]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5333,7 +5500,7 @@ func (x *VodDeletePlaylistResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodDeletePlaylistResponse.ProtoReflect.Descriptor instead.
 func (*VodDeletePlaylistResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{98}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{101}
 }
 
 func (x *VodDeletePlaylistResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -5358,7 +5525,7 @@ type VodGetIntertrustApiKeyResponse struct {
 func (x *VodGetIntertrustApiKeyResponse) Reset() {
 	*x = VodGetIntertrustApiKeyResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[99]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[102]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5371,7 +5538,7 @@ func (x *VodGetIntertrustApiKeyResponse) String() string {
 func (*VodGetIntertrustApiKeyResponse) ProtoMessage() {}
 
 func (x *VodGetIntertrustApiKeyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[99]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[102]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5384,7 +5551,7 @@ func (x *VodGetIntertrustApiKeyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodGetIntertrustApiKeyResponse.ProtoReflect.Descriptor instead.
 func (*VodGetIntertrustApiKeyResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{99}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{102}
 }
 
 func (x *VodGetIntertrustApiKeyResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -5412,7 +5579,7 @@ type VodSetIntertrustApiKeyResponse struct {
 func (x *VodSetIntertrustApiKeyResponse) Reset() {
 	*x = VodSetIntertrustApiKeyResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[100]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[103]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5425,7 +5592,7 @@ func (x *VodSetIntertrustApiKeyResponse) String() string {
 func (*VodSetIntertrustApiKeyResponse) ProtoMessage() {}
 
 func (x *VodSetIntertrustApiKeyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[100]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[103]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5438,7 +5605,7 @@ func (x *VodSetIntertrustApiKeyResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodSetIntertrustApiKeyResponse.ProtoReflect.Descriptor instead.
 func (*VodSetIntertrustApiKeyResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{100}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{103}
 }
 
 func (x *VodSetIntertrustApiKeyResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -5459,7 +5626,7 @@ type VodDeleteIntertrustApiKeyResponse struct {
 func (x *VodDeleteIntertrustApiKeyResponse) Reset() {
 	*x = VodDeleteIntertrustApiKeyResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[101]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[104]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5472,7 +5639,7 @@ func (x *VodDeleteIntertrustApiKeyResponse) String() string {
 func (*VodDeleteIntertrustApiKeyResponse) ProtoMessage() {}
 
 func (x *VodDeleteIntertrustApiKeyResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[101]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[104]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5485,7 +5652,7 @@ func (x *VodDeleteIntertrustApiKeyResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use VodDeleteIntertrustApiKeyResponse.ProtoReflect.Descriptor instead.
 func (*VodDeleteIntertrustApiKeyResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{101}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{104}
 }
 
 func (x *VodDeleteIntertrustApiKeyResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -5507,7 +5674,7 @@ type VodGetFairPlayCertInfoResponse struct {
 func (x *VodGetFairPlayCertInfoResponse) Reset() {
 	*x = VodGetFairPlayCertInfoResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[102]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[105]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5520,7 +5687,7 @@ func (x *VodGetFairPlayCertInfoResponse) String() string {
 func (*VodGetFairPlayCertInfoResponse) ProtoMessage() {}
 
 func (x *VodGetFairPlayCertInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[102]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[105]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5533,7 +5700,7 @@ func (x *VodGetFairPlayCertInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodGetFairPlayCertInfoResponse.ProtoReflect.Descriptor instead.
 func (*VodGetFairPlayCertInfoResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{102}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{105}
 }
 
 func (x *VodGetFairPlayCertInfoResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -5562,7 +5729,7 @@ type VodSetFairPlayCertInfoResponse struct {
 func (x *VodSetFairPlayCertInfoResponse) Reset() {
 	*x = VodSetFairPlayCertInfoResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[103]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[106]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5575,7 +5742,7 @@ func (x *VodSetFairPlayCertInfoResponse) String() string {
 func (*VodSetFairPlayCertInfoResponse) ProtoMessage() {}
 
 func (x *VodSetFairPlayCertInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[103]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[106]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5588,7 +5755,7 @@ func (x *VodSetFairPlayCertInfoResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodSetFairPlayCertInfoResponse.ProtoReflect.Descriptor instead.
 func (*VodSetFairPlayCertInfoResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{103}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{106}
 }
 
 func (x *VodSetFairPlayCertInfoResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -5616,7 +5783,7 @@ type VodDeleteFairPlayCertInfoResponse struct {
 func (x *VodDeleteFairPlayCertInfoResponse) Reset() {
 	*x = VodDeleteFairPlayCertInfoResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[104]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[107]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5629,7 +5796,7 @@ func (x *VodDeleteFairPlayCertInfoResponse) String() string {
 func (*VodDeleteFairPlayCertInfoResponse) ProtoMessage() {}
 
 func (x *VodDeleteFairPlayCertInfoResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[104]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[107]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5642,7 +5809,7 @@ func (x *VodDeleteFairPlayCertInfoResponse) ProtoReflect() protoreflect.Message 
 
 // Deprecated: Use VodDeleteFairPlayCertInfoResponse.ProtoReflect.Descriptor instead.
 func (*VodDeleteFairPlayCertInfoResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{104}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{107}
 }
 
 func (x *VodDeleteFairPlayCertInfoResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -5664,7 +5831,7 @@ type VodGetFairPlayCertResponse struct {
 func (x *VodGetFairPlayCertResponse) Reset() {
 	*x = VodGetFairPlayCertResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[105]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[108]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5677,7 +5844,7 @@ func (x *VodGetFairPlayCertResponse) String() string {
 func (*VodGetFairPlayCertResponse) ProtoMessage() {}
 
 func (x *VodGetFairPlayCertResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[105]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[108]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5690,7 +5857,7 @@ func (x *VodGetFairPlayCertResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodGetFairPlayCertResponse.ProtoReflect.Descriptor instead.
 func (*VodGetFairPlayCertResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{105}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{108}
 }
 
 func (x *VodGetFairPlayCertResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -5719,7 +5886,7 @@ type VodGetDrmLicenseResponse struct {
 func (x *VodGetDrmLicenseResponse) Reset() {
 	*x = VodGetDrmLicenseResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[106]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[109]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5732,7 +5899,7 @@ func (x *VodGetDrmLicenseResponse) String() string {
 func (*VodGetDrmLicenseResponse) ProtoMessage() {}
 
 func (x *VodGetDrmLicenseResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[106]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[109]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5745,7 +5912,7 @@ func (x *VodGetDrmLicenseResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodGetDrmLicenseResponse.ProtoReflect.Descriptor instead.
 func (*VodGetDrmLicenseResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{106}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{109}
 }
 
 func (x *VodGetDrmLicenseResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -5777,7 +5944,7 @@ type VodSetMirrorSrcRuleResponse struct {
 func (x *VodSetMirrorSrcRuleResponse) Reset() {
 	*x = VodSetMirrorSrcRuleResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[107]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[110]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5790,7 +5957,7 @@ func (x *VodSetMirrorSrcRuleResponse) String() string {
 func (*VodSetMirrorSrcRuleResponse) ProtoMessage() {}
 
 func (x *VodSetMirrorSrcRuleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[107]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[110]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5803,7 +5970,7 @@ func (x *VodSetMirrorSrcRuleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodSetMirrorSrcRuleResponse.ProtoReflect.Descriptor instead.
 func (*VodSetMirrorSrcRuleResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{107}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{110}
 }
 
 func (x *VodSetMirrorSrcRuleResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -5831,7 +5998,7 @@ type VodDeleteMirrorSrcRuleResponse struct {
 func (x *VodDeleteMirrorSrcRuleResponse) Reset() {
 	*x = VodDeleteMirrorSrcRuleResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[108]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[111]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5844,7 +6011,7 @@ func (x *VodDeleteMirrorSrcRuleResponse) String() string {
 func (*VodDeleteMirrorSrcRuleResponse) ProtoMessage() {}
 
 func (x *VodDeleteMirrorSrcRuleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[108]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[111]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5857,7 +6024,7 @@ func (x *VodDeleteMirrorSrcRuleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodDeleteMirrorSrcRuleResponse.ProtoReflect.Descriptor instead.
 func (*VodDeleteMirrorSrcRuleResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{108}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{111}
 }
 
 func (x *VodDeleteMirrorSrcRuleResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -5879,7 +6046,7 @@ type VodListMirrorSrcRuleResponse struct {
 func (x *VodListMirrorSrcRuleResponse) Reset() {
 	*x = VodListMirrorSrcRuleResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[109]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[112]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5892,7 +6059,7 @@ func (x *VodListMirrorSrcRuleResponse) String() string {
 func (*VodListMirrorSrcRuleResponse) ProtoMessage() {}
 
 func (x *VodListMirrorSrcRuleResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[109]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[112]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5905,7 +6072,7 @@ func (x *VodListMirrorSrcRuleResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodListMirrorSrcRuleResponse.ProtoReflect.Descriptor instead.
 func (*VodListMirrorSrcRuleResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{109}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{112}
 }
 
 func (x *VodListMirrorSrcRuleResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -5936,7 +6103,7 @@ type VodListProjectsResponse struct {
 func (x *VodListProjectsResponse) Reset() {
 	*x = VodListProjectsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[110]
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[113]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -5949,7 +6116,7 @@ func (x *VodListProjectsResponse) String() string {
 func (*VodListProjectsResponse) ProtoMessage() {}
 
 func (x *VodListProjectsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[110]
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[113]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -5962,7 +6129,7 @@ func (x *VodListProjectsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VodListProjectsResponse.ProtoReflect.Descriptor instead.
 func (*VodListProjectsResponse) Descriptor() ([]byte, []int) {
-	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{110}
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{113}
 }
 
 func (x *VodListProjectsResponse) GetResponseMetadata() *base.ResponseMetadata {
@@ -5973,6 +6140,64 @@ func (x *VodListProjectsResponse) GetResponseMetadata() *base.ResponseMetadata {
 }
 
 func (x *VodListProjectsResponse) GetResult() *business.VodListProjectsResult {
+	if x != nil {
+		return x.Result
+	}
+	return nil
+}
+
+// **********************************************************************
+// 质量平台
+// **********************************************************************
+type GetVodMediaPlayDataResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ResponseMetadata *base.ResponseMetadata              `protobuf:"bytes,1,opt,name=ResponseMetadata,proto3" json:"ResponseMetadata,omitempty"`
+	Result           *business.GetVodMediaPlayDataResult `protobuf:"bytes,2,opt,name=Result,proto3" json:"Result,omitempty"`
+}
+
+func (x *GetVodMediaPlayDataResponse) Reset() {
+	*x = GetVodMediaPlayDataResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[114]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetVodMediaPlayDataResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetVodMediaPlayDataResponse) ProtoMessage() {}
+
+func (x *GetVodMediaPlayDataResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_byteplus_vod_response_response_vod_proto_msgTypes[114]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetVodMediaPlayDataResponse.ProtoReflect.Descriptor instead.
+func (*GetVodMediaPlayDataResponse) Descriptor() ([]byte, []int) {
+	return file_byteplus_vod_response_response_vod_proto_rawDescGZIP(), []int{114}
+}
+
+func (x *GetVodMediaPlayDataResponse) GetResponseMetadata() *base.ResponseMetadata {
+	if x != nil {
+		return x.ResponseMetadata
+	}
+	return nil
+}
+
+func (x *GetVodMediaPlayDataResponse) GetResult() *business.GetVodMediaPlayDataResult {
 	if x != nil {
 		return x.Result
 	}
@@ -6018,236 +6243,266 @@ var file_byteplus_vod_response_response_vod_proto_rawDesc = []byte{
 	0x61, 0x70, 0x70, 0x73, 0x5f, 0x6d, 0x61, 0x6e, 0x61, 0x67, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74,
 	0x6f, 0x1a, 0x27, 0x62, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2f, 0x76, 0x6f, 0x64, 0x2f,
 	0x62, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2f, 0x76, 0x6f, 0x64, 0x5f, 0x6d, 0x65, 0x61,
-	0x73, 0x75, 0x72, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0xc0, 0x01, 0x0a, 0x19, 0x56,
-	0x6f, 0x64, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x50, 0x6c, 0x61, 0x79, 0x49, 0x6e, 0x66, 0x6f,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61,
-	0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52,
-	0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
-	0x61, 0x12, 0x4a, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28,
-	0x0b, 0x32, 0x32, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64,
-	0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73,
-	0x2e, 0x56, 0x6f, 0x64, 0x41, 0x6c, 0x6c, 0x50, 0x6c, 0x61, 0x79, 0x49, 0x6e, 0x66, 0x6f, 0x52,
-	0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xb9, 0x01,
-	0x0a, 0x16, 0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x49, 0x6e, 0x66, 0x6f,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61,
-	0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52,
-	0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
-	0x61, 0x12, 0x46, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28,
-	0x0b, 0x32, 0x2e, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64,
-	0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73,
-	0x2e, 0x56, 0x6f, 0x64, 0x50, 0x6c, 0x61, 0x79, 0x49, 0x6e, 0x66, 0x6f, 0x4d, 0x6f, 0x64, 0x65,
-	0x6c, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xcd, 0x01, 0x0a, 0x1e, 0x56, 0x6f,
-	0x64, 0x47, 0x65, 0x74, 0x4f, 0x72, 0x69, 0x67, 0x69, 0x6e, 0x61, 0x6c, 0x50, 0x6c, 0x61, 0x79,
-	0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75,
-	0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61,
-	0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64,
-	0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74,
-	0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x52, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18,
-	0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x3a, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73,
-	0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69,
-	0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x4f, 0x72, 0x69, 0x67, 0x69,
-	0x6e, 0x61, 0x6c, 0x50, 0x6c, 0x61, 0x79, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73, 0x75, 0x6c,
-	0x74, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xd1, 0x01, 0x0a, 0x20, 0x56, 0x6f,
-	0x64, 0x47, 0x65, 0x74, 0x50, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x44, 0x72, 0x6d, 0x50, 0x6c,
-	0x61, 0x79, 0x41, 0x75, 0x74, 0x68, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57,
-	0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61,
-	0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70,
-	0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e,
-	0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74,
-	0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d,
-	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x54, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c,
-	0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x3c, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c,
-	0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75,
-	0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x50, 0x72, 0x69,
-	0x76, 0x61, 0x74, 0x65, 0x44, 0x72, 0x6d, 0x50, 0x6c, 0x61, 0x79, 0x41, 0x75, 0x74, 0x68, 0x52,
-	0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xcd, 0x01,
-	0x0a, 0x1e, 0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x48, 0x6c, 0x73, 0x44, 0x65, 0x63, 0x72, 0x79,
-	0x70, 0x74, 0x69, 0x6f, 0x6e, 0x4b, 0x65, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61,
-	0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74,
-	0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c,
-	0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d,
-	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x52, 0x0a, 0x06, 0x52, 0x65, 0x73,
-	0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x3a, 0x2e, 0x42, 0x79, 0x74, 0x65,
-	0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e,
-	0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x48,
-	0x6c, 0x73, 0x44, 0x65, 0x63, 0x72, 0x79, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x4b, 0x65, 0x79, 0x52,
-	0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xd3, 0x01,
-	0x0a, 0x21, 0x56, 0x6f, 0x64, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x48, 0x6c, 0x73, 0x44, 0x65,
-	0x63, 0x72, 0x79, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x4b, 0x65, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d,
-	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e,
-	0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f,
-	0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x55, 0x0a, 0x06,
-	0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x3d, 0x2e, 0x42,
-	0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65,
-	0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x43,
-	0x72, 0x65, 0x61, 0x74, 0x65, 0x48, 0x6c, 0x73, 0x44, 0x65, 0x63, 0x72, 0x79, 0x70, 0x74, 0x69,
-	0x6f, 0x6e, 0x4b, 0x65, 0x79, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x06, 0x52, 0x65, 0x73,
-	0x75, 0x6c, 0x74, 0x22, 0xe9, 0x01, 0x0a, 0x2c, 0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x50, 0x6c,
-	0x61, 0x79, 0x49, 0x6e, 0x66, 0x6f, 0x57, 0x69, 0x74, 0x68, 0x4c, 0x69, 0x76, 0x65, 0x54, 0x69,
-	0x6d, 0x65, 0x53, 0x68, 0x69, 0x66, 0x74, 0x53, 0x63, 0x65, 0x6e, 0x65, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b,
-	0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d,
-	0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x60, 0x0a,
-	0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x48, 0x2e,
-	0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64,
-	0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64,
-	0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x49, 0x6e, 0x66, 0x6f, 0x57, 0x69, 0x74, 0x68, 0x4c,
-	0x69, 0x76, 0x65, 0x54, 0x69, 0x6d, 0x65, 0x53, 0x68, 0x69, 0x66, 0x74, 0x53, 0x63, 0x65, 0x6e,
-	0x65, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22,
-	0xb6, 0x01, 0x0a, 0x16, 0x56, 0x6f, 0x64, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x4d, 0x65, 0x64,
-	0x69, 0x61, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65,
+	0x73, 0x75, 0x72, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x30, 0x62, 0x79, 0x74, 0x65,
+	0x70, 0x6c, 0x75, 0x73, 0x2f, 0x76, 0x6f, 0x64, 0x2f, 0x62, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73,
+	0x73, 0x2f, 0x76, 0x6f, 0x64, 0x5f, 0x71, 0x75, 0x61, 0x6c, 0x69, 0x74, 0x79, 0x5f, 0x70, 0x6c,
+	0x61, 0x74, 0x66, 0x6f, 0x72, 0x6d, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0xc0, 0x01, 0x0a,
+	0x19, 0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x50, 0x6c, 0x61, 0x79, 0x49, 0x6e,
+	0x66, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65,
 	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01,
 	0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e,
 	0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65,
 	0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
 	0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64,
-	0x61, 0x74, 0x61, 0x12, 0x43, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20,
-	0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56,
+	0x61, 0x74, 0x61, 0x12, 0x4a, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x32, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56,
 	0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65,
-	0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x43, 0x6f, 0x6d, 0x6d, 0x69, 0x74, 0x44, 0x61, 0x74, 0x61,
-	0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xbd, 0x01, 0x0a, 0x1e, 0x56, 0x6f, 0x64,
-	0x51, 0x75, 0x65, 0x72, 0x79, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x54, 0x61, 0x73, 0x6b, 0x49,
-	0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73,
-	0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73,
-	0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61,
-	0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61,
-	0x64, 0x61, 0x74, 0x61, 0x12, 0x42, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02,
-	0x20, 0x01, 0x28, 0x0b, 0x32, 0x2a, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e,
-	0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e,
-	0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x51, 0x75, 0x65, 0x72, 0x79, 0x44, 0x61, 0x74, 0x61,
-	0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xb9, 0x01, 0x0a, 0x14, 0x56, 0x6f, 0x64,
-	0x55, 0x72, 0x6c, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74,
-	0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79,
-	0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65,
-	0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x48, 0x0a, 0x06, 0x52, 0x65,
-	0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x30, 0x2e, 0x42, 0x79, 0x74,
-	0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73,
-	0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x55, 0x72, 0x6c,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x44, 0x61, 0x74, 0x61, 0x52, 0x06, 0x52, 0x65,
-	0x73, 0x75, 0x6c, 0x74, 0x22, 0xc5, 0x01, 0x0a, 0x1a, 0x56, 0x6f, 0x64, 0x41, 0x70, 0x70, 0x6c,
-	0x79, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d,
-	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e,
-	0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f,
-	0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x4e, 0x0a, 0x06,
-	0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x36, 0x2e, 0x42,
-	0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65,
-	0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x41,
-	0x70, 0x70, 0x6c, 0x79, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65,
-	0x73, 0x75, 0x6c, 0x74, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xc7, 0x01, 0x0a,
-	0x1b, 0x56, 0x6f, 0x64, 0x43, 0x6f, 0x6d, 0x6d, 0x69, 0x74, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64,
-	0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75,
-	0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61,
-	0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64,
-	0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74,
-	0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x4f, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18,
-	0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x37, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73,
-	0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69,
-	0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x43, 0x6f, 0x6d, 0x6d, 0x69, 0x74, 0x55, 0x70,
-	0x6c, 0x6f, 0x61, 0x64, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x06,
-	0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xbf, 0x01, 0x0a, 0x18, 0x56, 0x6f, 0x64, 0x47, 0x65,
-	0x74, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f,
-	0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d,
-	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e,
-	0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f,
-	0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x4a, 0x0a, 0x06,
-	0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x32, 0x2e, 0x42,
-	0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65,
-	0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x47,
-	0x65, 0x74, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x44, 0x61, 0x74, 0x61,
-	0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0x75, 0x0a, 0x1a, 0x56, 0x6f, 0x64, 0x55,
-	0x70, 0x64, 0x61, 0x74, 0x65, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65,
+	0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x41, 0x6c, 0x6c, 0x50, 0x6c, 0x61, 0x79, 0x49, 0x6e, 0x66,
+	0x6f, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22,
+	0xb9, 0x01, 0x0a, 0x16, 0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x49, 0x6e,
+	0x66, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e,
+	0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65,
+	0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
+	0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64,
+	0x61, 0x74, 0x61, 0x12, 0x46, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x2e, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56,
+	0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65,
+	0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x50, 0x6c, 0x61, 0x79, 0x49, 0x6e, 0x66, 0x6f, 0x4d, 0x6f,
+	0x64, 0x65, 0x6c, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xcd, 0x01, 0x0a, 0x1e,
+	0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x4f, 0x72, 0x69, 0x67, 0x69, 0x6e, 0x61, 0x6c, 0x50, 0x6c,
+	0x61, 0x79, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57,
+	0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61,
+	0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70,
+	0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e,
+	0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74,
+	0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d,
+	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x52, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c,
+	0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x3a, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c,
+	0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75,
+	0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x4f, 0x72, 0x69,
+	0x67, 0x69, 0x6e, 0x61, 0x6c, 0x50, 0x6c, 0x61, 0x79, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73,
+	0x75, 0x6c, 0x74, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xd1, 0x01, 0x0a, 0x20,
+	0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x50, 0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x44, 0x72, 0x6d,
+	0x50, 0x6c, 0x61, 0x79, 0x41, 0x75, 0x74, 0x68, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61,
+	0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74,
+	0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c,
+	0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d,
+	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x54, 0x0a, 0x06, 0x52, 0x65, 0x73,
+	0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x3c, 0x2e, 0x42, 0x79, 0x74, 0x65,
+	0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e,
+	0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x50,
+	0x72, 0x69, 0x76, 0x61, 0x74, 0x65, 0x44, 0x72, 0x6d, 0x50, 0x6c, 0x61, 0x79, 0x41, 0x75, 0x74,
+	0x68, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22,
+	0xcd, 0x01, 0x0a, 0x1e, 0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x48, 0x6c, 0x73, 0x44, 0x65, 0x63,
+	0x72, 0x79, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x4b, 0x65, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65,
+	0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42,
+	0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64,
+	0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x52, 0x0a, 0x06, 0x52,
+	0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x3a, 0x2e, 0x42, 0x79,
+	0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c,
+	0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x47, 0x65,
+	0x74, 0x48, 0x6c, 0x73, 0x44, 0x65, 0x63, 0x72, 0x79, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x4b, 0x65,
+	0x79, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22,
+	0xd3, 0x01, 0x0a, 0x21, 0x56, 0x6f, 0x64, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x48, 0x6c, 0x73,
+	0x44, 0x65, 0x63, 0x72, 0x79, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x4b, 0x65, 0x79, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32,
+	0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e,
+	0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x55,
+	0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x3d,
+	0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f,
+	0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f,
+	0x64, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x48, 0x6c, 0x73, 0x44, 0x65, 0x63, 0x72, 0x79, 0x70,
+	0x74, 0x69, 0x6f, 0x6e, 0x4b, 0x65, 0x79, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x06, 0x52,
+	0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xe9, 0x01, 0x0a, 0x2c, 0x56, 0x6f, 0x64, 0x47, 0x65, 0x74,
+	0x50, 0x6c, 0x61, 0x79, 0x49, 0x6e, 0x66, 0x6f, 0x57, 0x69, 0x74, 0x68, 0x4c, 0x69, 0x76, 0x65,
+	0x54, 0x69, 0x6d, 0x65, 0x53, 0x68, 0x69, 0x66, 0x74, 0x53, 0x63, 0x65, 0x6e, 0x65, 0x52, 0x65,
 	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
 	0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
 	0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65,
 	0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73,
 	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x22,
-	0xc5, 0x01, 0x0a, 0x1f, 0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x52, 0x65, 0x63, 0x6f, 0x6d, 0x6d,
-	0x65, 0x6e, 0x64, 0x65, 0x64, 0x50, 0x6f, 0x73, 0x74, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12,
+	0x60, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32,
+	0x48, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d,
+	0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56,
+	0x6f, 0x64, 0x47, 0x65, 0x74, 0x50, 0x6c, 0x61, 0x79, 0x49, 0x6e, 0x66, 0x6f, 0x57, 0x69, 0x74,
+	0x68, 0x4c, 0x69, 0x76, 0x65, 0x54, 0x69, 0x6d, 0x65, 0x53, 0x68, 0x69, 0x66, 0x74, 0x53, 0x63,
+	0x65, 0x6e, 0x65, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c,
+	0x74, 0x22, 0xb6, 0x01, 0x0a, 0x16, 0x56, 0x6f, 0x64, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x4d,
+	0x65, 0x64, 0x69, 0x61, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75,
+	0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61,
+	0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64,
+	0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74,
+	0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x43, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18,
+	0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73,
+	0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69,
+	0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x43, 0x6f, 0x6d, 0x6d, 0x69, 0x74, 0x44, 0x61,
+	0x74, 0x61, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xbd, 0x01, 0x0a, 0x1e, 0x56,
+	0x6f, 0x64, 0x51, 0x75, 0x65, 0x72, 0x79, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x54, 0x61, 0x73,
+	0x6b, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a,
+	0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
+	0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c,
+	0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42,
+	0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61,
+	0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65,
+	0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x42, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2a, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75,
+	0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73,
+	0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x51, 0x75, 0x65, 0x72, 0x79, 0x44, 0x61,
+	0x74, 0x61, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xb9, 0x01, 0x0a, 0x14, 0x56,
+	0x6f, 0x64, 0x55, 0x72, 0x6c, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f,
 	0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d,
 	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e,
 	0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f,
 	0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
 	0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x49, 0x0a, 0x06,
-	0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x31, 0x2e, 0x42,
+	0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x48, 0x0a, 0x06,
+	0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x30, 0x2e, 0x42,
 	0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65,
-	0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x47,
-	0x65, 0x74, 0x52, 0x65, 0x63, 0x50, 0x6f, 0x73, 0x74, 0x65, 0x72, 0x44, 0x61, 0x74, 0x61, 0x52,
-	0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0x7e, 0x0a, 0x23, 0x56, 0x6f, 0x64, 0x55, 0x70,
-	0x64, 0x61, 0x74, 0x65, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x50, 0x75, 0x62, 0x6c, 0x69, 0x73, 0x68,
-	0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57,
+	0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x55,
+	0x72, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x44, 0x61, 0x74, 0x61, 0x52, 0x06,
+	0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xc5, 0x01, 0x0a, 0x1a, 0x56, 0x6f, 0x64, 0x41, 0x70,
+	0x70, 0x6c, 0x79, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32,
+	0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e,
+	0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x4e,
+	0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x36,
+	0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f,
+	0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f,
+	0x64, 0x41, 0x70, 0x70, 0x6c, 0x79, 0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x49, 0x6e, 0x66, 0x6f,
+	0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xc7,
+	0x01, 0x0a, 0x1b, 0x56, 0x6f, 0x64, 0x43, 0x6f, 0x6d, 0x6d, 0x69, 0x74, 0x55, 0x70, 0x6c, 0x6f,
+	0x61, 0x64, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57,
 	0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61,
 	0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70,
 	0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e,
 	0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74,
 	0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d,
-	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x22, 0xd3, 0x01, 0x0a, 0x22, 0x56, 0x6f, 0x64, 0x55,
-	0x70, 0x64, 0x61, 0x74, 0x65, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x53, 0x74, 0x6f, 0x72, 0x61, 0x67,
-	0x65, 0x43, 0x6c, 0x61, 0x73, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57,
-	0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61,
-	0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70,
-	0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e,
-	0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74,
-	0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d,
-	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x54, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c,
-	0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x3c, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c,
+	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x4f, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c,
+	0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x37, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c,
 	0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75,
-	0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65,
-	0x4d, 0x65, 0x64, 0x69, 0x61, 0x53, 0x74, 0x6f, 0x72, 0x61, 0x67, 0x65, 0x43, 0x6c, 0x61, 0x73,
-	0x73, 0x44, 0x61, 0x74, 0x61, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xbb, 0x01,
-	0x0a, 0x16, 0x56, 0x6f, 0x64, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4d, 0x65, 0x64, 0x69, 0x61,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61,
-	0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52,
-	0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
-	0x61, 0x12, 0x48, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28,
-	0x0b, 0x32, 0x30, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64,
-	0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73,
-	0x2e, 0x56, 0x6f, 0x64, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x44,
-	0x61, 0x74, 0x61, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xc5, 0x01, 0x0a, 0x1b,
-	0x56, 0x6f, 0x64, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x63, 0x6f,
-	0x64, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73,
-	0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73,
-	0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61,
-	0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61,
-	0x64, 0x61, 0x74, 0x61, 0x12, 0x4d, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02,
-	0x20, 0x01, 0x28, 0x0b, 0x32, 0x35, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e,
-	0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e,
-	0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x54, 0x72, 0x61,
-	0x6e, 0x73, 0x63, 0x6f, 0x64, 0x65, 0x73, 0x44, 0x61, 0x74, 0x61, 0x52, 0x06, 0x52, 0x65, 0x73,
+	0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x43, 0x6f, 0x6d, 0x6d, 0x69, 0x74,
+	0x55, 0x70, 0x6c, 0x6f, 0x61, 0x64, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74,
+	0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xdf, 0x01, 0x0a, 0x27, 0x56, 0x6f, 0x64,
+	0x4c, 0x69, 0x73, 0x74, 0x46, 0x69, 0x6c, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x49, 0x6e, 0x66, 0x6f,
+	0x73, 0x42, 0x79, 0x46, 0x69, 0x6c, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b,
+	0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d,
+	0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x5b, 0x0a,
+	0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x43, 0x2e,
+	0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64,
+	0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64,
+	0x4c, 0x69, 0x73, 0x74, 0x46, 0x69, 0x6c, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x49, 0x6e, 0x66, 0x6f,
+	0x73, 0x42, 0x79, 0x46, 0x69, 0x6c, 0x65, 0x4e, 0x61, 0x6d, 0x65, 0x73, 0x52, 0x65, 0x73, 0x75,
+	0x6c, 0x74, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xbf, 0x01, 0x0a, 0x18, 0x56,
+	0x6f, 0x64, 0x47, 0x65, 0x74, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73,
+	0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61,
+	0x12, 0x4a, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x32, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e,
+	0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e,
+	0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x49, 0x6e, 0x66, 0x6f, 0x73,
+	0x44, 0x61, 0x74, 0x61, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0x75, 0x0a, 0x1a,
+	0x56, 0x6f, 0x64, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x49, 0x6e,
+	0x66, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e,
+	0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65,
+	0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
+	0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64,
+	0x61, 0x74, 0x61, 0x22, 0xc5, 0x01, 0x0a, 0x1f, 0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x52, 0x65,
+	0x63, 0x6f, 0x6d, 0x6d, 0x65, 0x6e, 0x64, 0x65, 0x64, 0x50, 0x6f, 0x73, 0x74, 0x65, 0x72, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73,
+	0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61,
+	0x12, 0x49, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x31, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e,
+	0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e,
+	0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x52, 0x65, 0x63, 0x50, 0x6f, 0x73, 0x74, 0x65, 0x72, 0x44,
+	0x61, 0x74, 0x61, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0x7e, 0x0a, 0x23, 0x56,
+	0x6f, 0x64, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x50, 0x75, 0x62,
+	0x6c, 0x69, 0x73, 0x68, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65,
+	0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42,
+	0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64,
+	0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x22, 0xd3, 0x01, 0x0a, 0x22,
+	0x56, 0x6f, 0x64, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x53, 0x74,
+	0x6f, 0x72, 0x61, 0x67, 0x65, 0x43, 0x6c, 0x61, 0x73, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65,
+	0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42,
+	0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64,
+	0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x54, 0x0a, 0x06, 0x52,
+	0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x3c, 0x2e, 0x42, 0x79,
+	0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c,
+	0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x55, 0x70,
+	0x64, 0x61, 0x74, 0x65, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x53, 0x74, 0x6f, 0x72, 0x61, 0x67, 0x65,
+	0x43, 0x6c, 0x61, 0x73, 0x73, 0x44, 0x61, 0x74, 0x61, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c,
+	0x74, 0x22, 0xbb, 0x01, 0x0a, 0x16, 0x56, 0x6f, 0x64, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4d,
+	0x65, 0x64, 0x69, 0x61, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75,
+	0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61,
+	0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64,
+	0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74,
+	0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x48, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18,
+	0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x30, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73,
+	0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69,
+	0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4d, 0x65,
+	0x64, 0x69, 0x61, 0x44, 0x61, 0x74, 0x61, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22,
+	0xc5, 0x01, 0x0a, 0x1b, 0x56, 0x6f, 0x64, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x54, 0x72, 0x61,
+	0x6e, 0x73, 0x63, 0x6f, 0x64, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64,
+	0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65,
+	0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73,
+	0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65,
+	0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x4d, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75,
+	0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x35, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70,
+	0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42,
+	0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x44, 0x65, 0x6c, 0x65, 0x74,
+	0x65, 0x54, 0x72, 0x61, 0x6e, 0x73, 0x63, 0x6f, 0x64, 0x65, 0x73, 0x44, 0x61, 0x74, 0x61, 0x52,
+	0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xc9, 0x01, 0x0a, 0x1d, 0x56, 0x6f, 0x64, 0x44,
+	0x65, 0x6c, 0x65, 0x74, 0x65, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x54, 0x6f, 0x73, 0x46, 0x69, 0x6c,
+	0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42,
+	0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61,
+	0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61,
+	0x74, 0x61, 0x12, 0x4f, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x37, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f,
+	0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73,
+	0x73, 0x2e, 0x56, 0x6f, 0x64, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4d, 0x65, 0x64, 0x69, 0x61,
+	0x54, 0x6f, 0x73, 0x46, 0x69, 0x6c, 0x65, 0x44, 0x61, 0x74, 0x61, 0x52, 0x06, 0x52, 0x65, 0x73,
 	0x75, 0x6c, 0x74, 0x22, 0xbd, 0x01, 0x0a, 0x17, 0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x4d, 0x65,
 	0x64, 0x69, 0x61, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
 	0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64,
@@ -6442,6 +6697,18 @@ var file_byteplus_vod_response_response_vod_proto_rawDesc = []byte{
 	0x32, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d,
 	0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x56,
 	0x6f, 0x64, 0x47, 0x65, 0x74, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x44,
+	0x61, 0x74, 0x61, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xbd, 0x01, 0x0a, 0x17,
+	0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x46, 0x69, 0x6c, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x42, 0x61, 0x73,
+	0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x10,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61,
+	0x12, 0x49, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x31, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e,
+	0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e,
+	0x56, 0x6f, 0x64, 0x47, 0x65, 0x74, 0x46, 0x69, 0x6c, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x44,
 	0x61, 0x74, 0x61, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0x7a, 0x0a, 0x1f, 0x56,
 	0x6f, 0x64, 0x45, 0x78, 0x74, 0x72, 0x61, 0x63, 0x74, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x4d, 0x65,
 	0x74, 0x61, 0x54, 0x61, 0x73, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57,
@@ -7320,21 +7587,34 @@ var file_byteplus_vod_response_response_vod_proto_rawDesc = []byte{
 	0x32, 0x33, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e,
 	0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73, 0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e,
 	0x56, 0x6f, 0x64, 0x4c, 0x69, 0x73, 0x74, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x52,
-	0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x42, 0xd8, 0x01,
-	0x0a, 0x27, 0x63, 0x6f, 0x6d, 0x2e, 0x62, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x73,
-	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x76, 0x6f, 0x64, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c,
-	0x2e, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x0b, 0x56, 0x6f, 0x64, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x50, 0x01, 0x5a, 0x47, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62,
-	0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x62, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2d, 0x73, 0x64,
-	0x6b, 0x2f, 0x62, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2d, 0x73, 0x64, 0x6b, 0x2d, 0x67,
-	0x6f, 0x6c, 0x61, 0x6e, 0x67, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2f, 0x76, 0x6f,
-	0x64, 0x2f, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2f, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0xa0, 0x01, 0x01, 0xd8, 0x01, 0x01, 0xca, 0x02, 0x24, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c,
-	0x75, 0x73, 0x5c, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5c, 0x56, 0x6f, 0x64, 0x5c, 0x4d,
-	0x6f, 0x64, 0x65, 0x6c, 0x73, 0x5c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0xe2, 0x02,
-	0x27, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x5c, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63,
-	0x65, 0x5c, 0x56, 0x6f, 0x64, 0x5c, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x5c, 0x47, 0x50, 0x42,
-	0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x65, 0x73, 0x75, 0x6c, 0x74, 0x52, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x22, 0xc7, 0x01,
+	0x0a, 0x1b, 0x47, 0x65, 0x74, 0x56, 0x6f, 0x64, 0x4d, 0x65, 0x64, 0x69, 0x61, 0x50, 0x6c, 0x61,
+	0x79, 0x44, 0x61, 0x74, 0x61, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x57, 0x0a,
+	0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74,
+	0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x2b, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c,
+	0x75, 0x73, 0x2e, 0x42, 0x61, 0x73, 0x65, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42,
+	0x61, 0x73, 0x65, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65, 0x74, 0x61,
+	0x64, 0x61, 0x74, 0x61, 0x52, 0x10, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x4d, 0x65,
+	0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x12, 0x4f, 0x0a, 0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x37, 0x2e, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75,
+	0x73, 0x2e, 0x56, 0x6f, 0x64, 0x2e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x2e, 0x42, 0x75, 0x73,
+	0x69, 0x6e, 0x65, 0x73, 0x73, 0x2e, 0x47, 0x65, 0x74, 0x56, 0x6f, 0x64, 0x4d, 0x65, 0x64, 0x69,
+	0x61, 0x50, 0x6c, 0x61, 0x79, 0x44, 0x61, 0x74, 0x61, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x52,
+	0x06, 0x52, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x42, 0xd8, 0x01, 0x0a, 0x27, 0x63, 0x6f, 0x6d, 0x2e,
+	0x62, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x2e, 0x76, 0x6f, 0x64, 0x2e, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x2e, 0x72, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x42, 0x0b, 0x56, 0x6f, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x50, 0x01, 0x5a, 0x47, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x62,
+	0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x2d, 0x73, 0x64, 0x6b, 0x2f, 0x62, 0x79, 0x74, 0x65,
+	0x70, 0x6c, 0x75, 0x73, 0x2d, 0x73, 0x64, 0x6b, 0x2d, 0x67, 0x6f, 0x6c, 0x61, 0x6e, 0x67, 0x2f,
+	0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2f, 0x76, 0x6f, 0x64, 0x2f, 0x6d, 0x6f, 0x64, 0x65,
+	0x6c, 0x73, 0x2f, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0xa0, 0x01, 0x01, 0xd8, 0x01,
+	0x01, 0xca, 0x02, 0x24, 0x42, 0x79, 0x74, 0x65, 0x70, 0x6c, 0x75, 0x73, 0x5c, 0x53, 0x65, 0x72,
+	0x76, 0x69, 0x63, 0x65, 0x5c, 0x56, 0x6f, 0x64, 0x5c, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x5c,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0xe2, 0x02, 0x27, 0x42, 0x79, 0x74, 0x65, 0x70,
+	0x6c, 0x75, 0x73, 0x5c, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x5c, 0x56, 0x6f, 0x64, 0x5c,
+	0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x73, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61,
+	0x74, 0x61, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -7349,7 +7629,7 @@ func file_byteplus_vod_response_response_vod_proto_rawDescGZIP() []byte {
 	return file_byteplus_vod_response_response_vod_proto_rawDescData
 }
 
-var file_byteplus_vod_response_response_vod_proto_msgTypes = make([]protoimpl.MessageInfo, 111)
+var file_byteplus_vod_response_response_vod_proto_msgTypes = make([]protoimpl.MessageInfo, 115)
 var file_byteplus_vod_response_response_vod_proto_goTypes = []interface{}{
 	(*VodGetAllPlayInfoResponse)(nil),                               // 0: Byteplus.Vod.Models.Response.VodGetAllPlayInfoResponse
 	(*VodGetPlayInfoResponse)(nil),                                  // 1: Byteplus.Vod.Models.Response.VodGetPlayInfoResponse
@@ -7363,390 +7643,406 @@ var file_byteplus_vod_response_response_vod_proto_goTypes = []interface{}{
 	(*VodUrlUploadResponse)(nil),                                    // 9: Byteplus.Vod.Models.Response.VodUrlUploadResponse
 	(*VodApplyUploadInfoResponse)(nil),                              // 10: Byteplus.Vod.Models.Response.VodApplyUploadInfoResponse
 	(*VodCommitUploadInfoResponse)(nil),                             // 11: Byteplus.Vod.Models.Response.VodCommitUploadInfoResponse
-	(*VodGetMediaInfosResponse)(nil),                                // 12: Byteplus.Vod.Models.Response.VodGetMediaInfosResponse
-	(*VodUpdateMediaInfoResponse)(nil),                              // 13: Byteplus.Vod.Models.Response.VodUpdateMediaInfoResponse
-	(*VodGetRecommendedPosterResponse)(nil),                         // 14: Byteplus.Vod.Models.Response.VodGetRecommendedPosterResponse
-	(*VodUpdateMediaPublishStatusResponse)(nil),                     // 15: Byteplus.Vod.Models.Response.VodUpdateMediaPublishStatusResponse
-	(*VodUpdateMediaStorageClassResponse)(nil),                      // 16: Byteplus.Vod.Models.Response.VodUpdateMediaStorageClassResponse
-	(*VodDeleteMediaResponse)(nil),                                  // 17: Byteplus.Vod.Models.Response.VodDeleteMediaResponse
-	(*VodDeleteTranscodesResponse)(nil),                             // 18: Byteplus.Vod.Models.Response.VodDeleteTranscodesResponse
-	(*VodGetMediaListResponse)(nil),                                 // 19: Byteplus.Vod.Models.Response.VodGetMediaListResponse
-	(*VodGetSubtitleInfoListResponse)(nil),                          // 20: Byteplus.Vod.Models.Response.VodGetSubtitleInfoListResponse
-	(*VodUpdateSubtitleStatusResponse)(nil),                         // 21: Byteplus.Vod.Models.Response.VodUpdateSubtitleStatusResponse
-	(*VodUpdateSubtitleInfoResponse)(nil),                           // 22: Byteplus.Vod.Models.Response.VodUpdateSubtitleInfoResponse
-	(*VodGetAuditFramesForAuditResponse)(nil),                       // 23: Byteplus.Vod.Models.Response.VodGetAuditFramesForAuditResponse
-	(*VodGetMLFramesForAuditResponse)(nil),                          // 24: Byteplus.Vod.Models.Response.VodGetMLFramesForAuditResponse
-	(*VodGetBetterFramesForAuditResponse)(nil),                      // 25: Byteplus.Vod.Models.Response.VodGetBetterFramesForAuditResponse
-	(*VodGetAudioInfoForAuditResponse)(nil),                         // 26: Byteplus.Vod.Models.Response.VodGetAudioInfoForAuditResponse
-	(*VodGetAutomaticSpeechRecognitionForAuditResponse)(nil),        // 27: Byteplus.Vod.Models.Response.VodGetAutomaticSpeechRecognitionForAuditResponse
-	(*VodGetAudioEventDetectionForAuditResponse)(nil),               // 28: Byteplus.Vod.Models.Response.VodGetAudioEventDetectionForAuditResponse
-	(*VodCreateVideoClassificationResponse)(nil),                    // 29: Byteplus.Vod.Models.Response.VodCreateVideoClassificationResponse
-	(*VodUpdateVideoClassificationResponse)(nil),                    // 30: Byteplus.Vod.Models.Response.VodUpdateVideoClassificationResponse
-	(*VodDeleteVideoClassificationResponse)(nil),                    // 31: Byteplus.Vod.Models.Response.VodDeleteVideoClassificationResponse
-	(*VodListVideoClassificationsResponse)(nil),                     // 32: Byteplus.Vod.Models.Response.VodListVideoClassificationsResponse
-	(*VodListSnapshotsResponse)(nil),                                // 33: Byteplus.Vod.Models.Response.VodListSnapshotsResponse
-	(*VodGetFileListResponse)(nil),                                  // 34: Byteplus.Vod.Models.Response.VodGetFileListResponse
-	(*VodExtractMediaMetaTaskResponse)(nil),                         // 35: Byteplus.Vod.Models.Response.VodExtractMediaMetaTaskResponse
-	(*VodStartWorkflowResponse)(nil),                                // 36: Byteplus.Vod.Models.Response.VodStartWorkflowResponse
-	(*VodRetrieveTranscodeResultResponse)(nil),                      // 37: Byteplus.Vod.Models.Response.VodRetrieveTranscodeResultResponse
-	(*VodListWorkflowExecutionResponse)(nil),                        // 38: Byteplus.Vod.Models.Response.VodListWorkflowExecutionResponse
-	(*VodGetWorkflowExecutionDetailResponse)(nil),                   // 39: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionDetailResponse
-	(*VodGetWorkflowExecutionStatusResponse)(nil),                   // 40: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionStatusResponse
-	(*VodGetWorkflowResultResponse)(nil),                            // 41: Byteplus.Vod.Models.Response.VodGetWorkflowResultResponse
-	(*VodSubmitDirectEditTaskAsyncResponse)(nil),                    // 42: Byteplus.Vod.Models.Response.VodSubmitDirectEditTaskAsyncResponse
-	(*VodGetDirectEditProgressResponse)(nil),                        // 43: Byteplus.Vod.Models.Response.VodGetDirectEditProgressResponse
-	(*VodGetDirectEditResultResponse)(nil),                          // 44: Byteplus.Vod.Models.Response.VodGetDirectEditResultResponse
-	(*VodCreateSpaceResponse)(nil),                                  // 45: Byteplus.Vod.Models.Response.VodCreateSpaceResponse
-	(*VodListSpaceResponse)(nil),                                    // 46: Byteplus.Vod.Models.Response.VodListSpaceResponse
-	(*VodGetSpaceDetailResponse)(nil),                               // 47: Byteplus.Vod.Models.Response.VodGetSpaceDetailResponse
-	(*VodUpdateSpaceResponse)(nil),                                  // 48: Byteplus.Vod.Models.Response.VodUpdateSpaceResponse
-	(*VodUpdateSpaceUploadConfigResponse)(nil),                      // 49: Byteplus.Vod.Models.Response.VodUpdateSpaceUploadConfigResponse
-	(*VodDescribeVodSpaceStorageDataResponse)(nil),                  // 50: Byteplus.Vod.Models.Response.VodDescribeVodSpaceStorageDataResponse
-	(*VodStartDomainResponse)(nil),                                  // 51: Byteplus.Vod.Models.Response.VodStartDomainResponse
-	(*VodStopDomainResponse)(nil),                                   // 52: Byteplus.Vod.Models.Response.VodStopDomainResponse
-	(*VodUpdateDomainPlayRuleResponse)(nil),                         // 53: Byteplus.Vod.Models.Response.VodUpdateDomainPlayRuleResponse
-	(*VodAddDomainToSchedulerResponse)(nil),                         // 54: Byteplus.Vod.Models.Response.VodAddDomainToSchedulerResponse
-	(*VodRemoveDomainFromSchedulerResponse)(nil),                    // 55: Byteplus.Vod.Models.Response.VodRemoveDomainFromSchedulerResponse
-	(*VodListDomainResponse)(nil),                                   // 56: Byteplus.Vod.Models.Response.VodListDomainResponse
-	(*VodCreateCdnRefreshTaskResponse)(nil),                         // 57: Byteplus.Vod.Models.Response.VodCreateCdnRefreshTaskResponse
-	(*VodCreateCdnPreloadTaskResponse)(nil),                         // 58: Byteplus.Vod.Models.Response.VodCreateCdnPreloadTaskResponse
-	(*VodListCdnTasksResponse)(nil),                                 // 59: Byteplus.Vod.Models.Response.VodListCdnTasksResponse
-	(*VodListCdnAccessLogResponse)(nil),                             // 60: Byteplus.Vod.Models.Response.VodListCdnAccessLogResponse
-	(*VodListCdnTopAccessUrlResponse)(nil),                          // 61: Byteplus.Vod.Models.Response.VodListCdnTopAccessUrlResponse
-	(*VodListCdnTopAccessResponse)(nil),                             // 62: Byteplus.Vod.Models.Response.VodListCdnTopAccessResponse
-	(*VodDescribeVodDomainBandwidthDataResponse)(nil),               // 63: Byteplus.Vod.Models.Response.VodDescribeVodDomainBandwidthDataResponse
-	(*VodCdnStatisticsCommonResponse)(nil),                          // 64: Byteplus.Vod.Models.Response.VodCdnStatisticsCommonResponse
-	(*VodListCdnUsageDataDetailResponse)(nil),                       // 65: Byteplus.Vod.Models.Response.VodListCdnUsageDataDetailResponse
-	(*VodListCdnStatusDataDetailResponse)(nil),                      // 66: Byteplus.Vod.Models.Response.VodListCdnStatusDataDetailResponse
-	(*VodDescribeIPInfoResponse)(nil),                               // 67: Byteplus.Vod.Models.Response.VodDescribeIPInfoResponse
-	(*VodDescribeVodDomainTrafficDataResponse)(nil),                 // 68: Byteplus.Vod.Models.Response.VodDescribeVodDomainTrafficDataResponse
-	(*VodSubmitBlockTasksResponse)(nil),                             // 69: Byteplus.Vod.Models.Response.VodSubmitBlockTasksResponse
-	(*VodGetContentBlockTasksResponse)(nil),                         // 70: Byteplus.Vod.Models.Response.VodGetContentBlockTasksResponse
-	(*VodCreateDomainV2Response)(nil),                               // 71: Byteplus.Vod.Models.Response.VodCreateDomainV2Response
-	(*VodUpdateDomainExpireV2Response)(nil),                         // 72: Byteplus.Vod.Models.Response.VodUpdateDomainExpireV2Response
-	(*VodUpdateDomainAuthConfigV2Response)(nil),                     // 73: Byteplus.Vod.Models.Response.VodUpdateDomainAuthConfigV2Response
-	(*AddOrUpdateCertificateV2Response)(nil),                        // 74: Byteplus.Vod.Models.Response.AddOrUpdateCertificateV2Response
-	(*VodAddCallbackSubscriptionResponse)(nil),                      // 75: Byteplus.Vod.Models.Response.VodAddCallbackSubscriptionResponse
-	(*VodSetCallbackEventResponse)(nil),                             // 76: Byteplus.Vod.Models.Response.VodSetCallbackEventResponse
-	(*VodGetSmartStrategyLitePlayInfoResponse)(nil),                 // 77: Byteplus.Vod.Models.Response.VodGetSmartStrategyLitePlayInfoResponse
-	(*VodGetAppInfoResponse)(nil),                                   // 78: Byteplus.Vod.Models.Response.VodGetAppInfoResponse
-	(*DescribeVodSpaceTranscodeDataResponse)(nil),                   // 79: Byteplus.Vod.Models.Response.DescribeVodSpaceTranscodeDataResponse
-	(*DescribeVodSpaceAIStatisDataResponse)(nil),                    // 80: Byteplus.Vod.Models.Response.DescribeVodSpaceAIStatisDataResponse
-	(*DescribeVodSpaceSubtitleStatisDataResponse)(nil),              // 81: Byteplus.Vod.Models.Response.DescribeVodSpaceSubtitleStatisDataResponse
-	(*DescribeVodSpaceDetectStatisDataResponse)(nil),                // 82: Byteplus.Vod.Models.Response.DescribeVodSpaceDetectStatisDataResponse
-	(*DescribeVodSnapshotDataResponse)(nil),                         // 83: Byteplus.Vod.Models.Response.DescribeVodSnapshotDataResponse
-	(*DescribeVodSpaceWorkflowDetailDataResponse)(nil),              // 84: Byteplus.Vod.Models.Response.DescribeVodSpaceWorkflowDetailDataResponse
-	(*DescribeVodSpaceEditDetailDataResponse)(nil),                  // 85: Byteplus.Vod.Models.Response.DescribeVodSpaceEditDetailDataResponse
-	(*DescribeVodPlayFileLogByDomainResponse)(nil),                  // 86: Byteplus.Vod.Models.Response.DescribeVodPlayFileLogByDomainResponse
-	(*DescribeVodSpaceStorageDataFDResponse)(nil),                   // 87: Byteplus.Vod.Models.Response.DescribeVodSpaceStorageDataFDResponse
-	(*DescribeVodEnhanceImageDataResponse)(nil),                     // 88: Byteplus.Vod.Models.Response.DescribeVodEnhanceImageDataResponse
-	(*DescribeVodPlayedStatisDataResponse)(nil),                     // 89: Byteplus.Vod.Models.Response.DescribeVodPlayedStatisDataResponse
-	(*DescribeVodMostPlayedStatisDataResponse)(nil),                 // 90: Byteplus.Vod.Models.Response.DescribeVodMostPlayedStatisDataResponse
-	(*DescribeVodRealtimeMediaDataResponse)(nil),                    // 91: Byteplus.Vod.Models.Response.DescribeVodRealtimeMediaDataResponse
-	(*VodSubmitBlockMediaTaskResponse)(nil),                         // 92: Byteplus.Vod.Models.Response.VodSubmitBlockMediaTaskResponse
-	(*VodSubmitUnblockMediaTaskResponse)(nil),                       // 93: Byteplus.Vod.Models.Response.VodSubmitUnblockMediaTaskResponse
-	(*VodQueryMediaBlockStatusResponse)(nil),                        // 94: Byteplus.Vod.Models.Response.VodQueryMediaBlockStatusResponse
-	(*VodCreatePlaylistResponse)(nil),                               // 95: Byteplus.Vod.Models.Response.VodCreatePlaylistResponse
-	(*VodGetPlaylistsResponse)(nil),                                 // 96: Byteplus.Vod.Models.Response.VodGetPlaylistsResponse
-	(*VodUpdatePlaylistResponse)(nil),                               // 97: Byteplus.Vod.Models.Response.VodUpdatePlaylistResponse
-	(*VodDeletePlaylistResponse)(nil),                               // 98: Byteplus.Vod.Models.Response.VodDeletePlaylistResponse
-	(*VodGetIntertrustApiKeyResponse)(nil),                          // 99: Byteplus.Vod.Models.Response.VodGetIntertrustApiKeyResponse
-	(*VodSetIntertrustApiKeyResponse)(nil),                          // 100: Byteplus.Vod.Models.Response.VodSetIntertrustApiKeyResponse
-	(*VodDeleteIntertrustApiKeyResponse)(nil),                       // 101: Byteplus.Vod.Models.Response.VodDeleteIntertrustApiKeyResponse
-	(*VodGetFairPlayCertInfoResponse)(nil),                          // 102: Byteplus.Vod.Models.Response.VodGetFairPlayCertInfoResponse
-	(*VodSetFairPlayCertInfoResponse)(nil),                          // 103: Byteplus.Vod.Models.Response.VodSetFairPlayCertInfoResponse
-	(*VodDeleteFairPlayCertInfoResponse)(nil),                       // 104: Byteplus.Vod.Models.Response.VodDeleteFairPlayCertInfoResponse
-	(*VodGetFairPlayCertResponse)(nil),                              // 105: Byteplus.Vod.Models.Response.VodGetFairPlayCertResponse
-	(*VodGetDrmLicenseResponse)(nil),                                // 106: Byteplus.Vod.Models.Response.VodGetDrmLicenseResponse
-	(*VodSetMirrorSrcRuleResponse)(nil),                             // 107: Byteplus.Vod.Models.Response.VodSetMirrorSrcRuleResponse
-	(*VodDeleteMirrorSrcRuleResponse)(nil),                          // 108: Byteplus.Vod.Models.Response.VodDeleteMirrorSrcRuleResponse
-	(*VodListMirrorSrcRuleResponse)(nil),                            // 109: Byteplus.Vod.Models.Response.VodListMirrorSrcRuleResponse
-	(*VodListProjectsResponse)(nil),                                 // 110: Byteplus.Vod.Models.Response.VodListProjectsResponse
-	(*base.ResponseMetadata)(nil),                                   // 111: Byteplus.Base.Models.Base.ResponseMetadata
-	(*business.VodAllPlayInfoResult)(nil),                           // 112: Byteplus.Vod.Models.Business.VodAllPlayInfoResult
-	(*business.VodPlayInfoModel)(nil),                               // 113: Byteplus.Vod.Models.Business.VodPlayInfoModel
-	(*business.VodGetOriginalPlayInfoResult)(nil),                   // 114: Byteplus.Vod.Models.Business.VodGetOriginalPlayInfoResult
-	(*business.VodGetPrivateDrmPlayAuthResult)(nil),                 // 115: Byteplus.Vod.Models.Business.VodGetPrivateDrmPlayAuthResult
-	(*business.VodGetHlsDecryptionKeyResult)(nil),                   // 116: Byteplus.Vod.Models.Business.VodGetHlsDecryptionKeyResult
-	(*business.VodCreateHlsDecryptionKeyResult)(nil),                // 117: Byteplus.Vod.Models.Business.VodCreateHlsDecryptionKeyResult
-	(*business.VodGetPlayInfoWithLiveTimeShiftSceneResult)(nil),     // 118: Byteplus.Vod.Models.Business.VodGetPlayInfoWithLiveTimeShiftSceneResult
-	(*business.VodCommitData)(nil),                                  // 119: Byteplus.Vod.Models.Business.VodCommitData
-	(*business.VodQueryData)(nil),                                   // 120: Byteplus.Vod.Models.Business.VodQueryData
-	(*business.VodUrlResponseData)(nil),                             // 121: Byteplus.Vod.Models.Business.VodUrlResponseData
-	(*business.VodApplyUploadInfoResult)(nil),                       // 122: Byteplus.Vod.Models.Business.VodApplyUploadInfoResult
-	(*business.VodCommitUploadInfoResult)(nil),                      // 123: Byteplus.Vod.Models.Business.VodCommitUploadInfoResult
-	(*business.VodGetMediaInfosData)(nil),                           // 124: Byteplus.Vod.Models.Business.VodGetMediaInfosData
-	(*business.VodGetRecPosterData)(nil),                            // 125: Byteplus.Vod.Models.Business.VodGetRecPosterData
-	(*business.VodUpdateMediaStorageClassData)(nil),                 // 126: Byteplus.Vod.Models.Business.VodUpdateMediaStorageClassData
-	(*business.VodDeleteMediaData)(nil),                             // 127: Byteplus.Vod.Models.Business.VodDeleteMediaData
-	(*business.VodDeleteTranscodesData)(nil),                        // 128: Byteplus.Vod.Models.Business.VodDeleteTranscodesData
-	(*business.VodGetMediaListData)(nil),                            // 129: Byteplus.Vod.Models.Business.VodGetMediaListData
-	(*business.VodGetSubtitleInfoListData)(nil),                     // 130: Byteplus.Vod.Models.Business.VodGetSubtitleInfoListData
-	(*business.VodUpdateSubtitleStatusData)(nil),                    // 131: Byteplus.Vod.Models.Business.VodUpdateSubtitleStatusData
-	(*business.VodGetFramesForAuditResult)(nil),                     // 132: Byteplus.Vod.Models.Business.VodGetFramesForAuditResult
-	(*business.VodGetBetterFramesForAuditResult)(nil),               // 133: Byteplus.Vod.Models.Business.VodGetBetterFramesForAuditResult
-	(*business.VodGetAudioInfoForAuditResult)(nil),                  // 134: Byteplus.Vod.Models.Business.VodGetAudioInfoForAuditResult
-	(*business.VodGetAutomaticSpeechRecognitionForAuditResult)(nil), // 135: Byteplus.Vod.Models.Business.VodGetAutomaticSpeechRecognitionForAuditResult
-	(*business.VodGetAudioEventDetectionForAuditResult)(nil),        // 136: Byteplus.Vod.Models.Business.VodGetAudioEventDetectionForAuditResult
-	(*business.VodCreateVideoClassificationData)(nil),               // 137: Byteplus.Vod.Models.Business.VodCreateVideoClassificationData
-	(*business.VodVideoClassificationsData)(nil),                    // 138: Byteplus.Vod.Models.Business.VodVideoClassificationsData
-	(*business.VodSnapshotData)(nil),                                // 139: Byteplus.Vod.Models.Business.VodSnapshotData
-	(*business.VodStartWorkflowResult)(nil),                         // 140: Byteplus.Vod.Models.Business.VodStartWorkflowResult
-	(*business.TranscodeResult)(nil),                                // 141: Byteplus.Vod.Models.Business.TranscodeResult
-	(*business.VodListWorkflowExecutionResult)(nil),                 // 142: Byteplus.Vod.Models.Business.VodListWorkflowExecutionResult
-	(*business.VodGetWorkflowExecutionDetailResult)(nil),            // 143: Byteplus.Vod.Models.Business.VodGetWorkflowExecutionDetailResult
-	(*business.WorkflowExecution)(nil),                              // 144: Byteplus.Vod.Models.Business.WorkflowExecution
-	(*business.VodWorkflowResult)(nil),                              // 145: Byteplus.Vod.Models.Business.VodWorkflowResult
-	(*business.SubmitDirectEditTaskAsyncResult)(nil),                // 146: Byteplus.Vod.Models.Business.SubmitDirectEditTaskAsyncResult
-	(*business.GetDirectEditProgress)(nil),                          // 147: Byteplus.Vod.Models.Business.GetDirectEditProgress
-	(*business.GetDirectEditResult)(nil),                            // 148: Byteplus.Vod.Models.Business.GetDirectEditResult
-	(*business.VodSpaceInfo)(nil),                                   // 149: Byteplus.Vod.Models.Business.VodSpaceInfo
-	(*business.VodDescribeVodSpaceStorageDataResult)(nil),           // 150: Byteplus.Vod.Models.Business.VodDescribeVodSpaceStorageDataResult
-	(*business.VodDomainConfigInfo)(nil),                            // 151: Byteplus.Vod.Models.Business.VodDomainConfigInfo
-	(*business.VodCreateCdnTaskResult)(nil),                         // 152: Byteplus.Vod.Models.Business.VodCreateCdnTaskResult
-	(*business.VodCdnTaskResult)(nil),                               // 153: Byteplus.Vod.Models.Business.VodCdnTaskResult
-	(*business.VodListCdnAccessLogResult)(nil),                      // 154: Byteplus.Vod.Models.Business.VodListCdnAccessLogResult
-	(*business.VodListCdnTopAccessUrlResult)(nil),                   // 155: Byteplus.Vod.Models.Business.VodListCdnTopAccessUrlResult
-	(*business.VodListCdnTopAccessResult)(nil),                      // 156: Byteplus.Vod.Models.Business.VodListCdnTopAccessResult
-	(*business.VodDescribeVodDomainBandwidthDataResult)(nil),        // 157: Byteplus.Vod.Models.Business.VodDescribeVodDomainBandwidthDataResult
-	(*business.VodCdnStatisticsCommonResult)(nil),                   // 158: Byteplus.Vod.Models.Business.VodCdnStatisticsCommonResult
-	(*business.VodListCdnUsageDataDetailResult)(nil),                // 159: Byteplus.Vod.Models.Business.VodListCdnUsageDataDetailResult
-	(*business.VodListCdnStatusDataDetailResult)(nil),               // 160: Byteplus.Vod.Models.Business.VodListCdnStatusDataDetailResult
-	(*business.VodCdnIpInfo)(nil),                                   // 161: Byteplus.Vod.Models.Business.VodCdnIpInfo
-	(*business.VodDescribeVodDomainTrafficDataResult)(nil),          // 162: Byteplus.Vod.Models.Business.VodDescribeVodDomainTrafficDataResult
-	(*business.VodSubmitBlockTasksResult)(nil),                      // 163: Byteplus.Vod.Models.Business.VodSubmitBlockTasksResult
-	(*business.VodGetContentBlockTasksResult)(nil),                  // 164: Byteplus.Vod.Models.Business.VodGetContentBlockTasksResult
-	(*business.VodGetSmartStrategyLitePlayInfoResult)(nil),          // 165: Byteplus.Vod.Models.Business.VodGetSmartStrategyLitePlayInfoResult
-	(*business.VodGetAppInfoResult)(nil),                            // 166: Byteplus.Vod.Models.Business.VodGetAppInfoResult
-	(*business.DescribeVodSpaceTranscodeDataResult)(nil),            // 167: Byteplus.Vod.Models.Business.DescribeVodSpaceTranscodeDataResult
-	(*business.DescribeVodSpaceAIStatisDataResult)(nil),             // 168: Byteplus.Vod.Models.Business.DescribeVodSpaceAIStatisDataResult
-	(*business.DescribeVodSpaceSubtitleStatisDataResult)(nil),       // 169: Byteplus.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataResult
-	(*business.DescribeVodSpaceDetectStatisDataResult)(nil),         // 170: Byteplus.Vod.Models.Business.DescribeVodSpaceDetectStatisDataResult
-	(*business.DescribeVodSnapshotDataResult)(nil),                  // 171: Byteplus.Vod.Models.Business.DescribeVodSnapshotDataResult
-	(*business.DescribeVodSpaceWorkflowDetailDataResult)(nil),       // 172: Byteplus.Vod.Models.Business.DescribeVodSpaceWorkflowDetailDataResult
-	(*business.DescribeVodSpaceEditDetailDataResult)(nil),           // 173: Byteplus.Vod.Models.Business.DescribeVodSpaceEditDetailDataResult
-	(*business.DescribeVodPlayFileLogByDomainResult)(nil),           // 174: Byteplus.Vod.Models.Business.DescribeVodPlayFileLogByDomainResult
-	(*business.DescribeVodSpaceStorageDataFDResult)(nil),            // 175: Byteplus.Vod.Models.Business.DescribeVodSpaceStorageDataFDResult
-	(*business.DescribeVodEnhanceImageDataResult)(nil),              // 176: Byteplus.Vod.Models.Business.DescribeVodEnhanceImageDataResult
-	(*business.DescribeVodPlayedStatisDataResult)(nil),              // 177: Byteplus.Vod.Models.Business.DescribeVodPlayedStatisDataResult
-	(*business.DescribeVodMostPlayedStatisDataResult)(nil),          // 178: Byteplus.Vod.Models.Business.DescribeVodMostPlayedStatisDataResult
-	(*business.DescribeVodRealtimeMediaDataResult)(nil),             // 179: Byteplus.Vod.Models.Business.DescribeVodRealtimeMediaDataResult
-	(*business.VodSubmitBlockMediaTaskResult)(nil),                  // 180: Byteplus.Vod.Models.Business.VodSubmitBlockMediaTaskResult
-	(*business.VodSubmitUnblockMediaTaskResult)(nil),                // 181: Byteplus.Vod.Models.Business.VodSubmitUnblockMediaTaskResult
-	(*business.VodQueryMediaBlockStatusResult)(nil),                 // 182: Byteplus.Vod.Models.Business.VodQueryMediaBlockStatusResult
-	(*business.VodCreatePlaylistResult)(nil),                        // 183: Byteplus.Vod.Models.Business.VodCreatePlaylistResult
-	(*business.VodGetPlaylistsResult)(nil),                          // 184: Byteplus.Vod.Models.Business.VodGetPlaylistsResult
-	(*business.VodGetIntertrustApiKeyResult)(nil),                   // 185: Byteplus.Vod.Models.Business.VodGetIntertrustApiKeyResult
-	(*business.VodGetFairPlayCertInfoResult)(nil),                   // 186: Byteplus.Vod.Models.Business.VodGetFairPlayCertInfoResult
-	(*business.VodSetFairPlayCertInfoResult)(nil),                   // 187: Byteplus.Vod.Models.Business.VodSetFairPlayCertInfoResult
-	(*business.VodGetFairPlayCertResult)(nil),                       // 188: Byteplus.Vod.Models.Business.VodGetFairPlayCertResult
-	(*business.VodDrmLicenseResult)(nil),                            // 189: Byteplus.Vod.Models.Business.VodDrmLicenseResult
-	(*business.VodSetMirrorSrcRuleResult)(nil),                      // 190: Byteplus.Vod.Models.Business.VodSetMirrorSrcRuleResult
-	(*business.VodListMirrorSrcRuleResult)(nil),                     // 191: Byteplus.Vod.Models.Business.VodListMirrorSrcRuleResult
-	(*business.VodListProjectsResult)(nil),                          // 192: Byteplus.Vod.Models.Business.VodListProjectsResult
+	(*VodListFileMetaInfosByFileNamesResponse)(nil),                 // 12: Byteplus.Vod.Models.Response.VodListFileMetaInfosByFileNamesResponse
+	(*VodGetMediaInfosResponse)(nil),                                // 13: Byteplus.Vod.Models.Response.VodGetMediaInfosResponse
+	(*VodUpdateMediaInfoResponse)(nil),                              // 14: Byteplus.Vod.Models.Response.VodUpdateMediaInfoResponse
+	(*VodGetRecommendedPosterResponse)(nil),                         // 15: Byteplus.Vod.Models.Response.VodGetRecommendedPosterResponse
+	(*VodUpdateMediaPublishStatusResponse)(nil),                     // 16: Byteplus.Vod.Models.Response.VodUpdateMediaPublishStatusResponse
+	(*VodUpdateMediaStorageClassResponse)(nil),                      // 17: Byteplus.Vod.Models.Response.VodUpdateMediaStorageClassResponse
+	(*VodDeleteMediaResponse)(nil),                                  // 18: Byteplus.Vod.Models.Response.VodDeleteMediaResponse
+	(*VodDeleteTranscodesResponse)(nil),                             // 19: Byteplus.Vod.Models.Response.VodDeleteTranscodesResponse
+	(*VodDeleteMediaTosFileResponse)(nil),                           // 20: Byteplus.Vod.Models.Response.VodDeleteMediaTosFileResponse
+	(*VodGetMediaListResponse)(nil),                                 // 21: Byteplus.Vod.Models.Response.VodGetMediaListResponse
+	(*VodGetSubtitleInfoListResponse)(nil),                          // 22: Byteplus.Vod.Models.Response.VodGetSubtitleInfoListResponse
+	(*VodUpdateSubtitleStatusResponse)(nil),                         // 23: Byteplus.Vod.Models.Response.VodUpdateSubtitleStatusResponse
+	(*VodUpdateSubtitleInfoResponse)(nil),                           // 24: Byteplus.Vod.Models.Response.VodUpdateSubtitleInfoResponse
+	(*VodGetAuditFramesForAuditResponse)(nil),                       // 25: Byteplus.Vod.Models.Response.VodGetAuditFramesForAuditResponse
+	(*VodGetMLFramesForAuditResponse)(nil),                          // 26: Byteplus.Vod.Models.Response.VodGetMLFramesForAuditResponse
+	(*VodGetBetterFramesForAuditResponse)(nil),                      // 27: Byteplus.Vod.Models.Response.VodGetBetterFramesForAuditResponse
+	(*VodGetAudioInfoForAuditResponse)(nil),                         // 28: Byteplus.Vod.Models.Response.VodGetAudioInfoForAuditResponse
+	(*VodGetAutomaticSpeechRecognitionForAuditResponse)(nil),        // 29: Byteplus.Vod.Models.Response.VodGetAutomaticSpeechRecognitionForAuditResponse
+	(*VodGetAudioEventDetectionForAuditResponse)(nil),               // 30: Byteplus.Vod.Models.Response.VodGetAudioEventDetectionForAuditResponse
+	(*VodCreateVideoClassificationResponse)(nil),                    // 31: Byteplus.Vod.Models.Response.VodCreateVideoClassificationResponse
+	(*VodUpdateVideoClassificationResponse)(nil),                    // 32: Byteplus.Vod.Models.Response.VodUpdateVideoClassificationResponse
+	(*VodDeleteVideoClassificationResponse)(nil),                    // 33: Byteplus.Vod.Models.Response.VodDeleteVideoClassificationResponse
+	(*VodListVideoClassificationsResponse)(nil),                     // 34: Byteplus.Vod.Models.Response.VodListVideoClassificationsResponse
+	(*VodListSnapshotsResponse)(nil),                                // 35: Byteplus.Vod.Models.Response.VodListSnapshotsResponse
+	(*VodGetFileListResponse)(nil),                                  // 36: Byteplus.Vod.Models.Response.VodGetFileListResponse
+	(*VodGetFileInfosResponse)(nil),                                 // 37: Byteplus.Vod.Models.Response.VodGetFileInfosResponse
+	(*VodExtractMediaMetaTaskResponse)(nil),                         // 38: Byteplus.Vod.Models.Response.VodExtractMediaMetaTaskResponse
+	(*VodStartWorkflowResponse)(nil),                                // 39: Byteplus.Vod.Models.Response.VodStartWorkflowResponse
+	(*VodRetrieveTranscodeResultResponse)(nil),                      // 40: Byteplus.Vod.Models.Response.VodRetrieveTranscodeResultResponse
+	(*VodListWorkflowExecutionResponse)(nil),                        // 41: Byteplus.Vod.Models.Response.VodListWorkflowExecutionResponse
+	(*VodGetWorkflowExecutionDetailResponse)(nil),                   // 42: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionDetailResponse
+	(*VodGetWorkflowExecutionStatusResponse)(nil),                   // 43: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionStatusResponse
+	(*VodGetWorkflowResultResponse)(nil),                            // 44: Byteplus.Vod.Models.Response.VodGetWorkflowResultResponse
+	(*VodSubmitDirectEditTaskAsyncResponse)(nil),                    // 45: Byteplus.Vod.Models.Response.VodSubmitDirectEditTaskAsyncResponse
+	(*VodGetDirectEditProgressResponse)(nil),                        // 46: Byteplus.Vod.Models.Response.VodGetDirectEditProgressResponse
+	(*VodGetDirectEditResultResponse)(nil),                          // 47: Byteplus.Vod.Models.Response.VodGetDirectEditResultResponse
+	(*VodCreateSpaceResponse)(nil),                                  // 48: Byteplus.Vod.Models.Response.VodCreateSpaceResponse
+	(*VodListSpaceResponse)(nil),                                    // 49: Byteplus.Vod.Models.Response.VodListSpaceResponse
+	(*VodGetSpaceDetailResponse)(nil),                               // 50: Byteplus.Vod.Models.Response.VodGetSpaceDetailResponse
+	(*VodUpdateSpaceResponse)(nil),                                  // 51: Byteplus.Vod.Models.Response.VodUpdateSpaceResponse
+	(*VodUpdateSpaceUploadConfigResponse)(nil),                      // 52: Byteplus.Vod.Models.Response.VodUpdateSpaceUploadConfigResponse
+	(*VodDescribeVodSpaceStorageDataResponse)(nil),                  // 53: Byteplus.Vod.Models.Response.VodDescribeVodSpaceStorageDataResponse
+	(*VodStartDomainResponse)(nil),                                  // 54: Byteplus.Vod.Models.Response.VodStartDomainResponse
+	(*VodStopDomainResponse)(nil),                                   // 55: Byteplus.Vod.Models.Response.VodStopDomainResponse
+	(*VodUpdateDomainPlayRuleResponse)(nil),                         // 56: Byteplus.Vod.Models.Response.VodUpdateDomainPlayRuleResponse
+	(*VodAddDomainToSchedulerResponse)(nil),                         // 57: Byteplus.Vod.Models.Response.VodAddDomainToSchedulerResponse
+	(*VodRemoveDomainFromSchedulerResponse)(nil),                    // 58: Byteplus.Vod.Models.Response.VodRemoveDomainFromSchedulerResponse
+	(*VodListDomainResponse)(nil),                                   // 59: Byteplus.Vod.Models.Response.VodListDomainResponse
+	(*VodCreateCdnRefreshTaskResponse)(nil),                         // 60: Byteplus.Vod.Models.Response.VodCreateCdnRefreshTaskResponse
+	(*VodCreateCdnPreloadTaskResponse)(nil),                         // 61: Byteplus.Vod.Models.Response.VodCreateCdnPreloadTaskResponse
+	(*VodListCdnTasksResponse)(nil),                                 // 62: Byteplus.Vod.Models.Response.VodListCdnTasksResponse
+	(*VodListCdnAccessLogResponse)(nil),                             // 63: Byteplus.Vod.Models.Response.VodListCdnAccessLogResponse
+	(*VodListCdnTopAccessUrlResponse)(nil),                          // 64: Byteplus.Vod.Models.Response.VodListCdnTopAccessUrlResponse
+	(*VodListCdnTopAccessResponse)(nil),                             // 65: Byteplus.Vod.Models.Response.VodListCdnTopAccessResponse
+	(*VodDescribeVodDomainBandwidthDataResponse)(nil),               // 66: Byteplus.Vod.Models.Response.VodDescribeVodDomainBandwidthDataResponse
+	(*VodCdnStatisticsCommonResponse)(nil),                          // 67: Byteplus.Vod.Models.Response.VodCdnStatisticsCommonResponse
+	(*VodListCdnUsageDataDetailResponse)(nil),                       // 68: Byteplus.Vod.Models.Response.VodListCdnUsageDataDetailResponse
+	(*VodListCdnStatusDataDetailResponse)(nil),                      // 69: Byteplus.Vod.Models.Response.VodListCdnStatusDataDetailResponse
+	(*VodDescribeIPInfoResponse)(nil),                               // 70: Byteplus.Vod.Models.Response.VodDescribeIPInfoResponse
+	(*VodDescribeVodDomainTrafficDataResponse)(nil),                 // 71: Byteplus.Vod.Models.Response.VodDescribeVodDomainTrafficDataResponse
+	(*VodSubmitBlockTasksResponse)(nil),                             // 72: Byteplus.Vod.Models.Response.VodSubmitBlockTasksResponse
+	(*VodGetContentBlockTasksResponse)(nil),                         // 73: Byteplus.Vod.Models.Response.VodGetContentBlockTasksResponse
+	(*VodCreateDomainV2Response)(nil),                               // 74: Byteplus.Vod.Models.Response.VodCreateDomainV2Response
+	(*VodUpdateDomainExpireV2Response)(nil),                         // 75: Byteplus.Vod.Models.Response.VodUpdateDomainExpireV2Response
+	(*VodUpdateDomainAuthConfigV2Response)(nil),                     // 76: Byteplus.Vod.Models.Response.VodUpdateDomainAuthConfigV2Response
+	(*AddOrUpdateCertificateV2Response)(nil),                        // 77: Byteplus.Vod.Models.Response.AddOrUpdateCertificateV2Response
+	(*VodAddCallbackSubscriptionResponse)(nil),                      // 78: Byteplus.Vod.Models.Response.VodAddCallbackSubscriptionResponse
+	(*VodSetCallbackEventResponse)(nil),                             // 79: Byteplus.Vod.Models.Response.VodSetCallbackEventResponse
+	(*VodGetSmartStrategyLitePlayInfoResponse)(nil),                 // 80: Byteplus.Vod.Models.Response.VodGetSmartStrategyLitePlayInfoResponse
+	(*VodGetAppInfoResponse)(nil),                                   // 81: Byteplus.Vod.Models.Response.VodGetAppInfoResponse
+	(*DescribeVodSpaceTranscodeDataResponse)(nil),                   // 82: Byteplus.Vod.Models.Response.DescribeVodSpaceTranscodeDataResponse
+	(*DescribeVodSpaceAIStatisDataResponse)(nil),                    // 83: Byteplus.Vod.Models.Response.DescribeVodSpaceAIStatisDataResponse
+	(*DescribeVodSpaceSubtitleStatisDataResponse)(nil),              // 84: Byteplus.Vod.Models.Response.DescribeVodSpaceSubtitleStatisDataResponse
+	(*DescribeVodSpaceDetectStatisDataResponse)(nil),                // 85: Byteplus.Vod.Models.Response.DescribeVodSpaceDetectStatisDataResponse
+	(*DescribeVodSnapshotDataResponse)(nil),                         // 86: Byteplus.Vod.Models.Response.DescribeVodSnapshotDataResponse
+	(*DescribeVodSpaceWorkflowDetailDataResponse)(nil),              // 87: Byteplus.Vod.Models.Response.DescribeVodSpaceWorkflowDetailDataResponse
+	(*DescribeVodSpaceEditDetailDataResponse)(nil),                  // 88: Byteplus.Vod.Models.Response.DescribeVodSpaceEditDetailDataResponse
+	(*DescribeVodPlayFileLogByDomainResponse)(nil),                  // 89: Byteplus.Vod.Models.Response.DescribeVodPlayFileLogByDomainResponse
+	(*DescribeVodSpaceStorageDataFDResponse)(nil),                   // 90: Byteplus.Vod.Models.Response.DescribeVodSpaceStorageDataFDResponse
+	(*DescribeVodEnhanceImageDataResponse)(nil),                     // 91: Byteplus.Vod.Models.Response.DescribeVodEnhanceImageDataResponse
+	(*DescribeVodPlayedStatisDataResponse)(nil),                     // 92: Byteplus.Vod.Models.Response.DescribeVodPlayedStatisDataResponse
+	(*DescribeVodMostPlayedStatisDataResponse)(nil),                 // 93: Byteplus.Vod.Models.Response.DescribeVodMostPlayedStatisDataResponse
+	(*DescribeVodRealtimeMediaDataResponse)(nil),                    // 94: Byteplus.Vod.Models.Response.DescribeVodRealtimeMediaDataResponse
+	(*VodSubmitBlockMediaTaskResponse)(nil),                         // 95: Byteplus.Vod.Models.Response.VodSubmitBlockMediaTaskResponse
+	(*VodSubmitUnblockMediaTaskResponse)(nil),                       // 96: Byteplus.Vod.Models.Response.VodSubmitUnblockMediaTaskResponse
+	(*VodQueryMediaBlockStatusResponse)(nil),                        // 97: Byteplus.Vod.Models.Response.VodQueryMediaBlockStatusResponse
+	(*VodCreatePlaylistResponse)(nil),                               // 98: Byteplus.Vod.Models.Response.VodCreatePlaylistResponse
+	(*VodGetPlaylistsResponse)(nil),                                 // 99: Byteplus.Vod.Models.Response.VodGetPlaylistsResponse
+	(*VodUpdatePlaylistResponse)(nil),                               // 100: Byteplus.Vod.Models.Response.VodUpdatePlaylistResponse
+	(*VodDeletePlaylistResponse)(nil),                               // 101: Byteplus.Vod.Models.Response.VodDeletePlaylistResponse
+	(*VodGetIntertrustApiKeyResponse)(nil),                          // 102: Byteplus.Vod.Models.Response.VodGetIntertrustApiKeyResponse
+	(*VodSetIntertrustApiKeyResponse)(nil),                          // 103: Byteplus.Vod.Models.Response.VodSetIntertrustApiKeyResponse
+	(*VodDeleteIntertrustApiKeyResponse)(nil),                       // 104: Byteplus.Vod.Models.Response.VodDeleteIntertrustApiKeyResponse
+	(*VodGetFairPlayCertInfoResponse)(nil),                          // 105: Byteplus.Vod.Models.Response.VodGetFairPlayCertInfoResponse
+	(*VodSetFairPlayCertInfoResponse)(nil),                          // 106: Byteplus.Vod.Models.Response.VodSetFairPlayCertInfoResponse
+	(*VodDeleteFairPlayCertInfoResponse)(nil),                       // 107: Byteplus.Vod.Models.Response.VodDeleteFairPlayCertInfoResponse
+	(*VodGetFairPlayCertResponse)(nil),                              // 108: Byteplus.Vod.Models.Response.VodGetFairPlayCertResponse
+	(*VodGetDrmLicenseResponse)(nil),                                // 109: Byteplus.Vod.Models.Response.VodGetDrmLicenseResponse
+	(*VodSetMirrorSrcRuleResponse)(nil),                             // 110: Byteplus.Vod.Models.Response.VodSetMirrorSrcRuleResponse
+	(*VodDeleteMirrorSrcRuleResponse)(nil),                          // 111: Byteplus.Vod.Models.Response.VodDeleteMirrorSrcRuleResponse
+	(*VodListMirrorSrcRuleResponse)(nil),                            // 112: Byteplus.Vod.Models.Response.VodListMirrorSrcRuleResponse
+	(*VodListProjectsResponse)(nil),                                 // 113: Byteplus.Vod.Models.Response.VodListProjectsResponse
+	(*GetVodMediaPlayDataResponse)(nil),                             // 114: Byteplus.Vod.Models.Response.GetVodMediaPlayDataResponse
+	(*base.ResponseMetadata)(nil),                                   // 115: Byteplus.Base.Models.Base.ResponseMetadata
+	(*business.VodAllPlayInfoResult)(nil),                           // 116: Byteplus.Vod.Models.Business.VodAllPlayInfoResult
+	(*business.VodPlayInfoModel)(nil),                               // 117: Byteplus.Vod.Models.Business.VodPlayInfoModel
+	(*business.VodGetOriginalPlayInfoResult)(nil),                   // 118: Byteplus.Vod.Models.Business.VodGetOriginalPlayInfoResult
+	(*business.VodGetPrivateDrmPlayAuthResult)(nil),                 // 119: Byteplus.Vod.Models.Business.VodGetPrivateDrmPlayAuthResult
+	(*business.VodGetHlsDecryptionKeyResult)(nil),                   // 120: Byteplus.Vod.Models.Business.VodGetHlsDecryptionKeyResult
+	(*business.VodCreateHlsDecryptionKeyResult)(nil),                // 121: Byteplus.Vod.Models.Business.VodCreateHlsDecryptionKeyResult
+	(*business.VodGetPlayInfoWithLiveTimeShiftSceneResult)(nil),     // 122: Byteplus.Vod.Models.Business.VodGetPlayInfoWithLiveTimeShiftSceneResult
+	(*business.VodCommitData)(nil),                                  // 123: Byteplus.Vod.Models.Business.VodCommitData
+	(*business.VodQueryData)(nil),                                   // 124: Byteplus.Vod.Models.Business.VodQueryData
+	(*business.VodUrlResponseData)(nil),                             // 125: Byteplus.Vod.Models.Business.VodUrlResponseData
+	(*business.VodApplyUploadInfoResult)(nil),                       // 126: Byteplus.Vod.Models.Business.VodApplyUploadInfoResult
+	(*business.VodCommitUploadInfoResult)(nil),                      // 127: Byteplus.Vod.Models.Business.VodCommitUploadInfoResult
+	(*business.VodListFileMetaInfosByFileNamesResult)(nil),          // 128: Byteplus.Vod.Models.Business.VodListFileMetaInfosByFileNamesResult
+	(*business.VodGetMediaInfosData)(nil),                           // 129: Byteplus.Vod.Models.Business.VodGetMediaInfosData
+	(*business.VodGetRecPosterData)(nil),                            // 130: Byteplus.Vod.Models.Business.VodGetRecPosterData
+	(*business.VodUpdateMediaStorageClassData)(nil),                 // 131: Byteplus.Vod.Models.Business.VodUpdateMediaStorageClassData
+	(*business.VodDeleteMediaData)(nil),                             // 132: Byteplus.Vod.Models.Business.VodDeleteMediaData
+	(*business.VodDeleteTranscodesData)(nil),                        // 133: Byteplus.Vod.Models.Business.VodDeleteTranscodesData
+	(*business.VodDeleteMediaTosFileData)(nil),                      // 134: Byteplus.Vod.Models.Business.VodDeleteMediaTosFileData
+	(*business.VodGetMediaListData)(nil),                            // 135: Byteplus.Vod.Models.Business.VodGetMediaListData
+	(*business.VodGetSubtitleInfoListData)(nil),                     // 136: Byteplus.Vod.Models.Business.VodGetSubtitleInfoListData
+	(*business.VodUpdateSubtitleStatusData)(nil),                    // 137: Byteplus.Vod.Models.Business.VodUpdateSubtitleStatusData
+	(*business.VodGetFramesForAuditResult)(nil),                     // 138: Byteplus.Vod.Models.Business.VodGetFramesForAuditResult
+	(*business.VodGetBetterFramesForAuditResult)(nil),               // 139: Byteplus.Vod.Models.Business.VodGetBetterFramesForAuditResult
+	(*business.VodGetAudioInfoForAuditResult)(nil),                  // 140: Byteplus.Vod.Models.Business.VodGetAudioInfoForAuditResult
+	(*business.VodGetAutomaticSpeechRecognitionForAuditResult)(nil), // 141: Byteplus.Vod.Models.Business.VodGetAutomaticSpeechRecognitionForAuditResult
+	(*business.VodGetAudioEventDetectionForAuditResult)(nil),        // 142: Byteplus.Vod.Models.Business.VodGetAudioEventDetectionForAuditResult
+	(*business.VodCreateVideoClassificationData)(nil),               // 143: Byteplus.Vod.Models.Business.VodCreateVideoClassificationData
+	(*business.VodVideoClassificationsData)(nil),                    // 144: Byteplus.Vod.Models.Business.VodVideoClassificationsData
+	(*business.VodSnapshotData)(nil),                                // 145: Byteplus.Vod.Models.Business.VodSnapshotData
+	(*business.VodGetFileInfosData)(nil),                            // 146: Byteplus.Vod.Models.Business.VodGetFileInfosData
+	(*business.VodStartWorkflowResult)(nil),                         // 147: Byteplus.Vod.Models.Business.VodStartWorkflowResult
+	(*business.TranscodeResult)(nil),                                // 148: Byteplus.Vod.Models.Business.TranscodeResult
+	(*business.VodListWorkflowExecutionResult)(nil),                 // 149: Byteplus.Vod.Models.Business.VodListWorkflowExecutionResult
+	(*business.VodGetWorkflowExecutionDetailResult)(nil),            // 150: Byteplus.Vod.Models.Business.VodGetWorkflowExecutionDetailResult
+	(*business.WorkflowExecution)(nil),                              // 151: Byteplus.Vod.Models.Business.WorkflowExecution
+	(*business.VodWorkflowResult)(nil),                              // 152: Byteplus.Vod.Models.Business.VodWorkflowResult
+	(*business.SubmitDirectEditTaskAsyncResult)(nil),                // 153: Byteplus.Vod.Models.Business.SubmitDirectEditTaskAsyncResult
+	(*business.GetDirectEditProgress)(nil),                          // 154: Byteplus.Vod.Models.Business.GetDirectEditProgress
+	(*business.GetDirectEditResult)(nil),                            // 155: Byteplus.Vod.Models.Business.GetDirectEditResult
+	(*business.VodSpaceInfo)(nil),                                   // 156: Byteplus.Vod.Models.Business.VodSpaceInfo
+	(*business.VodDescribeVodSpaceStorageDataResult)(nil),           // 157: Byteplus.Vod.Models.Business.VodDescribeVodSpaceStorageDataResult
+	(*business.VodDomainConfigInfo)(nil),                            // 158: Byteplus.Vod.Models.Business.VodDomainConfigInfo
+	(*business.VodCreateCdnTaskResult)(nil),                         // 159: Byteplus.Vod.Models.Business.VodCreateCdnTaskResult
+	(*business.VodCdnTaskResult)(nil),                               // 160: Byteplus.Vod.Models.Business.VodCdnTaskResult
+	(*business.VodListCdnAccessLogResult)(nil),                      // 161: Byteplus.Vod.Models.Business.VodListCdnAccessLogResult
+	(*business.VodListCdnTopAccessUrlResult)(nil),                   // 162: Byteplus.Vod.Models.Business.VodListCdnTopAccessUrlResult
+	(*business.VodListCdnTopAccessResult)(nil),                      // 163: Byteplus.Vod.Models.Business.VodListCdnTopAccessResult
+	(*business.VodDescribeVodDomainBandwidthDataResult)(nil),        // 164: Byteplus.Vod.Models.Business.VodDescribeVodDomainBandwidthDataResult
+	(*business.VodCdnStatisticsCommonResult)(nil),                   // 165: Byteplus.Vod.Models.Business.VodCdnStatisticsCommonResult
+	(*business.VodListCdnUsageDataDetailResult)(nil),                // 166: Byteplus.Vod.Models.Business.VodListCdnUsageDataDetailResult
+	(*business.VodListCdnStatusDataDetailResult)(nil),               // 167: Byteplus.Vod.Models.Business.VodListCdnStatusDataDetailResult
+	(*business.VodCdnIpInfo)(nil),                                   // 168: Byteplus.Vod.Models.Business.VodCdnIpInfo
+	(*business.VodDescribeVodDomainTrafficDataResult)(nil),          // 169: Byteplus.Vod.Models.Business.VodDescribeVodDomainTrafficDataResult
+	(*business.VodSubmitBlockTasksResult)(nil),                      // 170: Byteplus.Vod.Models.Business.VodSubmitBlockTasksResult
+	(*business.VodGetContentBlockTasksResult)(nil),                  // 171: Byteplus.Vod.Models.Business.VodGetContentBlockTasksResult
+	(*business.VodGetSmartStrategyLitePlayInfoResult)(nil),          // 172: Byteplus.Vod.Models.Business.VodGetSmartStrategyLitePlayInfoResult
+	(*business.VodGetAppInfoResult)(nil),                            // 173: Byteplus.Vod.Models.Business.VodGetAppInfoResult
+	(*business.DescribeVodSpaceTranscodeDataResult)(nil),            // 174: Byteplus.Vod.Models.Business.DescribeVodSpaceTranscodeDataResult
+	(*business.DescribeVodSpaceAIStatisDataResult)(nil),             // 175: Byteplus.Vod.Models.Business.DescribeVodSpaceAIStatisDataResult
+	(*business.DescribeVodSpaceSubtitleStatisDataResult)(nil),       // 176: Byteplus.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataResult
+	(*business.DescribeVodSpaceDetectStatisDataResult)(nil),         // 177: Byteplus.Vod.Models.Business.DescribeVodSpaceDetectStatisDataResult
+	(*business.DescribeVodSnapshotDataResult)(nil),                  // 178: Byteplus.Vod.Models.Business.DescribeVodSnapshotDataResult
+	(*business.DescribeVodSpaceWorkflowDetailDataResult)(nil),       // 179: Byteplus.Vod.Models.Business.DescribeVodSpaceWorkflowDetailDataResult
+	(*business.DescribeVodSpaceEditDetailDataResult)(nil),           // 180: Byteplus.Vod.Models.Business.DescribeVodSpaceEditDetailDataResult
+	(*business.DescribeVodPlayFileLogByDomainResult)(nil),           // 181: Byteplus.Vod.Models.Business.DescribeVodPlayFileLogByDomainResult
+	(*business.DescribeVodSpaceStorageDataFDResult)(nil),            // 182: Byteplus.Vod.Models.Business.DescribeVodSpaceStorageDataFDResult
+	(*business.DescribeVodEnhanceImageDataResult)(nil),              // 183: Byteplus.Vod.Models.Business.DescribeVodEnhanceImageDataResult
+	(*business.DescribeVodPlayedStatisDataResult)(nil),              // 184: Byteplus.Vod.Models.Business.DescribeVodPlayedStatisDataResult
+	(*business.DescribeVodMostPlayedStatisDataResult)(nil),          // 185: Byteplus.Vod.Models.Business.DescribeVodMostPlayedStatisDataResult
+	(*business.DescribeVodRealtimeMediaDataResult)(nil),             // 186: Byteplus.Vod.Models.Business.DescribeVodRealtimeMediaDataResult
+	(*business.VodSubmitBlockMediaTaskResult)(nil),                  // 187: Byteplus.Vod.Models.Business.VodSubmitBlockMediaTaskResult
+	(*business.VodSubmitUnblockMediaTaskResult)(nil),                // 188: Byteplus.Vod.Models.Business.VodSubmitUnblockMediaTaskResult
+	(*business.VodQueryMediaBlockStatusResult)(nil),                 // 189: Byteplus.Vod.Models.Business.VodQueryMediaBlockStatusResult
+	(*business.VodCreatePlaylistResult)(nil),                        // 190: Byteplus.Vod.Models.Business.VodCreatePlaylistResult
+	(*business.VodGetPlaylistsResult)(nil),                          // 191: Byteplus.Vod.Models.Business.VodGetPlaylistsResult
+	(*business.VodGetIntertrustApiKeyResult)(nil),                   // 192: Byteplus.Vod.Models.Business.VodGetIntertrustApiKeyResult
+	(*business.VodGetFairPlayCertInfoResult)(nil),                   // 193: Byteplus.Vod.Models.Business.VodGetFairPlayCertInfoResult
+	(*business.VodSetFairPlayCertInfoResult)(nil),                   // 194: Byteplus.Vod.Models.Business.VodSetFairPlayCertInfoResult
+	(*business.VodGetFairPlayCertResult)(nil),                       // 195: Byteplus.Vod.Models.Business.VodGetFairPlayCertResult
+	(*business.VodDrmLicenseResult)(nil),                            // 196: Byteplus.Vod.Models.Business.VodDrmLicenseResult
+	(*business.VodSetMirrorSrcRuleResult)(nil),                      // 197: Byteplus.Vod.Models.Business.VodSetMirrorSrcRuleResult
+	(*business.VodListMirrorSrcRuleResult)(nil),                     // 198: Byteplus.Vod.Models.Business.VodListMirrorSrcRuleResult
+	(*business.VodListProjectsResult)(nil),                          // 199: Byteplus.Vod.Models.Business.VodListProjectsResult
+	(*business.GetVodMediaPlayDataResult)(nil),                      // 200: Byteplus.Vod.Models.Business.GetVodMediaPlayDataResult
 }
 var file_byteplus_vod_response_response_vod_proto_depIdxs = []int32{
-	111, // 0: Byteplus.Vod.Models.Response.VodGetAllPlayInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	112, // 1: Byteplus.Vod.Models.Response.VodGetAllPlayInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodAllPlayInfoResult
-	111, // 2: Byteplus.Vod.Models.Response.VodGetPlayInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	113, // 3: Byteplus.Vod.Models.Response.VodGetPlayInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodPlayInfoModel
-	111, // 4: Byteplus.Vod.Models.Response.VodGetOriginalPlayInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	114, // 5: Byteplus.Vod.Models.Response.VodGetOriginalPlayInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetOriginalPlayInfoResult
-	111, // 6: Byteplus.Vod.Models.Response.VodGetPrivateDrmPlayAuthResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	115, // 7: Byteplus.Vod.Models.Response.VodGetPrivateDrmPlayAuthResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetPrivateDrmPlayAuthResult
-	111, // 8: Byteplus.Vod.Models.Response.VodGetHlsDecryptionKeyResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	116, // 9: Byteplus.Vod.Models.Response.VodGetHlsDecryptionKeyResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetHlsDecryptionKeyResult
-	111, // 10: Byteplus.Vod.Models.Response.VodCreateHlsDecryptionKeyResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	117, // 11: Byteplus.Vod.Models.Response.VodCreateHlsDecryptionKeyResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCreateHlsDecryptionKeyResult
-	111, // 12: Byteplus.Vod.Models.Response.VodGetPlayInfoWithLiveTimeShiftSceneResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	118, // 13: Byteplus.Vod.Models.Response.VodGetPlayInfoWithLiveTimeShiftSceneResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetPlayInfoWithLiveTimeShiftSceneResult
-	111, // 14: Byteplus.Vod.Models.Response.VodUploadMediaResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	119, // 15: Byteplus.Vod.Models.Response.VodUploadMediaResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCommitData
-	111, // 16: Byteplus.Vod.Models.Response.VodQueryUploadTaskInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	120, // 17: Byteplus.Vod.Models.Response.VodQueryUploadTaskInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodQueryData
-	111, // 18: Byteplus.Vod.Models.Response.VodUrlUploadResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	121, // 19: Byteplus.Vod.Models.Response.VodUrlUploadResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodUrlResponseData
-	111, // 20: Byteplus.Vod.Models.Response.VodApplyUploadInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	122, // 21: Byteplus.Vod.Models.Response.VodApplyUploadInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodApplyUploadInfoResult
-	111, // 22: Byteplus.Vod.Models.Response.VodCommitUploadInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	123, // 23: Byteplus.Vod.Models.Response.VodCommitUploadInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCommitUploadInfoResult
-	111, // 24: Byteplus.Vod.Models.Response.VodGetMediaInfosResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	124, // 25: Byteplus.Vod.Models.Response.VodGetMediaInfosResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetMediaInfosData
-	111, // 26: Byteplus.Vod.Models.Response.VodUpdateMediaInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 27: Byteplus.Vod.Models.Response.VodGetRecommendedPosterResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	125, // 28: Byteplus.Vod.Models.Response.VodGetRecommendedPosterResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetRecPosterData
-	111, // 29: Byteplus.Vod.Models.Response.VodUpdateMediaPublishStatusResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 30: Byteplus.Vod.Models.Response.VodUpdateMediaStorageClassResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	126, // 31: Byteplus.Vod.Models.Response.VodUpdateMediaStorageClassResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodUpdateMediaStorageClassData
-	111, // 32: Byteplus.Vod.Models.Response.VodDeleteMediaResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	127, // 33: Byteplus.Vod.Models.Response.VodDeleteMediaResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDeleteMediaData
-	111, // 34: Byteplus.Vod.Models.Response.VodDeleteTranscodesResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	128, // 35: Byteplus.Vod.Models.Response.VodDeleteTranscodesResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDeleteTranscodesData
-	111, // 36: Byteplus.Vod.Models.Response.VodGetMediaListResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	129, // 37: Byteplus.Vod.Models.Response.VodGetMediaListResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetMediaListData
-	111, // 38: Byteplus.Vod.Models.Response.VodGetSubtitleInfoListResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	130, // 39: Byteplus.Vod.Models.Response.VodGetSubtitleInfoListResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetSubtitleInfoListData
-	111, // 40: Byteplus.Vod.Models.Response.VodUpdateSubtitleStatusResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	131, // 41: Byteplus.Vod.Models.Response.VodUpdateSubtitleStatusResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodUpdateSubtitleStatusData
-	111, // 42: Byteplus.Vod.Models.Response.VodUpdateSubtitleInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 43: Byteplus.Vod.Models.Response.VodGetAuditFramesForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	132, // 44: Byteplus.Vod.Models.Response.VodGetAuditFramesForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetFramesForAuditResult
-	111, // 45: Byteplus.Vod.Models.Response.VodGetMLFramesForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	132, // 46: Byteplus.Vod.Models.Response.VodGetMLFramesForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetFramesForAuditResult
-	111, // 47: Byteplus.Vod.Models.Response.VodGetBetterFramesForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	133, // 48: Byteplus.Vod.Models.Response.VodGetBetterFramesForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetBetterFramesForAuditResult
-	111, // 49: Byteplus.Vod.Models.Response.VodGetAudioInfoForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	134, // 50: Byteplus.Vod.Models.Response.VodGetAudioInfoForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetAudioInfoForAuditResult
-	111, // 51: Byteplus.Vod.Models.Response.VodGetAutomaticSpeechRecognitionForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	135, // 52: Byteplus.Vod.Models.Response.VodGetAutomaticSpeechRecognitionForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetAutomaticSpeechRecognitionForAuditResult
-	111, // 53: Byteplus.Vod.Models.Response.VodGetAudioEventDetectionForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	136, // 54: Byteplus.Vod.Models.Response.VodGetAudioEventDetectionForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetAudioEventDetectionForAuditResult
-	111, // 55: Byteplus.Vod.Models.Response.VodCreateVideoClassificationResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	137, // 56: Byteplus.Vod.Models.Response.VodCreateVideoClassificationResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCreateVideoClassificationData
-	111, // 57: Byteplus.Vod.Models.Response.VodUpdateVideoClassificationResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 58: Byteplus.Vod.Models.Response.VodDeleteVideoClassificationResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 59: Byteplus.Vod.Models.Response.VodListVideoClassificationsResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	138, // 60: Byteplus.Vod.Models.Response.VodListVideoClassificationsResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodVideoClassificationsData
-	111, // 61: Byteplus.Vod.Models.Response.VodListSnapshotsResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	139, // 62: Byteplus.Vod.Models.Response.VodListSnapshotsResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSnapshotData
-	111, // 63: Byteplus.Vod.Models.Response.VodGetFileListResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	124, // 64: Byteplus.Vod.Models.Response.VodGetFileListResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetMediaInfosData
-	111, // 65: Byteplus.Vod.Models.Response.VodExtractMediaMetaTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 66: Byteplus.Vod.Models.Response.VodStartWorkflowResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	140, // 67: Byteplus.Vod.Models.Response.VodStartWorkflowResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodStartWorkflowResult
-	111, // 68: Byteplus.Vod.Models.Response.VodRetrieveTranscodeResultResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	141, // 69: Byteplus.Vod.Models.Response.VodRetrieveTranscodeResultResponse.Result:type_name -> Byteplus.Vod.Models.Business.TranscodeResult
-	111, // 70: Byteplus.Vod.Models.Response.VodListWorkflowExecutionResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	142, // 71: Byteplus.Vod.Models.Response.VodListWorkflowExecutionResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListWorkflowExecutionResult
-	111, // 72: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionDetailResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	143, // 73: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionDetailResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetWorkflowExecutionDetailResult
-	111, // 74: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionStatusResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	144, // 75: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionStatusResponse.Result:type_name -> Byteplus.Vod.Models.Business.WorkflowExecution
-	111, // 76: Byteplus.Vod.Models.Response.VodGetWorkflowResultResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	145, // 77: Byteplus.Vod.Models.Response.VodGetWorkflowResultResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodWorkflowResult
-	111, // 78: Byteplus.Vod.Models.Response.VodSubmitDirectEditTaskAsyncResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	146, // 79: Byteplus.Vod.Models.Response.VodSubmitDirectEditTaskAsyncResponse.Result:type_name -> Byteplus.Vod.Models.Business.SubmitDirectEditTaskAsyncResult
-	111, // 80: Byteplus.Vod.Models.Response.VodGetDirectEditProgressResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	147, // 81: Byteplus.Vod.Models.Response.VodGetDirectEditProgressResponse.Result:type_name -> Byteplus.Vod.Models.Business.GetDirectEditProgress
-	111, // 82: Byteplus.Vod.Models.Response.VodGetDirectEditResultResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	148, // 83: Byteplus.Vod.Models.Response.VodGetDirectEditResultResponse.Result:type_name -> Byteplus.Vod.Models.Business.GetDirectEditResult
-	111, // 84: Byteplus.Vod.Models.Response.VodCreateSpaceResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 85: Byteplus.Vod.Models.Response.VodListSpaceResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	149, // 86: Byteplus.Vod.Models.Response.VodListSpaceResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSpaceInfo
-	111, // 87: Byteplus.Vod.Models.Response.VodGetSpaceDetailResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	149, // 88: Byteplus.Vod.Models.Response.VodGetSpaceDetailResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSpaceInfo
-	111, // 89: Byteplus.Vod.Models.Response.VodUpdateSpaceResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 90: Byteplus.Vod.Models.Response.VodUpdateSpaceUploadConfigResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 91: Byteplus.Vod.Models.Response.VodDescribeVodSpaceStorageDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	150, // 92: Byteplus.Vod.Models.Response.VodDescribeVodSpaceStorageDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDescribeVodSpaceStorageDataResult
-	111, // 93: Byteplus.Vod.Models.Response.VodStartDomainResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 94: Byteplus.Vod.Models.Response.VodStopDomainResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 95: Byteplus.Vod.Models.Response.VodUpdateDomainPlayRuleResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 96: Byteplus.Vod.Models.Response.VodAddDomainToSchedulerResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 97: Byteplus.Vod.Models.Response.VodRemoveDomainFromSchedulerResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 98: Byteplus.Vod.Models.Response.VodListDomainResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	151, // 99: Byteplus.Vod.Models.Response.VodListDomainResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDomainConfigInfo
-	111, // 100: Byteplus.Vod.Models.Response.VodCreateCdnRefreshTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	152, // 101: Byteplus.Vod.Models.Response.VodCreateCdnRefreshTaskResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCreateCdnTaskResult
-	111, // 102: Byteplus.Vod.Models.Response.VodCreateCdnPreloadTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	152, // 103: Byteplus.Vod.Models.Response.VodCreateCdnPreloadTaskResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCreateCdnTaskResult
-	111, // 104: Byteplus.Vod.Models.Response.VodListCdnTasksResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	153, // 105: Byteplus.Vod.Models.Response.VodListCdnTasksResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCdnTaskResult
-	111, // 106: Byteplus.Vod.Models.Response.VodListCdnAccessLogResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	154, // 107: Byteplus.Vod.Models.Response.VodListCdnAccessLogResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListCdnAccessLogResult
-	111, // 108: Byteplus.Vod.Models.Response.VodListCdnTopAccessUrlResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	155, // 109: Byteplus.Vod.Models.Response.VodListCdnTopAccessUrlResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListCdnTopAccessUrlResult
-	111, // 110: Byteplus.Vod.Models.Response.VodListCdnTopAccessResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	156, // 111: Byteplus.Vod.Models.Response.VodListCdnTopAccessResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListCdnTopAccessResult
-	111, // 112: Byteplus.Vod.Models.Response.VodDescribeVodDomainBandwidthDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	157, // 113: Byteplus.Vod.Models.Response.VodDescribeVodDomainBandwidthDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDescribeVodDomainBandwidthDataResult
-	111, // 114: Byteplus.Vod.Models.Response.VodCdnStatisticsCommonResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	158, // 115: Byteplus.Vod.Models.Response.VodCdnStatisticsCommonResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCdnStatisticsCommonResult
-	111, // 116: Byteplus.Vod.Models.Response.VodListCdnUsageDataDetailResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	159, // 117: Byteplus.Vod.Models.Response.VodListCdnUsageDataDetailResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListCdnUsageDataDetailResult
-	111, // 118: Byteplus.Vod.Models.Response.VodListCdnStatusDataDetailResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	160, // 119: Byteplus.Vod.Models.Response.VodListCdnStatusDataDetailResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListCdnStatusDataDetailResult
-	111, // 120: Byteplus.Vod.Models.Response.VodDescribeIPInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	161, // 121: Byteplus.Vod.Models.Response.VodDescribeIPInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCdnIpInfo
-	111, // 122: Byteplus.Vod.Models.Response.VodDescribeVodDomainTrafficDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	162, // 123: Byteplus.Vod.Models.Response.VodDescribeVodDomainTrafficDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDescribeVodDomainTrafficDataResult
-	111, // 124: Byteplus.Vod.Models.Response.VodSubmitBlockTasksResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	163, // 125: Byteplus.Vod.Models.Response.VodSubmitBlockTasksResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSubmitBlockTasksResult
-	111, // 126: Byteplus.Vod.Models.Response.VodGetContentBlockTasksResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	164, // 127: Byteplus.Vod.Models.Response.VodGetContentBlockTasksResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetContentBlockTasksResult
-	111, // 128: Byteplus.Vod.Models.Response.VodCreateDomainV2Response.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 129: Byteplus.Vod.Models.Response.VodUpdateDomainExpireV2Response.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 130: Byteplus.Vod.Models.Response.VodUpdateDomainAuthConfigV2Response.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 131: Byteplus.Vod.Models.Response.AddOrUpdateCertificateV2Response.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 132: Byteplus.Vod.Models.Response.VodAddCallbackSubscriptionResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 133: Byteplus.Vod.Models.Response.VodSetCallbackEventResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 134: Byteplus.Vod.Models.Response.VodGetSmartStrategyLitePlayInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	165, // 135: Byteplus.Vod.Models.Response.VodGetSmartStrategyLitePlayInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetSmartStrategyLitePlayInfoResult
-	111, // 136: Byteplus.Vod.Models.Response.VodGetAppInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	166, // 137: Byteplus.Vod.Models.Response.VodGetAppInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetAppInfoResult
-	111, // 138: Byteplus.Vod.Models.Response.DescribeVodSpaceTranscodeDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	167, // 139: Byteplus.Vod.Models.Response.DescribeVodSpaceTranscodeDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceTranscodeDataResult
-	111, // 140: Byteplus.Vod.Models.Response.DescribeVodSpaceAIStatisDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	168, // 141: Byteplus.Vod.Models.Response.DescribeVodSpaceAIStatisDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceAIStatisDataResult
-	111, // 142: Byteplus.Vod.Models.Response.DescribeVodSpaceSubtitleStatisDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	169, // 143: Byteplus.Vod.Models.Response.DescribeVodSpaceSubtitleStatisDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataResult
-	111, // 144: Byteplus.Vod.Models.Response.DescribeVodSpaceDetectStatisDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	170, // 145: Byteplus.Vod.Models.Response.DescribeVodSpaceDetectStatisDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceDetectStatisDataResult
-	111, // 146: Byteplus.Vod.Models.Response.DescribeVodSnapshotDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	171, // 147: Byteplus.Vod.Models.Response.DescribeVodSnapshotDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSnapshotDataResult
-	111, // 148: Byteplus.Vod.Models.Response.DescribeVodSpaceWorkflowDetailDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	172, // 149: Byteplus.Vod.Models.Response.DescribeVodSpaceWorkflowDetailDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceWorkflowDetailDataResult
-	111, // 150: Byteplus.Vod.Models.Response.DescribeVodSpaceEditDetailDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	173, // 151: Byteplus.Vod.Models.Response.DescribeVodSpaceEditDetailDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceEditDetailDataResult
-	111, // 152: Byteplus.Vod.Models.Response.DescribeVodPlayFileLogByDomainResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	174, // 153: Byteplus.Vod.Models.Response.DescribeVodPlayFileLogByDomainResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodPlayFileLogByDomainResult
-	111, // 154: Byteplus.Vod.Models.Response.DescribeVodSpaceStorageDataFDResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	175, // 155: Byteplus.Vod.Models.Response.DescribeVodSpaceStorageDataFDResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceStorageDataFDResult
-	111, // 156: Byteplus.Vod.Models.Response.DescribeVodEnhanceImageDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	176, // 157: Byteplus.Vod.Models.Response.DescribeVodEnhanceImageDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodEnhanceImageDataResult
-	111, // 158: Byteplus.Vod.Models.Response.DescribeVodPlayedStatisDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	177, // 159: Byteplus.Vod.Models.Response.DescribeVodPlayedStatisDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodPlayedStatisDataResult
-	111, // 160: Byteplus.Vod.Models.Response.DescribeVodMostPlayedStatisDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	178, // 161: Byteplus.Vod.Models.Response.DescribeVodMostPlayedStatisDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodMostPlayedStatisDataResult
-	111, // 162: Byteplus.Vod.Models.Response.DescribeVodRealtimeMediaDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	179, // 163: Byteplus.Vod.Models.Response.DescribeVodRealtimeMediaDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodRealtimeMediaDataResult
-	111, // 164: Byteplus.Vod.Models.Response.VodSubmitBlockMediaTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	180, // 165: Byteplus.Vod.Models.Response.VodSubmitBlockMediaTaskResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSubmitBlockMediaTaskResult
-	111, // 166: Byteplus.Vod.Models.Response.VodSubmitUnblockMediaTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	181, // 167: Byteplus.Vod.Models.Response.VodSubmitUnblockMediaTaskResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSubmitUnblockMediaTaskResult
-	111, // 168: Byteplus.Vod.Models.Response.VodQueryMediaBlockStatusResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	182, // 169: Byteplus.Vod.Models.Response.VodQueryMediaBlockStatusResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodQueryMediaBlockStatusResult
-	111, // 170: Byteplus.Vod.Models.Response.VodCreatePlaylistResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	183, // 171: Byteplus.Vod.Models.Response.VodCreatePlaylistResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCreatePlaylistResult
-	111, // 172: Byteplus.Vod.Models.Response.VodGetPlaylistsResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	184, // 173: Byteplus.Vod.Models.Response.VodGetPlaylistsResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetPlaylistsResult
-	111, // 174: Byteplus.Vod.Models.Response.VodUpdatePlaylistResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 175: Byteplus.Vod.Models.Response.VodDeletePlaylistResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 176: Byteplus.Vod.Models.Response.VodGetIntertrustApiKeyResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	185, // 177: Byteplus.Vod.Models.Response.VodGetIntertrustApiKeyResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetIntertrustApiKeyResult
-	111, // 178: Byteplus.Vod.Models.Response.VodSetIntertrustApiKeyResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 179: Byteplus.Vod.Models.Response.VodDeleteIntertrustApiKeyResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 180: Byteplus.Vod.Models.Response.VodGetFairPlayCertInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	186, // 181: Byteplus.Vod.Models.Response.VodGetFairPlayCertInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetFairPlayCertInfoResult
-	111, // 182: Byteplus.Vod.Models.Response.VodSetFairPlayCertInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	187, // 183: Byteplus.Vod.Models.Response.VodSetFairPlayCertInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSetFairPlayCertInfoResult
-	111, // 184: Byteplus.Vod.Models.Response.VodDeleteFairPlayCertInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 185: Byteplus.Vod.Models.Response.VodGetFairPlayCertResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	188, // 186: Byteplus.Vod.Models.Response.VodGetFairPlayCertResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetFairPlayCertResult
-	111, // 187: Byteplus.Vod.Models.Response.VodGetDrmLicenseResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	189, // 188: Byteplus.Vod.Models.Response.VodGetDrmLicenseResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDrmLicenseResult
-	111, // 189: Byteplus.Vod.Models.Response.VodSetMirrorSrcRuleResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	190, // 190: Byteplus.Vod.Models.Response.VodSetMirrorSrcRuleResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSetMirrorSrcRuleResult
-	111, // 191: Byteplus.Vod.Models.Response.VodDeleteMirrorSrcRuleResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	111, // 192: Byteplus.Vod.Models.Response.VodListMirrorSrcRuleResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	191, // 193: Byteplus.Vod.Models.Response.VodListMirrorSrcRuleResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListMirrorSrcRuleResult
-	111, // 194: Byteplus.Vod.Models.Response.VodListProjectsResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
-	192, // 195: Byteplus.Vod.Models.Response.VodListProjectsResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListProjectsResult
-	196, // [196:196] is the sub-list for method output_type
-	196, // [196:196] is the sub-list for method input_type
-	196, // [196:196] is the sub-list for extension type_name
-	196, // [196:196] is the sub-list for extension extendee
-	0,   // [0:196] is the sub-list for field type_name
+	115, // 0: Byteplus.Vod.Models.Response.VodGetAllPlayInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	116, // 1: Byteplus.Vod.Models.Response.VodGetAllPlayInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodAllPlayInfoResult
+	115, // 2: Byteplus.Vod.Models.Response.VodGetPlayInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	117, // 3: Byteplus.Vod.Models.Response.VodGetPlayInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodPlayInfoModel
+	115, // 4: Byteplus.Vod.Models.Response.VodGetOriginalPlayInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	118, // 5: Byteplus.Vod.Models.Response.VodGetOriginalPlayInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetOriginalPlayInfoResult
+	115, // 6: Byteplus.Vod.Models.Response.VodGetPrivateDrmPlayAuthResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	119, // 7: Byteplus.Vod.Models.Response.VodGetPrivateDrmPlayAuthResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetPrivateDrmPlayAuthResult
+	115, // 8: Byteplus.Vod.Models.Response.VodGetHlsDecryptionKeyResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	120, // 9: Byteplus.Vod.Models.Response.VodGetHlsDecryptionKeyResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetHlsDecryptionKeyResult
+	115, // 10: Byteplus.Vod.Models.Response.VodCreateHlsDecryptionKeyResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	121, // 11: Byteplus.Vod.Models.Response.VodCreateHlsDecryptionKeyResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCreateHlsDecryptionKeyResult
+	115, // 12: Byteplus.Vod.Models.Response.VodGetPlayInfoWithLiveTimeShiftSceneResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	122, // 13: Byteplus.Vod.Models.Response.VodGetPlayInfoWithLiveTimeShiftSceneResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetPlayInfoWithLiveTimeShiftSceneResult
+	115, // 14: Byteplus.Vod.Models.Response.VodUploadMediaResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	123, // 15: Byteplus.Vod.Models.Response.VodUploadMediaResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCommitData
+	115, // 16: Byteplus.Vod.Models.Response.VodQueryUploadTaskInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	124, // 17: Byteplus.Vod.Models.Response.VodQueryUploadTaskInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodQueryData
+	115, // 18: Byteplus.Vod.Models.Response.VodUrlUploadResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	125, // 19: Byteplus.Vod.Models.Response.VodUrlUploadResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodUrlResponseData
+	115, // 20: Byteplus.Vod.Models.Response.VodApplyUploadInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	126, // 21: Byteplus.Vod.Models.Response.VodApplyUploadInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodApplyUploadInfoResult
+	115, // 22: Byteplus.Vod.Models.Response.VodCommitUploadInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	127, // 23: Byteplus.Vod.Models.Response.VodCommitUploadInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCommitUploadInfoResult
+	115, // 24: Byteplus.Vod.Models.Response.VodListFileMetaInfosByFileNamesResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	128, // 25: Byteplus.Vod.Models.Response.VodListFileMetaInfosByFileNamesResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListFileMetaInfosByFileNamesResult
+	115, // 26: Byteplus.Vod.Models.Response.VodGetMediaInfosResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	129, // 27: Byteplus.Vod.Models.Response.VodGetMediaInfosResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetMediaInfosData
+	115, // 28: Byteplus.Vod.Models.Response.VodUpdateMediaInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 29: Byteplus.Vod.Models.Response.VodGetRecommendedPosterResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	130, // 30: Byteplus.Vod.Models.Response.VodGetRecommendedPosterResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetRecPosterData
+	115, // 31: Byteplus.Vod.Models.Response.VodUpdateMediaPublishStatusResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 32: Byteplus.Vod.Models.Response.VodUpdateMediaStorageClassResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	131, // 33: Byteplus.Vod.Models.Response.VodUpdateMediaStorageClassResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodUpdateMediaStorageClassData
+	115, // 34: Byteplus.Vod.Models.Response.VodDeleteMediaResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	132, // 35: Byteplus.Vod.Models.Response.VodDeleteMediaResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDeleteMediaData
+	115, // 36: Byteplus.Vod.Models.Response.VodDeleteTranscodesResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	133, // 37: Byteplus.Vod.Models.Response.VodDeleteTranscodesResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDeleteTranscodesData
+	115, // 38: Byteplus.Vod.Models.Response.VodDeleteMediaTosFileResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	134, // 39: Byteplus.Vod.Models.Response.VodDeleteMediaTosFileResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDeleteMediaTosFileData
+	115, // 40: Byteplus.Vod.Models.Response.VodGetMediaListResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	135, // 41: Byteplus.Vod.Models.Response.VodGetMediaListResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetMediaListData
+	115, // 42: Byteplus.Vod.Models.Response.VodGetSubtitleInfoListResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	136, // 43: Byteplus.Vod.Models.Response.VodGetSubtitleInfoListResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetSubtitleInfoListData
+	115, // 44: Byteplus.Vod.Models.Response.VodUpdateSubtitleStatusResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	137, // 45: Byteplus.Vod.Models.Response.VodUpdateSubtitleStatusResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodUpdateSubtitleStatusData
+	115, // 46: Byteplus.Vod.Models.Response.VodUpdateSubtitleInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 47: Byteplus.Vod.Models.Response.VodGetAuditFramesForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	138, // 48: Byteplus.Vod.Models.Response.VodGetAuditFramesForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetFramesForAuditResult
+	115, // 49: Byteplus.Vod.Models.Response.VodGetMLFramesForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	138, // 50: Byteplus.Vod.Models.Response.VodGetMLFramesForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetFramesForAuditResult
+	115, // 51: Byteplus.Vod.Models.Response.VodGetBetterFramesForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	139, // 52: Byteplus.Vod.Models.Response.VodGetBetterFramesForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetBetterFramesForAuditResult
+	115, // 53: Byteplus.Vod.Models.Response.VodGetAudioInfoForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	140, // 54: Byteplus.Vod.Models.Response.VodGetAudioInfoForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetAudioInfoForAuditResult
+	115, // 55: Byteplus.Vod.Models.Response.VodGetAutomaticSpeechRecognitionForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	141, // 56: Byteplus.Vod.Models.Response.VodGetAutomaticSpeechRecognitionForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetAutomaticSpeechRecognitionForAuditResult
+	115, // 57: Byteplus.Vod.Models.Response.VodGetAudioEventDetectionForAuditResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	142, // 58: Byteplus.Vod.Models.Response.VodGetAudioEventDetectionForAuditResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetAudioEventDetectionForAuditResult
+	115, // 59: Byteplus.Vod.Models.Response.VodCreateVideoClassificationResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	143, // 60: Byteplus.Vod.Models.Response.VodCreateVideoClassificationResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCreateVideoClassificationData
+	115, // 61: Byteplus.Vod.Models.Response.VodUpdateVideoClassificationResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 62: Byteplus.Vod.Models.Response.VodDeleteVideoClassificationResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 63: Byteplus.Vod.Models.Response.VodListVideoClassificationsResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	144, // 64: Byteplus.Vod.Models.Response.VodListVideoClassificationsResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodVideoClassificationsData
+	115, // 65: Byteplus.Vod.Models.Response.VodListSnapshotsResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	145, // 66: Byteplus.Vod.Models.Response.VodListSnapshotsResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSnapshotData
+	115, // 67: Byteplus.Vod.Models.Response.VodGetFileListResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	129, // 68: Byteplus.Vod.Models.Response.VodGetFileListResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetMediaInfosData
+	115, // 69: Byteplus.Vod.Models.Response.VodGetFileInfosResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	146, // 70: Byteplus.Vod.Models.Response.VodGetFileInfosResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetFileInfosData
+	115, // 71: Byteplus.Vod.Models.Response.VodExtractMediaMetaTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 72: Byteplus.Vod.Models.Response.VodStartWorkflowResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	147, // 73: Byteplus.Vod.Models.Response.VodStartWorkflowResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodStartWorkflowResult
+	115, // 74: Byteplus.Vod.Models.Response.VodRetrieveTranscodeResultResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	148, // 75: Byteplus.Vod.Models.Response.VodRetrieveTranscodeResultResponse.Result:type_name -> Byteplus.Vod.Models.Business.TranscodeResult
+	115, // 76: Byteplus.Vod.Models.Response.VodListWorkflowExecutionResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	149, // 77: Byteplus.Vod.Models.Response.VodListWorkflowExecutionResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListWorkflowExecutionResult
+	115, // 78: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionDetailResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	150, // 79: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionDetailResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetWorkflowExecutionDetailResult
+	115, // 80: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionStatusResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	151, // 81: Byteplus.Vod.Models.Response.VodGetWorkflowExecutionStatusResponse.Result:type_name -> Byteplus.Vod.Models.Business.WorkflowExecution
+	115, // 82: Byteplus.Vod.Models.Response.VodGetWorkflowResultResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	152, // 83: Byteplus.Vod.Models.Response.VodGetWorkflowResultResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodWorkflowResult
+	115, // 84: Byteplus.Vod.Models.Response.VodSubmitDirectEditTaskAsyncResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	153, // 85: Byteplus.Vod.Models.Response.VodSubmitDirectEditTaskAsyncResponse.Result:type_name -> Byteplus.Vod.Models.Business.SubmitDirectEditTaskAsyncResult
+	115, // 86: Byteplus.Vod.Models.Response.VodGetDirectEditProgressResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	154, // 87: Byteplus.Vod.Models.Response.VodGetDirectEditProgressResponse.Result:type_name -> Byteplus.Vod.Models.Business.GetDirectEditProgress
+	115, // 88: Byteplus.Vod.Models.Response.VodGetDirectEditResultResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	155, // 89: Byteplus.Vod.Models.Response.VodGetDirectEditResultResponse.Result:type_name -> Byteplus.Vod.Models.Business.GetDirectEditResult
+	115, // 90: Byteplus.Vod.Models.Response.VodCreateSpaceResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 91: Byteplus.Vod.Models.Response.VodListSpaceResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	156, // 92: Byteplus.Vod.Models.Response.VodListSpaceResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSpaceInfo
+	115, // 93: Byteplus.Vod.Models.Response.VodGetSpaceDetailResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	156, // 94: Byteplus.Vod.Models.Response.VodGetSpaceDetailResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSpaceInfo
+	115, // 95: Byteplus.Vod.Models.Response.VodUpdateSpaceResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 96: Byteplus.Vod.Models.Response.VodUpdateSpaceUploadConfigResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 97: Byteplus.Vod.Models.Response.VodDescribeVodSpaceStorageDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	157, // 98: Byteplus.Vod.Models.Response.VodDescribeVodSpaceStorageDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDescribeVodSpaceStorageDataResult
+	115, // 99: Byteplus.Vod.Models.Response.VodStartDomainResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 100: Byteplus.Vod.Models.Response.VodStopDomainResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 101: Byteplus.Vod.Models.Response.VodUpdateDomainPlayRuleResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 102: Byteplus.Vod.Models.Response.VodAddDomainToSchedulerResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 103: Byteplus.Vod.Models.Response.VodRemoveDomainFromSchedulerResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 104: Byteplus.Vod.Models.Response.VodListDomainResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	158, // 105: Byteplus.Vod.Models.Response.VodListDomainResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDomainConfigInfo
+	115, // 106: Byteplus.Vod.Models.Response.VodCreateCdnRefreshTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	159, // 107: Byteplus.Vod.Models.Response.VodCreateCdnRefreshTaskResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCreateCdnTaskResult
+	115, // 108: Byteplus.Vod.Models.Response.VodCreateCdnPreloadTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	159, // 109: Byteplus.Vod.Models.Response.VodCreateCdnPreloadTaskResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCreateCdnTaskResult
+	115, // 110: Byteplus.Vod.Models.Response.VodListCdnTasksResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	160, // 111: Byteplus.Vod.Models.Response.VodListCdnTasksResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCdnTaskResult
+	115, // 112: Byteplus.Vod.Models.Response.VodListCdnAccessLogResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	161, // 113: Byteplus.Vod.Models.Response.VodListCdnAccessLogResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListCdnAccessLogResult
+	115, // 114: Byteplus.Vod.Models.Response.VodListCdnTopAccessUrlResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	162, // 115: Byteplus.Vod.Models.Response.VodListCdnTopAccessUrlResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListCdnTopAccessUrlResult
+	115, // 116: Byteplus.Vod.Models.Response.VodListCdnTopAccessResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	163, // 117: Byteplus.Vod.Models.Response.VodListCdnTopAccessResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListCdnTopAccessResult
+	115, // 118: Byteplus.Vod.Models.Response.VodDescribeVodDomainBandwidthDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	164, // 119: Byteplus.Vod.Models.Response.VodDescribeVodDomainBandwidthDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDescribeVodDomainBandwidthDataResult
+	115, // 120: Byteplus.Vod.Models.Response.VodCdnStatisticsCommonResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	165, // 121: Byteplus.Vod.Models.Response.VodCdnStatisticsCommonResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCdnStatisticsCommonResult
+	115, // 122: Byteplus.Vod.Models.Response.VodListCdnUsageDataDetailResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	166, // 123: Byteplus.Vod.Models.Response.VodListCdnUsageDataDetailResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListCdnUsageDataDetailResult
+	115, // 124: Byteplus.Vod.Models.Response.VodListCdnStatusDataDetailResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	167, // 125: Byteplus.Vod.Models.Response.VodListCdnStatusDataDetailResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListCdnStatusDataDetailResult
+	115, // 126: Byteplus.Vod.Models.Response.VodDescribeIPInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	168, // 127: Byteplus.Vod.Models.Response.VodDescribeIPInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCdnIpInfo
+	115, // 128: Byteplus.Vod.Models.Response.VodDescribeVodDomainTrafficDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	169, // 129: Byteplus.Vod.Models.Response.VodDescribeVodDomainTrafficDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDescribeVodDomainTrafficDataResult
+	115, // 130: Byteplus.Vod.Models.Response.VodSubmitBlockTasksResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	170, // 131: Byteplus.Vod.Models.Response.VodSubmitBlockTasksResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSubmitBlockTasksResult
+	115, // 132: Byteplus.Vod.Models.Response.VodGetContentBlockTasksResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	171, // 133: Byteplus.Vod.Models.Response.VodGetContentBlockTasksResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetContentBlockTasksResult
+	115, // 134: Byteplus.Vod.Models.Response.VodCreateDomainV2Response.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 135: Byteplus.Vod.Models.Response.VodUpdateDomainExpireV2Response.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 136: Byteplus.Vod.Models.Response.VodUpdateDomainAuthConfigV2Response.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 137: Byteplus.Vod.Models.Response.AddOrUpdateCertificateV2Response.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 138: Byteplus.Vod.Models.Response.VodAddCallbackSubscriptionResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 139: Byteplus.Vod.Models.Response.VodSetCallbackEventResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 140: Byteplus.Vod.Models.Response.VodGetSmartStrategyLitePlayInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	172, // 141: Byteplus.Vod.Models.Response.VodGetSmartStrategyLitePlayInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetSmartStrategyLitePlayInfoResult
+	115, // 142: Byteplus.Vod.Models.Response.VodGetAppInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	173, // 143: Byteplus.Vod.Models.Response.VodGetAppInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetAppInfoResult
+	115, // 144: Byteplus.Vod.Models.Response.DescribeVodSpaceTranscodeDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	174, // 145: Byteplus.Vod.Models.Response.DescribeVodSpaceTranscodeDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceTranscodeDataResult
+	115, // 146: Byteplus.Vod.Models.Response.DescribeVodSpaceAIStatisDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	175, // 147: Byteplus.Vod.Models.Response.DescribeVodSpaceAIStatisDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceAIStatisDataResult
+	115, // 148: Byteplus.Vod.Models.Response.DescribeVodSpaceSubtitleStatisDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	176, // 149: Byteplus.Vod.Models.Response.DescribeVodSpaceSubtitleStatisDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceSubtitleStatisDataResult
+	115, // 150: Byteplus.Vod.Models.Response.DescribeVodSpaceDetectStatisDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	177, // 151: Byteplus.Vod.Models.Response.DescribeVodSpaceDetectStatisDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceDetectStatisDataResult
+	115, // 152: Byteplus.Vod.Models.Response.DescribeVodSnapshotDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	178, // 153: Byteplus.Vod.Models.Response.DescribeVodSnapshotDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSnapshotDataResult
+	115, // 154: Byteplus.Vod.Models.Response.DescribeVodSpaceWorkflowDetailDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	179, // 155: Byteplus.Vod.Models.Response.DescribeVodSpaceWorkflowDetailDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceWorkflowDetailDataResult
+	115, // 156: Byteplus.Vod.Models.Response.DescribeVodSpaceEditDetailDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	180, // 157: Byteplus.Vod.Models.Response.DescribeVodSpaceEditDetailDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceEditDetailDataResult
+	115, // 158: Byteplus.Vod.Models.Response.DescribeVodPlayFileLogByDomainResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	181, // 159: Byteplus.Vod.Models.Response.DescribeVodPlayFileLogByDomainResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodPlayFileLogByDomainResult
+	115, // 160: Byteplus.Vod.Models.Response.DescribeVodSpaceStorageDataFDResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	182, // 161: Byteplus.Vod.Models.Response.DescribeVodSpaceStorageDataFDResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodSpaceStorageDataFDResult
+	115, // 162: Byteplus.Vod.Models.Response.DescribeVodEnhanceImageDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	183, // 163: Byteplus.Vod.Models.Response.DescribeVodEnhanceImageDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodEnhanceImageDataResult
+	115, // 164: Byteplus.Vod.Models.Response.DescribeVodPlayedStatisDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	184, // 165: Byteplus.Vod.Models.Response.DescribeVodPlayedStatisDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodPlayedStatisDataResult
+	115, // 166: Byteplus.Vod.Models.Response.DescribeVodMostPlayedStatisDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	185, // 167: Byteplus.Vod.Models.Response.DescribeVodMostPlayedStatisDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodMostPlayedStatisDataResult
+	115, // 168: Byteplus.Vod.Models.Response.DescribeVodRealtimeMediaDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	186, // 169: Byteplus.Vod.Models.Response.DescribeVodRealtimeMediaDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.DescribeVodRealtimeMediaDataResult
+	115, // 170: Byteplus.Vod.Models.Response.VodSubmitBlockMediaTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	187, // 171: Byteplus.Vod.Models.Response.VodSubmitBlockMediaTaskResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSubmitBlockMediaTaskResult
+	115, // 172: Byteplus.Vod.Models.Response.VodSubmitUnblockMediaTaskResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	188, // 173: Byteplus.Vod.Models.Response.VodSubmitUnblockMediaTaskResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSubmitUnblockMediaTaskResult
+	115, // 174: Byteplus.Vod.Models.Response.VodQueryMediaBlockStatusResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	189, // 175: Byteplus.Vod.Models.Response.VodQueryMediaBlockStatusResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodQueryMediaBlockStatusResult
+	115, // 176: Byteplus.Vod.Models.Response.VodCreatePlaylistResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	190, // 177: Byteplus.Vod.Models.Response.VodCreatePlaylistResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodCreatePlaylistResult
+	115, // 178: Byteplus.Vod.Models.Response.VodGetPlaylistsResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	191, // 179: Byteplus.Vod.Models.Response.VodGetPlaylistsResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetPlaylistsResult
+	115, // 180: Byteplus.Vod.Models.Response.VodUpdatePlaylistResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 181: Byteplus.Vod.Models.Response.VodDeletePlaylistResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 182: Byteplus.Vod.Models.Response.VodGetIntertrustApiKeyResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	192, // 183: Byteplus.Vod.Models.Response.VodGetIntertrustApiKeyResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetIntertrustApiKeyResult
+	115, // 184: Byteplus.Vod.Models.Response.VodSetIntertrustApiKeyResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 185: Byteplus.Vod.Models.Response.VodDeleteIntertrustApiKeyResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 186: Byteplus.Vod.Models.Response.VodGetFairPlayCertInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	193, // 187: Byteplus.Vod.Models.Response.VodGetFairPlayCertInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetFairPlayCertInfoResult
+	115, // 188: Byteplus.Vod.Models.Response.VodSetFairPlayCertInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	194, // 189: Byteplus.Vod.Models.Response.VodSetFairPlayCertInfoResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSetFairPlayCertInfoResult
+	115, // 190: Byteplus.Vod.Models.Response.VodDeleteFairPlayCertInfoResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 191: Byteplus.Vod.Models.Response.VodGetFairPlayCertResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	195, // 192: Byteplus.Vod.Models.Response.VodGetFairPlayCertResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodGetFairPlayCertResult
+	115, // 193: Byteplus.Vod.Models.Response.VodGetDrmLicenseResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	196, // 194: Byteplus.Vod.Models.Response.VodGetDrmLicenseResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodDrmLicenseResult
+	115, // 195: Byteplus.Vod.Models.Response.VodSetMirrorSrcRuleResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	197, // 196: Byteplus.Vod.Models.Response.VodSetMirrorSrcRuleResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodSetMirrorSrcRuleResult
+	115, // 197: Byteplus.Vod.Models.Response.VodDeleteMirrorSrcRuleResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	115, // 198: Byteplus.Vod.Models.Response.VodListMirrorSrcRuleResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	198, // 199: Byteplus.Vod.Models.Response.VodListMirrorSrcRuleResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListMirrorSrcRuleResult
+	115, // 200: Byteplus.Vod.Models.Response.VodListProjectsResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	199, // 201: Byteplus.Vod.Models.Response.VodListProjectsResponse.Result:type_name -> Byteplus.Vod.Models.Business.VodListProjectsResult
+	115, // 202: Byteplus.Vod.Models.Response.GetVodMediaPlayDataResponse.ResponseMetadata:type_name -> Byteplus.Base.Models.Base.ResponseMetadata
+	200, // 203: Byteplus.Vod.Models.Response.GetVodMediaPlayDataResponse.Result:type_name -> Byteplus.Vod.Models.Business.GetVodMediaPlayDataResult
+	204, // [204:204] is the sub-list for method output_type
+	204, // [204:204] is the sub-list for method input_type
+	204, // [204:204] is the sub-list for extension type_name
+	204, // [204:204] is the sub-list for extension extendee
+	0,   // [0:204] is the sub-list for field type_name
 }
 
 func init() { file_byteplus_vod_response_response_vod_proto_init() }
@@ -7900,7 +8196,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetMediaInfosResponse); i {
+			switch v := v.(*VodListFileMetaInfosByFileNamesResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7912,7 +8208,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodUpdateMediaInfoResponse); i {
+			switch v := v.(*VodGetMediaInfosResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7924,7 +8220,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetRecommendedPosterResponse); i {
+			switch v := v.(*VodUpdateMediaInfoResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7936,7 +8232,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodUpdateMediaPublishStatusResponse); i {
+			switch v := v.(*VodGetRecommendedPosterResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7948,7 +8244,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodUpdateMediaStorageClassResponse); i {
+			switch v := v.(*VodUpdateMediaPublishStatusResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7960,7 +8256,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodDeleteMediaResponse); i {
+			switch v := v.(*VodUpdateMediaStorageClassResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7972,7 +8268,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodDeleteTranscodesResponse); i {
+			switch v := v.(*VodDeleteMediaResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7984,7 +8280,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetMediaListResponse); i {
+			switch v := v.(*VodDeleteTranscodesResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -7996,7 +8292,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetSubtitleInfoListResponse); i {
+			switch v := v.(*VodDeleteMediaTosFileResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8008,7 +8304,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodUpdateSubtitleStatusResponse); i {
+			switch v := v.(*VodGetMediaListResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8020,7 +8316,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodUpdateSubtitleInfoResponse); i {
+			switch v := v.(*VodGetSubtitleInfoListResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8032,7 +8328,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetAuditFramesForAuditResponse); i {
+			switch v := v.(*VodUpdateSubtitleStatusResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8044,7 +8340,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetMLFramesForAuditResponse); i {
+			switch v := v.(*VodUpdateSubtitleInfoResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8056,7 +8352,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetBetterFramesForAuditResponse); i {
+			switch v := v.(*VodGetAuditFramesForAuditResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8068,7 +8364,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetAudioInfoForAuditResponse); i {
+			switch v := v.(*VodGetMLFramesForAuditResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8080,7 +8376,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetAutomaticSpeechRecognitionForAuditResponse); i {
+			switch v := v.(*VodGetBetterFramesForAuditResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8092,7 +8388,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetAudioEventDetectionForAuditResponse); i {
+			switch v := v.(*VodGetAudioInfoForAuditResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8104,7 +8400,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[29].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodCreateVideoClassificationResponse); i {
+			switch v := v.(*VodGetAutomaticSpeechRecognitionForAuditResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8116,7 +8412,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[30].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodUpdateVideoClassificationResponse); i {
+			switch v := v.(*VodGetAudioEventDetectionForAuditResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8128,7 +8424,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[31].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodDeleteVideoClassificationResponse); i {
+			switch v := v.(*VodCreateVideoClassificationResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8140,7 +8436,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[32].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodListVideoClassificationsResponse); i {
+			switch v := v.(*VodUpdateVideoClassificationResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8152,7 +8448,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[33].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodListSnapshotsResponse); i {
+			switch v := v.(*VodDeleteVideoClassificationResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8164,7 +8460,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[34].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetFileListResponse); i {
+			switch v := v.(*VodListVideoClassificationsResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8176,7 +8472,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[35].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodExtractMediaMetaTaskResponse); i {
+			switch v := v.(*VodListSnapshotsResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8188,7 +8484,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[36].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodStartWorkflowResponse); i {
+			switch v := v.(*VodGetFileListResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8200,7 +8496,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[37].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodRetrieveTranscodeResultResponse); i {
+			switch v := v.(*VodGetFileInfosResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8212,7 +8508,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[38].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodListWorkflowExecutionResponse); i {
+			switch v := v.(*VodExtractMediaMetaTaskResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8224,7 +8520,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[39].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetWorkflowExecutionDetailResponse); i {
+			switch v := v.(*VodStartWorkflowResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8236,7 +8532,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[40].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetWorkflowExecutionStatusResponse); i {
+			switch v := v.(*VodRetrieveTranscodeResultResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8248,7 +8544,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[41].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetWorkflowResultResponse); i {
+			switch v := v.(*VodListWorkflowExecutionResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8260,7 +8556,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[42].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodSubmitDirectEditTaskAsyncResponse); i {
+			switch v := v.(*VodGetWorkflowExecutionDetailResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8272,7 +8568,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[43].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetDirectEditProgressResponse); i {
+			switch v := v.(*VodGetWorkflowExecutionStatusResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8284,7 +8580,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[44].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetDirectEditResultResponse); i {
+			switch v := v.(*VodGetWorkflowResultResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8296,7 +8592,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[45].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodCreateSpaceResponse); i {
+			switch v := v.(*VodSubmitDirectEditTaskAsyncResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8308,7 +8604,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[46].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodListSpaceResponse); i {
+			switch v := v.(*VodGetDirectEditProgressResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8320,7 +8616,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[47].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetSpaceDetailResponse); i {
+			switch v := v.(*VodGetDirectEditResultResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8332,7 +8628,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[48].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodUpdateSpaceResponse); i {
+			switch v := v.(*VodCreateSpaceResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8344,7 +8640,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[49].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodUpdateSpaceUploadConfigResponse); i {
+			switch v := v.(*VodListSpaceResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8356,7 +8652,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[50].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodDescribeVodSpaceStorageDataResponse); i {
+			switch v := v.(*VodGetSpaceDetailResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8368,7 +8664,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[51].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodStartDomainResponse); i {
+			switch v := v.(*VodUpdateSpaceResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8380,7 +8676,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[52].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodStopDomainResponse); i {
+			switch v := v.(*VodUpdateSpaceUploadConfigResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8392,7 +8688,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[53].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodUpdateDomainPlayRuleResponse); i {
+			switch v := v.(*VodDescribeVodSpaceStorageDataResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8404,7 +8700,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[54].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodAddDomainToSchedulerResponse); i {
+			switch v := v.(*VodStartDomainResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8416,7 +8712,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[55].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodRemoveDomainFromSchedulerResponse); i {
+			switch v := v.(*VodStopDomainResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8428,7 +8724,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[56].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodListDomainResponse); i {
+			switch v := v.(*VodUpdateDomainPlayRuleResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8440,7 +8736,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[57].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodCreateCdnRefreshTaskResponse); i {
+			switch v := v.(*VodAddDomainToSchedulerResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8452,7 +8748,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[58].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodCreateCdnPreloadTaskResponse); i {
+			switch v := v.(*VodRemoveDomainFromSchedulerResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8464,7 +8760,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[59].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodListCdnTasksResponse); i {
+			switch v := v.(*VodListDomainResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8476,7 +8772,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[60].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodListCdnAccessLogResponse); i {
+			switch v := v.(*VodCreateCdnRefreshTaskResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8488,7 +8784,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[61].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodListCdnTopAccessUrlResponse); i {
+			switch v := v.(*VodCreateCdnPreloadTaskResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8500,7 +8796,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[62].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodListCdnTopAccessResponse); i {
+			switch v := v.(*VodListCdnTasksResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8512,7 +8808,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[63].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodDescribeVodDomainBandwidthDataResponse); i {
+			switch v := v.(*VodListCdnAccessLogResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8524,7 +8820,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[64].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodCdnStatisticsCommonResponse); i {
+			switch v := v.(*VodListCdnTopAccessUrlResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8536,7 +8832,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[65].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodListCdnUsageDataDetailResponse); i {
+			switch v := v.(*VodListCdnTopAccessResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8548,7 +8844,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[66].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodListCdnStatusDataDetailResponse); i {
+			switch v := v.(*VodDescribeVodDomainBandwidthDataResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8560,7 +8856,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[67].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodDescribeIPInfoResponse); i {
+			switch v := v.(*VodCdnStatisticsCommonResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8572,7 +8868,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[68].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodDescribeVodDomainTrafficDataResponse); i {
+			switch v := v.(*VodListCdnUsageDataDetailResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8584,7 +8880,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[69].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodSubmitBlockTasksResponse); i {
+			switch v := v.(*VodListCdnStatusDataDetailResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8596,7 +8892,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[70].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetContentBlockTasksResponse); i {
+			switch v := v.(*VodDescribeIPInfoResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8608,7 +8904,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[71].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodCreateDomainV2Response); i {
+			switch v := v.(*VodDescribeVodDomainTrafficDataResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8620,7 +8916,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[72].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodUpdateDomainExpireV2Response); i {
+			switch v := v.(*VodSubmitBlockTasksResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8632,7 +8928,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[73].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodUpdateDomainAuthConfigV2Response); i {
+			switch v := v.(*VodGetContentBlockTasksResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8644,7 +8940,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[74].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AddOrUpdateCertificateV2Response); i {
+			switch v := v.(*VodCreateDomainV2Response); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8656,7 +8952,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[75].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodAddCallbackSubscriptionResponse); i {
+			switch v := v.(*VodUpdateDomainExpireV2Response); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8668,7 +8964,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[76].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodSetCallbackEventResponse); i {
+			switch v := v.(*VodUpdateDomainAuthConfigV2Response); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8680,7 +8976,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[77].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetSmartStrategyLitePlayInfoResponse); i {
+			switch v := v.(*AddOrUpdateCertificateV2Response); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8692,7 +8988,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[78].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetAppInfoResponse); i {
+			switch v := v.(*VodAddCallbackSubscriptionResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8704,7 +9000,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[79].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DescribeVodSpaceTranscodeDataResponse); i {
+			switch v := v.(*VodSetCallbackEventResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8716,7 +9012,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[80].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DescribeVodSpaceAIStatisDataResponse); i {
+			switch v := v.(*VodGetSmartStrategyLitePlayInfoResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8728,7 +9024,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[81].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DescribeVodSpaceSubtitleStatisDataResponse); i {
+			switch v := v.(*VodGetAppInfoResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8740,7 +9036,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[82].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DescribeVodSpaceDetectStatisDataResponse); i {
+			switch v := v.(*DescribeVodSpaceTranscodeDataResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8752,7 +9048,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[83].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DescribeVodSnapshotDataResponse); i {
+			switch v := v.(*DescribeVodSpaceAIStatisDataResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8764,7 +9060,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[84].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DescribeVodSpaceWorkflowDetailDataResponse); i {
+			switch v := v.(*DescribeVodSpaceSubtitleStatisDataResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8776,7 +9072,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[85].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DescribeVodSpaceEditDetailDataResponse); i {
+			switch v := v.(*DescribeVodSpaceDetectStatisDataResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8788,7 +9084,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[86].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DescribeVodPlayFileLogByDomainResponse); i {
+			switch v := v.(*DescribeVodSnapshotDataResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8800,7 +9096,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[87].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DescribeVodSpaceStorageDataFDResponse); i {
+			switch v := v.(*DescribeVodSpaceWorkflowDetailDataResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8812,7 +9108,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[88].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DescribeVodEnhanceImageDataResponse); i {
+			switch v := v.(*DescribeVodSpaceEditDetailDataResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8824,7 +9120,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[89].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DescribeVodPlayedStatisDataResponse); i {
+			switch v := v.(*DescribeVodPlayFileLogByDomainResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8836,7 +9132,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[90].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DescribeVodMostPlayedStatisDataResponse); i {
+			switch v := v.(*DescribeVodSpaceStorageDataFDResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8848,7 +9144,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[91].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DescribeVodRealtimeMediaDataResponse); i {
+			switch v := v.(*DescribeVodEnhanceImageDataResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8860,7 +9156,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[92].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodSubmitBlockMediaTaskResponse); i {
+			switch v := v.(*DescribeVodPlayedStatisDataResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8872,7 +9168,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[93].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodSubmitUnblockMediaTaskResponse); i {
+			switch v := v.(*DescribeVodMostPlayedStatisDataResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8884,7 +9180,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[94].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodQueryMediaBlockStatusResponse); i {
+			switch v := v.(*DescribeVodRealtimeMediaDataResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8896,7 +9192,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[95].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodCreatePlaylistResponse); i {
+			switch v := v.(*VodSubmitBlockMediaTaskResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8908,7 +9204,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[96].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetPlaylistsResponse); i {
+			switch v := v.(*VodSubmitUnblockMediaTaskResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8920,7 +9216,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[97].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodUpdatePlaylistResponse); i {
+			switch v := v.(*VodQueryMediaBlockStatusResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8932,7 +9228,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[98].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodDeletePlaylistResponse); i {
+			switch v := v.(*VodCreatePlaylistResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8944,7 +9240,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[99].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetIntertrustApiKeyResponse); i {
+			switch v := v.(*VodGetPlaylistsResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8956,7 +9252,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[100].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodSetIntertrustApiKeyResponse); i {
+			switch v := v.(*VodUpdatePlaylistResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8968,7 +9264,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[101].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodDeleteIntertrustApiKeyResponse); i {
+			switch v := v.(*VodDeletePlaylistResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8980,7 +9276,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[102].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetFairPlayCertInfoResponse); i {
+			switch v := v.(*VodGetIntertrustApiKeyResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -8992,7 +9288,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[103].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodSetFairPlayCertInfoResponse); i {
+			switch v := v.(*VodSetIntertrustApiKeyResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -9004,7 +9300,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[104].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodDeleteFairPlayCertInfoResponse); i {
+			switch v := v.(*VodDeleteIntertrustApiKeyResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -9016,7 +9312,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[105].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetFairPlayCertResponse); i {
+			switch v := v.(*VodGetFairPlayCertInfoResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -9028,7 +9324,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[106].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodGetDrmLicenseResponse); i {
+			switch v := v.(*VodSetFairPlayCertInfoResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -9040,7 +9336,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[107].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodSetMirrorSrcRuleResponse); i {
+			switch v := v.(*VodDeleteFairPlayCertInfoResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -9052,7 +9348,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[108].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodDeleteMirrorSrcRuleResponse); i {
+			switch v := v.(*VodGetFairPlayCertResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -9064,7 +9360,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[109].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VodListMirrorSrcRuleResponse); i {
+			switch v := v.(*VodGetDrmLicenseResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -9076,7 +9372,55 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			}
 		}
 		file_byteplus_vod_response_response_vod_proto_msgTypes[110].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*VodSetMirrorSrcRuleResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_byteplus_vod_response_response_vod_proto_msgTypes[111].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*VodDeleteMirrorSrcRuleResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_byteplus_vod_response_response_vod_proto_msgTypes[112].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*VodListMirrorSrcRuleResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_byteplus_vod_response_response_vod_proto_msgTypes[113].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*VodListProjectsResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_byteplus_vod_response_response_vod_proto_msgTypes[114].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetVodMediaPlayDataResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -9094,7 +9438,7 @@ func file_byteplus_vod_response_response_vod_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_byteplus_vod_response_response_vod_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   111,
+			NumMessages:   115,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

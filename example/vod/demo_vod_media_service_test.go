@@ -13,6 +13,25 @@ import (
 	"github.com/byteplus-sdk/byteplus-sdk-golang/service/vod/models/request"
 )
 
+func Test_ListFileMetaInfosByFileNames(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodListFileMetaInfosByFileNamesRequest{
+		SpaceName:        "your SpaceName",
+		FileNameEncodeds: "your FileNameEncodeds",
+		BucketName:       "your BucketName",
+	}
+
+	resp, status, err := instance.ListFileMetaInfosByFileNames(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
 func Test_UpdateMediaInfo(t *testing.T) {
 	instance := vod.NewInstance()
 	instance.SetCredential(base.Credentials{
@@ -139,6 +158,46 @@ func Test_DeleteTranscodes(t *testing.T) {
 	}
 
 	resp, status, err := instance.DeleteTranscodes(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
+func Test_GetFileInfos(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodGetFileInfosRequest{
+		SpaceName:              "your SpaceName",
+		EncodedFileNames:       "your EncodedFileNames",
+		BucketName:             "your BucketName",
+		NeedDownloadUrl:        false,
+		DownloadUrlNetworkType: "your DownloadUrlNetworkType",
+		DownloadUrlExpire:      0,
+	}
+
+	resp, status, err := instance.GetFileInfos(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
+func Test_DeleteMediaTosFile(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodDeleteMediaTosFileRequest{
+		FileNames: []string{"your FileNames"},
+		SpaceName: "your SpaceName",
+	}
+
+	resp, status, err := instance.DeleteMediaTosFile(query)
 	fmt.Println(status)
 	fmt.Println(err)
 	fmt.Println(resp.String())
