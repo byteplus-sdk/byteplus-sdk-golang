@@ -3494,6 +3494,14 @@ type DescribeAuthResResultAuthListItem struct {
 	// * pull：拉流鉴权。
 	SceneType string `json:"SceneType"`
 
+	// REQUIRED; 时间戳进制。取值如下：
+	// * 2：二进制
+	// * 8：八进制
+	// * 10：十进制
+	// * 16：十六进制
+	// :::tipSceneType 取值为 push 时，该参数取值固定为 10。 :::
+	TimeStampBase int32 `json:"TimeStampBase"`
+
 	// REQUIRED; 鉴权生效时长，单位为秒。
 	ValidDuration int32 `json:"ValidDuration"`
 
@@ -3509,6 +3517,9 @@ type DescribeAuthResResultAuthListPropertiesItemsItem struct {
 
 	// 自定义推拉流地址中，鉴权参数volcSecret和volcTime的名称。
 	AuthField map[string]*string `json:"AuthField,omitempty"`
+
+	// 鉴权模版类型
+	AuthType *string `json:"AuthType,omitempty"`
 
 	// 生成加密字符串使用的加密字段。
 	EncryptField []*string `json:"EncryptField,omitempty"`
@@ -10414,9 +10425,6 @@ type GeneratePlayURLBody struct {
 	// 拉流地址的有效时长，单位为秒，超过有效时长后需要重新生成。取值范围为正整数，缺省值为 604800，即 7 天。 :::tip 如果同时设置 ValidDuration 和 ExpiredTime，以 ExpiredTime 的时间为准。
 	// :::
 	ValidDuration *int32 `json:"ValidDuration,omitempty"`
-
-	// 域名空间名称
-	Vhost *string `json:"Vhost,omitempty"`
 }
 
 type GeneratePlayURLRes struct {
@@ -10455,6 +10463,9 @@ type GeneratePlayURLResResponseMetadataError struct {
 }
 
 type GeneratePlayURLResResult struct {
+
+	// REQUIRED; 生成地址对应匹配到的鉴权模版类型
+	AuthType string `json:"AuthType"`
 
 	// REQUIRED; 拉流地址信息列表。
 	URLList []GeneratePlayURLResResultURLListItem `json:"URLList"`
@@ -10551,6 +10562,9 @@ type GeneratePushURLResResponseMetadataError struct {
 }
 
 type GeneratePushURLResResult struct {
+
+	// REQUIRED; 生成地址对应匹配到的鉴权模版类型
+	AuthType string `json:"AuthType"`
 
 	// REQUIRED; RTMP 推流地址。
 	PushURLList []string `json:"PushURLList"`
@@ -13699,36 +13713,38 @@ type UnbindCertResResponseMetadataError struct {
 
 type UpdateAuthKeyBody struct {
 
-	// REQUIRED; 鉴权配置参数，包括鉴权密钥、鉴权字段、加密字符串生成算法等。
+	// REQUIRED; 鉴权配置参数，包括鉴权密钥、鉴权参数、加密字符串生成算法等。
 	AuthDetailList []UpdateAuthKeyBodyAuthDetailListItem `json:"AuthDetailList"`
+
+	// REQUIRED; 直播流使用的域名。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看直播流使用的域名。
+	Domain string `json:"Domain"`
 
 	// REQUIRED; 鉴权场景类型，取值及含义如下所示。
 	// * push：推流鉴权；
 	// * pull：拉流鉴权。
 	SceneType string `json:"SceneType"`
 
-	// 应用名称，取值与直播流地址中 AppName 字段取值相同，默认为空，表示所有应用名称。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（_）、短横线（-）和句点（.）组成，长度为 1 到 30 个字符。
-	App *string `json:"App,omitempty"`
-
-	// 直播流使用的域名。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看直播流使用的域名。
-	// :::tip 参数 Domain 和 Vhost 传且仅传一个。 :::
-	Domain *string `json:"Domain,omitempty"`
-
 	// 是否开启 URL 地址鉴权，取值及含义如下所示。
 	// * false：关闭（默认值）；
 	// * true：开启。
 	PushPullEnable *bool `json:"PushPullEnable,omitempty"`
 
-	// 鉴权生效时长，单位为秒，默认值为 604800，取值范围为 [60,2592000]，超出生效时长后 URL 无法使用。
-	ValidDuration *int32 `json:"ValidDuration,omitempty"`
+	// 时间戳进制。默认值为 10，但当 AuthType 取值为 TypeC 时，默认值为 16。取值如下：
+	// * 2：二进制
+	// * 8：八进制
+	// * 10：十进制
+	// * 16：十六进制
+	// :::tipSceneType 取值为 push 时，该参数取值固定为 10。 :::
+	TimeStampBase *int32 `json:"TimeStampBase,omitempty"`
 
-	// 域名空间，即直播流地址的域名所属的域名空间。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看需要查询的直播流使用的域名所属的域名空间。
-	// :::tip 参数
-	// Domain 和 Vhost 传且仅传一个。 :::
-	Vhost *string `json:"Vhost,omitempty"`
+	// 鉴权生效时长，单位为秒，默认值为 0，取值范围为 [0,2592000]，超出生效时长后 URL 无法使用。
+	ValidDuration *int32 `json:"ValidDuration,omitempty"`
 }
 
 type UpdateAuthKeyBodyAuthDetailListItem struct {
+
+	// REQUIRED; 推/拉流鉴权时必选
+	AuthType string `json:"AuthType"`
 
 	// REQUIRED; 推/拉流鉴权时必选
 	EncryptionAlgorithm string `json:"EncryptionAlgorithm"`
