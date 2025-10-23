@@ -366,7 +366,7 @@ var (
 			Path:   "/",
 			Query: url.Values{
 				"Action":  []string{"CreateSpace"},
-				"Version": []string{"2023-07-01"},
+				"Version": []string{"2023-01-01"},
 			},
 		},
 		"ListSpace": {
