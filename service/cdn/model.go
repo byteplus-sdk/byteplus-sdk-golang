@@ -123,6 +123,22 @@ type AddCertificateResult struct {
 	CertId string
 }
 
+type AddSharedConfigRequest struct {
+	AllowIpAccessRule      *GlobalIPAccessRule      `json:",omitempty"`
+	AllowRefererAccessRule *GlobalRefererAccessRule `json:",omitempty"`
+	CommonMatchList        *CommonMatchList         `json:",omitempty"`
+	ConfigName             string
+	ConfigType             string
+	DenyIpAccessRule       *GlobalIPAccessRule      `json:",omitempty"`
+	DenyRefererAccessRule  *GlobalRefererAccessRule `json:",omitempty"`
+	ExpireMinutes          *int64                   `json:",omitempty"`
+	Project                *string                  `json:",omitempty"`
+}
+
+type AddSharedConfigResponse struct {
+	ResponseMetadata *ResponseMetadata `json:",omitempty"`
+}
+
 type AddTemplateDomainRequest struct {
 	CertId            *string `json:",omitempty"`
 	CipherTemplateId  *string `json:",omitempty"`
@@ -404,10 +420,11 @@ type CacheKeyRule struct {
 }
 
 type CdnTemplate struct {
-	Exception  bool
-	TemplateId string
-	Title      string
-	Type       string
+	Exception   bool
+	ProdVersion string
+	TemplateId  string
+	Title       string
+	Type        string
 }
 
 type CdnTemplateDomain struct {
@@ -636,6 +653,21 @@ type CreateServiceTemplateResponse struct {
 
 type CreateServiceTemplateResult struct {
 	TemplateId string
+}
+
+type CreateTemplateVersionRequest struct {
+	Message         *string `json:",omitempty"`
+	ReferredVersion *string `json:",omitempty"`
+	TemplateId      string
+}
+
+type CreateTemplateVersionResponse struct {
+	ResponseMetadata *ResponseMetadata `json:",omitempty"`
+	Result           CreateTemplateVersionResult
+}
+
+type CreateTemplateVersionResult struct {
+	Version string
 }
 
 type CreateUsageReportRequest struct {
@@ -929,6 +961,19 @@ type DescribeCdnDataResult struct {
 	Resources []NrtDataResource
 }
 
+type DescribeCdnIPRequest struct {
+	IPs []string
+}
+
+type DescribeCdnIPResponse struct {
+	ResponseMetadata *ResponseMetadata `json:",omitempty"`
+	Result           DescribeCdnIPResult
+}
+
+type DescribeCdnIPResult struct {
+	IPs []IPInfo
+}
+
 type DescribeCdnOriginDataRequest struct {
 	Aggregate           *string `json:",omitempty"`
 	BillingRegion       *string `json:",omitempty"`
@@ -1205,6 +1250,20 @@ type DescribeDistrictSummaryResponse struct {
 
 type DescribeDistrictSummaryResult struct {
 	MetricDataList []MetricSummaryData
+}
+
+type DescribeDomainSharedRequest struct {
+	ConfigName *string `json:",omitempty"`
+}
+
+type DescribeDomainSharedResponse struct {
+	ResponseMetadata *ResponseMetadata `json:",omitempty"`
+	Result           DescribeDomainSharedResult
+}
+
+type DescribeDomainSharedResult struct {
+	ConfigName string
+	Domain     []string
 }
 
 type DescribeEdgeDataRequest struct {
@@ -1743,6 +1802,22 @@ type DescribeTemplateDomainsResult struct {
 	TotalCount int64
 }
 
+type DescribeTemplateReleaseVersionsRequest struct {
+	Filters    []Filter
+	SortRule   *SortRule `json:",omitempty"`
+	TemplateId string
+}
+
+type DescribeTemplateReleaseVersionsResponse struct {
+	ResponseMetadata *ResponseMetadata `json:",omitempty"`
+	Result           DescribeTemplateReleaseVersionsResult
+}
+
+type DescribeTemplateReleaseVersionsResult struct {
+	Total    int64
+	Versions []TemplateReleaseVersion
+}
+
 type DescribeTemplatesRequest struct {
 	Filters  []Filter
 	PageNum  *int64 `json:",omitempty"`
@@ -2218,6 +2293,16 @@ type ListCertInfoResult struct {
 	PageNum       int64
 	PageSize      int64
 	Total         int64
+}
+
+type ListResourceTagsResponse struct {
+	ResponseMetadata *ResponseMetadata `json:",omitempty"`
+	Result           ListResourceTagsResult
+}
+
+type ListResourceTagsResult struct {
+	ResourceTags []ResourceTag
+	SystemTags   []ResourceTag
 }
 
 type ListSharedConfigRequest struct {
@@ -2885,6 +2970,16 @@ type TargetQueryComponents struct {
 
 type TemplateCertInfo struct {
 	CertId string
+	Source string
+}
+
+type TemplateReleaseVersion struct {
+	CreateTime  int64
+	Env         string
+	Message     string
+	ReleaseTime int64
+	Status      string
+	Version     string
 }
 
 type Timeout struct {

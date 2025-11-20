@@ -363,6 +363,17 @@ func (s *CDN) DescribeCdnUpperIp(dto *DescribeCdnUpperIpRequest) (responseBody *
 	return
 }
 
+func (s *CDN) ListResourceTags() (responseBody *ListResourceTagsResponse, err error) {
+	responseBody = new(ListResourceTagsResponse)
+	if err = s.post("ListResourceTags", nil, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
 func (s *CDN) AddCdnCertificate(dto *AddCdnCertificateRequest) (responseBody *AddCdnCertificateResponse, err error) {
 	responseBody = new(AddCdnCertificateResponse)
 	if err = s.post("AddCdnCertificate", dto, responseBody); err != nil {
@@ -575,6 +586,50 @@ func (s *CDN) UpdateTemplateDomain(dto *UpdateTemplateDomainRequest) (responseBo
 func (s *CDN) CreateServiceTemplate(dto *CreateServiceTemplateRequest) (responseBody *CreateServiceTemplateResponse, err error) {
 	responseBody = new(CreateServiceTemplateResponse)
 	if err = s.post("CreateServiceTemplate", dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) CreateTemplateVersion(dto *CreateTemplateVersionRequest) (responseBody *CreateTemplateVersionResponse, err error) {
+	responseBody = new(CreateTemplateVersionResponse)
+	if err = s.post("CreateTemplateVersion", dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) DescribeTemplateReleaseVersions(dto *DescribeTemplateReleaseVersionsRequest) (responseBody *DescribeTemplateReleaseVersionsResponse, err error) {
+	responseBody = new(DescribeTemplateReleaseVersionsResponse)
+	if err = s.post("DescribeTemplateReleaseVersions", dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) DescribeDomainShared(dto *DescribeDomainSharedRequest) (responseBody *DescribeDomainSharedResponse, err error) {
+	responseBody = new(DescribeDomainSharedResponse)
+	if err = s.post("DescribeDomainShared", dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) DescribeCdnIP(dto *DescribeCdnIPRequest) (responseBody *DescribeCdnIPResponse, err error) {
+	responseBody = new(DescribeCdnIPResponse)
+	if err = s.post("DescribeCdnIP", dto, responseBody); err != nil {
 		return
 	}
 	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
@@ -817,6 +872,17 @@ func (s *CDN) DeleteSharedConfig(dto *DeleteSharedConfigRequest) (responseBody *
 func (s *CDN) UpdateSharedConfig(dto *UpdateSharedConfigRequest) (responseBody *UpdateSharedConfigResponse, err error) {
 	responseBody = new(UpdateSharedConfigResponse)
 	if err = s.post("UpdateSharedConfig", dto, responseBody); err != nil {
+		return
+	}
+	if err = validateResponse(responseBody.ResponseMetadata); err != nil {
+		return
+	}
+	return
+}
+
+func (s *CDN) AddSharedConfig(dto *AddSharedConfigRequest) (responseBody *AddSharedConfigResponse, err error) {
+	responseBody = new(AddSharedConfigResponse)
+	if err = s.post("AddSharedConfig", dto, responseBody); err != nil {
 		return
 	}
 	if err = validateResponse(responseBody.ResponseMetadata); err != nil {

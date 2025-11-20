@@ -271,6 +271,14 @@ var ApiInfoList = map[string]*base.ApiInfo{
 			"Version": []string{ServiceVersion},
 		},
 	},
+	"ListResourceTags": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"ListResourceTags"},
+			"Version": []string{ServiceVersion},
+		},
+	},
 	"AddCdnCertificate": {
 		Method: http.MethodPost,
 		Path:   "/",
@@ -428,6 +436,38 @@ var ApiInfoList = map[string]*base.ApiInfo{
 		Path:   "/",
 		Query: url.Values{
 			"Action":  []string{"CreateServiceTemplate"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"CreateTemplateVersion": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"CreateTemplateVersion"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"DescribeTemplateReleaseVersions": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"DescribeTemplateReleaseVersions"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"DescribeDomainShared": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"DescribeDomainShared"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"DescribeCdnIP": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"DescribeCdnIP"},
 			"Version": []string{ServiceVersion},
 		},
 	},
@@ -604,6 +644,14 @@ var ApiInfoList = map[string]*base.ApiInfo{
 		Path:   "/",
 		Query: url.Values{
 			"Action":  []string{"UpdateSharedConfig"},
+			"Version": []string{ServiceVersion},
+		},
+	},
+	"AddSharedConfig": {
+		Method: http.MethodPost,
+		Path:   "/",
+		Query: url.Values{
+			"Action":  []string{"AddSharedConfig"},
 			"Version": []string{ServiceVersion},
 		},
 	},
