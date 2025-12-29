@@ -332,6 +332,8 @@ type ComponentsKovkk9SchemasListvhostrecordpresetv2ResPropertiesResultProperties
 	VodNamespace *string `json:"VodNamespace,omitempty"`
 
 	WorkflowID *string `json:"WorkflowID,omitempty"`
+
+	VodRegion *string `json:"VodRegion,omitempty"`
 }
 
 // ComponentsKqy98ZSchemasListvhostrecordpresetv2ResPropertiesResultPropertiesPresetlistItemsPropertiesSlicepresetv2PropertiesRecordpresetconfigPropertiesMp4Param
@@ -374,6 +376,8 @@ type ComponentsQms0JiSchemasListvhostrecordpresetv2ResPropertiesResultProperties
 	VodNamespace *string `json:"VodNamespace,omitempty"`
 
 	WorkflowID *string `json:"WorkflowID,omitempty"`
+
+	VodRegion *string `json:"VodRegion,omitempty"`
 }
 
 // ComponentsS0Ofr3SchemasListvhostrecordpresetv2ResPropertiesResultPropertiesPresetlistItemsPropertiesSlicepresetv2PropertiesRecordpresetconfigPropertiesHlsparamPropertiesVodparam
@@ -392,6 +396,8 @@ type ComponentsS0Ofr3SchemasListvhostrecordpresetv2ResPropertiesResultProperties
 	VodNamespace *string `json:"VodNamespace,omitempty"`
 
 	WorkflowID *string `json:"WorkflowID,omitempty"`
+
+	VodRegion *string `json:"VodRegion,omitempty"`
 }
 
 // ComponentsTmguxbSchemasListvhostremoteauthresPropertiesResultPropertiesRemoteauthconfiglistItemsPropertiesCacheconfigPropertiesCachekeys
@@ -1391,6 +1397,11 @@ type CreateRecordPresetV2BodyRecordPresetConfigFlvParamVODParam struct {
 	// 为必填。 :::
 	VodNamespace *string `json:"VodNamespace,omitempty"`
 
+	// If VOD storage is used, the VodRegion param must be filled in. 如果使用vod 存储，该参数必填
+	// 可选值: ap-singapore-1, means Asia Pacific (Singapore)
+	// 可选值: ap-southeast-1, means Asia Pacific (Johor)
+	VodRegion *string `json:"VodRegion,omitempty"`
+
 	// 视频点播工作流模板 ID，对于存储在点播的录制文件，会使用该工作流模版对录制的视频进行处理，可登录视频点播控制台 [https://console.volcengine.com/vod/]获取工作流模板 ID，默认为空。
 	WorkflowID *string `json:"WorkflowID,omitempty"`
 }
@@ -1473,6 +1484,11 @@ type CreateRecordPresetV2BodyRecordPresetConfigHlsParamVODParam struct {
 	// :::
 	VodNamespace *string `json:"VodNamespace,omitempty"`
 
+	// If VOD storage is used, the VodRegion param must be filled in. 如果使用vod 存储，该参数必填
+	// 可选值: ap-singapore-1, means Asia Pacific (Singapore)
+	// 可选值: ap-southeast-1, means Asia Pacific (Johor)
+	VodRegion *string `json:"VodRegion,omitempty"`
+
 	// 工作流模版 ID，对于存储在点播的录制文件，会使用该工作流模版对视频进行处理。可登录视频点播控制台 [https://console.volcengine.com/vod/]获取 ID
 	WorkflowID *string `json:"WorkflowID,omitempty"`
 }
@@ -1554,6 +1570,11 @@ type CreateRecordPresetV2BodyRecordPresetConfigMp4ParamVODParam struct {
 	// 视频点播（VOD）空间名称。可登录视频点播控制台 [https://console.volcengine.com/vod/]查询 :::tip 如果 VODParam 中的 Enable 取值为 true，则 VodNamespace 必填。
 	// :::
 	VodNamespace *string `json:"VodNamespace,omitempty"`
+
+	// If VOD storage is used, the VodRegion param must be filled in. 如果使用vod 存储，该参数必填
+	// 可选值: ap-singapore-1, means Asia Pacific (Singapore)
+	// 可选值: ap-southeast-1, means Asia Pacific (Johor)
+	VodRegion *string `json:"VodRegion,omitempty"`
 
 	// 工作流模版 ID，对于存储在点播的录制文件，会使用该工作流模版对视频进行处理。可登录视频点播控制台 [https://console.volcengine.com/vod/]获取 ID
 	WorkflowID *string `json:"WorkflowID,omitempty"`
@@ -12439,7 +12460,7 @@ type ListVhostRecordPresetV2ResResultPresetListItem struct {
 type ListVhostRecordPresetV2ResResultPresetListItemSlicePresetV2 struct {
 
 	// 录制配置 ID。
-	ID *int32 `json:"ID,omitempty"`
+	ID *int64 `json:"ID,omitempty"`
 
 	// 录制配置名称。
 	Name *string `json:"Name,omitempty"`
@@ -13343,7 +13364,7 @@ type ListVhostWatermarkPresetResResultWatermarkPresetListItem struct {
 	App *string `json:"App,omitempty"`
 
 	// 水印模版 ID。
-	ID *int32 `json:"ID,omitempty"`
+	ID *int64 `json:"ID,omitempty"`
 
 	// 需要添加水印的直播画面方向。
 	// * vertical：竖屏；
@@ -13448,7 +13469,7 @@ type ListWatermarkPresetResResultPreset struct {
 	App *string `json:"App,omitempty"`
 
 	// 水印配置的 ID。
-	ID *int32 `json:"ID,omitempty"`
+	ID *int64 `json:"ID,omitempty"`
 
 	// 需要添加水印的直播画面方向。
 	// * vertical：竖屏；
@@ -15031,6 +15052,11 @@ type UpdateRecordPresetV2BodyRecordPresetConfigFlvParamVODParam struct {
 	// 为必填。 :::
 	VodNamespace *string `json:"VodNamespace,omitempty"`
 
+	// If VOD storage is used, the VodRegion param must be filled in. 如果使用vod 存储，该参数必填
+	// 可选值: ap-singapore-1, means Asia Pacific (Singapore)
+	// 可选值: ap-southeast-1, means Asia Pacific (Johor)
+	VodRegion *string `json:"VodRegion,omitempty"`
+
 	// 视频点播工作流模板 ID，对于存储在点播的录制文件，会使用该工作流模版对录制的视频进行处理，可登录视频点播控制台 [https://console.volcengine.com/vod/]获取工作流模板 ID，默认为空。
 	WorkflowID *string `json:"WorkflowID,omitempty"`
 }
@@ -15112,6 +15138,11 @@ type UpdateRecordPresetV2BodyRecordPresetConfigHlsParamVODParam struct {
 	// 视频点播（VOD）空间名称。可登录视频点播控制台 [https://console.volcengine.com/vod/]查询。 :::tip 如果 VODParam 中的 Enable 取值为 true，则 VodNamespace
 	// 必填。 :::
 	VodNamespace *string `json:"VodNamespace,omitempty"`
+
+	// If VOD storage is used, the VodRegion param must be filled in. 如果使用vod 存储，该参数必填
+	// 可选值: ap-singapore-1, means Asia Pacific (Singapore)
+	// 可选值: ap-southeast-1, means Asia Pacific (Johor)
+	VodRegion *string `json:"VodRegion,omitempty"`
 
 	// 工作流模版 ID，对于存储在点播的录制文件，会使用该工作流模版对视频进行处理。可登录视频点播控制台 [https://console.volcengine.com/vod/]获取 ID。
 	WorkflowID *string `json:"WorkflowID,omitempty"`
@@ -15195,6 +15226,11 @@ type UpdateRecordPresetV2BodyRecordPresetConfigMp4ParamVODParam struct {
 	// 视频点播（VOD）空间名称。可登录视频点播控制台 [https://console.volcengine.com/vod/]查询。 :::tip 如果 VODParam 中的 Enable 取值为 true，则 VodNamespace
 	// 必填。 :::
 	VodNamespace *string `json:"VodNamespace,omitempty"`
+
+	// If VOD storage is used, the VodRegion param must be filled in. 如果使用vod 存储，该参数必填
+	// 可选值: ap-singapore-1, means Asia Pacific (Singapore)
+	// 可选值: ap-southeast-1, means Asia Pacific (Johor)
+	VodRegion *string `json:"VodRegion,omitempty"`
 
 	// 工作流模版 ID，对于存储在点播的录制文件，会使用该工作流模版对视频进行处理。可登录视频点播控制台 [https://console.volcengine.com/vod/]获取 ID。
 	WorkflowID *string `json:"WorkflowID,omitempty"`
