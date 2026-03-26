@@ -76,7 +76,9 @@ type AddCdnDomainRequest struct {
 	OriginSni            *OriginSni          `json:",omitempty"`
 	PageOptimization     *PageOptimization   `json:",omitempty"`
 	Project              *string             `json:",omitempty"`
+	ProxyProtocol        *ProxyProtocol      `json:",omitempty"`
 	Quic                 *Quic               `json:",omitempty"`
+	Range                *OriginRangeV2      `json:",omitempty"`
 	RedirectionRewrite   *RedirectionRewrite `json:",omitempty"`
 	RefererAccessRule    *RefererAccessRule  `json:",omitempty"`
 	RemoteAuth           *RemoteAuth         `json:",omitempty"`
@@ -317,7 +319,9 @@ type BatchUpdateCdnConfigRequest struct {
 	OriginRewrite        *OriginRewrite      `json:",omitempty"`
 	OriginSni            *OriginSni          `json:",omitempty"`
 	PageOptimization     *PageOptimization   `json:",omitempty"`
+	ProxyProtocol        *ProxyProtocol      `json:",omitempty"`
 	Quic                 *Quic               `json:",omitempty"`
+	Range                *OriginRangeV2      `json:",omitempty"`
 	RedirectionRewrite   *RedirectionRewrite `json:",omitempty"`
 	RefererAccessRule    *RefererAccessRule  `json:",omitempty"`
 	RemoteAuth           *RemoteAuth         `json:",omitempty"`
@@ -631,6 +635,8 @@ type CreateServiceTemplateRequest struct {
 	OriginSni           *OriginSni          `json:",omitempty"`
 	PageOptimization    *PageOptimization   `json:",omitempty"`
 	Project             *string             `json:",omitempty"`
+	ProxyProtocol       *ProxyProtocol      `json:",omitempty"`
+	Range               *OriginRangeV2      `json:",omitempty"`
 	RedirectionRewrite  *RedirectionRewrite `json:",omitempty"`
 	RefererAccessRule   *RefererAccessRule  `json:",omitempty"`
 	RemoteAuth          *RemoteAuth         `json:",omitempty"`
@@ -1722,6 +1728,8 @@ type DescribeServiceTemplateResult struct {
 	PageOptimization    *PageOptimization   `json:",omitempty"`
 	ProdVersion         *string             `json:",omitempty"`
 	Project             *string             `json:",omitempty"`
+	ProxyProtocol       *ProxyProtocol      `json:",omitempty"`
+	Range               *OriginRangeV2      `json:",omitempty"`
 	RedirectionRewrite  *RedirectionRewrite `json:",omitempty"`
 	RefererAccessRule   *RefererAccessRule  `json:",omitempty"`
 	RemoteAuth          *RemoteAuth         `json:",omitempty"`
@@ -1905,7 +1913,9 @@ type DomainConfig struct {
 	OriginSni            OriginSni
 	PageOptimization     PageOptimization
 	Project              string
+	ProxyProtocol        ProxyProtocol
 	Quic                 Quic
+	Range                OriginRangeV2
 	RedirectionRewrite   RedirectionRewrite
 	RefererAccessRule    RefererAccessRule
 	RemoteAuth           RemoteAuth
@@ -2468,6 +2478,12 @@ type OriginLine struct {
 	Weight              *string            `json:",omitempty"`
 }
 
+type OriginRangeV2 struct {
+	RangeSize *int64  `json:",omitempty"`
+	Switch    *bool   `json:",omitempty"`
+	Unit      *string `json:",omitempty"`
+}
+
 type OriginResponseHeader struct {
 	OriginResponseHeaderAction *OriginResponseHeaderAction `json:",omitempty"`
 }
@@ -2542,6 +2558,10 @@ type PrivateBucketAuth struct {
 	AuthType           *string             `json:",omitempty"`
 	Switch             *bool               `json:",omitempty"`
 	TosAuthInformation *TosAuthInformation `json:",omitempty"`
+}
+
+type ProxyProtocol struct {
+	Switch *bool `json:",omitempty"`
 }
 
 type QueryStringComponents struct {
@@ -3118,7 +3138,9 @@ type UpdateCdnConfigRequest struct {
 	OriginRewrite        *OriginRewrite      `json:",omitempty"`
 	OriginSni            *OriginSni          `json:",omitempty"`
 	PageOptimization     *PageOptimization   `json:",omitempty"`
+	ProxyProtocol        *ProxyProtocol      `json:",omitempty"`
 	Quic                 *Quic               `json:",omitempty"`
+	Range                *OriginRangeV2      `json:",omitempty"`
 	RedirectionRewrite   *RedirectionRewrite `json:",omitempty"`
 	RefererAccessRule    *RefererAccessRule  `json:",omitempty"`
 	RemoteAuth           *RemoteAuth         `json:",omitempty"`
@@ -3199,6 +3221,8 @@ type UpdateServiceTemplateRequest struct {
 	OriginRewrite       *OriginRewrite      `json:",omitempty"`
 	OriginSni           *OriginSni          `json:",omitempty"`
 	PageOptimization    *PageOptimization   `json:",omitempty"`
+	ProxyProtocol       *ProxyProtocol      `json:",omitempty"`
+	Range               *OriginRangeV2      `json:",omitempty"`
 	RedirectionRewrite  *RedirectionRewrite `json:",omitempty"`
 	RefererAccessRule   *RefererAccessRule  `json:",omitempty"`
 	RemoteAuth          *RemoteAuth         `json:",omitempty"`
