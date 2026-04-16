@@ -235,6 +235,27 @@ func Test_ListCdnTopAccessUrl(t *testing.T) {
 	fmt.Println(resp.String())
 }
 
+func Test_ListCdnTopAccess(t *testing.T) {
+	instance := vod.NewInstance()
+	instance.SetCredential(base.Credentials{
+		AccessKeyID:     "your ak",
+		SecretAccessKey: "your sk",
+	})
+
+	query := &request.VodListCdnTopAccessRequest{
+		Domains:        "your Domains",
+		StartTimestamp: 0,
+		EndTimestamp:   0,
+		SortType:       "your SortType",
+		Item:           "your Item",
+	}
+
+	resp, status, err := instance.ListCdnTopAccess(query)
+	fmt.Println(status)
+	fmt.Println(err)
+	fmt.Println(resp.String())
+}
+
 func Test_DescribeVodDomainBandwidthData(t *testing.T) {
 	instance := vod.NewInstance()
 	instance.SetCredential(base.Credentials{
@@ -272,6 +293,13 @@ func Test_ListCdnUsageData(t *testing.T) {
 		DataType:       "your DataType",
 		Metric:         "your Metric",
 		NeedDetail:     false,
+		Area:           "your Area",
+		Region:         "your Region",
+		Isp:            "your Isp",
+		Protocol:       "your Protocol",
+		IpVersion:      "your IpVersion",
+		BillingRegion:  "your BillingRegion",
+		TimeZone:       "your TimeZone",
 	}
 
 	resp, status, err := instance.ListCdnUsageData(query)
@@ -295,6 +323,7 @@ func Test_ListCdnStatusData(t *testing.T) {
 		DataType:       "your DataType",
 		Metric:         "your Metric",
 		NeedDetail:     false,
+		TimeZone:       "your TimeZone",
 	}
 
 	resp, status, err := instance.ListCdnStatusData(query)
@@ -355,6 +384,7 @@ func Test_ListCdnPvData(t *testing.T) {
 		EndTimestamp:   0,
 		DataType:       "your DataType",
 		NeedDetail:     false,
+		TimeZone:       "your TimeZone",
 	}
 
 	resp, status, err := instance.ListCdnPvData(query)
@@ -379,6 +409,8 @@ func Test_CreateDomain(t *testing.T) {
 		Origins:                  "your Origins",
 		Area:                     "your Area",
 		BucketName:               "your BucketName",
+		Origin:                   nil,
+		Host:                     "your Host",
 	}
 
 	resp, status, err := instance.CreateDomain(query)
