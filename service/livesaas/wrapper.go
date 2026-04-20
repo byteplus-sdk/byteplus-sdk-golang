@@ -99,3 +99,12 @@ func (p *LIVESAAS) ListActivityFeedInfosAPI(query url.Values) (*ListActivityFeed
 	}
 	return resp, statesCode, nil
 }
+
+func (p *LIVESAAS) GetStreamsAPI(query url.Values) (*GetStreamsResponse, int, error) {
+	resp := new(GetStreamsResponse)
+	statesCode, err := p.commonHandler("GetStreamsAPI", query, resp)
+	if err != nil {
+		return nil, statesCode, err
+	}
+	return resp, statesCode, nil
+}
