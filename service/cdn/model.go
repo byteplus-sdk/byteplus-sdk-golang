@@ -551,21 +551,23 @@ type ConfiguredDomain struct {
 }
 
 type ContentTask struct {
-	Area          string
-	CreateTime    int64
-	Delete        bool
-	Isp           string
-	Layer         string
-	Process       string
-	RefreshPrefix bool
-	Region        string
-	Remark        string
-	Status        string
-	StatusCode    int64
-	SubArea       string
-	TaskID        string
-	TaskType      string
-	Url           string
+	Area                   string
+	CacheShared            bool
+	CreateTime             int64
+	Delete                 bool
+	Isp                    string
+	Layer                  string
+	Process                string
+	RefreshPrefix          bool
+	Region                 string
+	Remark                 string
+	RequestHeaderInstances []PreloadHeader
+	Status                 string
+	StatusCode             int64
+	SubArea                string
+	TaskID                 string
+	TaskType               string
+	Url                    string
 }
 
 type CreateCipherTemplateRequest struct {
@@ -2942,11 +2944,13 @@ type SubmitPreloadTaskResult struct {
 }
 
 type SubmitRefreshTaskRequest struct {
-	Delete  *bool   `json:",omitempty"`
-	Prefix  *bool   `json:",omitempty"`
-	Type    *string `json:",omitempty"`
-	UrlList []string
-	Urls    string
+	CacheShared            *bool `json:",omitempty"`
+	Delete                 *bool `json:",omitempty"`
+	Prefix                 *bool `json:",omitempty"`
+	RequestHeaderInstances []PreloadHeader
+	Type                   *string `json:",omitempty"`
+	UrlList                []string
+	Urls                   string
 }
 
 type SubmitRefreshTaskResponse struct {
