@@ -88,6 +88,7 @@ type AddCdnDomainRequest struct {
 	ResponseHeader       []ResponseHeaderRule
 	RewriteHLS           *RewriteHLS          `json:",omitempty"`
 	RuleEngine           *RuleEngine          `json:",omitempty"`
+	ServerSentEvent      *ServerSentEvent     `json:",omitempty"`
 	ServiceRegion        *string              `json:",omitempty"`
 	ServiceType          *string              `json:",omitempty"`
 	SignedUrlAuth        *SignedUrlAuth       `json:",omitempty"`
@@ -330,6 +331,7 @@ type BatchUpdateCdnConfigRequest struct {
 	ResponseHeader       []ResponseHeaderRule
 	RewriteHLS           *RewriteHLS          `json:",omitempty"`
 	RuleEngine           *RuleEngine          `json:",omitempty"`
+	ServerSentEvent      *ServerSentEvent     `json:",omitempty"`
 	ServiceRegion        *string              `json:",omitempty"`
 	ServiceType          *string              `json:",omitempty"`
 	SignedUrlAuth        *SignedUrlAuth       `json:",omitempty"`
@@ -382,10 +384,11 @@ type BrowserCacheControlRule struct {
 }
 
 type CacheAction struct {
-	Action        *string `json:",omitempty"`
-	DefaultPolicy *string `json:",omitempty"`
-	IgnoreCase    *bool   `json:",omitempty"`
-	Ttl           *int64  `json:",omitempty"`
+	Action           *string `json:",omitempty"`
+	DefaultPolicy    *string `json:",omitempty"`
+	IgnoreCase       *bool   `json:",omitempty"`
+	SetCookieNoCache *bool   `json:",omitempty"`
+	Ttl              *int64  `json:",omitempty"`
 }
 
 type CacheControlRule struct {
@@ -492,9 +495,10 @@ type CommonMatchList struct {
 }
 
 type CommonReferType struct {
-	IgnoreCase   *bool `json:",omitempty"`
-	IgnoreScheme *bool `json:",omitempty"`
-	Referers     []string
+	ContMainDomain *bool `json:",omitempty"`
+	IgnoreCase     *bool `json:",omitempty"`
+	IgnoreScheme   *bool `json:",omitempty"`
+	Referers       []string
 }
 
 type Compression struct {
@@ -521,11 +525,12 @@ type Condition struct {
 }
 
 type ConditionRule struct {
-	Name     *string `json:",omitempty"`
-	Object   *string `json:",omitempty"`
-	Operator *string `json:",omitempty"`
-	Type     *string `json:",omitempty"`
-	Value    *string `json:",omitempty"`
+	IgnoreCase *bool   `json:",omitempty"`
+	Name       *string `json:",omitempty"`
+	Object     *string `json:",omitempty"`
+	Operator   *string `json:",omitempty"`
+	Type       *string `json:",omitempty"`
+	Value      *string `json:",omitempty"`
 }
 
 type ConditionalOrigin struct {
@@ -543,6 +548,8 @@ type ConditionalOriginLine struct {
 	HttpsPort    *string `json:",omitempty"`
 	InstanceType *string `json:",omitempty"`
 	OriginHost   *string `json:",omitempty"`
+	OriginType   *string `json:",omitempty"`
+	Weight       *string `json:",omitempty"`
 }
 
 type ConfiguredDomain struct {
@@ -645,9 +652,10 @@ type CreateServiceTemplateRequest struct {
 	RequestBlockRule    *RequestBlockRule   `json:",omitempty"`
 	RequestHeader       []RequestHeaderRule
 	ResponseHeader      []ResponseHeaderRule
-	RewriteHLS          *RewriteHLS    `json:",omitempty"`
-	SignedUrlAuth       *SignedUrlAuth `json:",omitempty"`
-	Timeout             *Timeout       `json:",omitempty"`
+	RewriteHLS          *RewriteHLS      `json:",omitempty"`
+	ServerSentEvent     *ServerSentEvent `json:",omitempty"`
+	SignedUrlAuth       *SignedUrlAuth   `json:",omitempty"`
+	Timeout             *Timeout         `json:",omitempty"`
 	Title               string
 	UaAccessRule        *UserAgentAccessRule `json:",omitempty"`
 	VideoDrag           *VideoDrag           `json:",omitempty"`
@@ -809,6 +817,7 @@ type DeleteSharedConfigResponse struct {
 }
 
 type DeleteTemplateRequest struct {
+	Disaggregate    *bool `json:",omitempty"`
 	TemplateId      string
 	TemplateVersion *string `json:",omitempty"`
 }
@@ -1080,6 +1089,7 @@ type DescribeCipherTemplateResponse struct {
 type DescribeCipherTemplateResult struct {
 	BoundDomains       []BoundDomain
 	CreateTime         int64
+	DomainCount        int64
 	Exception          bool
 	HTTPS              HTTPSCommon
 	HttpForcedRedirect HttpForcedRedirect
@@ -1671,6 +1681,7 @@ type DescribeRuleEngineTemplateResponse struct {
 type DescribeRuleEngineTemplateResult struct {
 	BoundDomains []BoundDomain
 	CreateTime   int64
+	DomainCount  int64
 	Exception    bool
 	Message      string
 	ProdVersion  string
@@ -1706,6 +1717,7 @@ type DescribeServiceTemplateResult struct {
 	CreateTime          *int64               `json:",omitempty"`
 	CustomErrorPage     *CustomErrorPage     `json:",omitempty"`
 	CustomizeAccessRule *CustomizeAccessRule `json:",omitempty"`
+	DomainCount         *int64               `json:",omitempty"`
 	DownloadSpeedLimit  *DownloadSpeedLimit  `json:",omitempty"`
 	Exception           *bool                `json:",omitempty"`
 	FollowRedirect      *bool                `json:",omitempty"`
@@ -1739,6 +1751,7 @@ type DescribeServiceTemplateResult struct {
 	RequestHeader       []RequestHeaderRule
 	ResponseHeader      []ResponseHeaderRule
 	RewriteHLS          *RewriteHLS          `json:",omitempty"`
+	ServerSentEvent     *ServerSentEvent     `json:",omitempty"`
 	SignedUrlAuth       *SignedUrlAuth       `json:",omitempty"`
 	Status              *string              `json:",omitempty"`
 	TemplateId          *string              `json:",omitempty"`
@@ -1927,6 +1940,7 @@ type DomainConfig struct {
 	ResponseHeader       []ResponseHeaderRule
 	RewriteHLS           RewriteHLS
 	RuleEngine           RuleEngine
+	ServerSentEvent      ServerSentEvent
 	ServiceRegion        string
 	ServiceType          string
 	SignedUrlAuth        SignedUrlAuth
@@ -1995,6 +2009,7 @@ type DomainSummary struct {
 type DomainTemplateInfo struct {
 	BoundDomains []BoundDomain
 	CreateTime   int64
+	DomainCount  int64
 	Exception    bool
 	Message      string
 	ProdVersion  string
@@ -2012,6 +2027,9 @@ type DownloadSpeedLimit struct {
 }
 
 type DownloadSpeedLimitAction struct {
+	DynamicLimitUnit    *string         `json:",omitempty"`
+	LimitQueryName      *string         `json:",omitempty"`
+	LimitType           *string         `json:",omitempty"`
 	SpeedLimitRate      *int64          `json:",omitempty"`
 	SpeedLimitRateAfter *int64          `json:",omitempty"`
 	SpeedLimitTime      *SpeedLimitTime `json:",omitempty"`
@@ -2078,7 +2096,8 @@ type ExpireTimeRule struct {
 }
 
 type FeatureConfig struct {
-	OriginV2 bool
+	OriginV2   bool
+	RuleEngine bool
 }
 
 type Filter struct {
@@ -2102,8 +2121,9 @@ type GlobalErrorPageRule struct {
 }
 
 type GlobalIPAccessRule struct {
-	Option *string `json:",omitempty"`
-	Rules  []string
+	IpSource *IpSource `json:",omitempty"`
+	Option   *string   `json:",omitempty"`
+	Rules    []string
 }
 
 type GlobalRefererAccessRule struct {
@@ -2112,9 +2132,11 @@ type GlobalRefererAccessRule struct {
 }
 
 type GlobalRefererCommonType struct {
-	IgnoreCase *bool   `json:",omitempty"`
-	Option     *string `json:",omitempty"`
-	Rules      []string
+	ContMainDomain *bool   `json:",omitempty"`
+	IgnoreCase     *bool   `json:",omitempty"`
+	IgnoreScheme   *bool   `json:",omitempty"`
+	Option         *string `json:",omitempty"`
+	Rules          []string
 }
 
 type HTTPS struct {
@@ -2168,10 +2190,12 @@ type IPv6 struct {
 }
 
 type IpAccessRule struct {
-	Ip           []string
-	RuleType     *string             `json:",omitempty"`
-	SharedConfig *CommonGlobalConfig `json:",omitempty"`
-	Switch       *bool               `json:",omitempty"`
+	DenyStatusCode *int64 `json:",omitempty"`
+	Ip             []string
+	IpSource       *IpSource           `json:",omitempty"`
+	RuleType       *string             `json:",omitempty"`
+	SharedConfig   *CommonGlobalConfig `json:",omitempty"`
+	Switch         *bool               `json:",omitempty"`
 }
 
 type IpFreqLimit struct {
@@ -2188,6 +2212,11 @@ type IpFreqLimitAction struct {
 type IpFreqLimitRule struct {
 	Condition         *Condition         `json:",omitempty"`
 	IpFreqLimitAction *IpFreqLimitAction `json:",omitempty"`
+}
+
+type IpSource struct {
+	SourceList []string
+	Type       *string `json:",omitempty"`
 }
 
 type IpSpeedLimit struct {
@@ -2783,6 +2812,10 @@ type RuleEngine struct {
 	Switch *bool `json:",omitempty"`
 }
 
+type ServerSentEvent struct {
+	Switch *bool `json:",omitempty"`
+}
+
 type SharedConfig struct {
 	ConfigName  string
 	ConfigType  string
@@ -3153,6 +3186,7 @@ type UpdateCdnConfigRequest struct {
 	ResponseHeader       []ResponseHeaderRule
 	RewriteHLS           *RewriteHLS          `json:",omitempty"`
 	RuleEngine           *RuleEngine          `json:",omitempty"`
+	ServerSentEvent      *ServerSentEvent     `json:",omitempty"`
 	ServiceRegion        *string              `json:",omitempty"`
 	ServiceType          *string              `json:",omitempty"`
 	SignedUrlAuth        *SignedUrlAuth       `json:",omitempty"`
@@ -3233,8 +3267,9 @@ type UpdateServiceTemplateRequest struct {
 	RequestBlockRule    *RequestBlockRule   `json:",omitempty"`
 	RequestHeader       []RequestHeaderRule
 	ResponseHeader      []ResponseHeaderRule
-	RewriteHLS          *RewriteHLS    `json:",omitempty"`
-	SignedUrlAuth       *SignedUrlAuth `json:",omitempty"`
+	RewriteHLS          *RewriteHLS      `json:",omitempty"`
+	ServerSentEvent     *ServerSentEvent `json:",omitempty"`
+	SignedUrlAuth       *SignedUrlAuth   `json:",omitempty"`
 	TemplateId          string
 	TemplateVersion     *string              `json:",omitempty"`
 	Timeout             *Timeout             `json:",omitempty"`
