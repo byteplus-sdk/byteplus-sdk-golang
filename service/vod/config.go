@@ -138,6 +138,14 @@ var (
 				"Version": []string{"2023-01-01"},
 			},
 		},
+		"ParseUploadManifest": {
+			Method: http.MethodPost,
+			Path:   "/",
+			Query: url.Values{
+				"Action":  []string{"ParseUploadManifest"},
+				"Version": []string{"2023-01-01"},
+			},
+		},
 
 		// **********************************************************************
 		// 媒资

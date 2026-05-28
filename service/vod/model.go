@@ -1,6 +1,8 @@
 package vod
 
 import (
+	"io"
+
 	"github.com/byteplus-sdk/byteplus-sdk-golang/base"
 )
 
@@ -241,4 +243,34 @@ type DomainInfo struct {
 type ImgUrl struct {
 	MainUrl   string
 	BackupUrl string
+}
+
+type VodUploadMediaInnerFuncRequest struct {
+	FilePath             string
+	Rd                   io.Reader
+	Size                 int64
+	ParallelNum          int
+	SpaceName            string
+	FileType             string
+	CallbackArgs         string
+	Funcs                string
+	FileName             string
+	FileExtension        string
+	StorageClass         int32
+	VodUploadSource      string
+	ClientNetWorkMode    string
+	ClientIDCMode        string
+	ExpireTime           string
+	UploadHostPrefer     string
+	ChunkSize            int64
+	SupportParseManifest bool
+}
+
+type M3U8SegmentInfo struct {
+	FilePath string
+	FileName string
+}
+type M3U8ParseResult struct {
+	MainManifestPath string
+	Segments         []*M3U8SegmentInfo
 }
