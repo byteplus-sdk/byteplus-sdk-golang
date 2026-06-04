@@ -406,7 +406,6 @@ func Test_CreateDomain(t *testing.T) {
 		Domain:                   "your Domain",
 		SourceStationType:        0,
 		SourceStationAddressType: 0,
-		Origins:                  "your Origins",
 		Area:                     "your Area",
 		BucketName:               "your BucketName",
 		Origin:                   nil,
