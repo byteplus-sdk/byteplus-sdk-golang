@@ -28,3 +28,7 @@ Main account and privileged sub-account may create AK/SK pair:
 ```
 Above options will take precedence in sequence, Suggest use option 1 for better trouble shooting
 
+
+## Security and privacy
+This project takes security seriously.
+For vulnerability reporting and supported versions, see [SECURITY.md](SECURITY.md)
