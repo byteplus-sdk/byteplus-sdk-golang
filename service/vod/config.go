@@ -51,7 +51,7 @@ var (
 		base.RegionApSouthEast1: {
 			Timeout: 60 * time.Second,
 			Scheme:  "https",
-			Host:    "vod.byteplusapi.com",
+			Host:    "vod.ap-southeast-1.byteplusapi.com",
 			Header: http.Header{
 				"Accept": []string{"application/json"},
 			},
