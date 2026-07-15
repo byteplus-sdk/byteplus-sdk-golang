@@ -213,3 +213,25 @@ func TestLIVESAAS_ListActivityFeedInfosAPI(t *testing.T) {
 	// Print the response data
 	t.Logf("statusCode = %+v  msgInfo = %+v \n", statusCode, string(res))
 }
+
+func TestLIVESAAS_GetStreamsAPI(t *testing.T) {
+	livesaas.DefaultInstance.Client.SetAccessKey(testAk)
+	livesaas.DefaultInstance.Client.SetSecretKey(testSk)
+	livesaas.DefaultInstance.Client.SetTimeout(time.Second * 10)
+
+	// Print the request parameters
+	query := url.Values{}
+	query.Set("ActivityId", activity_id)
+
+	// Call the API operation to create a live-streaming activity with the serialized request parameters
+	resp, statusCode, err := livesaas.DefaultInstance.GetStreamsAPI(query)
+
+	// If an error occurs while calling the API operation, print the error
+	if err != nil {
+		t.Logf("error occur %v", err)
+	}
+	// Serialize the response data
+	res, _ := json.Marshal(resp)
+	// Print the response data
+	t.Logf("statusCode = %+v  msgInfo = %+v \n", statusCode, string(res))
+}
