@@ -245,6 +245,23 @@ type ImgUrl struct {
 	BackupUrl string
 }
 
+type VodUploadFuncRequest struct {
+	FilePath          string
+	Rd                io.Reader
+	Size              int64
+	ParallelNum       int
+	SpaceName         string
+	FileType          string
+	FileName          string
+	FileExtension     string
+	StorageClass      int32
+	ClientNetWorkMode string
+	ClientIDCMode     string
+	ExpireTime        string
+	UploadHostPrefer  string
+	ChunkSize         int64
+}
+
 type VodUploadMediaInnerFuncRequest struct {
 	FilePath             string
 	Rd                   io.Reader

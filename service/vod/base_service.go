@@ -279,6 +279,33 @@ func (p *Vod) UploadObjectWithCallback(filePath string, spaceName string, callba
 	}
 	return p.UploadMediaInner(file, stat.Size(), spaceName, "object", callbackArgs, funcs, fileName, fileExtension, "", 0)
 }
+
+func (p *Vod) UploadObjectWithCallbackV2(uploadReq *request.VodUploadObjectRequest) (*response.VodCommitUploadInfoResponse, int, error) {
+	file, err := os.Open(filepath.Clean(uploadReq.FilePath))
+	if err != nil {
+		return nil, -1, err
+	}
+	defer file.Close()
+	stat, err := file.Stat()
+	if err != nil {
+		return nil, -1, err
+	}
+
+	req := &VodUploadMediaInnerFuncRequest{
+		FilePath:         uploadReq.FilePath,
+		Rd:               file,
+		Size:             stat.Size(),
+		SpaceName:        uploadReq.SpaceName,
+		FileType:         "object",
+		CallbackArgs:     uploadReq.CallbackArgs,
+		Funcs:            uploadReq.Functions,
+		FileName:         uploadReq.FileName,
+		FileExtension:    uploadReq.FileExtension,
+		UploadHostPrefer: uploadReq.UploadHostPrefer,
+	}
+	return p.UploadMediaInnerV2(req)
+}
+
 func (p *Vod) CreateSha1HlsDrmAuthToken(expireSeconds int64) (auth string, err error) {
 	return p.createHlsDrmAuthToken(DSAHmacSha1, expireSeconds)
 }
@@ -323,8 +350,9 @@ func (p *Vod) UploadMediaWithCallback(mediaRequset *request.VodUploadMediaReques
 		FileName:             mediaRequset.GetFileName(),
 		FileExtension:        mediaRequset.GetFileExtension(),
 		VodUploadSource:      mediaRequset.GetVodUploadSource(),
-		StorageClass:         mediaRequset.StorageClass,
-		SupportParseManifest: mediaRequset.SupportParseManifest,
+		StorageClass:         mediaRequset.GetStorageClass(),
+		UploadHostPrefer:     mediaRequset.GetUploadHostPrefer(),
+		SupportParseManifest: mediaRequset.GetSupportParseManifest(),
 	}
 	return p.UploadMediaInnerV2(req)
 }
@@ -339,7 +367,20 @@ func (p *Vod) UploadMaterialWithCallback(materialRequest *request.VodUploadMater
 	if err != nil {
 		return nil, -1, err
 	}
-	return p.UploadMediaInner(file, stat.Size(), materialRequest.GetSpaceName(), materialRequest.GetFileType(), materialRequest.GetCallbackArgs(), materialRequest.GetFunctions(), materialRequest.GetFileName(), materialRequest.GetFileExtension(), "", 0)
+
+	req := &VodUploadMediaInnerFuncRequest{
+		FilePath:         materialRequest.FilePath,
+		Rd:               file,
+		Size:             stat.Size(),
+		SpaceName:        materialRequest.SpaceName,
+		FileType:         materialRequest.FileType,
+		CallbackArgs:     materialRequest.CallbackArgs,
+		Funcs:            materialRequest.Functions,
+		FileName:         materialRequest.FileName,
+		FileExtension:    materialRequest.FileExtension,
+		UploadHostPrefer: materialRequest.UploadHostPrefer,
+	}
+	return p.UploadMediaInnerV2(req)
 }
 
 func (p *Vod) parseM3U8Manifest(spaceName, manifestPath string) (*M3U8ParseResult, error) {
@@ -424,7 +465,17 @@ func (p *Vod) uploadM3U8Segments(uploadMediaInnerRequest *VodUploadMediaInnerFun
 }
 
 func (p *Vod) UploadMediaInner(rd io.Reader, size int64, spaceName string, fileType, callbackArgs string, funcs string, fileName, fileExtension, vodUploadSource string, storageClass int32) (*response.VodCommitUploadInfoResponse, int, error) {
-	logId, sessionKey, err, code := p.Upload(rd, size, spaceName, fileType, fileName, fileExtension, storageClass)
+	req := &VodUploadFuncRequest{
+		Rd:            rd,
+		Size:          size,
+		SpaceName:     spaceName,
+		FileType:      fileType,
+		FileName:      fileName,
+		FileExtension: fileExtension,
+		StorageClass:  storageClass,
+	}
+
+	logId, sessionKey, err, code := p.Upload(req)
 	if err != nil {
 		return p.fillCommitUploadInfoResponseWhenError(logId, err.Error()), code, err
 	}
@@ -469,7 +520,19 @@ func (p *Vod) UploadMediaInnerV2(uploadMediaInnerRequest *VodUploadMediaInnerFun
 			return tsResp, code, err
 		}
 	}
-	logId, sessionKey, err, code := p.Upload(uploadMediaInnerRequest.Rd, uploadMediaInnerRequest.Size, uploadMediaInnerRequest.SpaceName, uploadMediaInnerRequest.FileType, uploadMediaInnerRequest.FileName, uploadMediaInnerRequest.FileExtension, uploadMediaInnerRequest.StorageClass)
+
+	req := &VodUploadFuncRequest{
+		Rd:               uploadMediaInnerRequest.Rd,
+		Size:             uploadMediaInnerRequest.Size,
+		SpaceName:        uploadMediaInnerRequest.SpaceName,
+		FileType:         uploadMediaInnerRequest.FileType,
+		FileName:         uploadMediaInnerRequest.FileName,
+		FileExtension:    uploadMediaInnerRequest.FileExtension,
+		StorageClass:     uploadMediaInnerRequest.StorageClass,
+		UploadHostPrefer: uploadMediaInnerRequest.UploadHostPrefer,
+	}
+
+	logId, sessionKey, err, code := p.Upload(req)
 	if err != nil {
 		return p.fillCommitUploadInfoResponseWhenError(logId, err.Error()), code, err
 	}
@@ -527,12 +590,19 @@ func (p *Vod) fillCommitUploadInfoResponseWhenError(logId, errMsg string) *respo
 	return commitUploadInfoRespone
 }
 
-func (p *Vod) Upload(rd io.Reader, size int64, spaceName string, fileType string, fileName, fileExtension string, storageClass int32) (string, string, error, int) {
-	if size == 0 {
+func (p *Vod) Upload(vodUploadFuncRequest *VodUploadFuncRequest) (string, string, error, int) {
+	if vodUploadFuncRequest.Size == 0 {
 		return "", "", fmt.Errorf("file size is zero"), http.StatusBadRequest
 	}
 
-	applyRequest := &request.VodApplyUploadInfoRequest{SpaceName: spaceName, FileType: fileType, FileName: fileName, FileExtension: fileExtension, StorageClass: storageClass}
+	applyRequest := &request.VodApplyUploadInfoRequest{
+		SpaceName:        vodUploadFuncRequest.SpaceName,
+		FileType:         vodUploadFuncRequest.FileType,
+		FileName:         vodUploadFuncRequest.FileName,
+		FileExtension:    vodUploadFuncRequest.FileExtension,
+		StorageClass:     vodUploadFuncRequest.StorageClass,
+		UploadHostPrefer: vodUploadFuncRequest.UploadHostPrefer,
+	}
 
 	resp, code, err := p.ApplyUploadInfo(applyRequest)
 	logId := resp.GetResponseMetadata().GetRequestId()
@@ -559,12 +629,12 @@ func (p *Vod) Upload(rd io.Reader, size int64, spaceName string, fileType string
 		auth := uploadAddress.GetStoreInfos()[0].GetAuth()
 		client := &http.Client{}
 
-		if int(size) < consts.MinChunckSize {
-			bts, err := ioutil.ReadAll(rd)
+		if int(vodUploadFuncRequest.Size) < consts.MinChunckSize {
+			bts, err := ioutil.ReadAll(vodUploadFuncRequest.Rd)
 			if err != nil {
 				return logId, "", err, http.StatusBadRequest
 			}
-			if err := p.directUpload(tosHost, oid, auth, bts, client, storageClass); err != nil {
+			if err := p.directUpload(tosHost, oid, auth, bts, client, vodUploadFuncRequest.StorageClass); err != nil {
 				return logId, "", err, http.StatusBadRequest
 			}
 		} else {
@@ -573,7 +643,7 @@ func (p *Vod) Upload(rd io.Reader, size int64, spaceName string, fileType string
 				Oid:     oid,
 				Auth:    auth,
 			}
-			if err := p.chunkUpload(rd, uploadPart, client, size, true, storageClass); err != nil {
+			if err := p.chunkUpload(vodUploadFuncRequest.Rd, uploadPart, client, vodUploadFuncRequest.Size, true, vodUploadFuncRequest.StorageClass); err != nil {
 				return logId, "", err, http.StatusBadRequest
 			}
 		}
