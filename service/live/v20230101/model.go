@@ -2488,9 +2488,10 @@ type DeleteCloudMixTaskResResult struct {
 type DeleteClusterRateLimitBody struct {
 
 	// REQUIRED
-	Vhost  string  `json:"Vhost"`
-	App    *string `json:"App,omitempty"`
-	Domain *string `json:"Domain,omitempty"`
+	Domain string `json:"Domain"`
+
+	// REQUIRED
+	Vhost string `json:"Vhost"`
 }
 
 type DeleteClusterRateLimitRes struct {
@@ -2909,20 +2910,13 @@ type DeleteRecordPresetResResponseMetadataError struct {
 
 type DeleteRefererBody struct {
 
+	// REQUIRED; 拉流域名。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，获取需要配置
+	// Referer 的拉流域名。
+	Domain string `json:"Domain"`
+
 	// REQUIRED; 域名空间，即直播流地址的域名所属的域名空间。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，获取需要配置
 	// Referer 的拉流域名所属的域名空间。
 	Vhost string `json:"Vhost"`
-
-	// 应用名称，取值与直播流地址中 AppName 字段取值相同，默认为空，表示所有应用名称。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（_）、短横线（-）和句点（.）组成，长度为 1 到 30 个字符。 :::tip
-	// * 如创建时传了 App，删除时需要传该参数；
-	// * 如创建时未传 App，删除时不传该参数。 :::
-	App *string `json:"App,omitempty"`
-
-	// 拉流域名。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，获取需要配置
-	// Referer 的拉流域名。 :::tip
-	// * 如创建时传了 Domain，删除时需要传该参数；
-	// * 如创建时未传 Domain，删除时不传该参数。 :::
-	Domain *string `json:"Domain,omitempty"`
 }
 
 type DeleteRefererRes struct {
@@ -3358,8 +3352,10 @@ type DeleteTranscodePresetResResponseMetadataError struct {
 type DeleteUserAgentAccessRuleBody struct {
 
 	// REQUIRED
-	Vhost  string  `json:"Vhost"`
-	Domain *string `json:"Domain,omitempty"`
+	Domain string `json:"Domain"`
+
+	// REQUIRED
+	Vhost string `json:"Vhost"`
 }
 
 type DeleteUserAgentAccessRuleRes struct {
@@ -3442,9 +3438,6 @@ type DescribeAuthBody struct {
 	// * pull：拉流鉴权。
 	SceneType string `json:"SceneType"`
 
-	// 应用名称，取值与直播流地址中 AppName 字段取值相同，默认为空，表示所有应用名称。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（_）、短横线（-）和句点（.）组成，长度为 1 到 30 个字符。
-	App *string `json:"App,omitempty"`
-
 	// 直播流使用的域名。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看待配置鉴权的推拉流域名。
 	// :::tip 参数 Domain 和 Vhost 传且仅传一个。
 	// :::
@@ -3523,7 +3516,7 @@ type DescribeAuthResResultAuthListItem struct {
 	// :::tipSceneType 取值为 push 时，该参数取值固定为 10。 :::
 	TimeStampBase int32 `json:"TimeStampBase"`
 
-	// REQUIRED; 鉴权生效时长，单位为秒。
+	// REQUIRED; Valid duration, in seconds.
 	ValidDuration int32 `json:"ValidDuration"`
 
 	// REQUIRED; 域名空间名称。
@@ -4160,9 +4153,10 @@ type DescribeClosedStreamInfoByPageResResultStreamInfoListItem struct {
 type DescribeClusterRateLimitBody struct {
 
 	// REQUIRED
-	Vhost  string  `json:"Vhost"`
-	App    *string `json:"App,omitempty"`
-	Domain *string `json:"Domain,omitempty"`
+	Vhost string `json:"Vhost"`
+
+	// REQUIRED
+	Domain string `json:"Domain"`
 }
 
 type DescribeClusterRateLimitRes struct {
@@ -9616,14 +9610,9 @@ type DescribeRecordTaskFileHistoryResResultPagination struct {
 
 type DescribeRefererBody struct {
 
-	// 应用名称，取值与直播流地址中 AppName 字段取值相同，默认为空，表示所有应用名称。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（_）、短横线（-）和句点（.）组成，长度为 1 到 30 个字符。 :::tip
-	// 参数 Domain 和 App 至少传一个。 :::
-	App *string `json:"App,omitempty"`
-
 	// 拉流域名，您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看直播流使用的拉流域名。
 	// :::tip
-	// * 参数 Domain 和 Vhost 传且仅传一个。
-	// * 参数 Domain 和 App 至少传一个。 :::
+	// * 参数 Domain 和 Vhost 传且仅传一个。 :::
 	Domain *string `json:"Domain,omitempty"`
 
 	// 域名空间，即直播流地址的域名（Domain）所属的域名空间（Vhost）。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理
@@ -9692,9 +9681,6 @@ type DescribeRefererResResultRefererListPropertiesItemsItem struct {
 
 	// REQUIRED; 用于标识 referer 防盗链的关键词，返回值为 referer。
 	Key string `json:"Key"`
-
-	// REQUIRED; 优先级，当前默认返回值为 0。当多域名返回值一致时，按照域名输入顺序区分，越早加入列表的域名优先级越高。
-	Priority int32 `json:"Priority"`
 
 	// REQUIRED; referer 防盗链黑白名单类型，取值即含义如下所示。
 	// * deny：黑名单；
@@ -14266,10 +14252,11 @@ type UpdateClusterRateLimitBody struct {
 	Type string `json:"Type"`
 
 	// REQUIRED
-	Vhost             string  `json:"Vhost"`
+	Vhost string `json:"Vhost"`
+
+	// REQUIRED
+	Domain            string  `json:"Domain"`
 	AggregationPeriod *int32  `json:"AggregationPeriod,omitempty"`
-	App               *string `json:"App,omitempty"`
-	Domain            *string `json:"Domain,omitempty"`
 	Param             *string `json:"Param,omitempty"`
 	RejectCode        *int32  `json:"RejectCode,omitempty"`
 	RejectDuration    *int32  `json:"RejectDuration,omitempty"`
@@ -15283,13 +15270,9 @@ type UpdateRefererBody struct {
 	// REQUIRED; 域名空间，即直播流地址的域名所属的域名空间。您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看需要查询的直播流使用的域名所属的域名空间。
 	Vhost string `json:"Vhost"`
 
-	// 应用名称，取值与直播流地址中 AppName 字段取值相同，默认为空，表示所有应用名称。支持由大小写字母（A - Z、a - z）、数字（0 - 9）、下划线（_）、短横线（-）和句点（.）组成，长度为 1 到 30 个字符。 :::tip
-	// 参数 Domain 和 App 传且仅传一个。 :::
-	App *string `json:"App,omitempty"`
-
-	// 拉流域名，您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看直播流使用的拉流域名。
+	// REQUIRED; 拉流域名，您可以调用ListDomainDetail [https://www.volcengine.com/docs/6469/1126815]接口或在视频直播控制台的域名管理 [https://console.volcengine.com/live/main/domain/list]页面，查看直播流使用的拉流域名。
 	// :::tip 参数 Domain 和 App 传且仅传一个。 :::
-	Domain *string `json:"Domain,omitempty"`
+	Domain string `json:"Domain"`
 }
 
 type UpdateRefererBodyRefererInfoListItem struct {
@@ -15301,9 +15284,6 @@ type UpdateRefererBodyRefererInfoListItem struct {
 	// * deny：拒绝，即黑名单；
 	// * allow：通过，即白名单。
 	Type string `json:"Type"`
-
-	// Referer 字段规则的匹配优先级，默认为 0，取值范围为 [0,100]，数值越大，优先级越高。如果优先级相同，则越早加入列表的域名优先级越高。
-	Priority *int32 `json:"Priority,omitempty"`
 
 	// Referer 字段规则，即设置的黑名单或白名单的域名，最大长度限制 300 个字符。
 	Value *string `json:"Value,omitempty"`
@@ -16510,8 +16490,10 @@ type UpdateUserAgentAccessRuleBody struct {
 	UaAccessRule UpdateUserAgentAccessRuleBodyUaAccessRule `json:"UaAccessRule"`
 
 	// REQUIRED
-	Vhost  string  `json:"Vhost"`
-	Domain *string `json:"Domain,omitempty"`
+	Vhost string `json:"Vhost"`
+
+	// REQUIRED
+	Domain string `json:"Domain"`
 }
 
 type UpdateUserAgentAccessRuleBodyUaAccessRule struct {
