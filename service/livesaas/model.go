@@ -586,3 +586,38 @@ type ActivityFeedInfo struct {
 	CreateTime            int64        `thrift:"CreateTime,10" frugal:"10,default,i64" json:"CreateTime"`
 	SiteTags              []*ActTagAPI `thrift:"SiteTags,11" frugal:"11,default,list<ActTagAPI>" json:"SiteTags"`
 }
+
+type StreamLineDetail struct {
+	LineID       int    `thrift:"LineID,1" frugal:"1,default,string" json:"LineID"`
+	LineName     string `thrift:"LineName,2" frugal:"2,default,string" json:"LineName"`
+	MainPushInfo struct {
+		PushPath      string `thrift:"PushPath,1" frugal:"1,default,string" json:"PushPath"`
+		StreamingCode string `thrift:"StreamingCode,2" frugal:"2,default,string" json:"StreamingCode"`
+		PushURL       string `thrift:"PushUrl,3" frugal:"3,default,string" json:"PushUrl"`
+	} `thrift:"MainPushInfo,3" frugal:"3,default,MainPushInfo" json:"MainPushInfo"`
+	BackPushInfo struct {
+		PushPath      string `thrift:"PushPath,1" frugal:"1,default,string" json:"PushPath"`
+		StreamingCode string `thrift:"StreamingCode,2" frugal:"2,default,string" json:"StreamingCode"`
+		PushURL       string `thrift:"PushUrl,3" frugal:"3,default,string" json:"PushUrl"`
+	} `thrift:"BackPushInfo,4" frugal:"4,default,BackPushInfo" json:"BackPushInfo"`
+	ForwardInfo struct {
+		PullStreamURL         string `thrift:"PullStreamUrl,1" frugal:"1,default,string" json:"PullStreamUrl"`
+		PullStreamStatus      int    `thrift:"PullStreamStatus,2" frugal:"2,default,i32" json:"PullStreamStatus"`
+		PullStreamCheckStatus int    `thrift:"PullStreamCheckStatus,3" frugal:"3,default,i32" json:"PullStreamCheckStatus"`
+	} `thrift:"ForwardInfo,5" frugal:"5,default,ForwardInfo" json:"ForwardInfo"`
+	BackupForwardInfo struct {
+		PullStreamURL         string `thrift:"PullStreamUrl,1" frugal:"1,default,string" json:"PullStreamUrl"`
+		PullStreamStatus      int    `thrift:"PullStreamStatus,2" frugal:"2,default,i32" json:"PullStreamStatus"`
+		PullStreamCheckStatus int    `thrift:"PullStreamCheckStatus,3" frugal:"3,default,i32" json:"PullStreamCheckStatus"`
+	} `thrift:"BackupForwardInfo,6" frugal:"6,default,BackupForwardInfo" json:"BackupForwardInfo"`
+	ExpireTime int `thrift:"ExpireTime,7" frugal:"7,default,i32" json:"ExpireTime"`
+}
+
+type GetStreamsResponseBody struct {
+	LineDetails []StreamLineDetail `thrift:"LineDetails,2" frugal:"2,default,string" json:"LineDetails"`
+}
+
+type GetStreamsResponse struct {
+	ResponseMetadata base.ResponseMetadata
+	Result           *GetStreamsResponseBody `json:"Result,omitempty"`
+}
