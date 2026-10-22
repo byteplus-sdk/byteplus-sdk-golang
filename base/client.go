@@ -12,14 +12,33 @@ import (
 	"os"
 	"strings"
 	"time"
+
+	"golang.org/x/net/http/httpproxy"
 )
 
 const (
 	accessKey = "BYTEPLUS_ACCESSKEY"
 	secretKey = "BYTEPLUS_SECRETKEY"
 
+	// byteplus proxy
+	httpProxy     = "BYTEPLUS_HTTP_PROXY"
+	httpsProxy    = "BYTEPLUS_HTTPS_PROXY"
+	noProxy       = "BYTEPLUS_NO_PROXY"
+	requestMethod = "REQUEST_METHOD"
+
 	defaultScheme = "http"
 )
+
+func byteplusProxy() func(req *http.Request) (*url.URL, error) {
+	c := &httpproxy.Config{
+		HTTPProxy:  os.Getenv(httpProxy),
+		HTTPSProxy: os.Getenv(httpsProxy),
+		NoProxy:    os.Getenv(noProxy),
+		CGI:        os.Getenv(requestMethod) != "",
+	}
+	p := c.ProxyFunc()
+	return func(req *http.Request) (*url.URL, error) { return p(req.URL) }
+}
 
 // Client 基础客户端
 type Client struct {
@@ -35,6 +54,7 @@ func NewClient(info *ServiceInfo, apiInfoList map[string]*ApiInfo) *Client {
 		MaxIdleConns:        1000,
 		MaxIdleConnsPerHost: 100,
 		IdleConnTimeout:     10 * time.Second,
+		Proxy:               byteplusProxy(),
 	}
 
 	c := http.Client{Transport: transport}

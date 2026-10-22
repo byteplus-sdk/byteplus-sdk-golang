@@ -627,7 +627,7 @@ func (p *Vod) Upload(vodUploadFuncRequest *VodUploadFuncRequest) (string, string
 		oid := uploadAddress.StoreInfos[0].GetStoreUri()
 		sessionKey := uploadAddress.GetSessionKey()
 		auth := uploadAddress.GetStoreInfos()[0].GetAuth()
-		client := &http.Client{}
+		client := p.uploadHTTPClient()
 
 		if int(vodUploadFuncRequest.Size) < consts.MinChunckSize {
 			bts, err := ioutil.ReadAll(vodUploadFuncRequest.Rd)
@@ -650,6 +650,12 @@ func (p *Vod) Upload(vodUploadFuncRequest *VodUploadFuncRequest) (string, string
 		return oid, sessionKey, nil, http.StatusOK
 	}
 	return logId, "", errors.New("upload address not exist"), http.StatusBadRequest
+}
+
+func (p *Vod) uploadHTTPClient() *http.Client {
+	return &http.Client{
+		Transport: p.Client.Client.Transport,
+	}
 }
 
 func (p *Vod) directUpload(tosHost string, oid string, auth string, fileBytes []byte, client *http.Client, storageClass int32) error {
