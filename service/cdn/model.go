@@ -97,6 +97,7 @@ type AddCdnDomainRequest struct {
 	UaAccessRule         *UserAgentAccessRule `json:",omitempty"`
 	UrlNormalize         *URLNormalize        `json:",omitempty"`
 	VideoDrag            *VideoDrag           `json:",omitempty"`
+	VideoPreview         *VideoPreview        `json:",omitempty"`
 	Websocket            *Websocket           `json:",omitempty"`
 }
 
@@ -339,6 +340,7 @@ type BatchUpdateCdnConfigRequest struct {
 	Timeout              *Timeout             `json:",omitempty"`
 	UaAccessRule         *UserAgentAccessRule `json:",omitempty"`
 	UrlNormalize         *URLNormalize        `json:",omitempty"`
+	VideoPreview         *VideoPreview        `json:",omitempty"`
 	Websocket            *Websocket           `json:",omitempty"`
 }
 
@@ -659,6 +661,7 @@ type CreateServiceTemplateRequest struct {
 	Title               string
 	UaAccessRule        *UserAgentAccessRule `json:",omitempty"`
 	VideoDrag           *VideoDrag           `json:",omitempty"`
+	VideoPreview        *VideoPreview        `json:",omitempty"`
 	Websocket           *Websocket           `json:",omitempty"`
 }
 
@@ -1761,6 +1764,7 @@ type DescribeServiceTemplateResult struct {
 	UaAccessRule        *UserAgentAccessRule `json:",omitempty"`
 	UpdateTime          *int64               `json:",omitempty"`
 	VideoDrag           *VideoDrag           `json:",omitempty"`
+	VideoPreview        *VideoPreview        `json:",omitempty"`
 	Websocket           *Websocket           `json:",omitempty"`
 }
 
@@ -1951,6 +1955,7 @@ type DomainConfig struct {
 	UpdateTime           int64
 	UrlNormalize         URLNormalize
 	VideoDrag            VideoDrag
+	VideoPreview         VideoPreview
 	Websocket            Websocket
 }
 
@@ -3195,6 +3200,7 @@ type UpdateCdnConfigRequest struct {
 	UaAccessRule         *UserAgentAccessRule `json:",omitempty"`
 	UrlNormalize         *URLNormalize        `json:",omitempty"`
 	VideoDrag            *VideoDrag           `json:",omitempty"`
+	VideoPreview         *VideoPreview        `json:",omitempty"`
 	Websocket            *Websocket           `json:",omitempty"`
 }
 
@@ -3276,6 +3282,7 @@ type UpdateServiceTemplateRequest struct {
 	Title               *string              `json:",omitempty"`
 	UaAccessRule        *UserAgentAccessRule `json:",omitempty"`
 	VideoDrag           *VideoDrag           `json:",omitempty"`
+	VideoPreview        *VideoPreview        `json:",omitempty"`
 	Websocket           *Websocket           `json:",omitempty"`
 }
 
@@ -3361,6 +3368,11 @@ type UserAgentAccessRule struct {
 
 type VideoDrag struct {
 	Switch *bool `json:",omitempty"`
+}
+
+type VideoPreview struct {
+	PreviewParam *string `json:",omitempty"`
+	Switch       *bool   `json:",omitempty"`
 }
 
 type WebpAdaptive struct {
